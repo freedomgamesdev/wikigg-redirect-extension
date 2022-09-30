@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+            :root {
+                --background-color: #d8dada;
+                --text-color: #000;
+                --accent-color: #7ba428;
+                --spacing: 0.6em;
+            }
+            @media screen and (prefers-color-scheme: dark) {
+                body {
+                    --background-color: #272828;
+                    --text-color: #ebebeb;
+                    --accent-color: #9acd32;
+                }
+            }
+
+			body {
+				margin: 0;
+				max-width: 200px;
+				width: 200px;
+				font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+				font-size: 75%;
+                padding: 1em;
+                background-color: var(--background-color);
+                color: var(--text-color);
+                accent-color: var(--accent-color);
+			}
+            h3 {
+                margin: 0 0 var(--spacing);
+                font-weight: 700;
+                text-align: center;
+            }
+            h3 img {
+                vertical-align: text-top;
+            }
+            p {
+                text-align: center;
+                margin: var(--spacing) 0;
+            }
+            h3 + p {
+                margin-top: 0;
+            }
+            a, a:link, a:visited {
+                color: var(--accent-color);
+                text-decoration: none;
+            }
+            #version-string {
+                margin: calc( var(--spacing) / 2 ) 0 0;
+                font-size: 80%;
+                opacity: 0.6;
+            }
+		</style>
+	</head>
+	<body>
+		<h3><img src="icons/64.png" width="18" height="18" alt="" /> ARK Wiki Redirection</h3>
+        <p><a href="https://ark.wiki.gg" target="_blank">Open the wiki in a new tab</a></p>
+        <div>
+		    <div>
+			    <input type="checkbox" id="isEnabled" data-setting-id="isRedirectDisabled" data-invert="true" />
+                <label for="isEnabled">Redirect from old to the new wiki</label>
+		    </div>
+		    <div>
+			    <input type="checkbox" id="rewriteSearch" data-setting-id="isRewriteDisabled" data-invert="true" />
+                <label for="rewriteSearch">Rewrite Fandom results in search</label>
+		    </div>
+		    <div>
+			    <input type="checkbox" id="filterSearch" data-setting-id="isSearchFilterDisabled" data-invert="true" />
+                <label for="filterSearch">Hide Fandom results in search</label>
+		    </div>
+        </div>
+        <p id="version-string">v1.1.0</p>
+		<script type="text/javascript" src="js/popup.js"></script>
+	</body>
+</html>

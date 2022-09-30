@@ -22,7 +22,8 @@
     },
     "browser_action": {
         "default_icon": "icons/32.png",
-        "default_title": "ARK Wiki Redirection"
+        "default_title": "ARK Wiki Redirection",
+        "default_popup": "popup.html"
     },
     "content_scripts": [
         {
