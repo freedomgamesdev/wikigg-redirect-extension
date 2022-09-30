@@ -73,9 +73,9 @@
     }
 
 
-    const storage = chrome && chrome.storage || window.storage;
-    storage.local.get( [ 'disableSearchFiltering' ], result => {
-        if ( !result || !result.disableSearchFiltering ) {
+    const storage = window.storage || chrome.storage;
+    storage.local.get( [ 'isSearchFilterDisabled' ], result => {
+        if ( !result || !result.isSearchFilterDisabled ) {
             document.querySelectorAll( badSelector ).forEach( element => filterResult( element ) );
         }
     } );
