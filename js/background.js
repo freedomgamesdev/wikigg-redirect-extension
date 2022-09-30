@@ -4,7 +4,7 @@
     const domainRegex = /^(ark\.fandom|ark\.gamepedia|ark-[a-z]+\.gamepedia)\.com$/i;
 
     let isAddonDisabled = false;
-    const storage = window.storage || chrome.storage;
+    const storage = chrome && chrome.storage || window.storage;
 
 
     function updateIcon() {
