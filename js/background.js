@@ -4,7 +4,7 @@
     const domainRegex = /^(ark\.fandom|ark\.gamepedia|ark-[a-z]+\.gamepedia)\.com$/i;
 
     let isAddonDisabled = false;
-    const storage = chrome && chrome.storage || window.storage;
+    const storage = window.storage || chrome.storage;
 
 
     function updateIcon() {
@@ -67,14 +67,15 @@
 
 
 
-    storage.local.get( [ 'isDisabled' ], result => {
-        isAddonDisabled = result ? result.isDisabled : false;
+    storage.local.get( [ 'isRedirectDisabled' ], result => {
+        isAddonDisabled = result ? result.isRedirectDisabled : false;
         updateIcon();
     } );
 
     storage.onChanged.addListener( ( changes, _ ) => {
-        if ( changes['isDisabled'] !== undefined && changes['isDisabled'].newValue != changes['isDisabled'].oldValue ) {
-            isAddonDisabled = changes['isDisabled'].newValue;
+        if ( changes['isRedirectDisabled'] !== undefined
+            && changes['isRedirectDisabled'].newValue != changes['isRedirectDisabled'].oldValue ) {
+            isAddonDisabled = changes['isRedirectDisabled'].newValue;
             updateIcon();
         }
     } );
