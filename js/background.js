@@ -66,17 +66,16 @@
     });
 
 
+    function updateIsEnabled() {
+        storage.local.get( [ 'isRedirectDisabled' ], result => {
+            isAddonDisabled = result ? result.isRedirectDisabled : false;
+            updateIcon();
+        } );
+    }
 
-    storage.local.get( [ 'isRedirectDisabled' ], result => {
-        isAddonDisabled = result ? result.isRedirectDisabled : false;
-        updateIcon();
-    } );
 
     storage.onChanged.addListener( ( changes, _ ) => {
-        if ( changes['isRedirectDisabled'] !== undefined
-            && changes['isRedirectDisabled'].newValue != changes['isRedirectDisabled'].oldValue ) {
-            isAddonDisabled = changes['isRedirectDisabled'].newValue;
-            updateIcon();
-        }
+        updateIsEnabled();
     } );
+    updateIsEnabled();
 } )();
