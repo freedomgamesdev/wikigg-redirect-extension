@@ -60,10 +60,59 @@
     }
 
 
-    const storage = chrome && chrome.storage || window.storage;
-    storage.local.get( [ 'isSearchFilterDisabled' ], result => {
-        if ( !result || !result.isSearchFilterDisabled ) {
-            document.querySelectorAll( badSelector ).forEach( element => filterResult( element ) );
+    // Rewrites a Fandom result to an official wiki link
+    function rewriteResult( linkElement ) {
+        function rewriteLink( link ) {
+            if ( link.tagName.toLowerCase() == 'a' ) {
+                if ( link.href.startsWith( '/url?' ) ) {
+                    link.href = ( new URLSearchParams( link.href ) ).get( 'url' );
+                } else {
+                    link.href = link.href.replace( 'ark.fandom.com', 'ark.wiki.gg' );
+                }
+                if ( link.getAttribute( 'data-jsarwt' ) ) {
+                    link.setAttribute( 'data-jsarwt', '0' );
+                }
+            }
+        }
+
+
+        // If no parent, skip - means we've already processed this
+        if ( linkElement.parentElement ) {
+            // Find result container
+            const element = findRightParent( linkElement );
+            if ( element !== null ) {
+                rewriteLink( linkElement );
+                // Rewrite title
+                const h3 = element.querySelector( 'h3' );
+                h3.innerText = h3.innerText.replace( /ARK: Survival Evolved Wiki (-|\|) Fandom/i, 'ARK Official Community Wiki' );
+                // Rewrite URL element
+                for ( const cite of element.querySelectorAll( 'cite' ) ) {
+                    if ( cite.firstChild.textContent ) {
+                        cite.firstChild.textContent = cite.firstChild.textContent.replace( 'ark.fandom.com', 'ark.wiki.gg' );
+                    }
+                }
+                // Rewrite translate link
+                // TODO: don't hardcode any selectors
+                for ( const translate of element.querySelectorAll( '.fl.iUh30' ) ) {
+                    rewriteLink( translate );
+                }
+            }
+        }
+    }
+
+
+    const storage = chrome && chrome.storage || window.storage,
+        defaults = {
+            searchMode: 'rewrite'
+        };
+    storage.local.get( [ 'searchMode' ], result => {
+        switch ( ( result || defaults ).searchMode || 'rewrite' ) {
+            case 'filter':
+                document.querySelectorAll( badSelector ).forEach( element => filterResult( element ) );
+                break;
+            case 'rewrite':
+                document.querySelectorAll( badSelector ).forEach( element => rewriteResult( element ) );
+                break;
         }
     } );
 } )();
