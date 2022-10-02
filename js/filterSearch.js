@@ -22,23 +22,9 @@
 
     // Looks for a search result for the official ARK Wiki at ark.wiki.gg
     function findNextOfficialWikiResult( oldElement ) {
-        // Grab the parent of the result container
-        let parentNode = oldElement.parentElement;
-        // If the parent's parent has less than two children (so old result is "rich"), grab another parent
-        if ( parentNode.parentElement.children.length <= 2 ) {
-            oldElement = parentNode;
-            parentNode = parentNode.parentElement;
-        }
-
-        // Walk siblings until one with an ark.wiki.gg link is found
-        let nextSibling = parentNode;
-        while ( ( nextSibling = nextSibling.nextElementSibling ) && nextSibling ) {
-            if ( nextSibling.querySelectorAll( officialSelector ).length > 0 ) {
-                return {
-                    container: parentNode,
-                    next: nextSibling,
-                    previous: oldElement
-                };
+        for ( const node of document.querySelectorAll( officialSelector ) ) {
+            if ( node.compareDocumentPosition( oldElement ) & 0x02 ) {
+                return findRightParent( node );
             }
         }
         return null;
@@ -46,17 +32,18 @@
 
 
     // Replaces a Fandom result with an official wiki result or a placeholder
-    function filterResult( linkElement, maxDepth = 10 ) {
+    function filterResult( linkElement ) {
         // If no parent, skip - means we've already processed this
         if ( linkElement.parentElement ) {
             // Find result container
-            const oldElement = findRightParent( linkElement, maxDepth );
+            const oldElement = findRightParent( linkElement );
             if ( oldElement !== null ) {
                 // Find an official wiki result after this one
                 const officialResult = findNextOfficialWikiResult( oldElement );
                 if ( officialResult ) {
                     // Move the official result before this one
-                    officialResult.container.insertBefore( officialResult.next, officialResult.previous );
+                    //officialResult.container.insertBefore( officialResult.next, officialResult.previous );
+                    oldElement.parentNode.insertBefore( officialResult, oldElement );
                 } else {
                     // Insert a placeholder before this result
                     const newElement = document.createElement( 'span' );
