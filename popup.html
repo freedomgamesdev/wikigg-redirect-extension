@@ -62,12 +62,19 @@
                 <label for="isEnabled">Redirect from old to the new wiki</label>
 		    </div>
 		    <div>
-			    <input type="checkbox" id="rewriteSearch" data-setting-id="isRewriteDisabled" data-invert="true" />
-                <label for="rewriteSearch">Rewrite Fandom results in search</label>
+			    <input type="radio" name="searchMode" id="rewriteSearch" data-setting-id="searchMode"
+                    data-value="rewrite" />
+                <label for="rewriteSearch">Rewrite Fandom results in Google</label>
 		    </div>
 		    <div>
-			    <input type="checkbox" id="filterSearch" data-setting-id="isSearchFilterDisabled" data-invert="true" />
-                <label for="filterSearch">Hide Fandom results in search</label>
+			    <input type="radio" name="searchMode" id="filterSearch" data-setting-id="searchMode"
+                    data-value="filter" />
+                <label for="filterSearch">Hide Fandom results in Google</label>
+		    </div>
+		    <div>
+			    <input type="radio" name="searchMode" id="filterSearch" data-setting-id="searchMode"
+                    data-value="none" />
+                <label for="filterSearch">Don't alter search Google</label>
 		    </div>
         </div>
         <p id="version-string">v1.1.0</p>

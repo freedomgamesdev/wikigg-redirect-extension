@@ -2,14 +2,13 @@
 	const storage = window.storage || chrome.storage;
 	const defaults = {
 		isRedirectDisabled: false,
-		isRewriteDisabled: false,
-		isSearchFilterDisabled: true
+		searchMode: 'rewrite'
 	};
 	const keys = [];
 	const updateCallbacks = [];
 
 
-	function bindOptionToggle( checkbox ) {
+	function bindOptionCheckboxToggle( checkbox ) {
 		const settingId = checkbox.getAttribute( 'data-setting-id' ),
 			invertValue = checkbox.getAttribute( 'data-invert' ) === 'true';
 		keys.push( settingId );
@@ -26,6 +25,24 @@
 	}
 
 
+	function bindOptionRadioToggle( radio ) {
+		const settingId = radio.getAttribute( 'data-setting-id' ),
+			value = radio.getAttribute( 'data-value' );
+		keys.push( settingId );
+		updateCallbacks.push( settings => {
+			radio.checked = value == settings[settingId];
+		} );
+		radio.addEventListener( 'change', () => {
+			if ( radio.checked ) {
+				const obj = {};
+				obj[settingId] = value;
+				storage.local.set( obj );
+				updateUI();
+			}
+		} );
+	}
+
+
 	function updateUI() {
 		storage.local.get( keys, result => {
 			for ( const callback of updateCallbacks ) {
@@ -37,7 +54,10 @@
 	
 	function initialiseUI() {
 		for ( const checkbox of document.querySelectorAll( 'input[type=checkbox][data-setting-id]' ) ) {
-			bindOptionToggle( checkbox );
+			bindOptionCheckboxToggle( checkbox );
+		}
+		for ( const radio of document.querySelectorAll( 'input[type=radio][data-setting-id]' ) ) {
+			bindOptionRadioToggle( radio );
 		}
 
 		updateUI();
