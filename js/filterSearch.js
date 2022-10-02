@@ -60,7 +60,7 @@
     }
 
 
-    // Rewrites a Fandom result to an official wiki link
+    // Rewrites a Fandom result to an official wiki link to help users switch
     function rewriteResult( linkElement ) {
         function rewriteLink( link ) {
             if ( link.tagName.toLowerCase() == 'a' ) {
@@ -76,15 +76,47 @@
         }
 
 
-        // If no parent, skip - means we've already processed this
+        function rewriteText( text ) {
+            return text.replace( /ARK: Survival Evolved Wiki (-|\|) Fandom/i, 'ARK Official Community Wiki' );
+        }
+
+
+        function rewriteH3( node ) {
+            for ( const child of node.childNodes ) {
+                if ( child.textContent ) {
+                    child.textContent = rewriteText( child.textContent );
+                } else {
+                    rewriteH3( child );
+                }
+            }
+        }
+
+
         if ( linkElement.parentElement ) {
             // Find result container
             const element = findRightParent( linkElement );
             if ( element !== null ) {
                 rewriteLink( linkElement );
                 // Rewrite title
-                const h3 = element.querySelector( 'h3' );
-                h3.innerText = h3.innerText.replace( /ARK: Survival Evolved Wiki (-|\|) Fandom/i, 'ARK Official Community Wiki' );
+                for ( const h3 of element.querySelectorAll( 'h3' ) ) {
+                    rewriteH3( h3 );
+                    // Insert a badge indicating the result was modified if we haven't done that already (check heading and
+                    // result group)
+                    if ( !element.getAttribute( 'data-ark' ) && !h3.getAttribute( 'data-ark' ) ) {
+                        const badge = document.createElement( 'span' );
+                        badge.innerText = 'redirected';
+                        badge.style.backgroundColor = '#0002';
+                        badge.style.fontSize = '90%';
+                        badge.style.borderRadius = '4px';
+                        badge.style.padding = '1px 6px';
+                        badge.style.marginLeft = '4px';
+                        badge.style.opacity = '0.6';
+                        h3.parentNode.parentNode.insertBefore( badge, h3.parentNode.nextSibling );
+                    }
+                    // Tag heading and result group as ones we badged
+                    element.setAttribute( 'data-ark', '1' );
+                    h3.setAttribute( 'data-ark', '1' );
+                }
                 // Rewrite URL element
                 for ( const cite of element.querySelectorAll( 'cite' ) ) {
                     if ( cite.firstChild.textContent ) {
@@ -95,6 +127,13 @@
                 // TODO: don't hardcode any selectors
                 for ( const translate of element.querySelectorAll( '.fl.iUh30' ) ) {
                     rewriteLink( translate );
+                }
+
+                // Look for "More results from" in this result group and switch them onto wiki.gg
+                for ( const moreResults of element.querySelectorAll( 'a.fl[href*="site:fandom.com"]' ) ) {
+                    moreResults.href = moreResults.href.replace( 'site:fandom.com', 'site:wiki.gg' )
+                        .replace( 'site:ark.fandom.com', 'site:ark.wiki.gg' );
+                    moreResults.innerText = moreResults.innerText.replace( 'fandom.com', 'wiki.gg' );
                 }
             }
         }
