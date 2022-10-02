@@ -30,7 +30,7 @@
 			value = radio.getAttribute( 'data-value' );
 		keys.push( settingId );
 		updateCallbacks.push( settings => {
-			radio.checked = value == settings[settingId];
+			radio.checked = value == ( settings[settingId] || defaults[settingId] );
 		} );
 		radio.addEventListener( 'change', () => {
 			if ( radio.checked ) {
