@@ -1,7 +1,7 @@
 {
     "name": "ARK Wiki Redirection",
     "author": "alex4401",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Redirects ARK Fandom visits to the official ARK Wiki, and removes ARK Fandom search results from Google.",
     "permissions": [
         "storage",
