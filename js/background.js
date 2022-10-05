@@ -8,9 +8,14 @@
 
 
     function updateIcon() {
-        chrome.action.setIcon( {
+        const icon = {
             path: ( isAddonDisabled ? '/icons/32_black.png' : '/icons/32.png' )
-        } );
+        };
+        if ( chrome && chrome.action && chrome.action.setIcon ) {
+            chrome.action.setIcon( icon );
+        } else {
+            chrome.browserAction.setIcon( icon );
+        }
     }
 
 
