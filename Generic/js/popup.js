@@ -7,6 +7,7 @@
 		wikis = [
 			// TODO: share this list with other parts of the extension
 			{ id: 'ark', name: 'ARK: Survival Evolved' },
+			{ id: 'noita', name: 'Noita' },
 			{ id: 'temtem', name: 'Temtem' },
 			{ id: 'terraria', name: 'Terraria' },
 			{ id: 'undermine', name: 'UnderMine' },

@@ -8,6 +8,11 @@
             newTitle: 'ARK Official Community Wiki',
             badTitle: 'ARK Fandom'
         } },
+        { id: 'noita', name: 'Noita', int: {
+            titlePattern: /Noita Wiki (-|\|) Fandom/i, 
+            newTitle: 'Noita Wiki',
+            badTitle: 'Noita Fandom'
+        } },
         { id: 'temtem', name: 'Temtem', int: {
             titlePattern: /Temtem Wiki (-|\|) Fandom/i, 
             newTitle: 'Official Temtem Wiki',
