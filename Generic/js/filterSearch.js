@@ -1,11 +1,38 @@
 ( function () {
     'use strict';
 
-    const officialSelector = 'a[href*="://ark.wiki.gg/"]';
-    const badSelector = [
-        'a[href*="ark.fandom.com"]',
-        'a[href*="ark.gamepedia.com"]'
-    ].join( ', ' );
+    const wikis = [
+        // TODO: share this list with other parts of the extension
+        { id: 'ark', name: 'ARK: Survival Evolved', int: {
+            titlePattern: /ARK: Survival Evolved Wiki (-|\|) Fandom/i, 
+            newTitle: 'ARK Official Community Wiki',
+            badTitle: 'ARK Fandom'
+        } },
+        { id: 'temtem', name: 'Temtem', int: {
+            titlePattern: /Temtem Wiki (-|\|) Fandom/i, 
+            newTitle: 'Official Temtem Wiki',
+            badTitle: 'Temtem Fandom'
+        } },
+        { id: 'terraria', name: 'Terraria', int: {
+            titlePattern: /Terraria Wiki (-|\|) Fandom/i, 
+            newTitle: 'Official Terraria Wiki',
+            badTitle: 'Terraria Fandom'
+        } },
+        { id: 'undermine', name: 'UnderMine', int: {
+            titlePattern: /UnderMine Wiki (-|\|) Fandom/i, 
+            newTitle: 'Official UnderMine Wiki',
+            badTitle: 'UnderMine Fandom'
+        } },
+    ];
+
+
+    for ( const wiki of wikis ) {
+        wiki.int.goodSelector = 'a[href*="://' + wiki.id + '.wiki.gg"]';
+        wiki.int.badSelector = [
+            'a[href*="://' + wiki.id + '.fandom.com"]',
+            'a[href*="://' + wiki.id + '.gamepedia.com"]'
+        ].join( ', ' );
+    }
 
 
     // Looks for a search result container by walking an element's parents
@@ -20,9 +47,9 @@
     }
 
 
-    // Looks for a search result for the official ARK Wiki at ark.wiki.gg
-    function findNextOfficialWikiResult( oldElement ) {
-        for ( const node of document.querySelectorAll( officialSelector ) ) {
+    // Looks for a search result for a wiki.gg wiki
+    function findNextOfficialWikiResult( wiki, oldElement ) {
+        for ( const node of document.querySelectorAll( wiki.int.goodSelector ) ) {
             if ( node.compareDocumentPosition( oldElement ) & 0x02 ) {
                 return findRightParent( node );
             }
@@ -32,22 +59,21 @@
 
 
     // Replaces a Fandom result with an official wiki result or a placeholder
-    function filterResult( linkElement ) {
+    function filterResult( wiki, linkElement ) {
         // If no parent, skip - means we've already processed this
         if ( linkElement.parentElement ) {
             // Find result container
             const oldElement = findRightParent( linkElement );
             if ( oldElement !== null ) {
                 // Find an official wiki result after this one
-                const officialResult = findNextOfficialWikiResult( oldElement );
+                const officialResult = findNextOfficialWikiResult( wiki, oldElement );
                 if ( officialResult ) {
                     // Move the official result before this one
-                    //officialResult.container.insertBefore( officialResult.next, officialResult.previous );
                     oldElement.parentNode.insertBefore( officialResult, oldElement );
                 } else {
                     // Insert a placeholder before this result
                     const newElement = document.createElement( 'span' );
-                    newElement.innerHTML = 'Result from ARK Fandom hidden by ARK Wiki Redirection';
+                    newElement.innerHTML = 'Result from ' + wiki.int.badTitle + ' hidden by wiki.gg redirector';
                     newElement.style.paddingBottom = '1em';
                     newElement.style.display = 'inline-block';
                     newElement.style.color = '#5f6368';
@@ -61,13 +87,13 @@
 
 
     // Rewrites a Fandom result to an official wiki link to help users switch
-    function rewriteResult( linkElement ) {
+    function rewriteResult( wiki, linkElement ) {
         function rewriteLink( link ) {
             if ( link.tagName.toLowerCase() == 'a' ) {
                 if ( link.href.startsWith( '/url?' ) ) {
                     link.href = ( new URLSearchParams( link.href ) ).get( 'url' );
                 } else {
-                    link.href = link.href.replace( 'ark.fandom.com', 'ark.wiki.gg' );
+                    link.href = link.href.replace( wiki.id + '.fandom.com', wiki.id + '.wiki.gg' );
                 }
                 if ( link.getAttribute( 'data-jsarwt' ) ) {
                     link.setAttribute( 'data-jsarwt', '0' );
@@ -77,7 +103,7 @@
 
 
         function rewriteText( text ) {
-            return text.replace( /ARK: Survival Evolved Wiki (-|\|) Fandom/i, 'ARK Official Community Wiki' );
+            return text.replace( wiki.int.titlePattern, wiki.int.newTitle );
         }
 
 
@@ -120,7 +146,8 @@
                 // Rewrite URL element
                 for ( const cite of element.querySelectorAll( 'cite' ) ) {
                     if ( cite.firstChild.textContent ) {
-                        cite.firstChild.textContent = cite.firstChild.textContent.replace( 'ark.fandom.com', 'ark.wiki.gg' );
+                        cite.firstChild.textContent = cite.firstChild.textContent.replace( wiki.id + '.fandom.com',
+                            wiki.id + '.wiki.gg' );
                     }
                 }
                 // Rewrite translate link
@@ -132,7 +159,7 @@
                 // Look for "More results from" in this result group and switch them onto wiki.gg
                 for ( const moreResults of element.querySelectorAll( 'a.fl[href*="site:fandom.com"]' ) ) {
                     moreResults.href = moreResults.href.replace( 'site:fandom.com', 'site:wiki.gg' )
-                        .replace( 'site:ark.fandom.com', 'site:ark.wiki.gg' );
+                        .replace( 'site:'+wiki.id+'.fandom.com', 'site:'+wiki.id+'.wiki.gg' );
                     moreResults.innerText = moreResults.innerText.replace( 'fandom.com', 'wiki.gg' );
                 }
             }
@@ -142,16 +169,23 @@
 
     const storage = chrome && chrome.storage || window.storage,
         defaults = {
-            searchMode: 'rewrite'
+            searchMode: 'rewrite',
+            disabledWikis: []
         };
-    storage.local.get( [ 'searchMode' ], result => {
-        switch ( ( result || defaults ).searchMode || 'rewrite' ) {
-            case 'filter':
-                document.querySelectorAll( badSelector ).forEach( element => filterResult( element ) );
-                break;
-            case 'rewrite':
-                document.querySelectorAll( badSelector ).forEach( element => rewriteResult( element ) );
-                break;
+    storage.local.get( [ 'searchMode', 'disabledWikis' ], result => {
+        for ( const wiki of wikis ) {
+            if ( ( result && result.disabledWikis || defaults.disabledWikis ).indexOf( wiki.id ) >= 0 ) {
+                continue;
+            }
+
+            switch ( ( result || defaults ).searchMode || 'rewrite' ) {
+                case 'filter':
+                    document.querySelectorAll( wiki.int.badSelector ).forEach( element => filterResult( wiki, element ) );
+                    break;
+                case 'rewrite':
+                    document.querySelectorAll( wiki.int.badSelector ).forEach( element => rewriteResult( wiki, element ) );
+                    break;
+            }
         }
     } );
 } )();
