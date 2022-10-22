@@ -1,2 +1,8 @@
-# ARK Wiki Redirector
-Redirects old ARK Fandom links to the new official ARK Wiki launched in partnership with Studio Wildcard
+Extensions to redirect from abandoned Fandom wikis to wiki.gg wikis:
+* The `ARK` folder contains a version with ARK: Survival Evolved branding, only supporting that one wiki.
+* The `Generic` folder contains a version with no game-specific branding or restrictions.
+
+Version numbers are kept in sync.
+
+The code was originally based on [https://github.com/proEndreeper/RSWikiRedirector](proEndreeper's RSWikiRedirector), and is
+licenced under the MIT licence.

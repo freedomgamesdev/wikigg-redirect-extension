@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+            :root {
+                --background-color: #d8dada;
+                --text-color: #000;
+                --accent-color: #770e5c;
+                --spacing: 0.6em;
+                --spacer-colour: #0002;
+            }
+            @media screen and (prefers-color-scheme: dark) {
+                body {
+                    --background-color: #272828;
+                    --text-color: #ebebeb;
+                    --accent-color: #a12c83;
+                    --spacer-colour: #fff3;
+                    --icon-filter: invert(1);
+                }
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+			body {
+				margin: 0;
+				max-width: 240px;
+				width: 240px;
+				font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+				font-size: 75%;
+                padding: 1em;
+                background-color: var(--background-color);
+                color: var(--text-color);
+                accent-color: var(--accent-color);
+			}
+            h3,
+            h4 {
+                margin: 0 0 var(--spacing);
+                font-weight: 700;
+                text-align: center;
+                color: var(--accent-color);
+            }
+            h4 {
+                margin: calc(var(--spacing) / 2) 0;
+            }
+            h3 img {
+                vertical-align: text-top;
+            }
+            p {
+                text-align: center;
+                margin: var(--spacing) 0;
+            }
+            h3 + p,
+            h4 + p {
+                margin-top: 0;
+            }
+            a, a:link, a:visited {
+                color: var(--accent-color);
+                text-decoration: none;
+            }
+            h3,
+            h4,
+            a,
+            label {
+                user-select: none;
+            }
+            #wikis {
+                border: 1px solid var(--spacer-colour);
+                margin: 0;
+                margin-bottom: var(--spacing);
+                padding: calc(var(--spacing) / 2);
+                list-style: none;
+            }
+            #wikis li {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                padding: 1px calc(var(--spacing) / 4);
+                vertical-align: middle;
+            }
+            #wikis li:hover {
+                background: #fff1;
+            }
+            #wikis li label {
+                flex-grow: 1;
+            }
+            #wikis li a {
+                display: block;
+                flex-basis: 12px;
+                flex-shrink: 0;
+                width: 12px;
+                height: 12px;
+                margin-right: calc(var(--spacing) / 2);
+                background: url(icons/ooui-ltr.svg) center center / contain no-repeat;
+                filter: var(--icon-filter);
+                opacity: 0.5;
+            }
+            #wikis li a:hover {
+                opacity: 0.8;
+            }
+            #dontTouchSearch {
+                accent-color: #cf240a;
+            }
+            #version-string {
+                margin: calc( var(--spacing) / 2 ) 0 0;
+                font-size: 80%;
+                opacity: 0.6;
+            }
+		</style>
+	</head>
+	<body>
+		<h3>wiki.gg migration helper</h3>
+        <div>
+		    <div>
+			    <input type="checkbox" id="isEnabled" data-setting-id="isRedirectDisabled" data-invert="true" />
+                <label for="isEnabled">Redirect from old to new wikis</label>
+		    </div>
+		    <div style="opacity: 0.5">
+			    <input type="radio" name="searchMode" id="rewriteSearch" data-setting-id="searchMode"
+                    data-value="rewrite" disabled />
+                <label for="rewriteSearch">Rewrite Fandom results in Google</label>
+		    </div>
+		    <div>
+			    <input type="radio" name="searchMode" id="filterSearch" data-setting-id="searchMode"
+                    data-value="filter" />
+                <label for="filterSearch">Hide Fandom results in Google</label>
+		    </div>
+		    <div>
+			    <input type="radio" name="searchMode" id="dontTouchSearch" data-setting-id="searchMode"
+                    data-value="none" />
+                <label for="dontTouchSearch">Don't alter results in Google</label>
+		    </div>
+        </div>
+        <h4>Wikis to affect</h4>
+        <ul id="wikis"></ul>
+        <p id="version-string">v1.1.2+next++1</p>
+		<script type="text/javascript" src="js/popup.js"></script>
+	</body>
+</html>
