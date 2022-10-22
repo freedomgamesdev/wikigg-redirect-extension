@@ -2,7 +2,8 @@
 	const storage = window.storage || chrome.storage,
 		defaults = {
 			isRedirectDisabled: false,
-			searchMode: 'rewrite'
+			searchMode: 'rewrite',
+			disabledWikis: []
 		},
 		wikis = [
 			// TODO: share this list with other parts of the extension
@@ -15,19 +16,43 @@
 		keys = [],
 		updateCallbacks = [],
 		$container = document.getElementById( 'wikis' );
+	let disabledWikis = [];
+
+
+	updateCallbacks.push( settings => {
+		disabledWikis = settings.disabledWikis || defaults.disabledWikis;
+	} );
 
 
 	function bindOptionCheckboxToggle( checkbox ) {
 		const settingId = checkbox.getAttribute( 'data-setting-id' ),
-			invertValue = checkbox.getAttribute( 'data-invert' ) === 'true';
+			invertValue = checkbox.getAttribute( 'data-invert' ) === 'true',
+			arrayValue = checkbox.getAttribute( 'data-array-value' );
 		keys.push( settingId );
 		updateCallbacks.push( settings => {
-			const rawValue = settings[settingId] == null ? defaults[settingId] : settings[settingId];
+			let rawValue = settings[settingId] == null ? defaults[settingId] : settings[settingId];
+			if ( settingId === 'disabledWikis' && arrayValue ) {
+				rawValue = rawValue.indexOf( arrayValue ) >= 0;
+			}
 			checkbox.checked = invertValue ? !rawValue : rawValue;
 		} );
 		checkbox.addEventListener( 'change', () => {
 			const obj = {};
-			obj[settingId] = invertValue ? !checkbox.checked : checkbox.checked;
+			let value = null;
+
+			if ( settingId === 'disabledWikis' && arrayValue ) {
+				let add = ( invertValue && !checkbox.checked ) || ( !invertValue && checkbox.checked );
+				if ( add ) {
+					disabledWikis.push( arrayValue );
+				} else {
+					disabledWikis = disabledWikis.filter( x => x != arrayValue );
+				}
+				value = disabledWikis;
+			} else {
+				value = invertValue ? !checkbox.checked : checkbox.checked;
+			}
+			
+			obj[settingId] = value;
 			storage.local.set( obj );
 			updateUI();
 		} );
