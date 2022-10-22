@@ -10,7 +10,7 @@
     ];
 
     const domains = wikis.map( item => item.id ).join( '|' );
-    const domainRegex =  new RegExp( `^(${domains}\\.fandom|${domains}\\.gamepedia|${domains}-[a-z]+\\.gamepedia)\\.com$`, 'i' );
+    const domainRegex = new RegExp( `^((${domains})\\.fandom|(${domains})\\.gamepedia|(${domains})-[a-z]+\\.gamepedia)\\.com$`, 'i' );
 
     let isAddonDisabled = false,
         disabledWikis = [];
