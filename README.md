@@ -4,5 +4,5 @@ Extensions to redirect from abandoned Fandom wikis to wiki.gg wikis:
 
 Version numbers are kept in sync.
 
-The code was originally based on [https://github.com/proEndreeper/RSWikiRedirector](proEndreeper's RSWikiRedirector), and is
+The code was originally based on [proEndreeper's RSWikiRedirector](https://github.com/proEndreeper/RSWikiRedirector), and is
 licenced under the MIT licence.
