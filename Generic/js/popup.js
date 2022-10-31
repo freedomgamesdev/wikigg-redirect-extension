@@ -43,7 +43,7 @@ const RTW = {
 		
 		this.settingsIds.push( settingId );
 		this.updateCallbacks.push( _ => {
-			let rawValue = this.getCurrentSettingValue(settingId);
+			let rawValue = this.getCurrentSettingValue( settingId );
 			if ( settingId === 'disabledWikis' && arrayValue ) {
 				rawValue = rawValue.indexOf( arrayValue ) >= 0;
 			}
@@ -77,7 +77,7 @@ const RTW = {
 		const settingId = radio.getAttribute( 'data-setting-id' ),
 			value = radio.getAttribute( 'data-value' );
 		this.settingsIds.push( settingId );
-		updateCallbacks.push( _ => {invert
+		this.updateCallbacks.push( _ => {
 			radio.checked = value == this.getCurrentSettingValue( settingId );
 		} );
 		radio.addEventListener( 'change', () => {
