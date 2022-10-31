@@ -72,18 +72,26 @@ const RTW = {
     
     mergeStorageChunk( chunk ) {
         const oldIRD = this.settings.isRedirectDisabled;
-
         for ( const key in chunk ) {
             this.settings[key] = chunk[key];
         }
-
         if ( this.settings.isRedirectDisabled !== oldIRD ) {
             this.updateIcon();
         }
+    },
+
+    
+    mergeStorageDiffChunk( chunk ) {
+        let obj = {};
+        for ( const key in chunk ) {
+            console.log(chunk[key])
+            obj[key] = chunk[key].newValue;
+        }
+        this.mergeStorageChunk( obj );
     }
 };
 
 
 chrome.webNavigation.onBeforeNavigate.addListener( info => RTW.decideRedirect( info ) );
-storage.onChanged.addListener( ( changes, _ ) => RTW.mergeStorageChunk( changes ) );
+storage.onChanged.addListener( ( changes, _ ) => RTW.mergeStorageDiffChunk( changes ) );
 storage.local.get( [ 'isRedirectDisabled', 'disabledWikis' ], result => RTW.mergeStorageChunk( result ) )
