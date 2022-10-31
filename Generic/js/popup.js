@@ -35,16 +35,19 @@ const RTW = {
 
 
 	bindCheckboxToOption( checkbox ) {
+		const normalise = v => v === 'true' ? true : ( v === 'false' ? false : v );
 		const settingId = checkbox.getAttribute( 'data-setting-id' ),
-			invertValue = checkbox.getAttribute( 'data-invert' ) === 'true',
-			arrayValue = checkbox.getAttribute( 'data-array-value' );
+			arrayValue = checkbox.getAttribute( 'data-array-value' ),
+			valueOn = normalise( checkbox.getAttribute( 'data-on' ) ),
+			valueOff = normalise( checkbox.getAttribute( 'data-off' ) );
+		
 		this.settingsIds.push( settingId );
 		this.updateCallbacks.push( _ => {
 			let rawValue = this.getCurrentSettingValue(settingId);
 			if ( settingId === 'disabledWikis' && arrayValue ) {
 				rawValue = rawValue.indexOf( arrayValue ) >= 0;
 			}
-			checkbox.checked = invertValue ? !rawValue : rawValue;
+			checkbox.checked = rawValue === valueOn;
 		} );
 
 		checkbox.addEventListener( 'change', () => {
@@ -52,7 +55,7 @@ const RTW = {
 			let value = null;
 
 			if ( settingId === 'disabledWikis' && arrayValue ) {
-				let add = ( invertValue && !checkbox.checked ) || ( !invertValue && checkbox.checked );
+				let add = checkbox.checked ? valueOn : valueOff;
 				if ( add ) {
 					this.disabledWikis.push( arrayValue );
 				} else {
@@ -60,7 +63,7 @@ const RTW = {
 				}
 				value = this.disabledWikis;
 			} else {
-				value = invertValue ? !checkbox.checked : checkbox.checked;
+				value = checkbox.checked ? valueOn : valueOff;
 			}
 
 			obj[settingId] = value;
@@ -74,7 +77,7 @@ const RTW = {
 		const settingId = radio.getAttribute( 'data-setting-id' ),
 			value = radio.getAttribute( 'data-value' );
 		this.settingsIds.push( settingId );
-		updateCallbacks.push( _ => {
+		updateCallbacks.push( _ => {invert
 			radio.checked = value == this.getCurrentSettingValue( settingId );
 		} );
 		radio.addEventListener( 'change', () => {
@@ -99,7 +102,8 @@ const RTW = {
 		$checkbox.setAttribute( 'type', 'checkbox' );
 		$checkbox.setAttribute( 'data-setting-id', 'disabledWikis' );
 		$checkbox.setAttribute( 'data-array-value', info.id );
-		$checkbox.setAttribute( 'data-invert', 'true' );
+		$checkbox.setAttribute( 'data-on', 'false' );
+		$checkbox.setAttribute( 'data-off', 'true' );
 		$out.appendChild( $checkbox );
 	
 		const $label = document.createElement( 'label' );

@@ -15,7 +15,7 @@ const storage = chrome && chrome.storage || window.storage,
 
 const RTW = {
     settings: {
-        disableRedirects: false,
+        isRedirectDisabled: false,
         disabledWikis: []
     },
     domainRegex: ( () => {
@@ -26,7 +26,7 @@ const RTW = {
 
     updateIcon() {
         const icon = {
-            path: ( this.settings.disableRedirects ? '/icons/32_black.png' : '/icons/128.png' )
+            path: ( this.settings.isRedirectDisabled ? '/icons/32_black.png' : '/icons/128.png' )
         };
         if ( chrome && chrome.action && chrome.action.setIcon ) {
             chrome.action.setIcon( icon );
@@ -37,7 +37,7 @@ const RTW = {
 
     
     decideRedirect( info ) {
-        if ( this.disableRedirects ) {
+        if ( this.isRedirectDisabled ) {
             return;
         }
 
