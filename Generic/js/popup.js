@@ -122,11 +122,18 @@ const RTW = {
 				callback( result );
 			}
 		} );
+	},
+
+	
+	updateVersion() {
+		document.getElementById( 'version-string' ).innerText = chrome.runtime.getManifest().version;
 	}
 };
 
 
 ( function _initialiseUI() {
+	RTW.updateVersion();
+	
 	for ( const wiki of wikis ) {
 		RTW.addWikiEntry( wiki );
 	}
