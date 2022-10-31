@@ -22,7 +22,7 @@ const RTW = {
 	updateCallbacks: [
 		( settings => {
 			RTW.settingsCache = settings;
-			RTW.disabledWikis = this.getCurrentSettingValue( 'disabledWikis' );
+			RTW.disabledWikis = RTW.getCurrentSettingValue( 'disabledWikis' );
 		} )
 	],
 	disabledWikis: [],
