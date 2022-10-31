@@ -15,7 +15,7 @@
         "service_worker": "js/background.js"
     },
     "action": {
-        "default_icon": "icons/32.png",
+        "default_icon": "icons/128.png",
         "default_title": "Redirect to wiki.gg",
         "default_popup": "popup.html"
     },
