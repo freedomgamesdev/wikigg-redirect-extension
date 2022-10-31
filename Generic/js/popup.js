@@ -116,7 +116,7 @@ const RTW = {
 		$link.setAttribute( 'target', '_blank' );
 		$out.appendChild( $link );
 	
-		$container.appendChild( $out );
+		this.$container.appendChild( $out );
 	},
 
 
