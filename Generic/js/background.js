@@ -37,7 +37,7 @@ const RTW = {
 
     
     decideRedirect( info ) {
-        if ( this.isRedirectDisabled ) {
+        if ( this.settings.isRedirectDisabled ) {
             return;
         }
 
