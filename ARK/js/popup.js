@@ -1,3 +1,10 @@
+const RTW = {
+	updateVersion() {
+		document.getElementById( 'version-string' ).innerText = 'v' + chrome.runtime.getManifest().version;
+	},
+};
+
+
 ( function () {
 	const storage = window.storage || chrome.storage;
 	const defaults = {
@@ -53,6 +60,7 @@
 
 	
 	function initialiseUI() {
+		RTW.updateVersion();
 		for ( const checkbox of document.querySelectorAll( 'input[type=checkbox][data-setting-id]' ) ) {
 			bindOptionCheckboxToggle( checkbox );
 		}

@@ -130,14 +130,19 @@ const RTW = {
 
 	
 	updateVersion() {
-		document.getElementById( 'version-string' ).innerText = chrome.runtime.getManifest().version;
+		document.getElementById( 'version-string' ).innerText = 'v' + chrome.runtime.getManifest().version;
+	},
+
+
+	initialiseDynamic() {
 	}
 };
 
 
 ( function _initialiseUI() {
 	RTW.updateVersion();
-	
+	RTW.initialiseDynamic();
+
 	for ( const wiki of wikis ) {
 		RTW.addWikiEntry( wiki );
 	}
