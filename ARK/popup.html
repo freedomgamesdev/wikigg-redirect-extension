@@ -6,6 +6,7 @@
                 --background-color: #d8dada;
                 --text-color: #000;
                 --accent-color: #7ba428;
+                --accent-color-gg: #a12c83;
                 --spacing: 0.6em;
             }
             @media screen and (prefers-color-scheme: dark) {
@@ -54,10 +55,32 @@
                 font-size: 80%;
                 opacity: 0.6;
             }
+            .campaign-banner {
+                display: block;
+                margin: 0 -1em var(--spacing);
+                background: var(--accent-color-gg);
+                box-shadow: inset 0 0 4px 1px #0003, 0 0 3px 1px #0003;
+                text-align: center;
+                padding: 1px calc( var(--spacing) / 5 );
+                opacity: 0.9;
+                transition: opacity .06s;
+            }
+            .campaign-banner:link {
+                color: #fff;
+            }
+            .campaign-banner:hover {
+                opacity: 1;
+            }
+            .campaign-banner span {
+                font-size: 95%;
+            }
 		</style>
 	</head>
 	<body>
 		<h3><img src="icons/64.png" width="18" height="18" alt="" /> ARK Wiki Redirection</h3>
+        <a class="campaign-banner" id="B_GENERIC_EXTENSION_PROMO">
+            <span>Check out our extension for all wikis that moved to wiki.gg</span>
+        </a>
         <p><a href="https://ark.wiki.gg" target="_blank">Open the wiki in a new tab</a></p>
         <div>
 		    <div>

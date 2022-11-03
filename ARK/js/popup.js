@@ -2,6 +2,19 @@ const RTW = {
 	updateVersion() {
 		document.getElementById( 'version-string' ).innerText = 'v' + chrome.runtime.getManifest().version;
 	},
+
+
+	initialiseDynamic() {
+		// Handle generic extension promotion (detect browser and serve the right URL)
+		const $a = document.querySelector( '#B_GENERIC_EXTENSION_PROMO' );
+		let link = 'https://chrome.google.com/webstore/detail/cngoemokfjekjkmajenlaokhnmmiinca';
+		if ( navigator.userAgent.indexOf( 'Edg' ) >= 0 ) {
+			link = 'https://microsoftedge.microsoft.com/addons/detail/redirect-to-wikigg/oecpcjdcedociegkjmlcepigjaenkenj';
+		} else if ( navigator.userAgent.indexOf( 'Firefox' ) >= 0 ) {
+			link = 'https://addons.mozilla.org/en-GB/firefox/addon/redirect-to-wiki-gg/';
+		}
+		$a.href = link;
+	}
 };
 
 
@@ -61,6 +74,8 @@ const RTW = {
 	
 	function initialiseUI() {
 		RTW.updateVersion();
+		RTW.initialiseDynamic();
+
 		for ( const checkbox of document.querySelectorAll( 'input[type=checkbox][data-setting-id]' ) ) {
 			bindOptionCheckboxToggle( checkbox );
 		}
