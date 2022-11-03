@@ -3,8 +3,8 @@
 
     const officialSelector = 'a[href*="://ark.wiki.gg/"]';
     const badSelector = [
-        'a[href*="ark.fandom.com"]',
-        'a[href*="ark.gamepedia.com"]'
+        'a[href*="://ark.fandom.com"]',
+        'a[href*="://ark.gamepedia.com"]'
     ].join( ', ' );
 
 
