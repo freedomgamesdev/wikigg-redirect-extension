@@ -1,8 +1,10 @@
+const IS_DNR_ALLOWED = false && navigator.userAgent.indexOf( 'Chrome' ) >= 0;
 const storage = window.storage || chrome.storage,
 	userDefaults = {
 		isRedirectDisabled: false,
 		searchMode: 'rewrite',
-		disabledWikis: []
+		disabledWikis: [],
+		useTabRedirect: !IS_DNR_ALLOWED
 	},
 	wikis = [
 		// TODO: share this list with other parts of the extension
@@ -135,6 +137,13 @@ const RTW = {
 
 
 	initialiseDynamic() {
+		if ( navigator.userAgent.indexOf( 'Chrome' ) < 0 ) {
+			document.getElementById( 'useTabRedirect' ).disabled = true;
+		}
+
+		if ( !IS_DNR_ALLOWED ) {
+			document.getElementById( 'useTabRedirect' ).parentNode.style.display = 'none';
+		}
 	}
 };
 

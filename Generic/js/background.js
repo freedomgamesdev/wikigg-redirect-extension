@@ -14,9 +14,12 @@ const storage = chrome && chrome.storage || window.storage,
 
 
 const RTW = {
+    DNR_RULE_ID: 1,
+
     settings: {
         isRedirectDisabled: false,
-        disabledWikis: []
+        disabledWikis: [],
+        useTabRedirect: true //navigator.userAgent.indexOf( 'Chrome' ) < 0
     },
     domainRegex: ( () => {
         const domains = wikis.map( item => item.id ).join( '|' );
@@ -69,6 +72,52 @@ const RTW = {
         } );
     },
 
+
+    _onBeforeNavigate( info ) {
+        RTW.decideRedirect( info );
+    },
+
+
+    updateMV3DynamicRuleSets() {
+        // TODO: unused for now
+        if ( !this.settings.useTabRedirect ) {
+            chrome.declarativeNetRequest.updateDynamicRules( {
+                addRules: [ {
+                    id: RTW.DNR_RULE_ID,
+                    action: {
+                        type: 'redirect',
+                        redirect: {
+                            regexSubstition: ''
+                        }
+                    },
+                    condition: {
+                        regexFilter: '',
+                        resourceTypes: [ 'main_frame' ]
+                    }
+                } ]
+            } );
+        } else {
+
+        }
+    },
+
+    
+    updateEventHandlers() {
+        this.settings.useTabRedirect = true;
+
+        if ( this.settings.useTabRedirect ) {
+            chrome.webNavigation.onBeforeNavigate.addListener( this._onBeforeNavigate );
+            this._isTabRedirectInstalled = true;
+        } else if ( this._isTabRedirectInstalled ) {
+            chrome.webNavigation.onBeforeNavigate.removeListener( this._onBeforeNavigate );
+            this._isTabRedirectInstalled = false;
+        }
+
+        if ( !this.settings.useTabRedirect ) {
+
+        }
+    },
+
     
     mergeStorageChunk( chunk ) {
         const oldIRD = this.settings.isRedirectDisabled;
@@ -78,13 +127,14 @@ const RTW = {
         if ( this.settings.isRedirectDisabled !== oldIRD ) {
             this.updateIcon();
         }
+
+        this.updateEventHandlers();
     },
 
     
     mergeStorageDiffChunk( chunk ) {
         let obj = {};
         for ( const key in chunk ) {
-            console.log(chunk[key])
             obj[key] = chunk[key].newValue;
         }
         this.mergeStorageChunk( obj );
@@ -92,6 +142,5 @@ const RTW = {
 };
 
 
-chrome.webNavigation.onBeforeNavigate.addListener( info => RTW.decideRedirect( info ) );
 storage.onChanged.addListener( ( changes, _ ) => RTW.mergeStorageDiffChunk( changes ) );
-storage.local.get( [ 'isRedirectDisabled', 'disabledWikis' ], result => RTW.mergeStorageChunk( result ) )
+storage.local.get( Object.keys( RTW.settings ), result => RTW.mergeStorageChunk( result ) )

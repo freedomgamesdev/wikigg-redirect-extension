@@ -5,8 +5,7 @@
     "description": "Redirects visits from unsupported Fandom wikis that moved to wiki.gg, and filters search results in Google.",
     "permissions": [
         "storage",
-        "webNavigation",
-        "declarativeNetRequest"
+        "webNavigation"
     ],
     "host_permissions": [
         "*://*.gamepedia.com/*",

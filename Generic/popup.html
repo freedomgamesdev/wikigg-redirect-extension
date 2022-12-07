@@ -8,14 +8,16 @@
                 --accent-color: #770e5c;
                 --spacing: 0.6em;
                 --spacer-colour: #0002;
+                --bottom-links-opacity: 0.6;
             }
             @media screen and (prefers-color-scheme: dark) {
                 body {
                     --background-color: #272828;
                     --text-color: #ebebeb;
-                    --accent-color: #a12c83;
+                    --accent-color: #e348bb;
                     --spacer-colour: #fff3;
                     --icon-filter: invert(1);
+                    --bottom-links-opacity: 0.8;
                 }
             }
 
@@ -107,7 +109,7 @@
             #bottom-links {
                 margin: calc( var(--spacing) / 2 ) 0 0;
                 font-size: 80%;
-                opacity: 0.6;
+                opacity: var(--bottom-links-opacity);
             }
 		</style>
 	</head>
@@ -132,6 +134,10 @@
 			    <input type="radio" name="searchMode" id="dontTouchSearch" data-setting-id="searchMode"
                     data-value="none" />
                 <label for="dontTouchSearch">Don't alter results in Google</label>
+		    </div>
+		    <div>
+			    <input type="checkbox" id="useTabRedirect" data-setting-id="useTabRedirect" data-on="true" data-off="false" />
+                <label for="useTabRedirect">Use legacy redirection method</label>
 		    </div>
         </div>
         <h4>Wikis to affect</h4>
