@@ -4,33 +4,59 @@
     const wikis = [
         // TODO: share this list with other parts of the extension
         { id: 'ark', name: 'ARK: Survival Evolved', int: {
-            titlePattern: /ARK: Survival Evolved Wiki (-|\|) Fandom/i, 
-            newTitle: 'ARK Official Community Wiki',
-            badTitle: 'ARK Fandom'
+            newTitle: 'ARK Official Community Wiki'
         } },
-        { id: 'noita', name: 'Noita', int: {
-            titlePattern: /Noita Wiki (-|\|) Fandom/i, 
-            newTitle: 'Noita Wiki',
-            badTitle: 'Noita Fandom'
+        { id: 'aether', name: 'Aether Mod', int: { } },
+        { id: 'astroneer', name: 'Astroneer', int: { } },
+        { id: 'beforedarknessfalls', name: 'Before Darkness Falls', int: { } },
+        { id: 'coromon', name: 'Coromon', int: { } },
+        { id: 'cosmoteer', name: 'Cosmoteer', int: { } },
+        { id: 'cuphead', name: 'Cuphead', int: { } },
+        { id: 'darkdeity', name: 'Dark Deity', int: { } },
+        { id: 'deeprockgalactic', name: 'Deep Rock Galactic', int: { } },
+        { id: 'dreamscaper', name: 'Dreamscaper', int: { } },
+        { id: 'fiendfolio', name: 'Fiend Folio', int: { } },
+        { id: 'foxhole', name: 'Foxhole', int: { } },
+        { id: 'haveanicedeath', name: 'Have a Nice Death', int: { } },
+        { id: 'legiontd2', name: 'Legion TD2', int: { } },
+        { id: 'noita', name: 'Noita', unofficial: true, int: { } },
+        { id: 'projectarrhythmia', name: 'Project Arrhythmia', int: { } },
+        { id: 'sandsofaura', name: 'Sands of Aura', int: { } },
+        { id: 'seaofthieves', name: 'Sea of Thieves', int: { } },
+        { id: 'sonsoftheforest', name: 'Sons of the Forest', int: { } },
+        { id: 'steamworld', name: 'Steamworld', int: { } },
+        { id: 'temtem', name: 'Temtem', int: { } },
+        { id: 'terraria', name: 'Terraria', int: { } },
+        { id: 'calamitymod', name: 'Calamity Mod', int: { } },
+        { id: 'thoriummod', name: 'Thorium Mod', int: { } },
+        { id: 'tboiepiphany', name: 'TBOI: Epiphany', int: { } },
+        { id: 'forgottenfables', name: 'TBOI: Forgotten Fables', int: { } },
+        { id: 'tboirevelations', name: 'TBOI: Revelations', int: { } },
+        { id: 'totherescue', name: 'To The Rescue', int: { } },
+        { id: 'undermine', name: 'UnderMine', int: { } },
+        { id: 'loathing', name: 'Wiki of Loathing', int: {
+            oldName: 'West of Loathing'
         } },
-        { id: 'temtem', name: 'Temtem', int: {
-            titlePattern: /Temtem Wiki (-|\|) Fandom/i, 
-            newTitle: 'Official Temtem Wiki',
-            badTitle: 'Temtem Fandom'
-        } },
-        { id: 'terraria', name: 'Terraria', int: {
-            titlePattern: /Terraria Wiki (-|\|) Fandom/i, 
-            newTitle: 'Official Terraria Wiki',
-            badTitle: 'Terraria Fandom'
-        } },
-        { id: 'undermine', name: 'UnderMine', int: {
-            titlePattern: /UnderMine Wiki (-|\|) Fandom/i, 
-            newTitle: 'Official UnderMine Wiki',
-            badTitle: 'UnderMine Fandom'
-        } },
+        { id: 'willyousnail', name: 'Will You Snail?', int: { } },
+
     ];
 
 
+    // Build title patterns if not already given
+    for ( const wiki of wikis ) {
+        if ( !wiki.int.titlePattern ) {
+            wiki.int.titlePattern = new RegExp( `${wiki.int.oldName || wiki.name} (Wiki|Fandom) (-|\\|) Fandom`, 'i' );
+        }
+        if ( !wiki.int.placeholderTitle ) {
+            wiki.int.placeholderTitle = `${wiki.int.oldName || wiki.name} Fandom`;
+        }
+        if ( !wiki.int.newTitle ) {
+            wiki.int.newTitle = ( wiki.unofficial ? '' : 'Official ' ) + `${wiki.name} Wiki`;
+        }
+    }
+
+
+    // Build selectors
     for ( const wiki of wikis ) {
         wiki.int.goodSelector = 'a[href*="://' + wiki.id + '.wiki.gg"]';
         wiki.int.badSelector = [
@@ -78,7 +104,7 @@
                 } else {
                     // Insert a placeholder before this result
                     const newElement = document.createElement( 'span' );
-                    newElement.innerHTML = 'Result from ' + wiki.int.badTitle + ' hidden by wiki.gg redirector';
+                    newElement.innerHTML = 'Result from ' + wiki.int.placeholderTitle + ' hidden by wiki.gg redirector';
                     newElement.style.paddingBottom = '1em';
                     newElement.style.display = 'inline-block';
                     newElement.style.color = '#5f6368';
