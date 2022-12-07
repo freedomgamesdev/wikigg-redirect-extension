@@ -37,6 +37,11 @@ const storage = chrome && chrome.storage || window.storage,
 ];
 
 
+function _buildDomainRegex( template ) {
+    return new RegExp( template.replace( '$domains', wikis.map( item => item.oldName || item.id ).join( '|' ) ), 'i' );
+}
+
+
 const RTW = {
     DNR_RULE_ID: 1,
 
@@ -45,9 +50,14 @@ const RTW = {
         disabledWikis: [],
         useTabRedirect: true //navigator.userAgent.indexOf( 'Chrome' ) < 0
     },
-    domainRegex: ( () => {
-        const domains = wikis.map( item => item.id ).join( '|' );
-        return new RegExp( `^((${domains})\\.fandom|(${domains})\\.gamepedia|(${domains})-[a-z]+\\.gamepedia)\\.com$`, 'i' );
+    domainRegex: _buildDomainRegex( `^($domains)\\.(?:fandom|gamepedia)\\.com$` ),
+    intlDomainRegex: _buildDomainRegex( `^($domains)-([a-z]+)\\.(?:gamepedia)\\.com$` ),
+    oldToNumIdMap: ( () => {
+        const out = {};
+        for ( const [ index, wiki ] of Object.entries( wikis ) ) {
+            out[ wiki.oldId || wiki.id ] = index;
+        }
+        return out;
     } )(),
 
 
@@ -71,28 +81,39 @@ const RTW = {
         const url = new URL( info.url );
 
         // Check if the URL matches our regex
-        if ( !this.domainRegex.test( url.host ) ) {
+        // [0]: full host, [1]: old wiki ID, [2]?: language
+        const match = this.domainRegex.exec( url.host ) || this.intlDomainRegex.exec( url.host );
+        if ( !match ) {
             return;
         }
 
-        const oldWikiDomain = url.host.split( '.' )[0].toLowerCase();
-        const domainParts = oldWikiDomain.split( '-' );
-        let wikiId = domainParts[0];
+        const oldWikiId = match[1];
+        if ( this.settings.disabledWikis.indexOf( oldWikiId ) >= 0 ) {
+            return;
+        }
+
+        // Map the old ID to an internal numeric one
+        const internalWikiId = this.oldToNumIdMap[oldWikiId];
+        if ( internalWikiId === undefined ) {
+            return;
+        }
+
+        // Retrieve new wiki ID and copy path
+        const newWikiId = wikis[ internalWikiId ].id;
         let newPath = url.pathname;
-        if ( this.settings.disabledWikis.indexOf( wikiId ) >= 0 ) {
-            return;
-        }
 
-        if ( domainParts.length > 1 ) {
-            let languageCode = domainParts[1];
+        // Convert international Gamepedia URL format
+        if ( match.length >= 3 ) {
+            let languageCode = match[2];
             if ( languageCode == 'ptbr' ) {
                 languageCode = 'pt-br';
             }
             newPath = `/${ languageCode }${ newPath }`;
         }
     
+        // Redirect
         chrome.tabs.update( info.tabId, {
-            url: `https://${ wikiId }.wiki.gg${ newPath }`
+            url: `https://${ newWikiId }.wiki.gg${ newPath }`
         } );
     },
 
