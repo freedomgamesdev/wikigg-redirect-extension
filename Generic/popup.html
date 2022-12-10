@@ -83,11 +83,12 @@
                 padding: 1px calc(var(--spacing) / 4);
                 vertical-align: middle;
             }
-            #wikis li:hover {
+            #wikis li:not(.pseudo):not(#hasWikiSearch):hover {
                 background: #fff1;
             }
             #wikis li.wiki-indent {
-                padding-left: calc(var(--spacing) / 3);
+                border-left: 1px solid var(--spacer-colour);
+                margin-left: calc(var(--spacing));
             }
             #wikis li label {
                 flex-grow: 1;

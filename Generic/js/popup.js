@@ -33,9 +33,10 @@ const storage = window.storage || chrome.storage,
         { id: 'terraria', name: 'Terraria' },
         { id: 'calamitymod', name: 'Calamity Mod', uiClass: 'wiki-indent' },
         { id: 'thoriummod', name: 'Thorium Mod', uiClass: 'wiki-indent' },
-        { id: 'tboiepiphany', name: 'TBOI: Epiphany' },
-        { id: 'forgottenfables', name: 'TBOI: Forgotten Fables' },
-        { id: 'tboirevelations', name: 'TBOI: Revelations' },
+		{ spacer: 'The Binding of Isaac mods' },
+        { id: 'tboiepiphany', name: 'Epiphany', uiClass: 'wiki-indent' },
+        { id: 'forgottenfables', name: 'Forgotten Fables', uiClass: 'wiki-indent' },
+        { id: 'tboirevelations', name: 'Revelations', uiClass: 'wiki-indent' },
         { id: 'totherescue', name: 'To The Rescue' },
         { id: 'undermine', name: 'UnderMine' },
         { id: 'loathing', name: 'Wiki of Loathing' },
@@ -124,24 +125,29 @@ const RTW = {
 			$out.classList.add( info.uiClass );
 		}
 	
-		const $checkbox = document.createElement( 'input' );
-		$checkbox.setAttribute( 'id', 'wiki-cb-' + info.id );
-		$checkbox.setAttribute( 'type', 'checkbox' );
-		$checkbox.setAttribute( 'data-setting-id', 'disabledWikis' );
-		$checkbox.setAttribute( 'data-array-value', info.id );
-		$checkbox.setAttribute( 'data-on', 'false' );
-		$checkbox.setAttribute( 'data-off', 'true' );
-		$out.appendChild( $checkbox );
-	
-		const $label = document.createElement( 'label' );
-		$label.setAttribute( 'for', 'wiki-cb-' + info.id );
-		$label.innerText = info.name;
-		$out.appendChild( $label );
-	
-		const $link = document.createElement( 'a' );
-		$link.setAttribute( 'href', `https://${info.id}.wiki.gg` );
-		$link.setAttribute( 'target', '_blank' );
-		$out.appendChild( $link );
+		if ( info.spacer ) {
+			$out.classList.add( 'pseudo' );
+			$out.innerText = info.spacer;
+		} else {
+			const $checkbox = document.createElement( 'input' );
+			$checkbox.setAttribute( 'id', 'wiki-cb-' + info.id );
+			$checkbox.setAttribute( 'type', 'checkbox' );
+			$checkbox.setAttribute( 'data-setting-id', 'disabledWikis' );
+			$checkbox.setAttribute( 'data-array-value', info.id );
+			$checkbox.setAttribute( 'data-on', 'false' );
+			$checkbox.setAttribute( 'data-off', 'true' );
+			$out.appendChild( $checkbox );
+			
+			const $label = document.createElement( 'label' );
+			$label.setAttribute( 'for', 'wiki-cb-' + info.id );
+			$label.innerText = info.name;
+			$out.appendChild( $label );
+			
+			const $link = document.createElement( 'a' );
+			$link.setAttribute( 'href', `https://${info.id}.wiki.gg` );
+			$link.setAttribute( 'target', '_blank' );
+			$out.appendChild( $link );
+		}
 	
 		this.$container.appendChild( $out );
 	},
