@@ -91,7 +91,8 @@
     // Build title patterns if not already given
     for ( const wiki of wikis ) {
         if ( !wiki.int.titlePattern ) {
-            wiki.int.titlePattern = new RegExp( `${wiki.int.oldName || wiki.name} (Wiki|Fandom) (-|\\|) Fandom`, 'i' );
+            const escapedName = ( wiki.int.oldName || wiki.name ).replace( /[.*+?^${}()|[\]\\]/g, '\\$&' );
+            wiki.int.titlePattern = new RegExp( `(Official )?${escapedName} (Wiki|Fandom)( (-|\\|) Fandom)?$`, 'i' );
         }
         if ( !wiki.int.placeholderTitle ) {
             wiki.int.placeholderTitle = `${wiki.int.oldName || wiki.name} Fandom`;
