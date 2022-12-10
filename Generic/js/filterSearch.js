@@ -114,12 +114,12 @@
 
 
     // Looks for a search result container by walking an element's parents
-    function findRightParent( element, maxDepth = 10 ) {
+    function findRightParent( element, cssClass, maxDepth = 10 ) {
         if ( maxDepth > 0 && element.parentElement ) {
-            if ( element.classList.contains( 'g' ) ) {
+            if ( element.classList.contains( cssClass ) ) {
                 return element;
             }
-            return findRightParent( element.parentElement, maxDepth - 1 );
+            return findRightParent( element.parentElement, cssClass, maxDepth - 1 );
         }
         return null;
     }
@@ -129,7 +129,7 @@
     function findNextOfficialWikiResult( wiki, oldElement ) {
         for ( const node of document.querySelectorAll( wiki.int.goodSelector ) ) {
             if ( node.compareDocumentPosition( oldElement ) & 0x02 ) {
-                return findRightParent( node );
+                return findRightParent( node, 'g' );
             }
         }
         return null;
@@ -141,7 +141,14 @@
         // If no parent, skip - means we've already processed this
         if ( linkElement.parentElement ) {
             // Find result container
-            const oldElement = findRightParent( linkElement );
+            const oldElement = findRightParent( linkElement, 'g' );
+            
+            // Verify that the top-level result is a link the same wiki
+            const topLevelLinkElement = oldElement.querySelector( 'a[data-jsarwt="1"]' );
+            if ( topLevelLinkElement && !topLevelLinkElement.href.startsWith( `https://${wiki.oldId || wiki.id}.fandom.com` ) ) {
+                return;
+            }
+
             if ( oldElement !== null ) {
                 // Find an official wiki result after this one
                 const officialResult = findNextOfficialWikiResult( wiki, oldElement );
@@ -198,7 +205,13 @@
 
         if ( linkElement.parentElement ) {
             // Find result container
-            const element = findRightParent( linkElement );
+            const element = findRightParent( linkElement, 'g' );
+
+            // Verify that the top-level result is a link the same wiki
+            const topLevelLinkElement = element.querySelector( 'a[data-jsarwt="1"]' );
+            const isTopLevel = topLevelLinkElement && topLevelLinkElement.href.startsWith(
+                `https://${wiki.oldId || wiki.id}.fandom.com` );
+
             if ( element !== null ) {
                 rewriteLink( linkElement );
                 // Rewrite title
@@ -208,7 +221,7 @@
                     // result group)
                     if ( !element.getAttribute( 'data-ark' ) && !h3.getAttribute( 'data-ark' ) ) {
                         const badge = document.createElement( 'span' );
-                        badge.innerText = 'redirected';
+                        badge.innerText = isTopLevel ? 'redirected' : 'some redirected';
                         badge.style.backgroundColor = '#0002';
                         badge.style.fontSize = '90%';
                         badge.style.borderRadius = '4px';
