@@ -98,7 +98,7 @@
             wiki.int.placeholderTitle = `${wiki.int.oldName || wiki.name} Fandom`;
         }
         if ( !wiki.int.newTitle ) {
-            wiki.int.newTitle = ( wiki.unofficial ? '' : 'Official ' ) + `${wiki.name} Wiki`;
+            wiki.int.newTitle = ( wiki.int.official ? 'Official ' : '' ) + `${wiki.name} Wiki`;
         }
     }
 
