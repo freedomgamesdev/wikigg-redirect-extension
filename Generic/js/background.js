@@ -39,7 +39,7 @@ const storage = chrome && chrome.storage || window.storage,
 
 
 function _buildDomainRegex( template ) {
-    return new RegExp( template.replace( '$domains', wikis.map( item => item.oldName || item.id ).join( '|' ) ), 'i' );
+    return new RegExp( template.replace( '$domains', wikis.map( item => item.oldId || item.id ).join( '|' ) ), 'i' );
 }
 
 

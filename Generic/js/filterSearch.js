@@ -107,8 +107,8 @@
     for ( const wiki of wikis ) {
         wiki.int.goodSelector = 'a[href*="://' + wiki.id + '.wiki.gg"]';
         wiki.int.badSelector = [
-            'a[href*="://' + wiki.id + '.fandom.com"]',
-            'a[href*="://' + wiki.id + '.gamepedia.com"]'
+            'a[href*="://' + ( wiki.oldId || wiki.id ) + '.fandom.com"]',
+            'a[href*="://' + ( wiki.oldId || wiki.id ) + '.gamepedia.com"]'
         ].join( ', ' );
     }
 
@@ -171,7 +171,7 @@
                 if ( link.href.startsWith( '/url?' ) ) {
                     link.href = ( new URLSearchParams( link.href ) ).get( 'url' );
                 } else {
-                    link.href = link.href.replace( wiki.id + '.fandom.com', wiki.id + '.wiki.gg' );
+                    link.href = link.href.replace( `${wiki.oldId || wiki.id}.fandom.com`, `${wiki.id}.wiki.gg` );
                 }
                 if ( link.getAttribute( 'data-jsarwt' ) ) {
                     link.setAttribute( 'data-jsarwt', '0' );
@@ -224,8 +224,8 @@
                 // Rewrite URL element
                 for ( const cite of element.querySelectorAll( 'cite' ) ) {
                     if ( cite.firstChild.textContent ) {
-                        cite.firstChild.textContent = cite.firstChild.textContent.replace( wiki.id + '.fandom.com',
-                            wiki.id + '.wiki.gg' );
+                        cite.firstChild.textContent = cite.firstChild.textContent.replace( `${wiki.oldId || wiki.id}.fandom.com`,
+                            `${wiki.id}.wiki.gg` );
                     }
                 }
                 // Rewrite translate link
@@ -237,7 +237,7 @@
                 // Look for "More results from" in this result group and switch them onto wiki.gg
                 for ( const moreResults of element.querySelectorAll( 'a.fl[href*="site:fandom.com"]' ) ) {
                     moreResults.href = moreResults.href.replace( 'site:fandom.com', 'site:wiki.gg' )
-                        .replace( 'site:'+wiki.id+'.fandom.com', 'site:'+wiki.id+'.wiki.gg' );
+                        .replace( `site:${wiki.oldId || wiki.id}.fandom.com`, `site:${wiki.id}.wiki.gg` );
                     moreResults.innerText = moreResults.innerText.replace( 'fandom.com', 'wiki.gg' );
                 }
             }
