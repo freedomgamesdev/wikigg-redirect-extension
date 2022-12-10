@@ -41,7 +41,7 @@ const storage = window.storage || chrome.storage,
         { id: 'undermine', name: 'UnderMine' },
         { id: 'loathing', name: 'Wiki of Loathing' },
         { id: 'willyousnail', name: 'Will You Snail?' },
-	].sort( ( a, b ) => a.name.localeCompare( b.name ) );
+	];
 
 
 const RTW = {
