@@ -3,19 +3,19 @@
 	<head>
 		<style>
             :root {
-                --background-color: #d8dada;
-                --text-color: #000;
-                --accent-color: #770e5c;
+                --background-colour: #d8dada;
+                --text-colour: #000;
+                --accent-colour: #770e5c;
                 --spacing: 0.6em;
-                --spacer-colour: #0002;
+                --spacer-colour: #adaeae;
                 --bottom-links-opacity: 0.6;
             }
             @media screen and (prefers-color-scheme: dark) {
                 body {
-                    --background-color: #272828;
-                    --text-color: #ebebeb;
-                    --accent-color: #e348bb;
-                    --spacer-colour: #fff3;
+                    --background-colour: #272828;
+                    --text-colour: #ebebeb;
+                    --accent-colour: #e348bb;
+                    --spacer-colour: #525353;
                     --icon-filter: invert(1);
                     --bottom-links-opacity: 0.8;
                 }
@@ -31,16 +31,16 @@
 				font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 				font-size: 75%;
                 padding: 1em;
-                background-color: var(--background-color);
-                color: var(--text-color);
-                accent-color: var(--accent-color);
+                background-color: var(--background-colour);
+                color: var(--text-colour);
+                accent-color: var(--accent-colour);
 			}
             h3,
             h4 {
                 margin: 0 0 var(--spacing);
                 font-weight: 700;
                 text-align: center;
-                color: var(--accent-color);
+                color: var(--accent-colour);
             }
             h4 {
                 margin: calc(var(--spacing) / 2) 0;
@@ -57,7 +57,7 @@
                 margin-top: 0;
             }
             a, a:link, a:visited {
-                color: var(--accent-color);
+                color: var(--accent-colour);
                 text-decoration: none;
             }
             h3,
@@ -66,20 +66,37 @@
             label {
                 user-select: none;
             }
-            #wikis {
+            #wikis-container {
+                position: relative;
                 border: 1px solid var(--spacer-colour);
-                margin: 0;
                 margin-bottom: var(--spacing);
+                overflow-y: auto;
+                max-height: 350px;
+                font-size: 105%;
+            }
+            #wikis-container {
+                scrollbar-width: thin;
+                scrollbar-color: var(--accent-colour);
+            }
+            #wikis-container::-webkit-scrollbar {
+                width: 5px;
+            }
+            #wikis-container::-webkit-scrollbar-track {
+                background: var(--spacer-colour);
+            }
+            #wikis-container::-webkit-scrollbar-thumb {
+                background: var(--accent-colour);
+                border-radius: 8px;
+                border: 1.5px solid var(--spacer-colour);
+            }
+            #wikis {
+                margin: 0;
                 padding: calc(var(--spacing) / 2);
                 list-style: none;
-                max-height: 320px;
-                overflow-y: auto;
-                font-size: 105%;
             }
             #wikis li {
                 display: flex;
                 align-items: center;
-                width: 100%;
                 padding: 1px calc(var(--spacing) / 4);
                 vertical-align: middle;
             }
@@ -106,6 +123,29 @@
             }
             #wikis li a:hover {
                 opacity: 0.8;
+            }
+            #wiki-search-container {
+                display: none;
+                position: sticky;
+                top: 0;
+                background: var(--background-colour);
+                padding: calc(var(--spacing) / 2) calc(var(--spacing) / 1.2);
+                z-index: 20;
+            }
+            #wikiSearch {
+                width: 100%;
+                border: 1px solid var(--accent-colour);
+                border-radius: 2px;
+                padding: calc(var(--spacing) / 2) calc(var(--spacing) / 1.2);
+                background: transparent;
+                color: #fff;
+                opacity: 0.5;
+                transition: opacity .2s;
+            }
+            #wikiSearch:hover,
+            #wikiSearch:focus {
+                opacity: 1;
+                outline-color: var(--accent-colour);
             }
             #dontTouchSearch {
                 accent-color: #cf240a;
@@ -145,7 +185,13 @@
 		    </div>
         </div>
         <h4>Wikis to affect</h4>
-        <ul id="wikis"></ul>
+        <div id="wikis-container">
+            <div id="wiki-search-container">
+                <input id="wikiSearch" type="text" placeholder="Search..." />
+            </div>
+            <ul id="wikis">
+            </ul>
+        </div>
         <p id="bottom-links"><span id="version-string">v???</span> | <a href="https://forms.gle/eMX1Lfq76H4KPmHPA" target="_blank">Feedback?</a></p>
 		<script type="text/javascript" src="js/popup.js"></script>
 	</body>

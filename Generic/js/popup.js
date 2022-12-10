@@ -129,6 +129,8 @@ const RTW = {
 			$out.classList.add( 'pseudo' );
 			$out.innerText = info.spacer;
 		} else {
+			$out.setAttribute( 'data-wiki-id', info.id );
+
 			const $checkbox = document.createElement( 'input' );
 			$checkbox.setAttribute( 'id', 'wiki-cb-' + info.id );
 			$checkbox.setAttribute( 'type', 'checkbox' );
