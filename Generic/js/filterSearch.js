@@ -9,8 +9,10 @@
         { id: 'aether', name: 'Aether Mod', int: { } },
         { id: 'astroneer', name: 'Astroneer', int: { } },
         { id: 'beforedarknessfalls', name: 'Before Darkness Falls', int: { } },
-        { id: 'coromon', name: 'Coromon', int: { } },
-        { id: 'cosmoteer', name: 'Cosmoteer', int: { } },
+        { id: 'chivalry', name: 'chivalry', int: {
+            official: true,
+            oldName: 'Chivalry: Medieval Warfare'
+        } },
         { id: 'cuphead', name: 'Cuphead', int: { } },
         { id: 'darkdeity', name: 'Dark Deity', int: { } },
         { id: 'deeprockgalactic', name: 'Deep Rock Galactic', int: { } },
