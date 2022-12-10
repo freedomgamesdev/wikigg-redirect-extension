@@ -4,43 +4,87 @@
     const wikis = [
         // TODO: share this list with other parts of the extension
         { id: 'ark', name: 'ARK: Survival Evolved', int: {
+            official: true,
             newTitle: 'ARK Official Community Wiki'
         } },
-        { id: 'aether', name: 'Aether Mod', int: { } },
+        { id: 'aether', name: 'Aether', int: {
+            official: true
+        } },
         { id: 'astroneer', name: 'Astroneer', int: { } },
-        { id: 'beforedarknessfalls', name: 'Before Darkness Falls', int: { } },
+        { id: 'beforedarknessfalls', name: 'Before Darkness Falls', oldId: 'before-darkness-falls', int: { } },
         { id: 'chivalry', name: 'chivalry', int: {
             official: true,
             oldName: 'Chivalry: Medieval Warfare'
         } },
+        { id: 'coromon', name: 'Coromon', int: {
+            official: true
+        } },
+        { id: 'cosmoteer', name: 'Cosmoteer', int: {
+            official: true
+        } },
         { id: 'cuphead', name: 'Cuphead', int: { } },
-        { id: 'darkdeity', name: 'Dark Deity', int: { } },
-        { id: 'deeprockgalactic', name: 'Deep Rock Galactic', int: { } },
-        { id: 'dreamscaper', name: 'Dreamscaper', int: { } },
-        { id: 'fiendfolio', name: 'Fiend Folio', int: { } },
-        { id: 'foxhole', name: 'Foxhole', int: { } },
-        { id: 'haveanicedeath', name: 'Have a Nice Death', int: { } },
+        { id: 'darkdeity', name: 'Dark Deity', int: {
+            official: true
+        } },
+        { id: 'deeprockgalactic', name: 'Deep Rock Galactic', int: {
+            official: true
+        } },
+        { id: 'dreamscaper', name: 'Dreamscaper', int: {
+            official: true
+        } },
+        { id: 'fiendfolio', name: 'Fiend Folio', oldId: 'fiend-folio', int: {
+            official: true
+        } },
+        { id: 'foxhole', name: 'Foxhole', int: {
+            official: true
+        } },
+        { id: 'haveanicedeath', name: 'Have a Nice Death', int: {
+            official: true
+        } },
         { id: 'legiontd2', name: 'Legion TD2', int: { } },
-        { id: 'noita', name: 'Noita', unofficial: true, int: { } },
-        { id: 'projectarrhythmia', name: 'Project Arrhythmia', int: { } },
-        { id: 'sandsofaura', name: 'Sands of Aura', int: { } },
+        { id: 'noita', name: 'Noita', int: { } },
+        { id: 'projectarrhythmia', name: 'Project Arrhythmia', int: {
+            official: true
+        } },
+        { id: 'sandsofaura', name: 'Sands of Aura', int: {
+            official: true
+        } },
         { id: 'seaofthieves', name: 'Sea of Thieves', int: { } },
         { id: 'sonsoftheforest', name: 'Sons of the Forest', int: { } },
-        { id: 'steamworld', name: 'Steamworld', int: { } },
-        { id: 'temtem', name: 'Temtem', int: { } },
-        { id: 'terraria', name: 'Terraria', int: { } },
-        { id: 'calamitymod', name: 'Calamity Mod', int: { } },
-        { id: 'thoriummod', name: 'Thorium Mod', int: { } },
-        { id: 'tboiepiphany', name: 'TBOI: Epiphany', int: { } },
-        { id: 'forgottenfables', name: 'TBOI: Forgotten Fables', int: { } },
-        { id: 'tboirevelations', name: 'TBOI: Revelations', int: { } },
+        { id: 'steamworld', name: 'Steamworld', int: {
+            official: true
+        } },
+        { id: 'temtem', name: 'Temtem', int: {
+            official: true
+        } },
+        { id: 'terraria', name: 'Terraria', int: {
+            official: true
+        } },
+        { id: 'calamitymod', name: 'Calamity Mod', int: {
+            official: true
+        } },
+        { id: 'thoriummod', name: 'Thorium Mod', int: {
+            official: true
+        } },
+        { id: 'tboiepiphany', name: 'The Binding of Isaac Epiphany', oldId: 'tboi-epiphany', int: {
+            oldName: 'TBOI: The Epiphany Mod'
+        } },
+        { id: 'forgottenfables', name: 'Forgotten Fables', int: {
+            // TBOI mod
+            official: true,
+            oldName: 'The Binding of Isaac: Forgotten Fables'
+        } },
+        { id: 'tboirevelations', name: 'The Binding of Isaac: Revelations', int: { } },
         { id: 'totherescue', name: 'To The Rescue', int: { } },
-        { id: 'undermine', name: 'UnderMine', int: { } },
-        { id: 'loathing', name: 'Wiki of Loathing', int: {
+        { id: 'undermine', name: 'UnderMine', int: {
+            official: true
+        } },
+        { id: 'loathing', name: 'Wiki of Loathing', oldId: 'westofloathing', int: {
             oldName: 'West of Loathing'
         } },
-        { id: 'willyousnail', name: 'Will You Snail?', int: { } },
-
+        { id: 'willyousnail', name: 'Will You Snail?', int: {
+            official: true
+        } },
     ];
 
 
