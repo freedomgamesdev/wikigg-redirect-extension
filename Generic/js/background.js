@@ -89,9 +89,6 @@ const RTW = {
         }
 
         const oldWikiId = match[1];
-        if ( this.settings.disabledWikis.indexOf( oldWikiId ) >= 0 ) {
-            return;
-        }
 
         // Map the old ID to an internal numeric one
         const internalWikiId = this.oldToNumIdMap[oldWikiId];
@@ -99,8 +96,13 @@ const RTW = {
             return;
         }
 
-        // Retrieve new wiki ID and copy path
+        // Retrieve new wiki ID
         const newWikiId = wikis[ internalWikiId ].id;
+        if ( this.settings.disabledWikis.indexOf( newWikiId ) >= 0 ) {
+            return;
+        }
+
+        // Copy path
         let newPath = url.pathname;
 
         // Convert international Gamepedia URL format
