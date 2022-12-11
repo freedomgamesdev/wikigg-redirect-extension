@@ -12,7 +12,7 @@
         } },
         { id: 'astroneer', name: 'Astroneer', int: { } },
         { id: 'beforedarknessfalls', name: 'Before Darkness Falls', oldId: 'before-darkness-falls', int: { } },
-        { id: 'chivalry', name: 'chivalry', int: {
+        { id: 'chivalry', name: 'Chivalry II', int: {
             official: true,
             oldName: 'Chivalry: Medieval Warfare'
         } },
@@ -38,10 +38,10 @@
         { id: 'foxhole', name: 'Foxhole', int: {
             official: true
         } },
-        { id: 'haveanicedeath', name: 'Have a Nice Death', int: {
+        { id: 'haveanicedeath', name: 'Have a Nice Death', oldId: 'have-a-nice-death', int: {
             official: true
         } },
-        { id: 'legiontd2', name: 'Legion TD2', int: { } },
+        { id: 'legiontd2', name: 'Legion TD 2', int: { } },
         { id: 'noita', name: 'Noita', int: { } },
         { id: 'projectarrhythmia', name: 'Project Arrhythmia', int: {
             official: true
