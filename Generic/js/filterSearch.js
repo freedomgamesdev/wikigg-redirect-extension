@@ -144,7 +144,7 @@
             const oldElement = findRightParent( linkElement, 'g' );
             
             // Verify that the top-level result is a link the same wiki
-            const topLevelLinkElement = oldElement.querySelector( 'a[data-jsarwt="1"]' );
+            const topLevelLinkElement = oldElement.querySelector( 'a[data-jsarwt="1"], a[ping]' );
             if ( topLevelLinkElement && !topLevelLinkElement.href.startsWith( `https://${wiki.oldId || wiki.id}.fandom.com` ) ) {
                 return;
             }
@@ -183,6 +183,9 @@
                 if ( link.getAttribute( 'data-jsarwt' ) ) {
                     link.setAttribute( 'data-jsarwt', '0' );
                 }
+                if ( link.getAttribute( 'ping' ) ) {
+                    link.setAttribute( 'ping', null );
+                }
             }
         }
 
@@ -208,7 +211,7 @@
             const element = findRightParent( linkElement, 'g' );
 
             // Verify that the top-level result is a link the same wiki
-            const topLevelLinkElement = element.querySelector( 'a[data-jsarwt="1"]' );
+            const topLevelLinkElement = element.querySelector( 'a[data-jsarwt="1"], a[ping]' );
             const isTopLevel = topLevelLinkElement && topLevelLinkElement.href.startsWith(
                 `https://${wiki.oldId || wiki.id}.fandom.com` );
 
