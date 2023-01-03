@@ -1,8 +1,8 @@
 'use strict';
 
 
-import { getNativeSettings, getWikis } from './util.js';
-import defaultSettingsFactory from '../defaults.js';
+import { getWikis } from './util.js';
+import { invokeSearchModule } from './baseSearch.js';
 
 
 const wikis = getWikis( false );
@@ -182,21 +182,4 @@ function rewriteResult( wiki, linkElement ) {
 }
 
 
-const storage = getNativeSettings(),
-    defaults = defaultSettingsFactory();
-storage.local.get( [ 'searchMode', 'disabledWikis' ], result => {
-    for ( const wiki of wikis ) {
-        if ( ( result && result.disabledWikis || defaults.disabledWikis ).indexOf( wiki.id ) >= 0 ) {
-            continue;
-        }
-
-        switch ( ( result || defaults ).searchMode || 'rewrite' ) {
-            case 'filter':
-                document.querySelectorAll( wiki.search.badSelector ).forEach( element => filterResult( wiki, element ) );
-                break;
-            case 'rewrite':
-                document.querySelectorAll( wiki.search.badSelector ).forEach( element => rewriteResult( wiki, element ) );
-                break;
-        }
-    }
-} );
+invokeSearchModule( wikis, rewriteResult, filterResult );
