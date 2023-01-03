@@ -12,7 +12,7 @@
         "*://*.fandom.com/*"
     ],
     "background": {
-        "service_worker": "js/background.js"
+        "service_worker": "built/background.js"
     },
     "action": {
         "default_icon": "icons/128.png",
@@ -52,7 +52,7 @@
                 "https://www.google.pt/*"
             ],
             "js": [
-                "js/filterSearch.js"
+                "built/filterSearch.js"
             ],
             "run_at": "document_end"
         }

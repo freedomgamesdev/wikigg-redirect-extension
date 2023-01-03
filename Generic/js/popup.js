@@ -1,47 +1,10 @@
-const IS_DNR_ALLOWED = false && navigator.userAgent.indexOf( 'Chrome' ) >= 0;
+import { getWikis, supportsDNR } from './util.js';
+import defaultSettingsFactory from '../defaults.js';
+
+
 const storage = window.storage || chrome.storage,
-	userDefaults = {
-		isRedirectDisabled: false,
-		searchMode: 'rewrite',
-		disabledWikis: [],
-		useTabRedirect: !IS_DNR_ALLOWED
-	},
-	wikis = [
-		// TODO: share this list with other parts of the extension
-		{ id: 'ark', name: 'ARK: Survival Evolved' },
-        { id: 'aether', name: 'Aether Mod' },
-        { id: 'astroneer', name: 'Astroneer' },
-        { id: 'beforedarknessfalls', name: 'Before Darkness Falls' },
-		{ id: 'chivalry', name: 'Chivalry' },
-        { id: 'coromon', name: 'Coromon' },
-        { id: 'cosmoteer', name: 'Cosmoteer' },
-        { id: 'cuphead', name: 'Cuphead' },
-        { id: 'darkdeity', name: 'Dark Deity' },
-        { id: 'deeprockgalactic', name: 'Deep Rock Galactic' },
-        { id: 'dreamscaper', name: 'Dreamscaper' },
-        { id: 'fiendfolio', name: 'Fiend Folio' },
-        { id: 'foxhole', name: 'Foxhole' },
-        { id: 'haveanicedeath', name: 'Have a Nice Death' },
-        { id: 'legiontd2', name: 'Legion TD 2' },
-        { id: 'noita', name: 'Noita' },
-        { id: 'projectarrhythmia', name: 'Project Arrhythmia' },
-        { id: 'sandsofaura', name: 'Sands of Aura' },
-        { id: 'seaofthieves', name: 'Sea of Thieves' },
-        { id: 'sonsoftheforest', name: 'Sons of the Forest' },
-        { id: 'steamworld', name: 'Steamworld' },
-        { id: 'temtem', name: 'Temtem' },
-        { id: 'terraria', name: 'Terraria' },
-        { id: 'calamitymod', name: 'Calamity Mod', uiClass: 'wiki-indent' },
-        { id: 'thoriummod', name: 'Thorium Mod', uiClass: 'wiki-indent' },
-		{ spacer: 'The Binding of Isaac mods' },
-        { id: 'tboiepiphany', name: 'Epiphany', uiClass: 'wiki-indent' },
-        { id: 'forgottenfables', name: 'Forgotten Fables', uiClass: 'wiki-indent' },
-        { id: 'tboirevelations', name: 'Revelations', uiClass: 'wiki-indent' },
-        { id: 'totherescue', name: 'To The Rescue' },
-        { id: 'undermine', name: 'UnderMine' },
-        { id: 'loathing', name: 'Wiki of Loathing' },
-        { id: 'willyousnail', name: 'Will You Snail?' },
-	];
+	userDefaults = defaultSettingsFactory(),
+	wikis = getWikis( true );
 
 
 const RTW = {
@@ -165,16 +128,13 @@ const RTW = {
 
 	
 	updateVersion() {
-		document.getElementById( 'version-string' ).innerText = 'v' + chrome.runtime.getManifest().version;
+		document.getElementById( 'version-string' ).innerText = `v${chrome.runtime.getManifest().version}`;
 	},
 
 
 	initialiseDynamic() {
-		if ( navigator.userAgent.indexOf( 'Chrome' ) < 0 ) {
+		if ( !supportsDNR() ) {
 			document.getElementById( 'useTabRedirect' ).disabled = true;
-		}
-
-		if ( !IS_DNR_ALLOWED ) {
 			document.getElementById( 'useTabRedirect' ).parentNode.style.display = 'none';
 		}
 	}

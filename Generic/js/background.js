@@ -1,41 +1,11 @@
 'use strict';
 
-const storage = chrome && chrome.storage || window.storage,
-    wikis = [
-    // TODO: share this list with other parts of the extension
-	{ id: 'ark', name: 'ARK: Survival Evolved' },
-    { id: 'aether', name: 'Aether Mod' },
-    { id: 'astroneer', name: 'Astroneer' },
-    { id: 'beforedarknessfalls', name: 'Before Darkness Falls', oldId: 'before-darkness-falls' },
-    { id: 'chivalry', name: 'chivalry' },
-    { id: 'coromon', name: 'Coromon' },
-    { id: 'cosmoteer', name: 'Cosmoteer' },
-    { id: 'cuphead', name: 'Cuphead' },
-    { id: 'darkdeity', name: 'Dark Deity' },
-    { id: 'deeprockgalactic', name: 'Deep Rock Galactic' },
-    { id: 'dreamscaper', name: 'Dreamscaper' },
-    { id: 'fiendfolio', name: 'Fiend Folio', oldId: 'fiend-folio' },
-    { id: 'foxhole', name: 'Foxhole' },
-    { id: 'haveanicedeath', name: 'Have a Nice Death', oldId: 'have-a-nice-death' },
-    { id: 'legiontd2', name: 'Legion TD 2' },
-    { id: 'noita', name: 'Noita' },
-    { id: 'projectarrhythmia', name: 'Project Arrhythmia' },
-    { id: 'sandsofaura', name: 'Sands of Aura' },
-    { id: 'seaofthieves', name: 'Sea of Thieves' },
-    { id: 'sonsoftheforest', name: 'Sons of the Forest' },
-    { id: 'steamworld', name: 'Steamworld' },
-    { id: 'temtem', name: 'Temtem' },
-    { id: 'terraria', name: 'Terraria' },
-    { id: 'calamitymod', name: 'Calamity Mod' },
-    { id: 'thoriummod', name: 'Thorium Mod' },
-    { id: 'tboiepiphany', name: 'TBOI: Epiphany', oldId: 'tboi-epiphany' },
-    { id: 'forgottenfables', name: 'TBOI: Forgotten Fables' },
-    { id: 'tboirevelations', name: 'TBOI: Revelations' },
-    { id: 'totherescue', name: 'To The Rescue' },
-    { id: 'undermine', name: 'UnderMine' },
-    { id: 'loathing', name: 'Wiki of Loathing', oldId: 'westofloathing' },
-    { id: 'willyousnail', name: 'Will You Snail?' },
-];
+import { getNativeSettings, getWikis } from './util.js';
+import defaultSettingsFactory from '../defaults.js';
+
+
+const storage = getNativeSettings(),
+    wikis = getWikis( false );
 
 
 function _buildDomainRegex( template ) {
@@ -46,11 +16,7 @@ function _buildDomainRegex( template ) {
 const RTW = {
     DNR_RULE_ID: 1,
 
-    settings: {
-        isRedirectDisabled: false,
-        disabledWikis: [],
-        useTabRedirect: true //navigator.userAgent.indexOf( 'Chrome' ) < 0
-    },
+    settings: defaultSettingsFactory(),
     domainRegex: _buildDomainRegex( `^($domains)\\.(?:fandom|gamepedia)\\.com$` ),
     intlDomainRegex: _buildDomainRegex( `^($domains)-([a-z]+)\\.(?:gamepedia)\\.com$` ),
     oldToNumIdMap: ( () => {

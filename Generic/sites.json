@@ -1,0 +1,192 @@
+[
+    {
+        "id": "ark",
+        "name": "ARK: Survival Evolved",
+        "official": true,
+
+        "search": {
+            "newTitle": "ARK Official Community Wiki"
+        }
+    },
+    {
+        "id": "aether",
+        "name": "Aether Mod",
+        "official": true
+    },
+    {
+        "id": "astroneer",
+        "name": "Astroneer"
+    },
+    {
+        "id": "beforedarknessfalls",
+        "oldId": "before-darkness-falls",
+        "name": "Before Darkness Falls"
+    },
+    {
+        "id": "chivalry",
+        "name": "Chivalry",
+        "official": true,
+
+        "search": {
+            "oldName": "Chivalry: Medieval Warfare"
+        }
+    },
+    {
+        "id": "coromon",
+        "name": "Coromon",
+        "official": true
+    },
+    {
+        "id": "cosmoteer",
+        "name": "Cosmoteer",
+        "official": true
+    },
+    {
+        "id": "cuphead",
+        "name": "Cuphead"
+    },
+    {
+        "id": "darkdeity",
+        "name": "Dark Deity",
+        "official": true
+    },
+    {
+        "id": "deeprockgalactic",
+        "name": "Deep Rock Galactic",
+        "official": true
+    },
+    {
+        "id": "dreamscaper",
+        "name": "Dreamscaper",
+        "official": true
+    },
+    {
+        "id": "fiendfolio",
+        "oldId": "fiend-folio",
+        "name": "Fiend Folio",
+        "official": true
+    },
+    {
+        "id": "foxhole",
+        "name": "Foxhole",
+        "official": true
+    },
+    {
+        "id": "haveanicedeath",
+        "oldId": "have-a-nice-death",
+        "name": "Have a Nice Death",
+        "official": true
+    },
+    {
+        "id": "legiontd2",
+        "name": "Legion TD 2"
+    },
+    {
+        "id": "letitdie",
+        "name": "Let It Die"
+    },
+    {
+        "id": "noita",
+        "name": "Noita"
+    },
+    {
+        "id": "projectarrhythmia",
+        "name": "Project Arrhythmia",
+        "official": true
+    },
+    {
+        "id": "sandsofaura",
+        "name": "Sands of Aura",
+        "official": true
+    },
+    {
+        "id": "seaofthieves",
+        "name": "Sea of Thieves"
+    },
+    {
+        "id": "sonsoftheforest",
+        "name": "Sons of the Forest"
+    },
+    {
+        "id": "steamworld",
+        "name": "Steamworld",
+        "official": true
+    },
+    {
+        "id": "temtem",
+        "name": "Temtem",
+        "official": true
+    },
+    [
+        {
+            "id": "terraria",
+            "name": "Terraria",
+            "official": true
+        },
+        {
+            "id": "calamitymod",
+            "name": "Calamity Mod",
+            "official": true,
+            "uiClass": "wiki-indent"
+        },
+        {
+            "id": "thoriummod",
+            "name": "Thorium Mod",
+            "official": true,
+            "uiClass": "wiki-indent"
+        }
+    ],
+    [
+        {
+            "spacer": "The Binding of Isaac mods"
+        },
+        {
+            "id": "tboiepiphany",
+            "oldId": "tboi-epiphany",
+            "name": "Epiphany",
+            "uiClass": "wiki-indent",
+
+            "search": {
+                "oldName": "TBOI: The Epiphany Mod"
+            }
+        },
+        {
+            "id": "forgottenfables",
+            "name": "Forgotten Fables",
+            "official": true,
+            "uiClass": "wiki-indent",
+    
+            "search": {
+                "oldName": "The Binding of Isaac: Forgotten Fables"
+            }
+        },
+        {
+            "id": "tboirevelations",
+            "name": "Revelations",
+            "uiClass": "wiki-indent"
+        }
+    ],
+    {
+        "id": "totherescue",
+        "name": "To The Rescue"
+    },
+    {
+        "id": "undermine",
+        "name": "UnderMine",
+        "official": true
+    },
+    {
+        "id": "loathing",
+        "oldId": "westofloathing",
+        "name": "Wiki of Loathing",
+
+        "search": {
+            "oldName": "West of Loathing"
+        }
+    },
+    {
+        "id": "willyousnail",
+        "name": "Will You Snail?",
+        "official": true
+    }
+]
