@@ -4,7 +4,8 @@ import json from '@rollup/plugin-json';
 const scripts = {
     background: {},
     popup: {},
-    filterSearch: { isContentScript: true }
+    google: { isContentScript: true },
+    ddg: { isContentScript: true }
 };
 const release = process.env.NODE_ENV === 'release';
 

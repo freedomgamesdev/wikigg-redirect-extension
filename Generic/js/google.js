@@ -2,35 +2,16 @@
 
 
 import { getWikis } from './util.js';
-import { invokeSearchModule } from './baseSearch.js';
+import {
+    prepareWikisInfo,
+    invokeSearchModule
+} from './baseSearch.js';
 
 
-const wikis = getWikis( false );
-
-
-// Build title patterns if not already given
-for ( const wiki of wikis ) {
-    if ( !wiki.search.titlePattern ) {
-        const escapedName = ( wiki.search.oldName || wiki.name ).replace( /[.*+?^${}()|[\]\\]/g, '\\$&' );
-        wiki.search.titlePattern = new RegExp( `(Official )?${escapedName} (Wiki|Fandom)( (-|\\|) Fandom)?$`, 'i' );
-    }
-    if ( !wiki.search.placeholderTitle ) {
-        wiki.search.placeholderTitle = `${wiki.search.oldName || wiki.name} Fandom`;
-    }
-    if ( !wiki.search.newTitle ) {
-        wiki.search.newTitle = ( wiki.search.official ? 'Official ' : '' ) + `${wiki.name} Wiki`;
-    }
-}
-
-
-// Build selectors
-for ( const wiki of wikis ) {
-    wiki.search.goodSelector = 'a[href*="://' + wiki.id + '.wiki.gg"]';
-    wiki.search.badSelector = [
-        'a[href*="://' + ( wiki.oldId || wiki.id ) + '.fandom.com"]',
-        'a[href*="://' + ( wiki.oldId || wiki.id ) + '.gamepedia.com"]'
-    ].join( ', ' );
-}
+const wikis = prepareWikisInfo( getWikis( false ), {
+    titles: true,
+    selectors: true
+} );
 
 
 // Looks for a search result container by walking an element's parents

@@ -58,7 +58,16 @@
                 "https://www.google.pt/*"
             ],
             "js": [
-                "built/filterSearch.js"
+                "built/google.js"
+            ],
+            "run_at": "document_end"
+        },
+        {
+            "matches": [
+                "https://duckduckgo.com/*"
+            ],
+            "js": [
+                "built/ddg.js"
             ],
             "run_at": "document_end"
         }
