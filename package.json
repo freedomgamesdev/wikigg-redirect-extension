@@ -1,7 +1,7 @@
 {
 	"private": true,
 	"scripts": {
-		"generic": "rollup -c Generic/rollup-config-background.mjs"
+		"generic": "rollup -c rollup-config-background.mjs"
 	},
 	"devDependencies": {
 		"@rollup/plugin-json": "^6.0.0",

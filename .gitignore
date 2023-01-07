@@ -1,6 +1,6 @@
 /pkgs
 /work
-/*/manifest.json
-/Generic/built
+/manifest.json
+/built
 /package-lock.json
 node_modules
