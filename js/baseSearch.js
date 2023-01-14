@@ -46,10 +46,8 @@ export function prepareWikisInfo( wikis, options ) {
 
         if ( options.selectors ) {
             wiki.search.goodSelector = 'a[href*="://' + wiki.id + '.wiki.gg"]';
-            wiki.search.badSelector = [
-                'a[href*="://' + ( wiki.oldId || wiki.id ) + '.fandom.com"]',
-                'a[href*="://' + ( wiki.oldId || wiki.id ) + '.gamepedia.com"]'
-            ].join( ', ' );
+            wiki.search.badSelector = ( wiki.oldIds || [ wiki.oldId || wiki.id ] ).map(
+                id => `a[href*="://${id}.fandom.com"], a[href*="://${id}.gamepedia.com"]` ).join( ', ' );
         }
     }
 

@@ -177,7 +177,7 @@
     },
     {
         "id": "loathing",
-        "oldId": "westofloathing",
+        "oldIds": [ "westofloathing", "shadowsoverloathing" ],
         "name": "Wiki of Loathing",
 
         "search": {

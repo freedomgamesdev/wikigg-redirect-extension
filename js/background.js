@@ -9,7 +9,12 @@ const storage = getNativeSettings(),
 
 
 function _buildDomainRegex( template ) {
-    return new RegExp( template.replace( '$domains', wikis.map( item => item.oldId || item.id ).join( '|' ) ), 'i' );
+    return new RegExp( template.replace( '$domains', wikis.map( item => {
+        if ( item.oldIds ) {
+            return item.oldIds.join( '|' );
+        }
+        return item.oldId || item.id;
+    } ).join( '|' ) ), 'i' );
 }
 
 
@@ -22,7 +27,13 @@ const RTW = {
     oldToNumIdMap: ( () => {
         const out = {};
         for ( const [ index, wiki ] of Object.entries( wikis ) ) {
-            out[ wiki.oldId || wiki.id ] = index;
+            if ( wiki.oldIds ) {
+                for ( const id of wiki.oldIds ) {
+                    out[ id ] = index;
+                }
+            } else {
+                out[ wiki.oldId || wiki.id ] = index;
+            }
         }
         return out;
     } )(),
