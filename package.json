@@ -1,7 +1,8 @@
 {
 	"private": true,
 	"scripts": {
-		"generic": "rollup -c rollup-config-background.mjs"
+		"build": "rollup -c rollup-config-background.mjs",
+		"package-dev": "zip -r Generic_Chrome_N.N.N-devN.zip manifest.json built icons popup.html sites.json"
 	},
 	"devDependencies": {
 		"@rollup/plugin-json": "^6.0.0",
