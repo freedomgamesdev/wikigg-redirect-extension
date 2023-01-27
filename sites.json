@@ -1,5 +1,10 @@
 [
     {
+        "id": "townshiptale",
+        "name": "A Township Tale",
+        "official": true
+    },
+    {
         "id": "ark",
         "name": "ARK: Survival Evolved",
         "official": true,
@@ -51,6 +56,16 @@
         "official": true
     },
     {
+        "id": "deadcells",
+        "name": "Dead Cells",
+        "official": true
+    },
+    {
+        "id": "deadestate",
+        "name": "Dead Estate",
+        "official": true
+    },
+    {
         "id": "deeprockgalactic",
         "name": "Deep Rock Galactic",
         "official": true
@@ -58,6 +73,16 @@
     {
         "id": "dreamscaper",
         "name": "Dreamscaper",
+        "official": true
+    },
+    {
+        "id": "schoolofdragons",
+        "name": "DreamWorks School of Dragons",
+        "official": true
+    },
+    {
+        "id": "equestriaatwar",
+        "name": "Equestria at War",
         "official": true
     },
     {
