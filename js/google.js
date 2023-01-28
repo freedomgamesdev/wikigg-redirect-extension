@@ -9,7 +9,7 @@ import {
 } from './baseSearch.js';
 
 
-const wikis = prepareWikisInfo( getWikis( false ), {
+const wikis = prepareWikisInfo( getWikis( false, true ), {
     titles: true,
     selectors: true
 } );

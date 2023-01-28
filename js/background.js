@@ -5,14 +5,11 @@ import defaultSettingsFactory from '../defaults.js';
 
 
 const storage = getNativeSettings(),
-    wikis = getWikis( false );
+    wikis = getWikis( false, true );
 
 
 function _buildDomainRegex( template ) {
     return new RegExp( template.replace( '$domains', wikis.map( item => {
-        if ( item.oldIds ) {
-            return item.oldIds.join( '|' );
-        }
         return item.oldId || item.id;
     } ).join( '|' ) ), 'i' );
 }
@@ -27,13 +24,7 @@ const RTW = {
     oldToNumIdMap: ( () => {
         const out = {};
         for ( const [ index, wiki ] of Object.entries( wikis ) ) {
-            if ( wiki.oldIds ) {
-                for ( const id of wiki.oldIds ) {
-                    out[ id ] = index;
-                }
-            } else {
-                out[ wiki.oldId || wiki.id ] = index;
-            }
+            out[ wiki.oldId || wiki.id ] = index;
         }
         return out;
     } )(),
@@ -65,26 +56,22 @@ const RTW = {
             return;
         }
 
-        const oldWikiId = match[1];
-
+        const oldWikiId = match[ 1 ];
         // Map the old ID to an internal numeric one
-        const internalWikiId = this.oldToNumIdMap[oldWikiId];
+        let internalWikiId = this.oldToNumIdMap[ oldWikiId ];
         if ( internalWikiId === undefined ) {
             return;
         }
-
-        // Retrieve new wiki ID
-        const newWikiId = wikis[ internalWikiId ].id;
-        if ( this.settings.disabledWikis.indexOf( newWikiId ) >= 0 ) {
+        let newWiki = wikis[ internalWikiId ];
+        // Check if redirect is disabled
+        if ( this.settings.disabledWikis.indexOf( newWiki.id ) >= 0 ) {
             return;
         }
-
         // Copy path
         let newPath = url.pathname;
-
         // Convert international Gamepedia URL format
         if ( match.length >= 3 ) {
-            let languageCode = match[2];
+            let languageCode = match[ 2 ];
             if ( languageCode == 'ptbr' ) {
                 languageCode = 'pt-br';
             }
@@ -93,7 +80,7 @@ const RTW = {
     
         // Redirect
         chrome.tabs.update( info.tabId, {
-            url: `https://${ newWikiId }.wiki.gg${ newPath }`
+            url: `https://${ newWiki.id }.wiki.gg${ newPath }`
         } );
     },
 
@@ -169,3 +156,5 @@ const RTW = {
 
 storage.onChanged.addListener( ( changes, _ ) => RTW.mergeStorageDiffChunk( changes ) );
 storage.local.get( Object.keys( RTW.settings ), result => RTW.mergeStorageChunk( result ) )
+
+globalThis.RTW = RTW;

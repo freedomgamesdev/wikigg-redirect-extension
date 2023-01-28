@@ -27,10 +27,10 @@ export function invokeSearchModule( wikis, rewriteRoutine, filterRoutine ) {
 
 export function prepareWikisInfo( wikis, options ) {
     for ( const wiki of wikis ) {
+        // Generate search properties if not provided already
         if ( !wiki.search ) {
             wiki.search = {};
         }
-
         if ( options.titles ) {
             if ( !wiki.search.titlePattern ) {
                 const escapedName = ( wiki.search.oldName || wiki.name ).replace( /[.*+?^${}()|[\]\\]/g, '\\$&' );
@@ -43,7 +43,6 @@ export function prepareWikisInfo( wikis, options ) {
                 wiki.search.newTitle = ( wiki.search.official ? 'Official ' : '' ) + `${wiki.name} Wiki`;
             }
         }
-
         if ( options.selectors ) {
             wiki.search.goodSelector = 'a[href*="://' + wiki.id + '.wiki.gg"]';
             wiki.search.badSelector = ( wiki.oldIds || [ wiki.oldId || wiki.id ] ).map(

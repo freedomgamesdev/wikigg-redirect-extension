@@ -1,7 +1,7 @@
 [
     {
-        "id": "townshiptale",
-        "name": "A Township Tale",
+        "id": "aether",
+        "name": "Aether Mod",
         "official": true
     },
     {
@@ -14,8 +14,8 @@
         }
     },
     {
-        "id": "aether",
-        "name": "Aether Mod",
+        "id": "townshiptale",
+        "name": "A Township Tale",
         "official": true
     },
     {
@@ -77,11 +77,13 @@
     },
     {
         "id": "schoolofdragons",
+        "oldId": "dreamworks-school-of-dragons",
         "name": "DreamWorks School of Dragons",
         "official": true
     },
     {
         "id": "equestriaatwar",
+        "oldId": "equestria-at-war",
         "name": "Equestria at War",
         "official": true
     },
@@ -200,15 +202,25 @@
         "name": "UnderMine",
         "official": true
     },
-    {
-        "id": "loathing",
-        "oldIds": [ "westofloathing", "shadowsoverloathing" ],
-        "name": "Wiki of Loathing",
+    [
+        {
+            "id": "loathing",
+            "oldId": "westofloathing",
+            "name": "Wiki of Loathing",
 
-        "search": {
-            "oldName": "West of Loathing"
+            "search": {
+                "oldName": "West of Loathing"
+            }
+        },
+        {
+            "parentRef": "loathing",
+            "oldId": "shadowsoverloathing",
+
+            "search": {
+                "oldName": "Shadows Over Loathing"
+            }
         }
-    },
+    ],
     {
         "id": "willyousnail",
         "name": "Will You Snail?",

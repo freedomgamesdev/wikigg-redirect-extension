@@ -4,7 +4,7 @@ import defaultSettingsFactory from '../defaults.js';
 
 const storage = window.storage || chrome.storage,
 	userDefaults = defaultSettingsFactory(),
-	wikis = getWikis( true );
+	wikis = getWikis( true, false );
 
 
 const RTW = {
