@@ -198,6 +198,10 @@
         "name": "To The Rescue"
     },
     {
+        "id": "trucksimulator",
+        "name": "Truck Simulator"
+    },
+    {
         "id": "undermine",
         "name": "UnderMine",
         "official": true
@@ -218,6 +222,10 @@
 
             "search": {
                 "oldName": "Shadows Over Loathing"
+            },
+
+            "rewritePages": {
+                "Shadows_Over_Loathing_Wiki": "Wiki_of_Loathing"
             }
         }
     ],
