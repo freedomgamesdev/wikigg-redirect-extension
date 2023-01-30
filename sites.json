@@ -199,6 +199,7 @@
     },
     {
         "id": "trucksimulator",
+        "oldId": "truck-simulator",
         "name": "Truck Simulator"
     },
     {
