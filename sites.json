@@ -122,6 +122,12 @@
         "official": true
     },
     {
+        "id": "revita",
+        "oldId": "revitagame",
+        "name": "Revita",
+        "official": true
+    },
+    {
         "id": "sandsofaura",
         "name": "Sands of Aura",
         "official": true
