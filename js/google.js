@@ -72,7 +72,7 @@ const filter = {
 const rewrite = {
     MARKER_ATTRIBUTE: 'data-ark',
     // TODO: do not hardcode any selectors!
-    SITE_NETWORK_TITLE_SELECTOR: 'span.VuuXrf.cHaqb',
+    SITE_NETWORK_TITLE_SELECTOR: 'span.VuuXrf',
     TRANSLATE_SELECTOR: '.fl.iUh30',
     MORE_FROM_NETWORK_SELECTOR: 'a.fl[href*="site:fandom.com"]',
 
