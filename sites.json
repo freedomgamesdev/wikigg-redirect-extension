@@ -220,7 +220,8 @@
             "name": "Wiki of Loathing",
 
             "search": {
-                "oldName": "West of Loathing"
+                "oldName": "West of Loathing",
+                "newIncludesWiki": true
             }
         },
         {

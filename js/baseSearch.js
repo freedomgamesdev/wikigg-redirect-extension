@@ -40,7 +40,10 @@ export function prepareWikisInfo( wikis, options ) {
                 wiki.search.placeholderTitle = `${wiki.search.oldName || wiki.name} Fandom`;
             }
             if ( !wiki.search.newTitle ) {
-                wiki.search.newTitle = ( wiki.search.official ? 'Official ' : '' ) + `${wiki.name} Wiki`;
+                wiki.search.newTitle = ( wiki.search.official ? 'Official ' : '' ) + `${wiki.name}`;
+                if ( !wiki.search.newIncludesWiki ) {
+                    wiki.search.newTitle += ' Wiki';
+                }
             }
         }
         if ( options.selectors ) {
