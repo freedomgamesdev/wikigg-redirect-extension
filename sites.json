@@ -87,6 +87,15 @@
         "name": "Equestria at War",
         "official": true
     },
+    {
+        "id": "fearandhunger",
+        "name": "Fear and Hunger",
+        "official": true,
+
+        "search": {
+            "oldName": "\"Fear and Hunger: the Tormentpedia\""
+        }
+    },
     [
         {
             "_": "Fandom ID was changed, and has been added as a separate redirect rule (both may appear in search indexes)",
@@ -210,6 +219,11 @@
             "uiClass": "wiki-indent"
         }
     ],
+    {
+        "id": "timberborn",
+        "name": "Timberborn",
+        "official": true
+    },
     {
         "id": "totherescue",
         "name": "To The Rescue"
