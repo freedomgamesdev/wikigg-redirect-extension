@@ -5,6 +5,10 @@
         "official": true
     },
     {
+        "id": "animalcrossingpocketcamp",
+        "name": "Animal Crossing: Pocket Camp"
+    }
+    {
         "id": "ark",
         "name": "ARK: Survival Evolved",
         "official": true,
@@ -22,6 +26,21 @@
         "id": "astroneer",
         "name": "Astroneer"
     },
+    {
+        "id": "backpackhero",
+        "oldId": "backpack-hero",
+        "name": "Backpack Hero"
+    }
+    {
+        "id": "battletabs",
+        "oldId": "battletabs-io",
+        "name": "BattleTabs",
+        "official": true,
+
+        "search": {
+            "oldName": "BattleTabs.io"
+        }
+    }
     {
         "id": "beforedarknessfalls",
         "oldId": "before-darkness-falls",
@@ -64,6 +83,10 @@
         "id": "deadestate",
         "name": "Dead Estate",
         "official": true
+    },
+    {
+        "id": "deadlink",
+        "name": "Deadlink"
     },
     {
         "id": "deeprockgalactic",
@@ -187,6 +210,12 @@
             "name": "Thorium Mod",
             "official": true,
             "uiClass": "wiki-indent"
+        },
+        {
+            "id": "terrariamods",
+            "name": "Terraria Mods",
+            "official": true,
+            "uiClass": "wiki-indent"
         }
     ],
     [
@@ -266,5 +295,9 @@
         "id": "willyousnail",
         "name": "Will You Snail?",
         "official": true
+    },
+    {
+        "id": "wizardry",
+        "name": "Wizardry"
     }
 ]
