@@ -7,16 +7,26 @@
     {
         "id": "animalcrossingpocketcamp",
         "name": "Animal Crossing: Pocket Camp"
-    }
-    {
-        "id": "ark",
-        "name": "ARK: Survival Evolved",
-        "official": true,
-
-        "search": {
-            "newTitle": "ARK Official Community Wiki"
-        }
     },
+    [
+        {
+            "id": "ark",
+            "name": "ARK: Survival Evolved",
+            "official": true,
+
+            "search": {
+                "newTitle": "ARK Official Community Wiki"
+            }
+        },
+        {
+            "parentRef": "ark",
+            "oldId": "ark-survival-evolved-archive",
+
+            "search": {
+                "oldName": "ARK: Survival Evolved"
+            }
+        }
+    ],
     {
         "id": "townshiptale",
         "name": "A Township Tale",
@@ -198,6 +208,10 @@
             "id": "terraria",
             "name": "Terraria",
             "official": true
+        },
+        {
+            "parentRef": "terraria",
+            "oldId": "terraria-archive"
         },
         {
             "id": "calamitymod",
