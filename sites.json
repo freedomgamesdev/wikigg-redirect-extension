@@ -166,6 +166,11 @@
         "name": "Let It Die"
     },
     {
+        "id": "monumenta",
+        "oldId": "monumentammo",
+        "name": "Monumenta"
+    },
+    {
         "id": "noita",
         "name": "Noita"
     },
