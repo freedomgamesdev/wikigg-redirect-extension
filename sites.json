@@ -175,6 +175,11 @@
         "name": "Noita"
     },
     {
+        "id": "pubg",
+        "name": "PUBG",
+        "official": true
+    },
+    {
         "id": "projectarrhythmia",
         "name": "Project Arrhythmia",
         "official": true
@@ -222,6 +227,11 @@
             "id": "calamitymod",
             "name": "Calamity Mod",
             "official": true,
+            "uiClass": "wiki-indent"
+        },
+        {
+            "id": "spiritmod",
+            "name": "Spirit Mod",
             "uiClass": "wiki-indent"
         },
         {
