@@ -1,5 +1,14 @@
 [
     {
+        "id": "acecombat",
+        "name": "Ace Combat",
+        "official": true,
+
+        "search": {
+            "oldName": "Acepedia"
+        }
+    },
+    {
         "id": "aether",
         "name": "Aether Mod",
         "official": true
@@ -109,6 +118,11 @@
         "official": true
     },
     {
+        "id": "dyinglight",
+        "name": "Dying Light",
+        "official": true
+    },
+    {
         "id": "schoolofdragons",
         "oldId": "dreamworks-school-of-dragons",
         "name": "DreamWorks School of Dragons",
@@ -146,6 +160,10 @@
             }
         }
     ],
+    {
+        "id": "flight",
+        "name": "Flight Sim"
+    },
     {
         "id": "foxhole",
         "name": "Foxhole",
@@ -185,9 +203,18 @@
         "official": true
     },
     {
+        "id": "projectwingman",
+        "name": "Project Wingman"
+    },
+    {
         "id": "revita",
         "oldId": "revitagame",
         "name": "Revita",
+        "official": true
+    },
+    {
+        "id": "sandboxels",
+        "name": "Sandboxels",
         "official": true
     },
     {
@@ -277,6 +304,12 @@
             "uiClass": "wiki-indent"
         }
     ],
+    {
+        "id": "themagicalmixturemill",
+        "oldid": "the-magical-mixture-mill",
+        "name": "The Magical Mixture Mill",
+        "official": true
+    },
     {
         "id": "timberborn",
         "name": "Timberborn",
