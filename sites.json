@@ -66,6 +66,12 @@
         "name": "Before Darkness Falls"
     },
     {
+        "id": "cherryforest",
+        "oldId": "cherry-forest",
+        "name": "Cherry Forest",
+        "official": true
+    },
+    {
         "id": "chivalry",
         "name": "Chivalry",
         "official": true,
@@ -189,6 +195,12 @@
         "name": "Let It Die"
     },
     {
+        "id": "mcdf",
+        "oldId": "mcdiscontinued",
+        "farm": "miraheze",
+        "name": "Minecraft Discontinued Features"
+    },
+    {
         "id": "monumenta",
         "oldId": "monumentammo",
         "name": "Monumenta"
@@ -196,6 +208,15 @@
     {
         "id": "noita",
         "name": "Noita"
+    },
+    {
+        "id": "oldworldblues",
+        "oldId": "old-world-blues",
+        "name": "Old World Blues",
+        
+        "search": {
+            "oldName": "HOI4 total conversion mod"
+        }
     },
     {
         "id": "pubg",
@@ -244,6 +265,11 @@
         "id": "steamworld",
         "name": "Steamworld",
         "official": true
+    },
+    {
+        "id": "superautopets",
+        "oldId": "super-auto-pets",
+        "name": "Super Auto Pets"
     },
     {
         "id": "temtem",
@@ -333,6 +359,11 @@
         "id": "trucksimulator",
         "oldId": "truck-simulator",
         "name": "Truck Simulator"
+    },
+    {
+        "id": "twistedwonderland",
+        "oldId": "twisted-wonderland",
+        "name": "Twisted Wonderland"
     },
     {
         "id": "undermine",
