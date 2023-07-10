@@ -364,6 +364,12 @@
         }
     ],
     {
+        "id": "vtolvr",
+        "oldId": "vtol-vr",
+        "name": "VTOL VR",
+        "official": true
+    },
+    {
         "id": "willyousnail",
         "name": "Will You Snail?",
         "official": true
