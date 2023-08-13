@@ -219,6 +219,10 @@
         }
     },
     {
+        "id": "offpeak",
+        "name": "Off-Peak"
+    },
+    {
         "id": "palia",
         "name": "Palia",
         "official": true
@@ -359,6 +363,10 @@
     {
         "id": "totherescue",
         "name": "To The Rescue"
+    },
+    {
+        "id": "towerfall",
+        "name": "TowerFall"
     },
     {
         "id": "trucksimulator",
