@@ -9,6 +9,11 @@
         }
     },
     {
+        "id": "airportceo",
+        "name": "Airport CEO",
+        "official": true
+    },
+    {
         "id": "aether",
         "name": "Aether Mod",
         "official": true
