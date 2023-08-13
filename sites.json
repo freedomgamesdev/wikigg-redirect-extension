@@ -219,6 +219,11 @@
         }
     },
     {
+        "id": "palia",
+        "name": "Palia",
+        "official": true
+    },
+    {
         "id": "pubg",
         "name": "PUBG",
         "official": true
