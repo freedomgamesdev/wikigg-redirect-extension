@@ -159,6 +159,13 @@
             "oldName": "\"Fear and Hunger: the Tormentpedia\""
         }
     },
+
+    {
+        "id": "frackinuniverse",
+        "name": "Frackin' Universe",
+    },
+
+    
     [
         {
             "_": "Fandom ID was changed, and has been added as a separate redirect rule (both may appear in search indexes)",
@@ -288,6 +295,11 @@
         "id": "superautopets",
         "oldId": "super-auto-pets",
         "name": "Super Auto Pets"
+    },
+    {
+        "id": "supersnail",
+        "oldId": "super-snail",
+        "name": "Super Snail"
     },
     {
         "id": "temtem",
