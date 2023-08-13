@@ -276,6 +276,10 @@
         "name": "Sons of the Forest"
     },
     {
+        "id": "spellrogue",
+        "name": "Spellrogue"
+    },
+    {
         "id": "steamworld",
         "name": "Steamworld",
         "official": true
