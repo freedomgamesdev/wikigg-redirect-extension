@@ -9,6 +9,11 @@
         }
     },
     {
+        "id": "airportceo",
+        "name": "Airport CEO",
+        "official": true
+    },
+    {
         "id": "aether",
         "name": "Aether Mod",
         "official": true
@@ -154,6 +159,11 @@
             "oldName": "\"Fear and Hunger: the Tormentpedia\""
         }
     },
+
+    {
+        "id": "frackinuniverse",
+        "name": "Frackin' Universe",
+    },
     [
         {
             "_": "Fandom ID was changed, and has been added as a separate redirect rule (both may appear in search indexes)",
@@ -271,6 +281,10 @@
         "name": "Sons of the Forest"
     },
     {
+        "id": "spellrogue",
+        "name": "Spellrogue"
+    },
+    {
         "id": "steamworld",
         "name": "Steamworld",
         "official": true
@@ -279,6 +293,11 @@
         "id": "superautopets",
         "oldId": "super-auto-pets",
         "name": "Super Auto Pets"
+    },
+    {
+        "id": "supersnail",
+        "oldId": "super-snail",
+        "name": "Super Snail"
     },
     {
         "id": "temtem",
