@@ -369,6 +369,12 @@
         }
     ],
     {
+        "id": "shogunshowdown",
+        "oldid": "shogun-showdown",
+        "name": "Shogun Showdown Mill",
+        "official": true
+    },
+    {
         "id": "themagicalmixturemill",
         "oldid": "the-magical-mixture-mill",
         "name": "The Magical Mixture Mill",
