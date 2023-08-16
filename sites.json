@@ -281,6 +281,12 @@
         "name": "Sons of the Forest"
     },
     {
+        "id": "shogunshowdown",
+        "oldid": "shogun-showdown",
+        "name": "Shogun Showdown Wiki",
+        "official": true
+    },
+    {
         "id": "spellrogue",
         "name": "Spellrogue"
     },
@@ -368,12 +374,6 @@
             "uiClass": "wiki-indent"
         }
     ],
-    {
-        "id": "shogunshowdown",
-        "oldid": "shogun-showdown",
-        "name": "Shogun Showdown Mill",
-        "official": true
-    },
     {
         "id": "themagicalmixturemill",
         "oldid": "the-magical-mixture-mill",
