@@ -281,6 +281,12 @@
         "name": "Sons of the Forest"
     },
     {
+        "id": "shogunshowdown",
+        "oldid": "shogun-showdown",
+        "name": "Shogun Showdown Wiki",
+        "official": true
+    },
+    {
         "id": "spellrogue",
         "name": "Spellrogue"
     },
