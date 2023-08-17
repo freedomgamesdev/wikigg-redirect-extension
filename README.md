@@ -1,4 +1,4 @@
-Redirect to wiki.gg is a browser extension that automatically redirects you from wikis forked/abandoned wikis from Fandom to wiki.gg. It will also adjust Google's search results to try and populate the wiki.
+**Redirect to wiki.gg** is a browser extension that automatically redirects you from wikis that are forked/abandoned from Fandom to wiki.gg. It will also adjust Google's search results to try and populate the wiki instead of Fandom's SEO.
 
 The extension is available on these browsers:
 - [Microsoft Edge](https://microsoftedge.microsoft.com/addons/detail/redirect-to-wikigg/oecpcjdcedociegkjmlcepigjaenkenj)
