@@ -262,6 +262,11 @@
         "name": "Project Wingman"
     },
     {
+        "id": "pubg",
+        "name": "PUBG",
+        "official": true
+    },
+    {
         "id": "revita",
         "oldId": "revitagame",
         "name": "Revita",
