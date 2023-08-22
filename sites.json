@@ -129,6 +129,11 @@
         "official": true
     },
     {
+        "id": "dontstarve",
+        "name": "Dont Sarve",
+        "official": true
+    },
+    {
         "id": "dyinglight",
         "name": "Dying Light",
         "official": true
@@ -241,6 +246,10 @@
         "name": "Off-Peak"
     },
     {
+        "id": "paperplanet",
+        "oldid": "paper-planet",
+        "name": "Paper Planet"
+    {
         "id": "palia",
         "name": "Palia",
         "official": true
@@ -291,7 +300,7 @@
     {
         "id": "shogunshowdown",
         "oldid": "shogun-showdown",
-        "name": "Shogun Showdown Wiki",
+        "name": "Shogun Showdown",
         "official": true
     },
     {
