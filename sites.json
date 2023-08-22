@@ -129,11 +129,6 @@
         "official": true
     },
     {
-        "id": "dontstarve",
-        "name": "Dont Sarve",
-        "official": true
-    },
-    {
         "id": "dyinglight",
         "name": "Dying Light",
         "official": true
@@ -150,6 +145,11 @@
         "name": "Equestria at War",
         "official": true
     },
+    {
+        "id": "ena",
+        "oldId": "enajoelg",
+        "name": "ENA"
+    }, 
     {
         "id": "farworldpioneers",
         "name": "Farworld Pioneers",
@@ -220,6 +220,10 @@
         "name": "Monumenta"
     },
     {
+        "id": "mysingingmonsters",
+        "name": "My Singing Monsters"
+    },
+    {
         "id": "noita",
         "name": "Noita"
     },
@@ -242,9 +246,8 @@
         "official": true
     },
     {
-        "id": "paperplanet",
-        "oldid": "paper-planet",
-        "name": "Paper Planet",
+        "id": "pubg",
+        "name": "PUBG",
         "official": true
     },
     {
@@ -255,11 +258,6 @@
     {
         "id": "projectwingman",
         "name": "Project Wingman"
-    },
-    {
-        "id": "pubg",
-        "name": "PUBG",
-        "official": true
     },
     {
         "id": "revita",
@@ -293,7 +291,7 @@
     {
         "id": "shogunshowdown",
         "oldid": "shogun-showdown",
-        "name": "Shogun Showdown",
+        "name": "Shogun Showdown Wiki",
         "official": true
     },
     {
@@ -456,5 +454,10 @@
     {
         "id": "wizardry",
         "name": "Wizardry"
+    },
+    {
+        "id": "worship",
+        "oldId": "worshipcrg",
+        "name": "Worship"
     }
 ]
