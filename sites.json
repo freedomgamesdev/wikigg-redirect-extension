@@ -119,6 +119,11 @@
         "name": "Deadlink"
     },
     {
+        "id": "deathbulge",
+        "name": "Deathbulge",
+        "official": true
+    },
+    {
         "id": "deeprockgalactic",
         "name": "Deep Rock Galactic",
         "official": true
@@ -126,6 +131,11 @@
     {
         "id": "dreamscaper",
         "name": "Dreamscaper",
+        "official": true
+    },
+    {
+        "id": "dontstarve",
+        "name": "Don't Starve",
         "official": true
     },
     {
@@ -145,6 +155,11 @@
         "name": "Equestria at War",
         "official": true
     },
+    {
+        "id": "ena",
+        "oldId": "enajoelg",
+        "name": "ENA"
+    }, 
     {
         "id": "farworldpioneers",
         "name": "Farworld Pioneers",
@@ -215,6 +230,10 @@
         "name": "Monumenta"
     },
     {
+        "id": "mysingingmonsters",
+        "name": "My Singing Monsters"
+    },
+    {
         "id": "noita",
         "name": "Noita"
     },
@@ -230,6 +249,11 @@
     {
         "id": "offpeak",
         "name": "Off-Peak"
+    },
+    {
+        "id": "paperplanet",
+        "oldid": "paper-planet",
+        "name": "Paper Planet"
     },
     {
         "id": "palia",
@@ -282,7 +306,7 @@
     {
         "id": "shogunshowdown",
         "oldid": "shogun-showdown",
-        "name": "Shogun Showdown Wiki",
+        "name": "Shogun Showdown",
         "official": true
     },
     {
@@ -445,5 +469,10 @@
     {
         "id": "wizardry",
         "name": "Wizardry"
+    },
+    {
+        "id": "worship",
+        "oldId": "worshipcrg",
+        "name": "Worship"
     }
 ]
