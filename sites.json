@@ -119,6 +119,11 @@
         "name": "Deadlink"
     },
     {
+        "id": "deathbulge",
+        "name": "Deathbulge",
+        "official": true
+    },
+    {
         "id": "deeprockgalactic",
         "name": "Deep Rock Galactic",
         "official": true
