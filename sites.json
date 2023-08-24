@@ -135,7 +135,7 @@
     },
     {
         "id": "dontstarve",
-        "name": "Dont Starve",
+        "name": "Don't Starve",
         "official": true
     },
     {
@@ -255,6 +255,7 @@
         "oldid": "paper-planet",
         "name": "Paper Planet"
     },
+    {
         "id": "palia",
         "name": "Palia",
         "official": true
