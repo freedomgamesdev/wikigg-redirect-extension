@@ -137,6 +137,13 @@
         "id": "dontstarve",
         "name": "Don't Starve",
         "official": true
+        "uiClass": "wiki-indent",
+        {
+            "id": "islandadventures",
+            "oldId": "island-adventures",
+            "name": "Island Adventures",
+            "uiClass": "wiki-indent"
+        }
     },
     {
         "id": "dyinglight",
@@ -228,6 +235,10 @@
         "id": "monumenta",
         "oldId": "monumentammo",
         "name": "Monumenta"
+    },
+    {
+        "id": "mightyparty",
+        "name": "Mighty Party"
     },
     {
         "id": "mysingingmonsters",
