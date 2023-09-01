@@ -144,6 +144,12 @@
             "name": "Island Adventures",
             "uiClass": "wiki-indent"
         }
+        {
+            "id": "uncompromisingmode",
+            "oldId": "uncompromising-mode",
+            "name": "Uncompromising Mode",
+            "uiClass": "wiki-indent"
+        }
     },
     {
         "id": "dyinglight",
