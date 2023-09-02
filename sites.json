@@ -133,24 +133,26 @@
         "name": "Dreamscaper",
         "official": true
     },
-    {
-        "id": "dontstarve",
-        "name": "Don't Starve",
-        "official": true
-        "uiClass": "wiki-indent",
+    [
+        {
+            "id": "dontstarve",
+            "name": "Don't Starve",
+            "official": true,
+            "uiClass": "wiki-indent"
+        },
         {
             "id": "islandadventures",
             "oldId": "island-adventures",
             "name": "Island Adventures",
             "uiClass": "wiki-indent"
-        }
+        },
         {
             "id": "uncompromisingmode",
             "oldId": "uncompromising-mode",
             "name": "Uncompromising Mode",
             "uiClass": "wiki-indent"
         }
-    },
+    ],
     {
         "id": "dyinglight",
         "name": "Dying Light",
