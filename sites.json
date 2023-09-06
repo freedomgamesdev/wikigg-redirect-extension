@@ -220,15 +220,19 @@
         "official": true
     },
     {
-        "id": "helloneighbor",
-        "oldId": "hello-neighbor",
-        "name": "Hello Neighbor",
-        "official": true
+        "id": "galaxyonfire",
+        "name": "Galaxy on Fire"
     },
     {
         "id": "haveanicedeath",
         "oldId": "have-a-nice-death",
         "name": "Have a Nice Death",
+        "official": true
+    },
+    {
+        "id": "helloneighbor",
+        "oldId": "hello-neighbor",
+        "name": "Hello Neighbor",
         "official": true
     },
     {
