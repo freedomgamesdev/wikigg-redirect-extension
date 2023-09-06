@@ -220,6 +220,12 @@
         "official": true
     },
     {
+        "id": "helloneighbor",
+        "oldId": "hello-neighbor",
+        "name": "Hello Neighbor",
+        "official": true
+    },
+    {
         "id": "haveanicedeath",
         "oldId": "have-a-nice-death",
         "name": "Have a Nice Death",
