@@ -224,6 +224,10 @@
         "name": "Galaxy on Fire"
     },
     {
+        "id": "hearthstone",
+        "name": "Hearthstone"
+    },
+    {
         "id": "haveanicedeath",
         "oldId": "have-a-nice-death",
         "name": "Have a Nice Death",
