@@ -304,6 +304,10 @@
         "name": "Project Wingman"
     },
     {
+        "id": "planetaryannihilation",
+        "name": "Planetary Annihilation"
+    },
+    {
         "id": "revita",
         "oldId": "revitagame",
         "name": "Revita",
