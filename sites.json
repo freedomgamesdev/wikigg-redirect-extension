@@ -366,6 +366,10 @@
         "name": "Temtem",
         "official": true
     },
+    {
+        "id": "tempestrising",
+        "name": "Tempest Rising",
+    },
     [
         {
             "id": "terraria",
