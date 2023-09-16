@@ -318,6 +318,10 @@
         "official": true
     },
     {
+        "id": "rsmc",
+        "name": "RSMC",
+    },
+    {
         "id": "sandboxels",
         "name": "Sandboxels",
         "official": true
