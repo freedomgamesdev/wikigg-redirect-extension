@@ -47,6 +47,10 @@
         "official": true
     },
     {
+        "id": "ashestown",
+        "name": "Ashes Town"
+    },
+    {
         "id": "astroneer",
         "name": "Astroneer"
     },
