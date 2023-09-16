@@ -100,6 +100,12 @@
         "official": true
     },
     {
+        "id": "crossimpact",
+        "oldId": "crossimpactoffical",
+        "name": "Cross Impact",
+        "official": true
+    },
+    {
         "id": "cuphead",
         "name": "Cuphead"
     },
@@ -358,6 +364,11 @@
         "id": "steamworld",
         "name": "Steamworld",
         "official": true
+    },
+    {
+        "id": "sugaryspire",
+        "oldId": "sugary-spire",
+        "name": "Sugary Spire"
     },
     {
         "id": "superautopets",
