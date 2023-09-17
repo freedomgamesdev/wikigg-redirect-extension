@@ -47,6 +47,10 @@
         "official": true
     },
     {
+        "id": "ashestown",
+        "name": "Ashes Town"
+    },
+    {
         "id": "astroneer",
         "name": "Astroneer"
     },
@@ -93,6 +97,12 @@
     {
         "id": "cosmoteer",
         "name": "Cosmoteer",
+        "official": true
+    },
+    {
+        "id": "crossimpact",
+        "oldId": "crossimpactoffical",
+        "name": "Cross Impact",
         "official": true
     },
     {
@@ -314,6 +324,10 @@
         "official": true
     },
     {
+        "id": "rsmc",
+        "name": "RSMC",
+    },
+    {
         "id": "sandboxels",
         "name": "Sandboxels",
         "official": true
@@ -352,6 +366,11 @@
         "official": true
     },
     {
+        "id": "sugaryspire",
+        "oldId": "sugary-spire",
+        "name": "Sugary Spire"
+    },
+    {
         "id": "superautopets",
         "oldId": "super-auto-pets",
         "name": "Super Auto Pets"
@@ -365,6 +384,10 @@
         "id": "temtem",
         "name": "Temtem",
         "official": true
+    },
+    {
+        "id": "tempestrising",
+        "name": "Tempest Rising",
     },
     [
         {
