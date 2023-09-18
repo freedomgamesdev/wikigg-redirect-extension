@@ -41,7 +41,7 @@ export function prepareWikisInfo( wikis, options ) {
             if ( !wiki.search.titlePattern ) {
                 const escapedName = ( wiki.search.oldName || wiki.name ).replace( /[.*+?^${}()|[\]\\]/g, '\\$&' );
                 // eslint-disable-next-line security/detect-non-literal-regexp
-                wiki.search.titlePattern = new RegExp( `(Official )?${escapedName} (\\| )?(Wiki|Fandom)( (-|\\|) Fandom)?$`,
+                wiki.search.titlePattern = new RegExp( `(Official )?${escapedName} (\\| |- )?(Wiki|Fandom)( (-|\\|) Fandom)?$`,
                     'i' );
             }
             if ( !wiki.search.placeholderTitle ) {
