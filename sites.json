@@ -34,6 +34,14 @@
         },
         {
             "parentRef": "ark",
+            "oldId": "ark-survival-evolved",
+
+            "search": {
+                "oldName": "ARK: Survival Evolved"
+            }
+        },
+        {
+            "parentRef": "ark",
             "oldId": "ark-survival-evolved-archive",
 
             "search": {
