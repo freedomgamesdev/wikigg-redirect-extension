@@ -138,6 +138,9 @@ const rewrite = {
         if ( linkElement.parentElement ) {
             // Find result container
             const element = crawlUntilParentFound( linkElement, 'g' );
+            if ( element === null ) {
+                return;
+            }
 
             // Verify that the top-level result is a link the same wiki
             const topLevelLinkElement = element.querySelector( 'a[data-jsarwt="1"], a[ping]' );
