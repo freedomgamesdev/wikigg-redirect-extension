@@ -73,3 +73,22 @@ export function crawlUntilParentFound( element, cssClass, maxDepth = 10 ) {
     }
     return null;
 };
+
+
+export function awaitElement( knownParent, selector, callback ) {
+    let node = knownParent.querySelector( selector );
+    if ( node ) {
+        return callback( node );
+    }
+
+    const observer = new MutationObserver( _ => {
+        node = knownParent.querySelector( `:scope > ${selector}` );
+        if ( node ) {
+            observer.disconnect();
+            return callback( node );
+        }
+    } );
+    observer.observe( knownParent, {
+        childList: true,
+    } );
+};

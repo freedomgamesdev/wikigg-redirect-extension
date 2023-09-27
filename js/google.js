@@ -5,7 +5,8 @@ import { getWikis } from './util.js';
 import {
     prepareWikisInfo,
     invokeSearchModule,
-    crawlUntilParentFound
+    crawlUntilParentFound,
+    awaitElement
 } from './baseSearch.js';
 
 
@@ -192,4 +193,29 @@ const rewrite = {
 };
 
 
+// Set up an observer for dynamically loaded results
+awaitElement(
+    document.querySelector( '#botstuff > div' ),
+    '[jscontroller="ogmBcd"] > [data-async-rclass="search"] + div',
+    dynContainer => {
+        const dynamicObserver = new MutationObserver( updates => {
+            for ( const update of updates ) {
+                if ( update.addedNodes && update.addedNodes.length > 0 ) {
+                    for ( const addedNode of update.addedNodes ) {
+                        // This container shows up before the results are built/added to the DOM
+                        awaitElement(
+                            addedNode,
+                            'div',
+                            results => invokeSearchModule( wikis, rewrite.run.bind( rewrite ), filter.run.bind( filter ), results )
+                        );
+                    }
+                }
+            }
+        } );
+        dynamicObserver.observe( dynContainer, {
+            childList: true
+        } );
+    }
+);
+// Run the initial filtering
 invokeSearchModule( wikis, rewrite.run.bind( rewrite ), filter.run.bind( filter ) );
