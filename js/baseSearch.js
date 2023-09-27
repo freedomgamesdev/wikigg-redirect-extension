@@ -13,7 +13,7 @@ export function invokeSearchModule( wikis, rewriteRoutine, filterRoutine, rootNo
             rewrite: rewriteRoutine,
         } )[ mode ];
 
-        if ( !routine ) {
+        if ( !doRoutine ) {
             return;
         }
 
