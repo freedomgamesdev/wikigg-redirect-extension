@@ -318,6 +318,10 @@
         "official": true
     },
     {
+        "id": "projectmalice",
+        "name": "Project Malice"
+    },
+    {
         "id": "projectwingman",
         "name": "Project Wingman"
     },
