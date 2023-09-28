@@ -39,24 +39,31 @@
                 accent-color: var(--accent-colour);
 			}
             h3,
-            h4 {
+            h4,
+            h5 {
                 margin: 0 0 var(--spacing);
                 font-weight: 700;
                 text-align: center;
                 color: var(--accent-colour);
             }
-            h4 {
+            h4,
+            h5 {
                 margin: calc(var(--spacing) / 2) 0;
             }
             h3 img {
                 vertical-align: text-top;
+            }
+            h5 {
+                text-align: left;
+                font-size: 90%;
             }
             p {
                 text-align: center;
                 margin: var(--spacing) 0;
             }
             h3 + p,
-            h4 + p {
+            h4 + p,
+            h5 + p {
                 margin-top: 0;
             }
             a, a:link, a:visited {
@@ -65,6 +72,7 @@
             }
             h3,
             h4,
+            h5,
             a,
             label {
                 user-select: none;
@@ -163,10 +171,14 @@
 	<body>
 		<h3>wiki.gg migration helper</h3>
         <div>
+            <h5>Redirecting</h5>
 		    <div>
 			    <input type="checkbox" id="isEnabled" data-setting-id="isRedirectDisabled" data-on="false" data-off="true" />
                 <label for="isEnabled">Redirect from old to new wikis</label>
 		    </div>
+        </div>
+        <div>
+            <h5>Search filtering</h5>
 		    <div>
 			    <input type="radio" name="searchMode" id="rewriteSearch" data-setting-id="searchMode"
                     data-value="rewrite" />
