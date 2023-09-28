@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Redirect to wiki.gg</title>
 		<style>
             :root {
                 --background-colour: #d8dada;
@@ -15,6 +18,7 @@
                     --background-colour: #272828;
                     --text-colour: #ebebeb;
                     --accent-colour: #e348bb;
+                    --accent-colour--text-against: #000;
                     --spacer-colour: #525353;
                     --icon-filter: invert(1);
                     --bottom-links-opacity: 0.8;
@@ -26,34 +30,46 @@
             }
 			body {
 				margin: 0;
-				max-width: 240px;
-				width: 240px;
-				font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-				font-size: 75%;
-                padding: 1em;
+				max-width: 600px;
+				width: 100%;
+				font-family: Inter, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+				font-size: .85em;
+                line-height: 1.6;
+                padding: 1rem;
                 background-color: var(--background-colour);
                 color: var(--text-colour);
                 accent-color: var(--accent-colour);
+                display: flex;
+                flex-direction: column;
+                overflow: hidden;
+                max-height: 600px;
 			}
             h3,
-            h4 {
+            h4,
+            h5 {
                 margin: 0 0 var(--spacing);
                 font-weight: 700;
                 text-align: center;
                 color: var(--accent-colour);
             }
-            h4 {
+            h4,
+            h5 {
                 margin: calc(var(--spacing) / 2) 0;
             }
             h3 img {
                 vertical-align: text-top;
+            }
+            h5 {
+                text-align: left;
+                font-size: 90%;
             }
             p {
                 text-align: center;
                 margin: var(--spacing) 0;
             }
             h3 + p,
-            h4 + p {
+            h4 + p,
+            h5 + p {
                 margin-top: 0;
             }
             a, a:link, a:visited {
@@ -62,6 +78,7 @@
             }
             h3,
             h4,
+            h5,
             a,
             label {
                 user-select: none;
@@ -73,6 +90,7 @@
                 overflow-y: auto;
                 max-height: 350px;
                 font-size: 105%;
+                flex-grow: 1;
             }
             #wikis-container {
                 scrollbar-width: thin;
@@ -147,7 +165,7 @@
                 opacity: 1;
                 outline-color: var(--accent-colour);
             }
-            #dontTouchSearch {
+            [data-means-inactive] {
                 accent-color: #cf240a;
             }
             #bottom-links {
@@ -155,32 +173,66 @@
                 font-size: 80%;
                 opacity: var(--bottom-links-opacity);
             }
+
+            @media screen and (max-device-width: 900px) {
+                :root {
+                    --spacing: 1em;
+                }
+                body {
+                    font-size: 0.925em;
+                    max-height: 100vh;
+                }
+                h3 {
+                    margin: -1rem -1rem 0.5em;
+                    padding: 0.5rem;
+                    background: var(--accent-colour);
+                    color: var(--accent-colour--text-against);
+                    font-size: 1.5em;
+                }
+                #wikis-container {
+                    max-height: unset;
+                }
+                #bottom-links {
+                    font-size: 90%;
+                }
+            }
 		</style>
 	</head>
 	<body>
 		<h3>wiki.gg migration helper</h3>
         <div>
+            <h5>Redirecting</h5>
 		    <div>
-			    <input type="checkbox" id="isEnabled" data-setting-id="isRedirectDisabled" data-on="false" data-off="true" />
-                <label for="isEnabled">Redirect from old to new wikis</label>
+			    <input type="radio" name="redirectMode" id="redirectMode__do"
+                    data-setting-id="isRedirectDisabled" data-value="true" />
+                <label for="redirectMode__do">Redirect from old to new wikis</label>
 		    </div>
 		    <div>
-			    <input type="radio" name="searchMode" id="rewriteSearch" data-setting-id="searchMode"
-                    data-value="rewrite" />
+			    <input type="radio" name="redirectMode" id="redirectMode__dont" data-means-inactive
+                    data-setting-id="isRedirectDisabled" data-value="false" />
+                <label for="redirectMode__dont">Do not redirect automatically</label>
+		    </div>
+        </div>
+        <div>
+            <h5>Search filtering</h5>
+		    <div>
+			    <input type="radio" name="searchMode" id="rewriteSearch"
+                    data-setting-id="searchMode" data-value="rewrite" />
                 <label for="rewriteSearch">Rewrite Fandom results in Google</label>
 		    </div>
 		    <div>
-			    <input type="radio" name="searchMode" id="filterSearch" data-setting-id="searchMode"
-                    data-value="filter" />
+			    <input type="radio" name="searchMode" id="filterSearch"
+                    data-setting-id="searchMode" data-value="filter" />
                 <label for="filterSearch">Hide Fandom results in Google</label>
 		    </div>
 		    <div>
-			    <input type="radio" name="searchMode" id="dontTouchSearch" data-setting-id="searchMode"
-                    data-value="none" />
+			    <input type="radio" name="searchMode" id="dontTouchSearch" data-means-inactive
+                    data-setting-id="searchMode" data-value="none" />
                 <label for="dontTouchSearch">Don't alter results in Google</label>
 		    </div>
 		    <div>
-			    <input type="checkbox" id="useTabRedirect" data-setting-id="useTabRedirect" data-on="true" data-off="false" />
+			    <input type="checkbox" id="useTabRedirect"
+                    data-setting-id="useTabRedirect" data-on="true" data-off="false" />
                 <label for="useTabRedirect">Use legacy redirection method</label>
 		    </div>
         </div>
