@@ -79,14 +79,16 @@ const rewrite = {
 
 
 
-    makeBadgeElement( isTopLevel ) {
+    makeBadgeElement( isMobile, isTopLevel ) {
         const out = document.createElement( 'span' );
-        out.innerText = isTopLevel ? 'redirected' : 'some redirected';
+        out.textContent = isTopLevel ? 'redirected' : 'some redirected';
         out.style.backgroundColor = '#0002';
         out.style.fontSize = '90%';
         out.style.borderRadius = '4px';
         out.style.padding = '1px 6px';
-        out.style.marginLeft = '4px';
+        if ( !isMobile ) {
+            out.style.marginLeft = '4px';
+        }
         out.style.opacity = '0.6';
         return out;
     },
@@ -138,21 +140,24 @@ const rewrite = {
     run( wiki, linkElement ) {
         if ( linkElement.parentElement ) {
             // Find result container
-            const element = crawlUntilParentFound( linkElement, '.g' );
+            const element = crawlUntilParentFound( linkElement, '.g, .xpd' );
             if ( element === null ) {
                 return;
             }
 
+            const oldDomain = `${wiki.oldId || wiki.id}.fandom.com`,
+                newDomain = `${wiki.id}.wiki.gg`;
+
             // Verify that the top-level result is a link the same wiki
-            const topLevelLinkElement = element.querySelector( 'a[data-jsarwt="1"], a[ping]' );
-            const isTopLevel = topLevelLinkElement && topLevelLinkElement.href.startsWith(
-                `https://${wiki.oldId || wiki.id}.fandom.com` );
+            const isMobile = element.classList.contains( 'xpd' ),
+                topLevelLinkElement = !isMobile && element.querySelector( 'a[data-jsarwt="1"], a[ping]' ),
+                isTopLevel = isMobile || topLevelLinkElement && topLevelLinkElement.href.startsWith( `https://${oldDomain}` );
 
             if ( element !== null ) {
                 const networkHeader = element.querySelector( this.SITE_NETWORK_TITLE_SELECTOR );
                 if ( networkHeader ) {
                     networkHeader.innerText = 'wiki.gg';
-                    networkHeader.appendChild( this.makeBadgeElement( isTopLevel ) );
+                    networkHeader.appendChild( this.makeBadgeElement( isMobile, isTopLevel ) );
                     this.lock( networkHeader );
                 }
 
@@ -163,17 +168,23 @@ const rewrite = {
                     // Insert a badge indicating the result was modified if we haven't done that already (check heading and
                     // result group)
                     if ( !networkHeader && !this.isLocked( element ) && !this.isLocked( h3 ) ) {
-                        h3.parentNode.parentNode.insertBefore( this.makeBadgeElement( isTopLevel ), h3.parentNode.nextSibling );
+                        h3.parentNode.parentNode.insertBefore( this.makeBadgeElement( isMobile, isTopLevel ), h3.parentNode.nextSibling );
                     }
                     // Tag heading and result group as ones we badged
                     this.lock( element );
                     this.lock( h3 );
                 }
                 // Rewrite URL element
-                for ( const cite of element.getElementsByTagName( 'cite' ) ) {
-                    if ( cite.firstChild.textContent ) {
-                        cite.firstChild.textContent = cite.firstChild.textContent.replace( `${wiki.oldId || wiki.id}.fandom.com`,
-                            `${wiki.id}.wiki.gg` );
+                if ( !isMobile ) {
+                    for ( const cite of element.getElementsByTagName( 'cite' ) ) {
+                        if ( cite.firstChild.textContent ) {
+                            cite.firstChild.textContent = cite.firstChild.textContent.replace( oldDomain, newDomain );
+                        }
+                    }
+                } else {
+                    const mobileBreadcrumb = element.querySelector( '.sCuL3 > div' );
+                    if ( mobileBreadcrumb ) {
+                        mobileBreadcrumb.textContent = mobileBreadcrumb.textContent.replace( oldDomain, newDomain );
                     }
                 }
                 // Rewrite translate link
@@ -194,28 +205,31 @@ const rewrite = {
 
 
 // Set up an observer for dynamically loaded results
-awaitElement(
-    document.querySelector( '#botstuff > div' ),
-    '[jscontroller="ogmBcd"] > [data-async-rclass="search"] + div',
-    dynContainer => {
-        const dynamicObserver = new MutationObserver( updates => {
-            for ( const update of updates ) {
-                if ( update.addedNodes && update.addedNodes.length > 0 ) {
-                    for ( const addedNode of update.addedNodes ) {
-                        // This container shows up before the results are built/added to the DOM
-                        awaitElement(
-                            addedNode,
-                            'div',
-                            results => invokeSearchModule( wikis, rewrite.run.bind( rewrite ), filter.run.bind( filter ), results )
-                        );
+const bottomStuff = document.querySelector( '#botstuff > div' );
+if ( bottomStuff ) {
+    awaitElement(
+        bottomStuff,
+        '[jscontroller="ogmBcd"] > [data-async-rclass="search"] + div',
+        dynContainer => {
+            const dynamicObserver = new MutationObserver( updates => {
+                for ( const update of updates ) {
+                    if ( update.addedNodes && update.addedNodes.length > 0 ) {
+                        for ( const addedNode of update.addedNodes ) {
+                            // This container shows up before the results are built/added to the DOM
+                            awaitElement(
+                                addedNode,
+                                'div',
+                                results => invokeSearchModule( wikis, rewrite.run.bind( rewrite ), filter.run.bind( filter ), results )
+                            );
+                        }
                     }
                 }
-            }
-        } );
-        dynamicObserver.observe( dynContainer, {
-            childList: true
-        } );
-    }
-);
+            } );
+            dynamicObserver.observe( dynContainer, {
+                childList: true
+            } );
+        }
+    );
+}
 // Run the initial filtering
 invokeSearchModule( wikis, rewrite.run.bind( rewrite ), filter.run.bind( filter ) );
