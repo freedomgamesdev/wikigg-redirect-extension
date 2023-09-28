@@ -136,10 +136,17 @@ const RTW = {
 	},
 
 
+	disableToggle( node ) {
+		node.disabled = true;
+		node.parentNode.style.display = 'none';
+	},
+
+
 	initialiseDynamic() {
-		if ( !supportsDNR() ) {
-			document.getElementById( 'useTabRedirect' ).disabled = true;
-			document.getElementById( 'useTabRedirect' ).parentNode.style.display = 'none';
+		if ( !chrome.runtime.getManifest().name.includes( 'DEVBUILD' ) ) {
+			for ( const devToggle of document.querySelectorAll( '[data-hide-in-stable]' ) ) {
+				this.disableToggle( devToggle );
+			}
 		}
 	}
 };
