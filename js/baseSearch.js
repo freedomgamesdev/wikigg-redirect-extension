@@ -64,12 +64,12 @@ export function prepareWikisInfo( wikis, options ) {
 
 
 // Looks for a search result container by walking an element's parents
-export function crawlUntilParentFound( element, cssClass, maxDepth = 10 ) {
+export function crawlUntilParentFound( element, selector, maxDepth = 10 ) {
     if ( maxDepth > 0 && element.parentElement ) {
-        if ( element.classList.contains( cssClass ) ) {
+        if ( element.matches( selector ) ) {
             return element;
         }
-        return crawlUntilParentFound( element.parentElement, cssClass, maxDepth - 1 );
+        return crawlUntilParentFound( element.parentElement, selector, maxDepth - 1 );
     }
     return null;
 };

@@ -20,7 +20,7 @@ const wikis = prepareWikisInfo( getWikis( false, true ), {
 function findNextOfficialWikiResult( wiki, oldElement ) {
     for ( const node of document.querySelectorAll( wiki.search.goodSelector ) ) {
         if ( node.compareDocumentPosition( oldElement ) & 0x02 ) {
-            return crawlUntilParentFound( node, 'g' );
+            return crawlUntilParentFound( node, '.g' );
         }
     }
     return null;
@@ -43,7 +43,7 @@ const filter = {
         // If no parent, skip - means we've already processed this
         if ( linkElement.parentElement ) {
             // Find result container
-            const oldElement = crawlUntilParentFound( linkElement, 'g' );
+            const oldElement = crawlUntilParentFound( linkElement, '.g' );
 
             // Verify that the top-level result is a link the same wiki
             const topLevelLinkElement = oldElement.querySelector( 'a[data-jsarwt="1"], a[ping]' );
@@ -138,7 +138,7 @@ const rewrite = {
     run( wiki, linkElement ) {
         if ( linkElement.parentElement ) {
             // Find result container
-            const element = crawlUntilParentFound( linkElement, 'g' );
+            const element = crawlUntilParentFound( linkElement, '.g' );
             if ( element === null ) {
                 return;
             }
