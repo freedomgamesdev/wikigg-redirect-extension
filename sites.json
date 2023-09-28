@@ -549,4 +549,9 @@
         "oldId": "worshipcrg",
         "name": "Worship"
     }
+    {
+        "id": "yourchronicle",
+        "oldId": "your-chronicle",
+        "name": "Your Chronicle"
+    }
 ]
