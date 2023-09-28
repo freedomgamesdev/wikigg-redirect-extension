@@ -25,12 +25,16 @@ const RTW = {
 	},
 
 
+	_normaliseOptionValue( v ) {
+		return v === 'true' ? true : ( v === 'false' ? false : v );
+	},
+
+
 	bindCheckboxToOption( checkbox ) {
-		const normalise = v => v === 'true' ? true : ( v === 'false' ? false : v );
 		const settingId = checkbox.getAttribute( 'data-setting-id' ),
 			arrayValue = checkbox.getAttribute( 'data-array-value' ),
-			valueOn = normalise( checkbox.getAttribute( 'data-on' ) ),
-			valueOff = normalise( checkbox.getAttribute( 'data-off' ) );
+			valueOn = this._normaliseOptionValue( checkbox.getAttribute( 'data-on' ) ),
+			valueOff = this._normaliseOptionValue( checkbox.getAttribute( 'data-off' ) );
 		
 		this.settingsIds.push( settingId );
 		this.updateCallbacks.push( _ => {
@@ -66,7 +70,7 @@ const RTW = {
 
 	bindRadioToOption( radio ) {
 		const settingId = radio.getAttribute( 'data-setting-id' ),
-			value = radio.getAttribute( 'data-value' );
+			value = this._normaliseOptionValue( radio.getAttribute( 'data-value' ) );
 		this.settingsIds.push( settingId );
 		this.updateCallbacks.push( _ => {
 			radio.checked = value == this.getCurrentSettingValue( settingId );
