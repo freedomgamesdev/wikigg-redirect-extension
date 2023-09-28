@@ -18,6 +18,7 @@
                     --background-colour: #272828;
                     --text-colour: #ebebeb;
                     --accent-colour: #e348bb;
+                    --accent-colour--text-against: #000;
                     --spacer-colour: #525353;
                     --icon-filter: invert(1);
                     --bottom-links-opacity: 0.8;
@@ -29,14 +30,18 @@
             }
 			body {
 				margin: 0;
-				max-width: 240px;
-				width: 240px;
-				font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-				font-size: 75%;
-                padding: 1em;
+				max-width: 600px;
+				width: 100%;
+				font-family: Inter, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+				font-size: .85em;
+                line-height: 1.6;
+                padding: 1rem;
                 background-color: var(--background-colour);
                 color: var(--text-colour);
                 accent-color: var(--accent-colour);
+                display: flex;
+                flex-direction: column;
+                overflow: hidden;
 			}
             h3,
             h4,
@@ -84,6 +89,7 @@
                 overflow-y: auto;
                 max-height: 350px;
                 font-size: 105%;
+                flex-grow: 1;
             }
             #wikis-container {
                 scrollbar-width: thin;
@@ -165,6 +171,29 @@
                 margin: calc( var(--spacing) / 2 ) 0 0;
                 font-size: 80%;
                 opacity: var(--bottom-links-opacity);
+            }
+
+            @media screen and (max-device-width: 900px) {
+                :root {
+                    --spacing: 1em;
+                }
+                body {
+                    font-size: 0.925em;
+                    max-height: 100vh;
+                }
+                h3 {
+                    margin: -1rem -1rem 0.5em;
+                    padding: 0.5rem;
+                    background: var(--accent-colour);
+                    color: var(--accent-colour--text-against);
+                    font-size: 1.5em;
+                }
+                #wikis-container {
+                    max-height: unset;
+                }
+                #bottom-links {
+                    font-size: 90%;
+                }
             }
 		</style>
 	</head>
