@@ -318,6 +318,10 @@
         "official": true
     },
     {
+        "id": "projectmalice",
+        "name": "Project Malice"
+    },
+    {
         "id": "projectwingman",
         "name": "Project Wingman"
     },
@@ -436,6 +440,12 @@
             "spacer": "The Binding of Isaac mods"
         },
         {
+            "id": "tboicompliance",
+            "oldid": "compliance",
+            "name": "Compliance",
+            "uiClass": "wiki-indent"
+        },
+        {
             "id": "tboiepiphany",
             "oldId": "tboi-epiphany",
             "name": "Epiphany",
@@ -538,5 +548,10 @@
         "id": "worship",
         "oldId": "worshipcrg",
         "name": "Worship"
+    },
+    {
+        "id": "yourchronicle",
+        "oldId": "your-chronicle",
+        "name": "Your Chronicle"
     }
 ]
