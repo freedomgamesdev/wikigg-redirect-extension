@@ -64,6 +64,15 @@
                 "built/ddg.js"
             ],
             "run_at": "document_end"
+        },
+        {
+            "matches": [
+                "https://*.fandom.com/*"
+            ],
+            "js": [
+                "built/fandom.js"
+            ],
+            "run_at": "document_end"
         }
     ],
     "icons": {
