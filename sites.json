@@ -444,7 +444,7 @@
             "oldid": "compliance",
             "name": "Compliance",
             "uiClass": "wiki-indent"
-        }
+        },
         {
             "id": "tboiepiphany",
             "oldId": "tboi-epiphany",
@@ -548,7 +548,7 @@
         "id": "worship",
         "oldId": "worshipcrg",
         "name": "Worship"
-    }
+    },
     {
         "id": "yourchronicle",
         "oldId": "your-chronicle",
