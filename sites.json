@@ -34,6 +34,14 @@
         },
         {
             "parentRef": "ark",
+            "oldId": "ark-survival-evolved",
+
+            "search": {
+                "oldName": "ARK: Survival Evolved"
+            }
+        },
+        {
+            "parentRef": "ark",
             "oldId": "ark-survival-evolved-archive",
 
             "search": {
@@ -325,7 +333,7 @@
     },
     {
         "id": "rsmc",
-        "name": "RSMC",
+        "name": "RSMC"
     },
     {
         "id": "sandboxels",
@@ -387,7 +395,7 @@
     },
     {
         "id": "tempestrising",
-        "name": "Tempest Rising",
+        "name": "Tempest Rising"
     },
     [
         {

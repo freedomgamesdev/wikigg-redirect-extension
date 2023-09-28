@@ -2,23 +2,29 @@ import { getNativeSettings } from './util.js';
 import defaultSettingsFactory from '../defaults.js';
 
 
-export function invokeSearchModule( wikis, rewriteRoutine, filterRoutine ) {
+export function invokeSearchModule( wikis, rewriteRoutine, filterRoutine, rootNode ) {
     const defaults = defaultSettingsFactory();
+    rootNode = rootNode || document;
+
     getNativeSettings().local.get( [ 'searchMode', 'disabledWikis' ], result => {
         const mode = ( result || defaults ).searchMode || 'rewrite';
+        let doRoutine = ( {
+            filter: filterRoutine,
+            rewrite: rewriteRoutine,
+        } )[ mode ];
 
+        if ( !doRoutine ) {
+            return;
+        }
+
+        // TODO: merge selectors and run that query, then determine the wiki
         for ( const wiki of wikis ) {
             if ( ( result && result.disabledWikis || defaults.disabledWikis ).indexOf( wiki.id ) >= 0 ) {
                 continue;
             }
 
-            switch ( mode ) {
-                case 'filter':
-                    document.querySelectorAll( wiki.search.badSelector ).forEach( element => filterRoutine( wiki, element ) );
-                    break;
-                case 'rewrite':
-                    document.querySelectorAll( wiki.search.badSelector ).forEach( element => rewriteRoutine( wiki, element ) );
-                    break;
+            for ( const element of rootNode.querySelectorAll( wiki.search.badSelector ) ) {
+                doRoutine( wiki, element );
             }
         }
     } );
@@ -66,4 +72,23 @@ export function crawlUntilParentFound( element, cssClass, maxDepth = 10 ) {
         return crawlUntilParentFound( element.parentElement, cssClass, maxDepth - 1 );
     }
     return null;
+};
+
+
+export function awaitElement( knownParent, selector, callback ) {
+    let node = knownParent.querySelector( selector );
+    if ( node ) {
+        return callback( node );
+    }
+
+    const observer = new MutationObserver( _ => {
+        node = knownParent.querySelector( `:scope > ${selector}` );
+        if ( node ) {
+            observer.disconnect();
+            return callback( node );
+        }
+    } );
+    observer.observe( knownParent, {
+        childList: true,
+    } );
 };
