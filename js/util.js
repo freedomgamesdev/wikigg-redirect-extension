@@ -2,8 +2,8 @@ import sites from '../sites.json';
 
 
 export function supportsDNR() {
-    return false && navigator.userAgent.indexOf( 'Chrome' ) < 0;
-};
+    return false; // navigator.userAgent.indexOf( 'Chrome' ) < 0;
+}
 
 
 function _unpackSiteArray( entities, options ) {
@@ -36,8 +36,11 @@ export function getWikis( withSpacers, withVirtuals ) {
 
     if ( withVirtuals ) {
         for ( const entity of out ) {
-            // Resolve the parent reference for virtual entries (wiki alternative redirects). Copy properties that aren't specified.
-            if ( 'parentRef' in entity ) {
+            // Resolve the parent reference for virtual entries (wiki alternative redirects). Copy properties that
+            // aren't specified.
+            // Additionally, this reference should be a string, which means it has not been resolved yet. The site list
+            // may be reused in memory.
+            if ( 'parentRef' in entity && typeof entity.parentRef === 'string' ) {
                 entity.parentRef = out.find( x => x.id === entity.parentRef );
                 entity.id = entity.parentRef.id;
                 entity.name = entity.parentRef.name;
@@ -47,7 +50,7 @@ export function getWikis( withSpacers, withVirtuals ) {
     }
 
     return out;
-};
+}
 
 
 export function getNativeSettings() {

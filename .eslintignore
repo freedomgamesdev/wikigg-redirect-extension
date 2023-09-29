@@ -1,0 +1,8 @@
+/i18n/
+/built/
+/node_modules/
+/vendor/
+/package.json
+/package-lock.json
+*.json
+*.d.ts

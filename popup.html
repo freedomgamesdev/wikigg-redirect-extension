@@ -30,7 +30,7 @@
             }
 			body {
 				margin: 0;
-				max-width: 600px;
+				max-width: 350px;
 				width: 100%;
 				font-family: Inter, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 				font-size: .85em;
@@ -64,7 +64,6 @@
                 font-size: 90%;
             }
             p {
-                text-align: center;
                 margin: var(--spacing) 0;
             }
             h3 + p,
@@ -82,6 +81,9 @@
             a,
             label {
                 user-select: none;
+            }
+            .options-group > p {
+                font-size: 90%;
             }
             #wikis-container {
                 position: relative;
@@ -170,6 +172,7 @@
             }
             #bottom-links {
                 margin: calc( var(--spacing) / 2 ) 0 0;
+                text-align: center;
                 font-size: 80%;
                 opacity: var(--bottom-links-opacity);
             }
@@ -200,36 +203,52 @@
 	</head>
 	<body>
 		<h3>wiki.gg migration helper</h3>
-        <div>
+        <div class="options-group">
             <h5>Redirecting</h5>
 		    <div>
 			    <input type="radio" name="redirectMode" id="redirectMode__do"
-                    data-setting-id="isRedirectDisabled" data-value="true" />
+                    data-setting-id="isRedirectDisabled" data-value="false" />
                 <label for="redirectMode__do">Redirect from old to new wikis</label>
 		    </div>
 		    <div>
+			    <input type="radio" name="redirectMode" id="redirectMode__banner"
+                    data-setting-id="isRedirectDisabled" data-value="banner" />
+                <label for="redirectMode__banner">Do not redirect, display a banner instead</label>
+		    </div>
+		    <div>
 			    <input type="radio" name="redirectMode" id="redirectMode__dont" data-means-inactive
-                    data-setting-id="isRedirectDisabled" data-value="false" />
+                    data-setting-id="isRedirectDisabled" data-value="true" />
                 <label for="redirectMode__dont">Do not redirect automatically</label>
 		    </div>
         </div>
-        <div>
+        <div class="options-group">
             <h5>Search filtering</h5>
+            <p>
+                <b>Currently supported:</b> <i>Google</i>, <i>DuckDuckGo</i>.
+            </p>
 		    <div>
 			    <input type="radio" name="searchMode" id="rewriteSearch"
                     data-setting-id="searchMode" data-value="rewrite" />
-                <label for="rewriteSearch">Rewrite Fandom results in Google</label>
+                <label for="rewriteSearch">Rewrite Fandom results</label>
 		    </div>
 		    <div>
 			    <input type="radio" name="searchMode" id="filterSearch"
                     data-setting-id="searchMode" data-value="filter" />
-                <label for="filterSearch">Hide Fandom results in Google</label>
+                <label for="filterSearch">Hide Fandom results</label>
 		    </div>
 		    <div>
 			    <input type="radio" name="searchMode" id="dontTouchSearch" data-means-inactive
                     data-setting-id="searchMode" data-value="none" />
-                <label for="dontTouchSearch">Don't alter results in Google</label>
+                <label for="dontTouchSearch">Don't alter results</label>
 		    </div>
+		    <div>
+			    <input type="checkbox" id="ddgSupportExp"
+                    data-setting-id="ddgEnable" data-on="true" data-off="false" />
+                <label for="ddgSupportExp">Enable experimental DuckDuckGo support</label>
+		    </div>
+        </div>
+        <div class="options-group" data-hide-in-stable>
+            <h5>Hidden options</h5>
 		    <div>
 			    <input type="checkbox" id="useTabRedirect"
                     data-setting-id="useTabRedirect" data-on="true" data-off="false" />

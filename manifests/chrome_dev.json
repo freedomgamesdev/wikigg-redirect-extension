@@ -1,27 +1,21 @@
 {
-    "name": "Redirect to wiki.gg",
+    "name": "[DEVBUILD] Redirect to wiki.gg",
     "author": "alex4401",
-    "version": "1.5.14",
+    "version": "1.5.999997",
     "description": "Redirects visits from unsupported Fandom wikis that moved to wiki.gg, and filters search results in Google.",
     "permissions": [
         "storage",
-        "*://*.gamepedia.com/*",
-        "*://*.fandom.com/*",
         "webNavigation"
     ],
-    "applications": {
-        "gecko": {
-            "id": "genericredirector@ark.wiki.gg"
-        }
-    },
+    "host_permissions": [
+        "*://*.gamepedia.com/*",
+        "*://*.fandom.com/*"
+    ],
     "background": {
-        "persistent": true,
-        "scripts": [
-            "built/background.js"
-        ]
+        "service_worker": "built/background.js"
     },
-    "browser_action": {
-        "default_icon": "icons/128.png",
+    "action": {
+        "default_icon": "icons/128_dev.png",
         "default_title": "Redirect to wiki.gg",
         "default_popup": "popup.html"
     },
@@ -70,11 +64,19 @@
                 "built/ddg.js"
             ],
             "run_at": "document_end"
+        },
+        {
+            "matches": [
+                "https://*.fandom.com/*"
+            ],
+            "js": [
+                "built/fandom.js"
+            ],
+            "run_at": "document_end"
         }
     ],
     "icons": {
-        "64": "icons/64.png",
-        "128": "icons/128.png"
+        "128": "icons/128_dev.png"
     },
-    "manifest_version": 2
+    "manifest_version": 3
 }

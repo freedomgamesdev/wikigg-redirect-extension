@@ -9,6 +9,7 @@ const storage = getNativeSettings(),
 
 
 function _buildDomainRegex( template ) {
+    // eslint-disable-next-line security/detect-non-literal-regexp
     return new RegExp( template.replace( '$domains', wikis.map( item => {
         return item.oldId || item.id;
     } ).join( '|' ) ), 'i' );
@@ -19,8 +20,8 @@ const RTW = {
     DNR_RULE_ID: 1,
 
     settings: defaultSettingsFactory(),
-    domainRegex: _buildDomainRegex( `^($domains)\\.(?:fandom|gamepedia)\\.com$` ),
-    intlDomainRegex: _buildDomainRegex( `^($domains)-([a-z]+)\\.(?:gamepedia)\\.com$` ),
+    domainRegex: _buildDomainRegex( '^($domains)\\.(?:fandom|gamepedia)\\.com$' ),
+    intlDomainRegex: _buildDomainRegex( '^($domains)-([a-z]+)\\.(?:gamepedia)\\.com$' ),
     oldToNumIdMap: ( () => {
         const out = {};
         for ( const [ index, wiki ] of Object.entries( wikis ) ) {
@@ -41,7 +42,7 @@ const RTW = {
         }
     },
 
-    
+
     decideRedirect( info ) {
         if ( this.settings.isRedirectDisabled ) {
             return;
@@ -58,13 +59,13 @@ const RTW = {
 
         const oldWikiId = match[ 1 ];
         // Map the old ID to an internal numeric one
-        let internalWikiId = this.oldToNumIdMap[ oldWikiId ];
+        const internalWikiId = this.oldToNumIdMap[ oldWikiId ];
         if ( internalWikiId === undefined ) {
             return;
         }
-        let newWiki = wikis[ internalWikiId ];
+        const newWiki = wikis[ internalWikiId ];
         // Check if redirect is disabled
-        if ( this.settings.disabledWikis.indexOf( newWiki.id ) >= 0 ) {
+        if ( this.settings.disabledWikis.includes( newWiki.id ) ) {
             return;
         }
         // Copy path
@@ -72,15 +73,15 @@ const RTW = {
         // Convert international Gamepedia URL format
         if ( match.length >= 3 ) {
             let languageCode = match[ 2 ];
-            if ( languageCode == 'ptbr' ) {
+            if ( languageCode === 'ptbr' ) {
                 languageCode = 'pt-br';
             }
-            newPath = `/${ languageCode }${ newPath }`;
+            newPath = `/${languageCode}${newPath}`;
         }
-    
+
         // Redirect
         chrome.tabs.update( info.tabId, {
-            url: `https://${ newWiki.id }.wiki.gg${ newPath }`
+            url: `https://${newWiki.id}.wiki.gg${newPath}`
         } );
     },
 
@@ -108,12 +109,10 @@ const RTW = {
                     }
                 } ]
             } );
-        } else {
-
         }
     },
 
-    
+
     updateEventHandlers() {
         this.settings.useTabRedirect = true;
 
@@ -124,17 +123,13 @@ const RTW = {
             chrome.webNavigation.onBeforeNavigate.removeListener( this._onBeforeNavigate );
             this._isTabRedirectInstalled = false;
         }
-
-        if ( !this.settings.useTabRedirect ) {
-
-        }
     },
 
-    
+
     mergeStorageChunk( chunk ) {
         const oldIRD = this.settings.isRedirectDisabled;
         for ( const key in chunk ) {
-            this.settings[key] = chunk[key];
+            this.settings[ key ] = chunk[ key ];
         }
         if ( this.settings.isRedirectDisabled !== oldIRD ) {
             this.updateIcon();
@@ -143,18 +138,18 @@ const RTW = {
         this.updateEventHandlers();
     },
 
-    
+
     mergeStorageDiffChunk( chunk ) {
-        let obj = {};
+        const obj = {};
         for ( const key in chunk ) {
-            obj[key] = chunk[key].newValue;
+            obj[ key ] = chunk[ key ].newValue;
         }
         this.mergeStorageChunk( obj );
     }
 };
 
 
-storage.onChanged.addListener( ( changes, _ ) => RTW.mergeStorageDiffChunk( changes ) );
-storage.local.get( Object.keys( RTW.settings ), result => RTW.mergeStorageChunk( result ) )
+storage.onChanged.addListener( changes => RTW.mergeStorageDiffChunk( changes ) );
+storage.local.get( Object.keys( RTW.settings ), result => RTW.mergeStorageChunk( result ) );
 
 globalThis.RTW = RTW;
