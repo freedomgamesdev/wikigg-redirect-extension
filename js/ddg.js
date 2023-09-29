@@ -1,7 +1,7 @@
 'use strict';
 
 
-import { getWikis } from './util.js';
+import { getWikis, getNativeSettings } from './util.js';
 import {
     prepareWikisInfo,
     invokeSearchModule,
@@ -211,16 +211,20 @@ const rewrite = {
 };
 
 
-awaitElement(
-    document.getElementById( 'react-layout' ),
-    'div > div > section',
-    sectionNode => {
+getNativeSettings().local.get( [ 'ddgEnable' ], result => {
+    if ( result.ddgEnable || result.ddgEnable === undefined ) {
         awaitElement(
-            sectionNode,
-            '.react-results--main',
-            node => {
-                invokeSearchModule( wikis, rewrite.run.bind( rewrite ), filter.run.bind( filter ), node );
+            document.getElementById( 'react-layout' ),
+            'div > div > section',
+            sectionNode => {
+                awaitElement(
+                    sectionNode,
+                    '.react-results--main',
+                    node => {
+                        invokeSearchModule( wikis, rewrite.run.bind( rewrite ), filter.run.bind( filter ), node );
+                    }
+                );
             }
         );
     }
-);
+} );
