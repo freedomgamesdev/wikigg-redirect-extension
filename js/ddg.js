@@ -151,14 +151,11 @@ const rewrite = {
 
 
     rewriteURLElement( wiki, node ) {
-        // eslint-disable-next-line security/detect-non-literal-regexp
-        const oldUrlRegex = new RegExp( `${wiki.oldId || wiki.id}.(:?miraheze|fandom).(:?com|org)` );
-
         for ( const child of node.childNodes ) {
             if ( /(?<=.+):\/\//.test( child.textContent ) ) {
                 continue;
             }
-            child.textContent = child.textContent.replace(oldUrlRegex, `${wiki.id}.wiki.gg` );
+            child.textContent = child.textContent.replace( `${wiki.oldId || wiki.id}.fandom.com`, `${wiki.id}.wiki.gg` );
         }
     },
 
