@@ -21,7 +21,7 @@ const RTW = {
 
 
     getCurrentSettingValue( key ) {
-        return this.settingsCache && this.settingsCache[ key ] || userDefaults[ key ];
+        return ( this.settingsCache && this.settingsCache[ key ] ) ?? userDefaults[ key ];
     },
 
 
