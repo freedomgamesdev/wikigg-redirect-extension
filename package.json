@@ -3,8 +3,8 @@
 	"scripts": {
 		"lint:js": "eslint --cache --max-warnings 0 .",
 		"build": "rollup -c rollup-config-background.mjs",
-		"package-dev": "zip -r Generic_Chrome_N.N.N-devN.zip manifest.json built icons popup.html sites.json",
-		"package-release": "bash scripts/package_release.sh"
+		"package-dev": "bash scripts/package_tagged.sh dev",
+		"package-release": "bash scripts/package_tagged.sh rel"
 	},
 	"devDependencies": {
 		"@rollup/plugin-json": "^6.0.0",
