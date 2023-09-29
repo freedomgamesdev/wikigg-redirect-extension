@@ -4,7 +4,8 @@
 import { getWikis } from './util.js';
 import {
     prepareWikisInfo,
-    invokeSearchModule
+    invokeSearchModule,
+    awaitElement
 } from './baseSearch.js';
 
 
@@ -22,15 +23,6 @@ function findNextOfficialWikiResult( wiki, oldElement, selector ) {
         }
     }
     return null;
-}
-
-
-function assembleMutationObserver( callback, config, element ) {
-    element = element || document;
-    config = config || { attributes: true, childList: true, subtree: true };
-    const observer = new MutationObserver( callback );
-    observer.observe( element, config );
-    return observer;
 }
 
 
@@ -221,15 +213,17 @@ const rewrite = {
     }
 };
 
-function observedRun( mutation ) {
-    // Checks for the main result and result list containers.
-    if ( document.querySelector( '#react-layout' ) && document.querySelector( '.react-results--main' ) ) {
-        invokeSearchModule( wikis, rewrite.run.bind( rewrite ), filter.run.bind( filter ) );
-    }
-}
 
-document.onreadystatechange = event => {
-    if ( event.target.readyState === 'complete' ) {
-        assembleMutationObserver( observedRun, undefined, document );
+awaitElement(
+    document.getElementById( 'react-layout' ),
+    'div > div > section',
+    sectionNode => {
+        awaitElement(
+            sectionNode,
+            '.react-results--main',
+            node => {
+                invokeSearchModule( wikis, rewrite.run.bind( rewrite ), filter.run.bind( filter ), node );
+            }
+        );
     }
-};
+);
