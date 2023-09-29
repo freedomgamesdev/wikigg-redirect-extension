@@ -4,8 +4,7 @@
 import { getWikis } from './util.js';
 import {
     prepareWikisInfo,
-    invokeSearchModule,
-    crawlUntilParentFound
+    invokeSearchModule
 } from './baseSearch.js';
 
 
@@ -25,14 +24,16 @@ function findNextOfficialWikiResult( wiki, oldElement, selector ) {
     return null;
 }
 
+
 function assembleMutationObserver( callback, config, element ) {
     element = element || document;
     config = config || { attributes: true, childList: true, subtree: true };
     const observer = new MutationObserver( callback );
     observer.observe( element, config );
     return observer;
-
 }
+
+
 // Replaces a Fandom result with an official wiki result or a placeholder
 const filter = {
     MARKER_ATTRIBUTE: 'data-lock',
@@ -41,38 +42,40 @@ const filter = {
     URL_ELEMENT_SELECTOR: '.Wo6ZAEmESLNUuWBkbMxx',
     ANCHOR_ELEMENT_SELECTOR: '.Rn_JXVtoPVAFyGkcaXyK',
     SPAN_TITLE_ELEMENT_SELECTOR: '.EKtkFWMYpwzMKOYr0GYm',
-    
+
+
     lock( element ) {
         element.setAttribute( this.MARKER_ATTRIBUTE, '1' );
     },
-    
+
+
     isLocked( element ) {
         return element.getAttribute( this.MARKER_ATTRIBUTE ) === '1';
     },
-   
+
+
     makePlaceholderElement( wiki ) {
         const element = document.createElement( 'span' );
         element.innerHTML = 'Result from ' + wiki.search.placeholderTitle + ' hidden by wiki.gg redirector';
         element.style.color = '#5f6368';
-	element.classList.add( 'filter_badge' );
-	element.style.padding = '0px 0px 1em 10px';
-	element.style.display = 'block'
+        element.classList.add( 'filter_badge' );
+        element.style.padding = '0px 0px 1em 10px';
+        element.style.display = 'block';
         return element;
     },
 
 
     run( wiki, linkElement ) {
-	if ( linkElement.parentElement && document.querySelector( this.ENGINE_RESULT_LIST_CONTAINER ).contains( linkElement )) {
-	    
+        if ( linkElement.parentElement && document.querySelector( this.ENGINE_RESULT_LIST_CONTAINER ).contains( linkElement )) {
             // Find result container
-	    const oldElement = linkElement.closest( 'article' );
+            const oldElement = linkElement.closest( 'article' );
+            // If we're hidden - skip, we were already here
+            if ( oldElement.style.display === 'none' ) {
+                return;
+            }
 
-	    // If we're hidden - skip, we were already here
-	    if ( oldElement.style.display === 'none' ) {
-		return
-	    }
             // Verify that the top-level result is a link to the same wiki
-	    const topLevelLinkElement = oldElement.querySelector( this.ANCHOR_ELEMENT_SELECTOR );
+            const topLevelLinkElement = oldElement.querySelector( this.ANCHOR_ELEMENT_SELECTOR );
             if ( topLevelLinkElement && !topLevelLinkElement.href.startsWith( `https://${wiki.oldId || wiki.id}.fandom.com` ) ) {
                 return;
             }
@@ -82,18 +85,21 @@ const filter = {
                 const officialResult = findNextOfficialWikiResult( wiki, oldElement, 'article' );
                 if ( officialResult ) {
                     // Move the official result before this one
-		    document.querySelector( this.ENGINE_RESULT_LIST_CONTAINER ).insertBefore( officialResult.parentNode, oldElement.parentElement );
-		}
+                    const resultContainer = document.querySelector( this.ENGINE_RESULT_LIST_CONTAINER );
+                    resultContainer.insertBefore( officialResult.parentNode, oldElement.parentElement );
+                }
             } else {
                 // Insert a placeholder before this result
-		document.querySelector( this.ENGINE_RESULT_LIST_CONTAINER ).insertBefore( this.makePlaceholderElement( wiki ), oldElement.parentNode );
-	    }
+                const resultContainer = document.querySelector( this.ENGINE_RESULT_LIST_CONTAINER );
+                resultContainer.insertBefore( this.makePlaceholderElement( wiki ), oldElement.parentNode );
+            }
+
             // Hides the main result element
-	    oldElement.style.display = 'none';
-	    // Creates a placeholder indicating the user that we removed the result
-	    oldElement.parentElement.prepend( this.makePlaceholderElement( wiki ), oldElement );
-	    this.lock( linkElement );
-	}
+            oldElement.style.display = 'none';
+            // Creates a placeholder indicating the user that we removed the result
+            oldElement.parentElement.prepend( this.makePlaceholderElement( wiki ), oldElement );
+            this.lock( linkElement );
+        }
     }
 };
 
@@ -106,22 +112,23 @@ const rewrite = {
     URL_ELEMENT_SELECTOR: '.Wo6ZAEmESLNUuWBkbMxx',
     SPAN_TITLE_PARENT_ELEMENT_SELECTOR: '.eVNpHGjtxRBq_gLOfGDr',
     ANCHOR_PARENT_ELEMENT_SELECTOR: '.Rn_JXVtoPVAFyGkcaXyK',
-    
+
+
     makeBadgeElement( isTopLevel ) {
         const out = document.createElement( 'span' );
         out.innerText = isTopLevel ? 'redirected' : 'some redirected';
-        out.style.backgroundColor = document.getElementsByTagName( 'html' )[0].classList.contains( 'dark-bg' )   ?
-	    '#a7a7a7' :
-	    '#0002';
-	out.style.color = 'black';
+        out.style.backgroundColor = document.documentElement.classList.contains( 'dark-bg' )
+            ? '#a7a7a7'
+            : '#0002';
+        out.style.color = 'black';
         out.style.fontSize = '70%';
         out.style.borderRadius = '4px';
         out.style.padding = '1px 6px';
         out.style.marginLeft = '4px';
         out.style.opacity = '0.6';
-	out.style.textDecoration = 'none';
-	out.style.css = 'vertical-align: middle';
-	out.classList.add( 'rewrite_badge' );
+        out.style.textDecoration = 'none';
+        out.style.verticalAlign = 'middle';
+        out.classList.add( 'rewrite_badge' );
         return out;
     },
 
@@ -133,7 +140,6 @@ const rewrite = {
             link.href = link.href.replace( `${wiki.oldId || wiki.id}.fandom.com`, `${wiki.id}.wiki.gg` );
         }
     },
-    
 
 
     rewriteText( wiki, text ) {
@@ -151,80 +157,79 @@ const rewrite = {
         }
     },
 
-    
+
     rewriteURLElement( wiki, node ) {
-	const oldUrlRegex = new RegExp( `${wiki.oldId || wiki.id}.(:?miraheze|fandom).(:?com|org)` );
-	
-	for (const child of node.childNodes) {
-	    if ( /(?<=.+):\/\//.test( child.textContent ) ) {
-		continue;
-	    }
-	    child.textContent = child.textContent.replace(oldUrlRegex, `${wiki.id}.wiki.gg` );
-	}
+        // eslint-disable-next-line security/detect-non-literal-regexp
+        const oldUrlRegex = new RegExp( `${wiki.oldId || wiki.id}.(:?miraheze|fandom).(:?com|org)` );
+
+        for ( const child of node.childNodes ) {
+            if ( /(?<=.+):\/\//.test( child.textContent ) ) {
+                continue;
+            }
+            child.textContent = child.textContent.replace(oldUrlRegex, `${wiki.id}.wiki.gg` );
+        }
     },
+
 
     lock( element ) {
         element.setAttribute( this.MARKER_ATTRIBUTE, '1' );
     },
-    
+
+
     isLocked( element ) {
         return element.getAttribute( this.MARKER_ATTRIBUTE ) === '1';
     },
 
+
     run( wiki, linkElement ) {
         if ( linkElement !== null && !this.isLocked( linkElement ) ) {
-	    // Find result container
-	    const element = linkElement.closest( 'article' );
- 
-	    const isTopLevel = (a) => {
-		return a.href.startsWith( `https://${wiki.oldId || wiki.id}.fandom.com` );
-	    };
-	
+            // Find result container
+            const element = linkElement.closest( 'article' );
+
+            const isTopLevel = a => {
+                return a.href.startsWith( `https://${wiki.oldId || wiki.id}.fandom.com` );
+            };
+
             if ( element !== null ) {
-		// Check all a relements in the result and verify that it's a link to the same wiki
-		for ( const a of element.getElementsByTagName( 'a' ) ) {
-		    if( isTopLevel( a ) )
-			break;
-		}
-		// Rewrite anchor href links
-		for ( const a of element.getElementsByTagName( "a" ) ) {
-		    this.rewriteLink( wiki, a );
-		}
+                // Rewrite anchor href links
+                for ( const a of element.getElementsByTagName( 'a' ) ) {
+                    this.rewriteLink( wiki, a );
+                }
+
                 // Rewrite title and append a badge
                 for ( const span of element.querySelector( this.SPAN_TITLE_PARENT_ELEMENT_SELECTOR ).getElementsByTagName( 'span' ) ) {
-		    if( !wiki.search.titlePattern.test( span.textContent ) ) {
-			continue;
-		    }
-		    // TODO: This should get placed at the end if and only if everything is sucessful.
+                    if ( !wiki.search.titlePattern.test( span.textContent ) ) {
+                        continue;
+                    }
+
+                    // TODO: This should get placed at the end if and only if everything is sucessful.
                     span.parentElement.appendChild( this.makeBadgeElement( isTopLevel ) );
-		    
+
                     this.lock( span.parentElement );
                     this.rewriteSpan( wiki, span );
                     this.lock( span );
-		}
-                // Rewrite URL element
-                for ( const url of element.querySelector( this.ANCHOR_PARENT_ELEMENT_SELECTOR )
-			    .getElementsByTagName( 'span' ) ) {
-		    this.rewriteURLElement( wiki, url ) 
                 }
-		
-		this.lock( linkElement );
-	    }
-	}
+
+                // Rewrite URL element
+                for ( const url of element.querySelector( this.ANCHOR_PARENT_ELEMENT_SELECTOR ).getElementsByTagName( 'span' ) ) {
+                    this.rewriteURLElement( wiki, url );
+                }
+
+                this.lock( linkElement );
+            }
+        }
     }
 };
 
 function observedRun( mutation ) {
     // Checks for the main result and result list containers.
-    if ( document.querySelector( '#react-layout' ) && document.querySelector( '.react-results--main' ) )
-	if ( true ) {
-	    invokeSearchModule( wikis, rewrite.run.bind( rewrite ), filter.run.bind( filter ) );
-	}
-
+    if ( document.querySelector( '#react-layout' ) && document.querySelector( '.react-results--main' ) ) {
+        invokeSearchModule( wikis, rewrite.run.bind( rewrite ), filter.run.bind( filter ) );
+    }
 }
 
-document.onreadystatechange = ( event ) => {
+document.onreadystatechange = event => {
     if ( event.target.readyState === 'complete' ) {
-	assembleMutationObserver( observedRun, undefined, document );
+        assembleMutationObserver( observedRun, undefined, document );
     }
 };
