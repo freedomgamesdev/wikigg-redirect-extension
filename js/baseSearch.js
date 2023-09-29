@@ -7,11 +7,11 @@ export function invokeSearchModule( wikis, rewriteRoutine, filterRoutine, rootNo
     rootNode = rootNode || document;
 
     getNativeSettings().local.get( [ 'searchMode', 'disabledWikis' ], result => {
-        const mode = ( result || defaults ).searchMode || 'rewrite';
-        let doRoutine = ( {
-            filter: filterRoutine,
-            rewrite: rewriteRoutine,
-        } )[ mode ];
+        const mode = ( result || defaults ).searchMode || 'rewrite',
+            doRoutine = ( {
+                filter: filterRoutine,
+                rewrite: rewriteRoutine
+            } )[ mode ];
 
         if ( !doRoutine ) {
             return;
@@ -19,7 +19,7 @@ export function invokeSearchModule( wikis, rewriteRoutine, filterRoutine, rootNo
 
         // TODO: merge selectors and run that query, then determine the wiki
         for ( const wiki of wikis ) {
-            if ( ( result && result.disabledWikis || defaults.disabledWikis ).indexOf( wiki.id ) >= 0 ) {
+            if ( ( result && result.disabledWikis || defaults.disabledWikis ).includes( wiki.id ) ) {
                 continue;
             }
 
@@ -28,7 +28,7 @@ export function invokeSearchModule( wikis, rewriteRoutine, filterRoutine, rootNo
             }
         }
     } );
-};
+}
 
 
 export function prepareWikisInfo( wikis, options ) {
@@ -40,6 +40,7 @@ export function prepareWikisInfo( wikis, options ) {
         if ( options.titles ) {
             if ( !wiki.search.titlePattern ) {
                 const escapedName = ( wiki.search.oldName || wiki.name ).replace( /[.*+?^${}()|[\]\\]/g, '\\$&' );
+                // eslint-disable-next-line security/detect-non-literal-regexp
                 wiki.search.titlePattern = new RegExp( `(Official )?${escapedName} (Wiki|Fandom)( (-|\\|) Fandom)?$`, 'i' );
             }
             if ( !wiki.search.placeholderTitle ) {
@@ -60,7 +61,7 @@ export function prepareWikisInfo( wikis, options ) {
     }
 
     return wikis;
-};
+}
 
 
 // Looks for a search result container by walking an element's parents
@@ -72,7 +73,7 @@ export function crawlUntilParentFound( element, selector, maxDepth = 10 ) {
         return crawlUntilParentFound( element.parentElement, selector, maxDepth - 1 );
     }
     return null;
-};
+}
 
 
 export function awaitElement( knownParent, selector, callback ) {
@@ -81,7 +82,7 @@ export function awaitElement( knownParent, selector, callback ) {
         return callback( node );
     }
 
-    const observer = new MutationObserver( _ => {
+    const observer = new MutationObserver( () => {
         node = knownParent.querySelector( `:scope > ${selector}` );
         if ( node ) {
             observer.disconnect();
@@ -89,6 +90,6 @@ export function awaitElement( knownParent, selector, callback ) {
         }
     } );
     observer.observe( knownParent, {
-        childList: true,
+        childList: true
     } );
-};
+}

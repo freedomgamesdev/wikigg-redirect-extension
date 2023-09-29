@@ -1,6 +1,7 @@
 {
 	"private": true,
 	"scripts": {
+		"lint:js": "eslint --cache --max-warnings 0 .",
 		"build": "rollup -c rollup-config-background.mjs",
 		"package-dev": "zip -r Generic_Chrome_N.N.N-devN.zip manifest.json built icons popup.html sites.json",
 		"package-release": "bash scripts/package_release.sh"
@@ -8,5 +9,8 @@
 	"devDependencies": {
 		"@rollup/plugin-json": "^6.0.0",
 		"rollup": "^3.9.1"
+	},
+	"dependencies": {
+		"eslint-config-wikimedia": "^0.25.1"
 	}
 }

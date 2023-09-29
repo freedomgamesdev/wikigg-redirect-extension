@@ -11,19 +11,19 @@ import {
 getNativeSettings().local.get( [ 'isRedirectDisabled', 'disabledWikis' ], result => {
     result = result || defaultSettingsFactory();
 
-    const mode = ( result || defaults ).isRedirectDisabled || false;
+    const mode = result.isRedirectDisabled || false;
     if ( mode !== 'banner' ) {
         return;
     }
 
-    const hostId = location.host.split( '.' )[0],
+    const hostId = location.host.split( '.' )[ 0 ],
         wiki = prepareWikisInfo( getWikis( false, true ), {
-                titles: true
-            } ).find( x => {
-                return !( result.disabledWikis && result.disabledWikis.includes( x.id ) )
-                    && ( ( x.oldId || x.id ) === hostId );
-            } );
-    
+            titles: true
+        } ).find( x => {
+            return !( result.disabledWikis && result.disabledWikis.includes( x.id ) )
+                && ( ( x.oldId || x.id ) === hostId );
+        } );
+
     if ( wiki ) {
         const bannerElement = document.createElement( 'div' );
         bannerElement.setAttribute( 'style', `

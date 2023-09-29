@@ -78,7 +78,6 @@ const rewrite = {
     MORE_FROM_NETWORK_SELECTOR: 'a.fl[href*="site:fandom.com"]',
 
 
-
     makeBadgeElement( isMobile, isTopLevel ) {
         const out = document.createElement( 'span' );
         out.textContent = isTopLevel ? 'redirected' : 'some redirected';
@@ -95,7 +94,7 @@ const rewrite = {
 
 
     rewriteLink( wiki, link ) {
-        if ( link.tagName.toLowerCase() == 'a' ) {
+        if ( link.tagName.toLowerCase() === 'a' ) {
             if ( link.href.startsWith( '/url?' ) ) {
                 link.href = ( new URLSearchParams( link.href ) ).get( 'url' );
             } else {
@@ -126,7 +125,7 @@ const rewrite = {
         }
     },
 
-    
+
     lock( element ) {
         element.setAttribute( this.MARKER_ATTRIBUTE, '1' );
     },
@@ -168,7 +167,8 @@ const rewrite = {
                     // Insert a badge indicating the result was modified if we haven't done that already (check heading and
                     // result group)
                     if ( !networkHeader && !this.isLocked( element ) && !this.isLocked( h3 ) ) {
-                        h3.parentNode.parentNode.insertBefore( this.makeBadgeElement( isMobile, isTopLevel ), h3.parentNode.nextSibling );
+                        const badgeElement = this.makeBadgeElement( isMobile, isTopLevel );
+                        h3.parentNode.parentNode.insertBefore( badgeElement, h3.parentNode.nextSibling );
                     }
                     // Tag heading and result group as ones we badged
                     this.lock( element );
@@ -219,7 +219,8 @@ if ( bottomStuff ) {
                             awaitElement(
                                 addedNode,
                                 'div',
-                                results => invokeSearchModule( wikis, rewrite.run.bind( rewrite ), filter.run.bind( filter ), results )
+                                results => invokeSearchModule( wikis, rewrite.run.bind( rewrite ), filter.run.bind( filter ),
+                                    results )
                             );
                         }
                     }

@@ -1,0 +1,40 @@
+{
+	"root": true,
+
+    "parserOptions": {
+        "sourceType": "module"
+    },
+	"extends": [
+		"wikimedia/client-common",
+        "wikimedia/language/es2021",
+		"wikimedia/common"
+	],
+    "globals": {
+        "chrome": "readonly"
+    },
+	"rules": {
+        "arrow-parens": [ "error", "as-needed" ],
+		"indent": [ "error", 4, {
+            "SwitchCase": 1
+        } ],
+		"max-len": [ "warn", {
+			"code": 129
+        } ],
+        "no-bitwise": "off",
+		"no-implicit-globals": "off",
+        "no-multiple-empty-lines": [ "error", {
+            "max": 2
+        } ],
+        "no-unused-vars": [ "error", {
+            "argsIgnorePattern": "^_",
+            "varsIgnorePattern": "^_"
+        } ],
+        "no-underscore-dangle": [
+            "off",
+            "Private/internal/protected methods."
+        ],
+		"operator-linebreak": [ "error", "before" ],
+		"one-var": "off",
+        "one-var-declaration-per-line": [ "error", "initializations" ]
+	}
+}
