@@ -19,7 +19,7 @@ const wikis = prepareWikisInfo( getWikis( false, true ), {
 function findNextOfficialWikiResult( wiki, oldElement, selector ) {
     for ( const node of document.querySelectorAll( wiki.search.goodSelector ) ) {
         if ( node.compareDocumentPosition( oldElement ) & 0x02 ) {
-            return node.closest(selector)
+            return node.closest( selector );
         }
     }
     return null;
@@ -58,7 +58,7 @@ const filter = {
 
 
     run( wiki, linkElement ) {
-        if ( linkElement.parentElement && document.querySelector( this.ENGINE_RESULT_LIST_CONTAINER ).contains( linkElement )) {
+        if ( linkElement.parentElement && document.querySelector( this.ENGINE_RESULT_LIST_CONTAINER ).contains( linkElement ) ) {
             // Find result container
             const oldElement = linkElement.closest( 'article' );
             // If we're hidden - skip, we were already here
@@ -102,8 +102,8 @@ const rewrite = {
     MARKER_ATTRIBUTE: 'data-lock',
     ENGINE_LAYOUT_SELECTOR: '#react-layout',
     URL_ELEMENT_SELECTOR: '.Wo6ZAEmESLNUuWBkbMxx',
-    SPAN_TITLE_PARENT_ELEMENT_SELECTOR: '.eVNpHGjtxRBq_gLOfGDr',
-    ANCHOR_PARENT_ELEMENT_SELECTOR: '.Rn_JXVtoPVAFyGkcaXyK',
+    SPAN_TITLE_ELEMENT_SELECTOR: '.eVNpHGjtxRBq_gLOfGDr span',
+    ANCHOR_ELEMENT_SELECTOR: '.Rn_JXVtoPVAFyGkcaXyK span',
 
 
     makeBadgeElement( isTopLevel ) {
@@ -186,7 +186,7 @@ const rewrite = {
                 }
 
                 // Rewrite title and append a badge
-                for ( const span of element.querySelector( this.SPAN_TITLE_PARENT_ELEMENT_SELECTOR ).getElementsByTagName( 'span' ) ) {
+                for ( const span of element.querySelectorAll( this.SPAN_TITLE_ELEMENT_SELECTOR ) ) {
                     if ( !wiki.search.titlePattern.test( span.textContent ) ) {
                         continue;
                     }
@@ -200,7 +200,7 @@ const rewrite = {
                 }
 
                 // Rewrite URL element
-                for ( const url of element.querySelector( this.ANCHOR_PARENT_ELEMENT_SELECTOR ).getElementsByTagName( 'span' ) ) {
+                for ( const url of element.querySelectorAll( this.ANCHOR_ELEMENT_SELECTOR ) ) {
                     this.rewriteURLElement( wiki, url );
                 }
 
