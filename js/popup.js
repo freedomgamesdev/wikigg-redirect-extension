@@ -136,16 +136,10 @@ const RTW = {
     },
 
 
-    disableToggle( node ) {
-        node.disabled = true;
-        node.parentNode.style.display = 'none';
-    },
-
-
     initialiseDynamic() {
         if ( !chrome.runtime.getManifest().name.includes( 'DEVBUILD' ) ) {
-            for ( const devToggle of document.querySelectorAll( '[data-hide-in-stable]' ) ) {
-                this.disableToggle( devToggle );
+            for ( const toRemove of document.querySelectorAll( '[data-hide-in-stable]' ) ) {
+                toRemove.remove();
             }
         }
     }

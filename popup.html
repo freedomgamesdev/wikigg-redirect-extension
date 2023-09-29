@@ -207,10 +207,9 @@
                     data-setting-id="isRedirectDisabled" data-value="false" />
                 <label for="redirectMode__do">Redirect from old to new wikis</label>
 		    </div>
-		    <div>
+		    <div data-hide-in-stable>
 			    <input type="radio" name="redirectMode" id="redirectMode__banner"
-                    data-setting-id="isRedirectDisabled" data-value="banner"
-                    data-hide-in-stable />
+                    data-setting-id="isRedirectDisabled" data-value="banner" />
                 <label for="redirectMode__banner">Do not redirect, display a banner instead</label>
 		    </div>
 		    <div>
@@ -236,10 +235,11 @@
                     data-setting-id="searchMode" data-value="none" />
                 <label for="dontTouchSearch">Don't alter results in Google</label>
 		    </div>
+        </div>
+        <div data-hide-in-stable>
 		    <div>
 			    <input type="checkbox" id="useTabRedirect"
-                    data-setting-id="useTabRedirect" data-on="true" data-off="false"
-                    data-hide-in-stable />
+                    data-setting-id="useTabRedirect" data-on="true" data-off="false" />
                 <label for="useTabRedirect">Use legacy redirection method</label>
 		    </div>
         </div>
