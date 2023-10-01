@@ -68,6 +68,10 @@
         "name": "Backpack Hero"
     },
     {
+        "id": "bakegg",
+        "name": "Bake.gg"
+    },
+    {
         "id": "battletabs",
         "oldId": "battletabs-io",
         "name": "BattleTabs",
