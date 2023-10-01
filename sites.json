@@ -269,12 +269,18 @@
         "id": "letitdie",
         "name": "Let It Die"
     },
-    {
-        "id": "mcdf",
-        "oldId": "mcdiscontinued",
-        "farm": "miraheze",
-        "name": "Minecraft Discontinued Features"
-    },
+    [
+        {
+            "spacer": "Minecraft"
+        },
+        {
+            "id": "mcdf",
+            "oldId": "mcdiscontinued",
+            "farm": "miraheze",
+            "name": "Minecraft Discontinued Features",
+            "uiClass": "wiki-indent"
+        }
+    ], 
     {
         "id": "monumenta",
         "oldId": "monumentammo",
