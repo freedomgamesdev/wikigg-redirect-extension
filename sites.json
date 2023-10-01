@@ -203,6 +203,10 @@
         "official": true
     },
     {
+        "id": "farmingsimulator",
+        "name": "Farming Simulator",
+    },
+    {
         "id": "fearandhunger",
         "name": "Fear and Hunger",
         "official": true,
