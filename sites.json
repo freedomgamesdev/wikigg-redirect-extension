@@ -50,6 +50,10 @@
         }
     ],
     {
+        "id": "arknights",
+        "name": "Arknights"
+    },
+    {
         "id": "townshiptale",
         "name": "A Township Tale",
         "official": true
@@ -204,7 +208,7 @@
     },
     {
         "id": "farmingsimulator",
-        "name": "Farming Simulator",
+        "name": "Farming Simulator"
     },
     {
         "id": "fearandhunger",
