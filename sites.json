@@ -50,6 +50,10 @@
         }
     ],
     {
+        "id": "arknights",
+        "name": "Arknights"
+    },
+    {
         "id": "townshiptale",
         "name": "A Township Tale",
         "official": true
