@@ -3,7 +3,7 @@
 	<head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Redirect to wiki.gg</title>
+        <title><i18n>extension-name-dev</i18n></title>
 		<style>
             :root {
                 --background-colour: #d8dada;
@@ -204,49 +204,49 @@
 		</style>
 	</head>
 	<body>
-		<h3>wiki.gg migration helper</h3>
+		<h3><i18n>popup-name</i18n></h3>
         <div class="options-group">
-            <h5>Redirecting</h5>
+            <h5><i18n>options-redirecting</i18n></h5>
 		    <div>
 			    <input type="radio" name="redirectMode" id="redirectMode__do"
                     data-setting-id="isRedirectDisabled" data-value="false" />
-                <label for="redirectMode__do">Redirect from old to new wikis</label>
+                <label for="redirectMode__do"><i18n>options-redirecting-yes</i18n></label>
 		    </div>
 		    <div>
 			    <input type="radio" name="redirectMode" id="redirectMode__banner"
                     data-setting-id="isRedirectDisabled" data-value="banner" />
-                <label for="redirectMode__banner">Do not redirect, display a banner instead</label>
+                <label for="redirectMode__banner"><i18n>options-redirecting-soft</i18n></label>
 		    </div>
 		    <div>
 			    <input type="radio" name="redirectMode" id="redirectMode__dont" data-means-inactive
                     data-setting-id="isRedirectDisabled" data-value="true" />
-                <label for="redirectMode__dont">Do not redirect automatically</label>
+                <label for="redirectMode__dont"><i18n>options-redirecting-no</i18n></label>
 		    </div>
         </div>
         <div class="options-group">
-            <h5>Search filtering</h5>
+            <h5><i18n>options-filtering</i18n></h5>
             <p>
-                <b>Currently supported:</b> <i>Google</i>, <i>DuckDuckGo</i>.
+                <b><i18n>options-filtering-supported-engines</i18n></b> <i>Google</i>, <i>DuckDuckGo</i>.
             </p>
 		    <div>
 			    <input type="radio" name="searchMode" id="rewriteSearch"
                     data-setting-id="searchMode" data-value="rewrite" />
-                <label for="rewriteSearch">Rewrite Fandom results</label>
+                <label for="rewriteSearch"><i18n>options-filtering-rewrite</i18n></label>
 		    </div>
 		    <div>
 			    <input type="radio" name="searchMode" id="filterSearch"
                     data-setting-id="searchMode" data-value="filter" />
-                <label for="filterSearch">Hide Fandom results</label>
+                <label for="filterSearch"><i18n>options-filtering-hide</i18n></label>
 		    </div>
 		    <div>
 			    <input type="radio" name="searchMode" id="dontTouchSearch" data-means-inactive
                     data-setting-id="searchMode" data-value="none" />
-                <label for="dontTouchSearch">Don't alter results</label>
+                <label for="dontTouchSearch"><i18n>options-filtering-no</i18n></label>
 		    </div>
 		    <div>
 			    <input type="checkbox" id="ddgSupportExp"
                     data-setting-id="ddgEnable" data-on="true" data-off="false" />
-                <label for="ddgSupportExp">Enable experimental DuckDuckGo support</label>
+                <label for="ddgSupportExp"><i18n>options-filtering-ddg-exp</i18n></label>
 		    </div>
         </div>
         <div class="options-group" data-hide-in-stable>
@@ -257,7 +257,7 @@
                 <label for="useTabRedirect">Use legacy redirection method</label>
 		    </div>
         </div>
-        <h4>Wikis to affect</h4>
+        <h4><i18n>options-wikis</i18n></h4>
         <div id="wikis-container">
             <div id="wiki-search-container">
                 <input id="wikiSearch" type="text" placeholder="Search..." />
@@ -265,7 +265,7 @@
             <ul id="wikis">
             </ul>
         </div>
-        <p id="bottom-links"><span id="version-string">v???</span> | <a href="https://forms.gle/eMX1Lfq76H4KPmHPA" target="_blank">Feedback?</a> | <a href="https://github.com/alex4401/wikigg-redirect-extension">Source code</a></p>
+        <p id="bottom-links"><span id="version-string">v???</span> | <a href="https://forms.gle/eMX1Lfq76H4KPmHPA" target="_blank"><i18n>feedback</i18n></a> | <a href="https://github.com/alex4401/wikigg-redirect-extension"><i18n>source-code</i18n></a></p>
 		<script type="text/javascript" src="built/popup.js"></script>
 	</body>
 </html>

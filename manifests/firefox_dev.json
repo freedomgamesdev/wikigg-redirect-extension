@@ -3,6 +3,7 @@
     "author": "alex4401",
     "version": "1.6.999997",
     "description": "Redirects visits from unsupported Fandom wikis that moved to wiki.gg, and filters search results in Google and DuckDuckGo.",
+    "default_locale": "en",
     "permissions": [
         "storage",
         "*://*.gamepedia.com/*",

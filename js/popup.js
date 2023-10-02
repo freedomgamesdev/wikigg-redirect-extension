@@ -142,6 +142,17 @@ const RTW = {
                 toRemove.remove();
             }
         }
+    },
+
+    
+    /**
+     * Replaces `<i18n>key</i18n>` tags in the document with appropriate localised message.
+     */
+    processMessageTags() {
+        for ( const node of document.querySelectorAll( 'i18n' ) ) {
+            const key = node.textContent;
+            node.replaceWith( chrome.i18n.getMessage( key ) );
+        }
     }
 };
 
@@ -149,6 +160,7 @@ const RTW = {
 ( function _initialiseUI() {
     RTW.updateVersion();
     RTW.initialiseDynamic();
+    RTW.processMessageTags();
 
     for ( const wiki of wikis ) {
         RTW.addWikiEntry( wiki );

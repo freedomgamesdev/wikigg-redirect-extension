@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILE_LIST='built icons popup.html sites.json'
+FILE_LIST='built _locales icons popup.html sites.json'
 
 function _package_for() {
 	echo "PACKAGING EXTENSION FOR TARGET ${1^^}"
