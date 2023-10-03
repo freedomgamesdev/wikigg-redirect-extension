@@ -15,6 +15,13 @@
         "message": "wiki.gg migration helper"
     },
 
+    "popup-tab-options": {
+        "message": "Options"
+    },
+    "popup-tab-wikis": {
+        "message": "Wikis"
+    },
+
     "options-redirecting": {
         "message": "Redirecting"
     },

@@ -158,6 +158,42 @@ const RTW = {
         for ( const node of document.querySelectorAll( 'i18n' ) ) {
             node.replaceWith( this.getMessageFallback( node.textContent ) );
         }
+    },
+
+
+    initialiseTabbers() {
+        for ( const tabberElement of document.getElementsByClassName( 'tabber' ) ) {
+            const tabs = [],
+                headerElement = document.createElement( 'div' );
+            headerElement.className = 'tabber-header';
+
+            for ( const tabElement of tabberElement.querySelectorAll( ':scope > section[data-tab-msg]' ) ) {
+                const msg = this.getMessageFallback( tabElement.getAttribute( 'data-tab-msg' ) ),
+                    buttonElement = document.createElement( 'button' );
+                buttonElement.textContent = msg;
+
+                buttonElement.addEventListener( 'click', () => {
+                    for ( const tab of tabs ) {
+                        tab.buttonElement.classList.remove( 'selected' );
+                        tab.tabElement.classList.remove( 'selected' );
+                    }
+
+                    buttonElement.classList.add( 'selected' );
+                    tabElement.classList.add( 'selected' );
+                } );
+
+                headerElement.appendChild( buttonElement );
+
+                tabs.push( {
+                    buttonElement,
+                    tabElement
+                } );
+            }
+
+            headerElement.children[ 0 ].click();
+
+            tabberElement.prepend( headerElement );
+        }
     }
 };
 
@@ -166,6 +202,7 @@ const RTW = {
     RTW.updateVersion();
     RTW.initialiseDynamic();
     RTW.processMessageTags();
+    RTW.initialiseTabbers();
 
     for ( const wiki of wikis ) {
         RTW.addWikiEntry( wiki );
