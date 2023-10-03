@@ -144,14 +144,19 @@ const RTW = {
         }
     },
 
-    
+
+    getMessageFallback( key, ...params ) {
+        const msg = chrome.i18n.getMessage( key, ...params );
+        return msg || key;
+    },
+
+
     /**
      * Replaces `<i18n>key</i18n>` tags in the document with appropriate localised message.
      */
     processMessageTags() {
         for ( const node of document.querySelectorAll( 'i18n' ) ) {
-            const key = node.textContent;
-            node.replaceWith( chrome.i18n.getMessage( key ) );
+            node.replaceWith( this.getMessageFallback( node.textContent ) );
         }
     }
 };
