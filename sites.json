@@ -131,6 +131,11 @@
         "official": true
     },
     {
+        "id": "deadahead",
+        "oldId": "dead-ahead",
+        "name": "Dead Ahead",
+    },
+    {
         "id": "deadcells",
         "name": "Dead Cells",
         "official": true
