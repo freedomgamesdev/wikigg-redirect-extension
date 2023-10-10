@@ -520,6 +520,10 @@
         "name": "UnderMine",
         "official": true
     },
+    {
+        "id": "vibrantventure",
+        "name": "Vibrant Venture",
+    },
     [
         {
             "id": "loathing",
