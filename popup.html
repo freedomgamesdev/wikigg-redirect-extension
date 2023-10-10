@@ -3,12 +3,13 @@
 	<head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Redirect to wiki.gg</title>
+        <title data-i18n="extension-name-dev"></title>
 		<style>
             :root {
                 --background-colour: #d8dada;
                 --text-colour: #000;
                 --accent-colour: #770e5c;
+                --accent-colour--rgb: 119, 14, 92;
                 --spacing: 0.6em;
                 --spacer-colour: #adaeae;
                 --bottom-links-opacity: 0.6;
@@ -30,20 +31,68 @@
             }
 			body {
 				margin: 0;
-				max-width: 350px;
-				width: 100%;
+				max-width: 500px;
+				width: 500px;
 				font-family: Inter, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 				font-size: .85em;
                 line-height: 1.6;
-                padding: 1rem;
+                padding: 0.6rem 1rem 0.3rem;
                 background-color: var(--background-colour);
                 color: var(--text-colour);
                 accent-color: var(--accent-colour);
-                display: flex;
-                flex-direction: column;
                 overflow: hidden;
                 max-height: 600px;
+
+                display: grid;
+                grid-template-areas:
+                    "t r"
+                    "l r"
+                    "b b";
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows:
+                    minmax(0, auto)
+                    1fr
+                    auto;
+                column-gap: 0.8rem;
 			}
+            #area-top { grid-area: t; }
+            #area-mobile-fallback { grid-area: a; display: contents; }
+            #area-mobile-fallback > .tabber-header { display: none; }
+            #area-left { grid-area: l; }
+            #area-right { grid-area: r; }
+            #area-bottom { grid-area: b; }
+
+            .tabber-header {
+                display: none;
+                align-items: stretch;
+                gap: 0.2rem;
+                padding-bottom: 0.2rem;
+                border-bottom: 1px solid #fff3;
+            }
+            .tabber-header button {
+                appearance: none;
+                padding: 0.4em 1.2em;
+                background: transparent;
+                color: #fff;
+                border: 0;
+                border-radius: 2px;
+                font-size: 0.94em;
+                transition: background .2s;
+            }
+            .tabber-header button:not( .selected ):hover {
+                background: rgba( var(--accent-colour--rgb ), 0.3 );
+            }
+            .tabber-header button.selected {
+                background: rgba( var(--accent-colour--rgb ), 0.8 );
+                outline: 1px solid rgba( var(--accent-colour--rgb ), 1 );
+            }
+            .tabber > section:not( .selected ) {
+                display: none;
+            }
+            .tabber#area-mobile-fallback > section:not( .selected ) {
+                display: block;
+            }
+            
             h3,
             h4,
             h5 {
@@ -177,16 +226,33 @@
                 opacity: var(--bottom-links-opacity);
             }
 
-            @media screen and (max-device-width: 900px) {
+            @media screen and ( max-device-width: 900px ) {
                 :root {
                     --spacing: 1em;
                 }
                 body {
                     font-size: 0.925em;
                     max-height: 100vh;
+                    width: 100%;
+                    padding-top: 0;
+                    max-width: unset;
+                    grid-template-areas:
+                        "t"
+                        "a"
+                        "b";
+                    grid-template-rows: auto 1fr minmax(0, auto);
+                    grid-template-columns: auto;
+                }
+                /* TODO: rework tabber into a min dw query */
+                #area-mobile-fallback { display: block; }
+                #area-mobile-fallback > .tabber-header {
+                    display: flex;
+                }
+                .tabber#area-mobile-fallback > section:not( .selected ) {
+                    display: none;
                 }
                 h3 {
-                    margin: -1rem -1rem 0.5em;
+                    margin: 0 -1rem 0.5rem;
                     padding: 0.5rem;
                     background: var(--accent-colour);
                     color: var(--accent-colour--text-against);
@@ -202,68 +268,83 @@
 		</style>
 	</head>
 	<body>
-		<h3>wiki.gg migration helper</h3>
-        <div class="options-group">
-            <h5>Redirecting</h5>
-		    <div>
-			    <input type="radio" name="redirectMode" id="redirectMode__do"
-                    data-setting-id="isRedirectDisabled" data-value="false" />
-                <label for="redirectMode__do">Redirect from old to new wikis</label>
-		    </div>
-		    <div>
-			    <input type="radio" name="redirectMode" id="redirectMode__banner"
-                    data-setting-id="isRedirectDisabled" data-value="banner" />
-                <label for="redirectMode__banner">Do not redirect, display a banner instead</label>
-		    </div>
-		    <div>
-			    <input type="radio" name="redirectMode" id="redirectMode__dont" data-means-inactive
-                    data-setting-id="isRedirectDisabled" data-value="true" />
-                <label for="redirectMode__dont">Do not redirect automatically</label>
-		    </div>
+        <div id="area-top">
+    		<h3><i18n>popup-name</i18n></h3>
         </div>
-        <div class="options-group">
-            <h5>Search filtering</h5>
-            <p>
-                <b>Currently supported:</b> <i>Google</i>, <i>DuckDuckGo</i>.
-            </p>
-		    <div>
-			    <input type="radio" name="searchMode" id="rewriteSearch"
-                    data-setting-id="searchMode" data-value="rewrite" />
-                <label for="rewriteSearch">Rewrite Fandom results</label>
-		    </div>
-		    <div>
-			    <input type="radio" name="searchMode" id="filterSearch"
-                    data-setting-id="searchMode" data-value="filter" />
-                <label for="filterSearch">Hide Fandom results</label>
-		    </div>
-		    <div>
-			    <input type="radio" name="searchMode" id="dontTouchSearch" data-means-inactive
-                    data-setting-id="searchMode" data-value="none" />
-                <label for="dontTouchSearch">Don't alter results</label>
-		    </div>
-		    <div>
-			    <input type="checkbox" id="ddgSupportExp"
-                    data-setting-id="ddgEnable" data-on="true" data-off="false" />
-                <label for="ddgSupportExp">Enable experimental DuckDuckGo support</label>
-		    </div>
+
+        <div id="area-mobile-fallback" class="tabber">
+            <section id="area-left" data-tab-msg="popup-tab-options">
+                <div class="options-group">
+                    <h5><i18n>options-redirecting</i18n></h5>
+        		    <div>
+        			    <input type="radio" name="redirectMode" id="redirectMode__do"
+                            data-setting-id="isRedirectDisabled" data-value="false" />
+                        <label for="redirectMode__do"><i18n>options-redirecting-yes</i18n></label>
+        		    </div>
+        		    <div>
+        			    <input type="radio" name="redirectMode" id="redirectMode__banner"
+                            data-setting-id="isRedirectDisabled" data-value="banner" />
+                        <label for="redirectMode__banner"><i18n>options-redirecting-soft</i18n></label>
+        		    </div>
+        		    <div>
+        			    <input type="radio" name="redirectMode" id="redirectMode__dont" data-means-inactive
+                            data-setting-id="isRedirectDisabled" data-value="true" />
+                        <label for="redirectMode__dont"><i18n>options-redirecting-no</i18n></label>
+        		    </div>
+                </div>
+
+                <div class="options-group">
+                    <h5><i18n>options-filtering</i18n></h5>
+                    <p>
+                        <b><i18n>options-filtering-supported-engines</i18n></b> <i>Google</i>, <i>DuckDuckGo</i>.
+                    </p>
+        		    <div>
+        			    <input type="radio" name="searchMode" id="rewriteSearch"
+                            data-setting-id="searchMode" data-value="rewrite" />
+                        <label for="rewriteSearch"><i18n>options-filtering-rewrite</i18n></label>
+        		    </div>
+        		    <div>
+        			    <input type="radio" name="searchMode" id="filterSearch"
+                            data-setting-id="searchMode" data-value="filter" />
+                        <label for="filterSearch"><i18n>options-filtering-hide</i18n></label>
+        		    </div>
+        		    <div>
+        			    <input type="radio" name="searchMode" id="dontTouchSearch" data-means-inactive
+                            data-setting-id="searchMode" data-value="none" />
+                        <label for="dontTouchSearch"><i18n>options-filtering-no</i18n></label>
+        		    </div>
+        		    <div>
+        			    <input type="checkbox" id="ddgSupportExp"
+                            data-setting-id="ddgEnable" data-on="true" data-off="false" />
+                        <label for="ddgSupportExp"><i18n>options-filtering-ddg-exp</i18n></label>
+        		    </div>
+                </div>
+
+                <div class="options-group" data-hide-in-stable>
+                    <h5>Hidden options</h5>
+        		    <div>
+        			    <input type="checkbox" id="useTabRedirect"
+                            data-setting-id="useTabRedirect" data-on="true" data-off="false" />
+                        <label for="useTabRedirect">Use legacy redirection method</label>
+        		    </div>
+                </div>
+            </section>
+
+            <section id="area-right" data-tab-msg="popup-tab-wikis">
+                <h4><i18n>options-wikis</i18n></h4>
+                <div id="wikis-container">
+                    <div id="wiki-search-container">
+                        <input id="wikiSearch" type="text" placeholder="Search..." />
+                    </div>
+                    <ul id="wikis"></ul>
+                </div>
+            </section>
         </div>
-        <div class="options-group" data-hide-in-stable>
-            <h5>Hidden options</h5>
-		    <div>
-			    <input type="checkbox" id="useTabRedirect"
-                    data-setting-id="useTabRedirect" data-on="true" data-off="false" />
-                <label for="useTabRedirect">Use legacy redirection method</label>
-		    </div>
+
+        <div id="area-bottom">
+            <p id="bottom-links"><span id="version-string">v???</span> | <a href="https://forms.gle/eMX1Lfq76H4KPmHPA" target="_blank"><i18n>feedback</i18n></a> | <a href="https://github.com/alex4401/wikigg-redirect-extension"><i18n>source-code</i18n></a></p>
         </div>
-        <h4>Wikis to affect</h4>
-        <div id="wikis-container">
-            <div id="wiki-search-container">
-                <input id="wikiSearch" type="text" placeholder="Search..." />
-            </div>
-            <ul id="wikis">
-            </ul>
-        </div>
-        <p id="bottom-links"><span id="version-string">v???</span> | <a href="https://forms.gle/eMX1Lfq76H4KPmHPA" target="_blank">Feedback?</a> | <a href="https://github.com/alex4401/wikigg-redirect-extension">Source code</a></p>
+
 		<script type="text/javascript" src="built/popup.js"></script>
 	</body>
 </html>

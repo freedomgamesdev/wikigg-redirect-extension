@@ -1,0 +1,67 @@
+{
+    "extension-name": {
+        "message": "Redirect to wiki.gg",
+        "description": "Extension name when packaged for the release/RC targets."
+    },
+    "extension-name-dev": {
+        "message": "[DEVBUILD] Redirect to wiki.gg",
+        "description": "Extension name when packaged for the development target."
+    },
+    "extension-desc": {
+        "message": "Redirects visits from unsupported Fandom wikis that moved to wiki.gg, and filters search results in Google and DuckDuckGo."
+    },
+
+    "popup-name": {
+        "message": "wiki.gg migration helper"
+    },
+
+    "popup-tab-options": {
+        "message": "Options"
+    },
+    "popup-tab-wikis": {
+        "message": "Wikis"
+    },
+
+    "options-redirecting": {
+        "message": "Redirecting"
+    },
+    "options-redirecting-yes": {
+        "message": "Redirect from old to new wikis"
+    },
+    "options-redirecting-soft": {
+        "message": "Do not redirect, display a banner instead"
+    },
+    "options-redirecting-no": {
+        "message": "Do not redirect automatically"
+    },
+
+    "options-filtering": {
+        "message": "Search filtering"
+    },
+    "options-filtering-supported-engines": {
+        "message": "Currently supported:"
+    },
+    "options-filtering-rewrite": {
+        "message": "Rewrite Fandom results"
+    },
+    "options-filtering-hide": {
+        "message": "Hide Fandom results"
+    },
+    "options-filtering-no": {
+        "message": "Don't alter results"
+    },
+    "options-filtering-ddg-exp": {
+        "message": "Enable experimental DuckDuckGo support"
+    },
+
+    "options-wikis": {
+        "message": "Wikis to affect"
+    },
+
+    "feedback": {
+        "message": "Feedback?"
+    },
+    "source-code": {
+        "message": "Source code"
+    }
+}

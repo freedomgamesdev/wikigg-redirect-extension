@@ -1,8 +1,9 @@
 {
     "name": "Redirect to wiki.gg",
     "author": "alex4401",
-    "version": "1.5.14",
-    "description": "Redirects visits from unsupported Fandom wikis that moved to wiki.gg, and filters search results in Google.",
+    "version": "1.6.0",
+    "description": "Redirects visits from unsupported Fandom wikis that moved to wiki.gg, and filters search results in Google and DuckDuckGo.",
+    "default_locale": "en",
     "permissions": [
         "storage",
         "webNavigation"
