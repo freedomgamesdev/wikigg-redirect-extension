@@ -6,5 +6,8 @@ The extension is available on these browsers:
 - [Firefox](https://addons.mozilla.org/en-US/firefox/addon/redirect-to-wiki-gg/)
 
 
-The code was originally based on [proEndreeper's RSWikiRedirector](https://github.com/proEndreeper/RSWikiRedirector), and is
-licenced under the MIT licence.
+Wikis that are considered independent. There is a separate "[Indie Wiki Buddy](https://github.com/KevinPayravi/indie-wiki-buddy)" extension available for Chrome and Firefox that you can use alongside **Redirect to wiki.gg**.
+
+------
+
+The code was originally based on [proEndreeper's RSWikiRedirector](https://github.com/proEndreeper/RSWikiRedirector), and is licenced under the MIT licence.
