@@ -255,10 +255,16 @@
         "name": "Farworld Pioneers",
         "official": true
     },
-    {
-        "id": "farmingsimulator",
-        "name": "Farming Simulator"
-    },
+    [
+        {
+            "id": "farmingsimulator",
+            "name": "Farming Simulator"
+        },
+        {
+            "parentRef": "farmingsimulator",
+            "oldId": "farming-simulator-2017"
+        }
+    ],
     {
         "id": "fearandhunger",
         "name": "Fear and Hunger",
@@ -574,6 +580,7 @@
     },
     {
         "id": "vibrantventure",
+        "oldId": "vibrant-venture",
         "name": "Vibrant Venture"
     },
     [
