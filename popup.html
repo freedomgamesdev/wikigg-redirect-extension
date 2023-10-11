@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-	<head>
+    <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title data-i18n="extension_name_dev"></title>
-		<style>
+        <style>
             :root {
                 --background-colour: #d8dada;
                 --text-colour: #000;
@@ -29,12 +29,12 @@
             * {
                 box-sizing: border-box;
             }
-			body {
-				margin: 0;
-				max-width: 500px;
-				width: 500px;
-				font-family: Inter, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-				font-size: .85em;
+            body {
+                margin: 0;
+                max-width: 500px;
+                width: 500px;
+                font-family: Inter, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                font-size: .85em;
                 line-height: 1.6;
                 padding: 0.6rem 1rem 0.3rem;
                 background-color: var(--background-colour);
@@ -54,7 +54,7 @@
                     1fr
                     auto;
                 column-gap: 0.8rem;
-			}
+            }
             #area-top { grid-area: t; }
             #area-mobile-fallback { grid-area: a; display: contents; }
             #area-mobile-fallback > .tabber-header { display: none; }
@@ -265,9 +265,9 @@
                     font-size: 90%;
                 }
             }
-		</style>
-	</head>
-	<body>
+        </style>
+    </head>
+    <body>
         <div id="area-top">
             <h3><i18n>popup_name</i18n></h3>
         </div>
@@ -276,21 +276,21 @@
             <section id="area-left" data-tab-msg="popup-tab-options">
                 <div class="options-group">
                     <h5><i18n>options_redirecting</i18n></h5>
-        		    <div>
-        			    <input type="radio" name="redirectMode" id="redirectMode__do"
+                    <div>
+                        <input type="radio" name="redirectMode" id="redirectMode__do"
                             data-setting-id="isRedirectDisabled" data-value="false" />
                         <label for="redirectMode__do"><i18n>options_redirecting_yes</i18n></label>
-        		    </div>
-        		    <div>
-        			    <input type="radio" name="redirectMode" id="redirectMode__banner"
+                    </div>
+                    <div>
+                        <input type="radio" name="redirectMode" id="redirectMode__banner"
                             data-setting-id="isRedirectDisabled" data-value="banner" />
                         <label for="redirectMode__banner"><i18n>options_redirecting_soft</i18n></label>
-        		    </div>
-        		    <div>
-        			    <input type="radio" name="redirectMode" id="redirectMode__dont" data-means-inactive
+                    </div>
+                    <div>
+                        <input type="radio" name="redirectMode" id="redirectMode__dont" data-means-inactive
                             data-setting-id="isRedirectDisabled" data-value="true" />
                         <label for="redirectMode__dont"><i18n>options_redirecting_no</i18n></label>
-        		    </div>
+                    </div>
                 </div>
 
                 <div class="options-group">
@@ -298,35 +298,35 @@
                     <p>
                         <b><i18n>options_filtering_supported_engines</i18n></b> <i>Google</i>, <i>DuckDuckGo</i>.
                     </p>
-        		    <div>
-        			    <input type="radio" name="searchMode" id="rewriteSearch"
+                    <div>
+                        <input type="radio" name="searchMode" id="rewriteSearch"
                             data-setting-id="searchMode" data-value="rewrite" />
                         <label for="rewriteSearch"><i18n>options_filtering_rewrite</i18n></label>
-        		    </div>
-        		    <div>
-        			    <input type="radio" name="searchMode" id="filterSearch"
+                    </div>
+                    <div>
+                        <input type="radio" name="searchMode" id="filterSearch"
                             data-setting-id="searchMode" data-value="filter" />
                         <label for="filterSearch"><i18n>options_filtering_hide</i18n></label>
-        		    </div>
-        		    <div>
-        			    <input type="radio" name="searchMode" id="dontTouchSearch" data-means-inactive
+                    </div>
+                    <div>
+                        <input type="radio" name="searchMode" id="dontTouchSearch" data-means-inactive
                             data-setting-id="searchMode" data-value="none" />
                         <label for="dontTouchSearch"><i18n>options_filtering_no</i18n></label>
-        		    </div>
-        		    <div>
-        			    <input type="checkbox" id="ddgSupportExp"
+                    </div>
+                    <div>
+                        <input type="checkbox" id="ddgSupportExp"
                             data-setting-id="ddgEnable" data-on="true" data-off="false" />
                         <label for="ddgSupportExp"><i18n>options_filtering_ddg_exp</i18n></label>
-        		    </div>
+                    </div>
                 </div>
 
                 <div class="options-group" data-hide-in-stable>
                     <h5>Hidden options</h5>
-        		    <div>
-        			    <input type="checkbox" id="useTabRedirect"
+                    <div>
+                        <input type="checkbox" id="useTabRedirect"
                             data-setting-id="useTabRedirect" data-on="true" data-off="false" />
                         <label for="useTabRedirect">Use legacy redirection method</label>
-        		    </div>
+                    </div>
                 </div>
             </section>
 
@@ -345,6 +345,6 @@
             <p id="bottom-links"><span id="version-string">v???</span> | <a href="https://forms.gle/eMX1Lfq76H4KPmHPA" target="_blank"><i18n>feedback</i18n></a> | <a href="https://github.com/alex4401/wikigg-redirect-extension"><i18n>source_code</i18n></a></p>
         </div>
 
-		<script type="text/javascript" src="built/popup.js"></script>
-	</body>
+        <script type="text/javascript" src="built/popup.js"></script>
+    </body>
 </html>
