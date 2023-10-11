@@ -11,6 +11,11 @@ function _unpackSiteArray( entities, options ) {
 
     let out = [];
     for ( const entity of entities ) {
+        // Skip the instructions at the top of the file
+        if ( '$README' in entity ) {
+            continue;
+        }
+
         // Skip spacers if they have not been requested
         if ( ( !options.withSpacers && 'spacer' in entity ) || ( !options.withVirtuals && 'parentRef' in entity ) ) {
             continue;

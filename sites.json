@@ -1,5 +1,54 @@
 [
     {
+        "$README": true,
+        "$comment": [
+            "To add a new site, add an entry to the list below following the structure",
+            "described below this comment.",
+            
+            "This is a JSON document, therefore no dangling commas are allowed after any",
+            "LAST field of an array '[...]' or an object '{...}'. All fields must also",
+            "have a comma after their value if a field follows right after within the",
+            "same array/object. Not abiding by this rule results in syntax errors.",
+            
+            "Objects contain pairs consisting of a TEXT KEY and a VALUE. The key and the",
+            "value are separated with a colon. Not abiding by this format results in",
+            "syntax errors.",
+            
+            "A BOOLEAN may only be 'true' or 'false', without quotes. A NUMBER shall not",
+            "be wrapped with any quotes, and a point '.' is the decimal separator. TEXT",
+            "(i.e. STRINGS) must be surrounded with double quotes.",
+            
+            "Right below is a description of a site entry, with all fields (that are in",
+            "use) listed and described. Optional fields are denoted by having their key",
+            "wrapped in square brackets '[...]' - these fields do not have to be included",
+            "if not needed. Do not include those square brackets in the final object, they",
+            "are only for your information.",
+
+            "Each field description follows a format of 'type (default value or 'unset' if",
+            "field is optional): purpose'.",
+
+            "Entries may be grouped up in an array - this currently is only for human",
+            "information and has no impact on the extension's behaviour.",
+
+            "Headings can be added to the popup by adding an object to the list below with",
+            "only a string field 'spacer'."
+        ],
+        "entryStructure": {
+            "[parentRef]": "string (unset): ID of another entry if you're only adding an alternative redirect. 'oldId' MUST be changed if this is set. Other fields are copied from the referenced entry, and may be modified if needed.",
+            "id": "string: The domain of the wiki.gg wiki",
+            "[oldId]": "string (same as 'id'): The domain of the Fandom wiki, if different from the wiki.gg ID",
+            "name": "string: The name of the wiki.gg wiki",
+            "[official]": "boolean (false): Whether the new wiki is considered official by the developers",
+            "[uiClass]": "...: Display style in the settings view. Only 'wiki-indent' is accepted, which adds space to the left of the entry.",
+            
+            "[search]": {
+                "[oldName]": "string (same as 'name'): Name of the Fandom wiki, if different from the wiki.gg name.",
+                "[newIncludesWiki]": "boolean (false): Whether the 'Wiki' word should not be expected in the old name when rewriting Fandom results."
+            }
+        }
+    },
+
+    {
         "id": "acecombat",
         "name": "Ace Combat",
         "official": true,
