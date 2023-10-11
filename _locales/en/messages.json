@@ -1,67 +1,67 @@
 {
-    "extension-name": {
+    "extension_name": {
         "message": "Redirect to wiki.gg",
         "description": "Extension name when packaged for the release/RC targets."
     },
-    "extension-name-dev": {
+    "extension_name_dev": {
         "message": "[DEVBUILD] Redirect to wiki.gg",
         "description": "Extension name when packaged for the development target."
     },
-    "extension-desc": {
+    "extension_desc": {
         "message": "Redirects visits from unsupported Fandom wikis that moved to wiki.gg, and filters search results in Google and DuckDuckGo."
     },
 
-    "popup-name": {
+    "popup_name": {
         "message": "wiki.gg migration helper"
     },
 
-    "popup-tab-options": {
+    "popup_tab_options": {
         "message": "Options"
     },
-    "popup-tab-wikis": {
+    "popup_tab_wikis": {
         "message": "Wikis"
     },
 
-    "options-redirecting": {
+    "options_redirecting": {
         "message": "Redirecting"
     },
-    "options-redirecting-yes": {
+    "options_redirecting_yes": {
         "message": "Redirect from old to new wikis"
     },
-    "options-redirecting-soft": {
+    "options_redirecting_soft": {
         "message": "Do not redirect, display a banner instead"
     },
-    "options-redirecting-no": {
+    "options_redirecting_no": {
         "message": "Do not redirect automatically"
     },
 
-    "options-filtering": {
+    "options_filtering": {
         "message": "Search filtering"
     },
-    "options-filtering-supported-engines": {
+    "options_filtering_supported_engines": {
         "message": "Currently supported:"
     },
-    "options-filtering-rewrite": {
+    "options_filtering_rewrite": {
         "message": "Rewrite Fandom results"
     },
-    "options-filtering-hide": {
+    "options_filtering_hide": {
         "message": "Hide Fandom results"
     },
-    "options-filtering-no": {
+    "options_filtering_no": {
         "message": "Don't alter results"
     },
-    "options-filtering-ddg-exp": {
+    "options_filtering_ddg_exp": {
         "message": "Enable experimental DuckDuckGo support"
     },
 
-    "options-wikis": {
+    "options_wikis": {
         "message": "Wikis to affect"
     },
 
     "feedback": {
         "message": "Feedback?"
     },
-    "source-code": {
+    "source_code": {
         "message": "Source code"
     }
 }
