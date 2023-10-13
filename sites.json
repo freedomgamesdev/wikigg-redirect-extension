@@ -261,6 +261,11 @@
         "official": true
     }, 
     {
+        "id": "fantasylife",
+        "oldId": "fantasy-life",
+        "name": "Fantasy Life"
+    },
+    {
         "id": "farworldpioneers",
         "name": "Farworld Pioneers",
         "official": true
