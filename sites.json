@@ -618,6 +618,26 @@
         "name": "VTOL VR",
         "official": true
     },
+    [
+        {
+            "id": "warcraft",
+            "oldId": "wowpedia",
+            "name": "Warcraft Wiki",
+
+            "search": {
+                "oldName": "Wowpedia",
+                "newIncludesWiki": true
+            }
+        },
+        {
+            "parentRef": "warcraft",
+            "oldId": "wowwiki-archive",
+
+            "search": {
+                "oldName": "WowWiki"
+            }
+        }
+    ],
     {
         "id": "willyousnail",
         "name": "Will You Snail?",
