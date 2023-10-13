@@ -381,6 +381,11 @@
         "name": "Paper Planet"
     },
     {
+        "id": "pathologic",
+        "name": "Pathologic",
+        "official": true
+    }, 
+    {
         "id": "palia",
         "name": "Palia",
         "official": true
