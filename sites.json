@@ -116,6 +116,11 @@
         "name": "Astroneer"
     },
     {
+        "id": "astrea",
+        "oldId": "astrea-sso",
+        "name": "Astrea"
+    },
+    {
         "id": "backpackhero",
         "oldId": "backpack-hero",
         "name": "Backpack Hero"
