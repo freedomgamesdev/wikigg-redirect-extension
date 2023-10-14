@@ -217,8 +217,7 @@
         {
             "id": "dontstarve",
             "name": "Don't Starve",
-            "official": true,
-            "uiClass": "wiki-indent"
+            "official": true
         },
         {
             "id": "islandadventures",
