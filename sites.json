@@ -348,13 +348,19 @@
     },
     [
         {
-            "spacer": "Minecraft - related topics (full game wiki is at minecraft.wiki)"
+            "spacer": "Minecraft Wikis (minecraft.wiki)"
         },
         {
             "id": "mcdf",
             "oldId": "mcdiscontinued",
             "farm": "miraheze",
-            "name": "Minecraft Discontinued Features",
+            "name": "MC Discontinued Features",
+            "uiClass": "wiki-indent"
+        }
+        {
+            "id": "midnight",
+            "oldId": "the-midnight-mod",
+            "name": "The Midnight Mod",
             "uiClass": "wiki-indent"
         }
     ], 
