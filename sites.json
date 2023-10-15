@@ -116,6 +116,11 @@
         "name": "Astroneer"
     },
     {
+        "id": "astrea",
+        "oldId": "astrea-sso",
+        "name": "Astrea"
+    },
+    {
         "id": "backpackhero",
         "oldId": "backpack-hero",
         "name": "Backpack Hero"
@@ -212,8 +217,7 @@
         {
             "id": "dontstarve",
             "name": "Don't Starve",
-            "official": true,
-            "uiClass": "wiki-indent"
+            "official": true
         },
         {
             "id": "islandadventures",
@@ -255,6 +259,11 @@
         "name": "Everdream Valley",
         "official": true
     }, 
+    {
+        "id": "fantasylife",
+        "oldId": "fantasy-life",
+        "name": "Fantasy Life"
+    },
     {
         "id": "farworldpioneers",
         "name": "Farworld Pioneers",
@@ -339,13 +348,19 @@
     },
     [
         {
-            "spacer": "Minecraft - related topics (full game wiki is at minecraft.wiki)"
+            "spacer": "Minecraft Wikis (minecraft.wiki)"
         },
         {
             "id": "mcdf",
             "oldId": "mcdiscontinued",
             "farm": "miraheze",
-            "name": "Minecraft Discontinued Features",
+            "name": "MC Discontinued Features",
+            "uiClass": "wiki-indent"
+        }
+        {
+            "id": "midnight",
+            "oldId": "the-midnight-mod",
+            "name": "The Midnight Mod",
             "uiClass": "wiki-indent"
         }
     ], 
