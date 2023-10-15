@@ -151,6 +151,10 @@
         "official": true
     },
     {
+        "id": "changed",
+        "name": "Changed"
+    },
+    {
         "id": "chivalry",
         "name": "Chivalry",
         "official": true,
