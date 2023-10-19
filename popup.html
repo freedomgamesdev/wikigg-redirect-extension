@@ -40,7 +40,7 @@
                 background-color: var(--background-colour);
                 color: var(--text-colour);
                 accent-color: var(--accent-colour);
-                overflow: hidden;
+                overflow-x: hidden;
                 max-height: 600px;
 
                 display: grid;
@@ -259,10 +259,14 @@
                     font-size: 1.5em;
                 }
                 #wikis-container {
-                    max-height: unset;
+                    max-height: 80vh;
                 }
                 #bottom-links {
                     font-size: 90%;
+                }
+
+                .no-mobile {
+                    display: none !important;
                 }
             }
         </style>
@@ -273,7 +277,7 @@
         </div>
 
         <div id="area-mobile-fallback" class="tabber">
-            <section id="area-left" data-tab-msg="popup-tab-options">
+            <section id="area-left" data-tab-msg="popup_tab_options">
                 <div class="options-group">
                     <h5><i18n>options_redirecting</i18n></h5>
                     <div>
@@ -330,8 +334,8 @@
                 </div>
             </section>
 
-            <section id="area-right" data-tab-msg="popup-tab-wikis">
-                <h4><i18n>options_wikis</i18n></h4>
+            <section id="area-right" data-tab-msg="popup_tab_wikis">
+                <h4 class="no-mobile"><i18n>options_wikis</i18n></h4>
                 <div id="wikis-container">
                     <div id="wiki-search-container">
                         <input id="wikiSearch" type="text" placeholder="Search..." />
