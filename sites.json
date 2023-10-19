@@ -360,7 +360,7 @@
             "farm": "miraheze",
             "name": "MC Discontinued Features",
             "uiClass": "wiki-indent"
-        }
+        },
         {
             "id": "midnight",
             "oldId": "the-midnight-mod",
