@@ -151,6 +151,10 @@
         "official": true
     },
     {
+        "id": "changed",
+        "name": "Changed"
+    },
+    {
         "id": "chivalry",
         "name": "Chivalry",
         "official": true,
@@ -356,7 +360,7 @@
             "farm": "miraheze",
             "name": "MC Discontinued Features",
             "uiClass": "wiki-indent"
-        }
+        },
         {
             "id": "midnight",
             "oldId": "the-midnight-mod",
@@ -664,6 +668,10 @@
             }
         }
     ],
+    {
+        "id": "wautah",
+        "name": "Weird and Unfortunate Things Are Happening"
+    },
     {
         "id": "willyousnail",
         "name": "Will You Snail?",
