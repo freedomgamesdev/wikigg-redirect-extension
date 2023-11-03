@@ -1,11 +1,74 @@
+/** @type {( SiteListEntity | SiteListEntity[] )[]} */
 import sites from '../sites.json';
 
 
+/**
+ * Checks if declarative network requests are supported by the browser.
+ *
+ * @return {boolean}
+ */
 export function supportsDNR() {
     return false; // navigator.userAgent.indexOf( 'Chrome' ) < 0;
 }
 
 
+// TODO: ditch uiClass, have spacers contain entries instead so popup is able to render the list sanely.
+
+
+/**
+ * @typedef {Object} SiteRecord
+ * Record of an individual wiki.
+ * @property {string} id wiki.gg domain name.
+ * @property {string} [oldId] Fandom domain name, if different from wiki.gg.
+ * @property {string} name Site name shown in page titles.
+ * @property {boolean} [official=false] Whether official wiki.
+ * @property {undefined|'wiki-indent'} [uiClass]
+ * @property {SiteSearchSettings} [search]
+ */
+
+/**
+ * @typedef {Object} SiteSearchSettings
+ * Re-configures the search rewrite module if needed.
+ * @property {string} [oldName] Fandom site name shown in page titles.
+ */
+
+/**
+ * @typedef {Object} _DerivedSiteRecordExtension
+ * @property {string} parentRef wiki.gg domain name of another wiki record on the list.
+ * @property {string} oldId Fandom domain name.
+ */
+/**
+ * @typedef {SiteRecord & _DerivedSiteRecordExtension} DerivedSiteRecord
+ * Additional record of an individual wiki. This will not be shown in the UI, and should only be used to redirect more
+ * domains.
+ */
+
+/**
+ * @typedef {Object} SiteListSpacer
+ * Divides the wiki list in the settings UI, with a custom heading. Records that should be visually "grouped up" under
+ * this spacer should use the 'wiki-indent' UI class.
+ * @property {string} spacer Title.
+ */
+
+/**
+ * @typedef {SiteRecord|DerivedSiteRecord|SiteListSpacer} SiteListEntity
+ */
+
+/**
+ * @typedef {Object} SiteListUnpackOptions
+ * @property {boolean} [withSpacers=false] Whether spacers should be included.
+ * @property {boolean} [withVirtuals=false] Whether derived records should be included.
+ */
+
+
+/**
+ * Converts an unprocessed sites list to a shallow, single level, filtered array.
+ *
+ * @package
+ * @param {( SiteListEntity | SiteListEntity[] )[]} entities Unprocessed sites list.
+ * @param {SiteListUnpackOptions} options
+ * @return {SiteListEntity[]} Filtered, single level sites list.
+ */
 function _unpackSiteArray( entities, options ) {
     options = options || {};
 
@@ -33,6 +96,16 @@ function _unpackSiteArray( entities, options ) {
 }
 
 
+/**
+ * Processes raw sites list: converts into a shallow array, filters per settings, expands derived records.
+ *
+ * TODO: Use SiteListUnpackOptions.
+ *
+ * @public
+ * @param {boolean} [withSpacers=false]
+ * @param {boolean} [withVirtuals=false]
+ * @return {SiteListEntity[]}
+ */
 export function getWikis( withSpacers, withVirtuals ) {
     const out = _unpackSiteArray( sites, {
         withSpacers,
@@ -58,6 +131,13 @@ export function getWikis( withSpacers, withVirtuals ) {
 }
 
 
+/**
+ * Returns the extension's storage interface.
+ *
+ * TODO: Untyped return value.
+ *
+ * @return {any}
+ */
 export function getNativeSettings() {
     return chrome && chrome.storage || window.storage;
 }
