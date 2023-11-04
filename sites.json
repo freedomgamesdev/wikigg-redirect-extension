@@ -130,6 +130,12 @@
         "name": "Bake.gg"
     },
     {
+        "id": "battlebit",
+        "oldId": "battlebit",
+        "name": "BattleBit",
+        "official": true
+    },
+    {
         "id": "battletabs",
         "oldId": "battletabs-io",
         "name": "BattleTabs",
@@ -189,6 +195,11 @@
         "official": true
     },
     {
+        "id": "darkestdungeon",
+        "name": "Darkest Dungeon",
+        "official": true
+    },
+    {
         "id": "deadcells",
         "name": "Dead Cells",
         "official": true
@@ -210,6 +221,12 @@
     {
         "id": "deeprockgalactic",
         "name": "Deep Rock Galactic",
+        "official": true
+    },
+    {
+        "id": "dotage",
+        "oldId": "dotage-game",
+        "name": "DotAGE",
         "official": true
     },
     {
@@ -343,6 +360,15 @@
         "official": true
     },
     {
+        "id": "lastorigin",
+        "name": "Last Origin"
+    },
+    {
+        "id": "leafblowerrevolution",
+        "oldId": "leaf-blower-revolution",
+        "name": "Leaf Blower Revolution"
+    },
+    {
         "id": "legiontd2",
         "name": "Legion TD 2"
     },
@@ -372,6 +398,11 @@
         "id": "monumenta",
         "oldId": "monumentammo",
         "name": "Monumenta"
+    },
+    {
+        "id": "needystreameroverload",
+        "oldId": "needy-streamer-overload",
+        "name": "NEEDY STREAMER OVERLOAD"
     },
     {
         "id": "mightyparty",
@@ -408,6 +439,10 @@
         "id": "palia",
         "name": "Palia",
         "official": true
+    },
+    {
+        "id": "palworld",
+        "name": "Palworld"
     },
     {
         "id": "pubg",
@@ -486,7 +521,6 @@
     },
     {
         "id": "superautopets",
-        "oldId": "super-auto-pets",
         "name": "Super Auto Pets"
     },
     {
@@ -648,11 +682,15 @@
         "name": "VTOL VR",
         "official": true
     },
+    {
+        "id": "warcommander",
+        "name": "War Commander"
+    },
     [
         {
             "id": "warcraft",
             "oldId": "wowpedia",
-            "name": "Warcraft Wiki",
+            "name": "Warcraft",
 
             "search": {
                 "oldName": "Wowpedia",
