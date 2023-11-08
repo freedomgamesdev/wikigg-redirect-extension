@@ -731,6 +731,11 @@
         "id": "worship",
         "oldId": "worshipcrg",
         "name": "Worship"
+    }, 
+    {
+        "id": "yohanebid",
+        "oldId": "yohane-deepblue",
+        "name": "Yohane the Parhelion -BLAZE in the DEEPBLUE-"
     },
     {
         "id": "yourchronicle",
