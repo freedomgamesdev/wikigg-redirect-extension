@@ -63,11 +63,6 @@
         "official": true
     },
     {
-        "id": "aether",
-        "name": "Aether Mod",
-        "official": true
-    },
-    {
         "id": "animalcrossingpocketcamp",
         "name": "Animal Crossing: Pocket Camp"
     },
@@ -101,6 +96,10 @@
     {
         "id": "arknights",
         "name": "Arknights"
+    },
+    {
+        "id": "atelier",
+        "name": "Atelier"
     },
     {
         "id": "townshiptale",
@@ -198,6 +197,11 @@
         "id": "darkestdungeon",
         "name": "Darkest Dungeon",
         "official": true
+    },
+    {
+        "id": "deadahead",
+        "oldId": "dead-ahead",
+        "name": "Dead Ahead"
     },
     {
         "id": "deadcells",
@@ -385,6 +389,11 @@
             "spacer": "Minecraft Wikis (minecraft.wiki)"
         },
         {
+            "id": "aether",
+            "name": "Aether Mod",
+            "official": true
+        },
+        {
             "id": "mcdf",
             "oldId": "mcdiscontinued",
             "farm": "miraheze",
@@ -434,6 +443,11 @@
         "name": "Off-Peak"
     },
     {
+        "id": "omegastrikers",
+        "name": "Omega Strikers",
+        "official": true
+    },
+    {
         "id": "paperplanet",
         "oldid": "paper-planet",
         "name": "Paper Planet"
@@ -477,6 +491,10 @@
     {
         "id": "planetaryannihilation",
         "name": "Planetary Annihilation"
+    },
+    {
+        "id": "plantsvszombies",
+        "name": "Plants vs. Zombies"
     },
     {
         "id": "revita",
@@ -664,6 +682,12 @@
             "oldId": "vibrant-venture"
         }
     ],
+    {
+        "id": "voidcrew",
+        "oldId": "void-crew",
+        "name": "Void Crew",
+        "official": true
+    },
     [
         {
             "id": "loathing",
