@@ -8,7 +8,7 @@ function _package_for() {
 	TAG="$2"
 	MANIFEST="manifests/$1_$TAG.json"
 	VERSION=`cat $MANIFEST | jq -r '.version'`
-	TARBALL="pkgs/Generic_${1^}_$VERSION-${TAG}1.zip"
+	TARBALL="pkgs/RTW_${1^}_$VERSION-${TAG}1.zip"
 	echo "MANIFEST: $MANIFEST"
 	echo "VERSION:  $VERSION"
 	echo "TAG:      $TAG"
