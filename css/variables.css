@@ -1,0 +1,21 @@
+:root {
+    --spacing: 0.6em;
+
+    --background-colour: #d8dada;
+    --text-colour: #000;
+    --accent-colour: #770e5c;
+    --accent-colour--rgb: 119, 14, 92;
+    --spacer-colour: #adaeae;
+    --bottom-links-opacity: 0.6;
+}
+@media screen and (prefers-color-scheme: dark) {
+    body {
+        --background-colour: #272828;
+        --text-colour: #ebebeb;
+        --accent-colour: #e348bb;
+        --accent-colour--text-against: #000;
+        --spacer-colour: #525353;
+        --icon-filter: invert(1);
+        --bottom-links-opacity: 0.8;
+    }
+}

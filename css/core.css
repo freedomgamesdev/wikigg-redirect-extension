@@ -1,0 +1,62 @@
+/* Use border-box on everything for sanity */
+* {
+    box-sizing: border-box;
+}
+
+/* Body setup */
+body {
+    margin: 0;
+    font-family: Inter, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    padding: 0.6rem 1rem 0.3rem;
+    background-color: var(--background-colour);
+    color: var(--text-colour);
+    accent-color: var(--accent-colour);
+    overflow-x: hidden;
+}
+
+/* #region Headings */
+h2,
+h3,
+h4,
+h5 {
+    margin: 0 0 var(--spacing);
+    font-weight: 700;
+    text-align: center;
+    color: var(--accent-colour);
+}
+h2 {
+    font-size: 1.9em;
+}
+h4,
+h5 {
+    margin: calc(var(--spacing) / 2) 0;
+}
+h3 img {
+    vertical-align: text-top;
+}
+h5 {
+    text-align: left;
+    font-size: 90%;
+}
+/* #endregion */
+
+/* #region Paragraph spacing */
+p {
+    margin: var(--spacing) 0;
+}
+h3 + p,
+h4 + p,
+h5 + p {
+    margin-top: 0;
+}
+/* #endregion */
+
+/* #region Links */
+a,
+a:link,
+a:visited {
+    color: var(--accent-colour);
+    text-decoration: underline;
+}
+/* #endregion */
