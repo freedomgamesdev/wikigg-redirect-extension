@@ -666,11 +666,17 @@
         "id": "towerfall",
         "name": "TowerFall"
     },
-    {
+    [
+        {
         "id": "trucksimulator",
         "oldId": "truck-simulator",
         "name": "Truck Simulator"
-    },
+        },
+        {
+            "parentRef": "trucksimulator",
+            "oldId": "trucksim"
+        }
+    ],
     {
         "id": "twistedwonderland",
         "oldId": "twisted-wonderland",
