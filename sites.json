@@ -174,6 +174,11 @@
         "official": true
     },
     {
+        "id": "cobaltcore",
+        "oldId": "cobalt-core",
+        "name": "Cobalt Core",
+    },
+    {
         "id": "cosmoteer",
         "name": "Cosmoteer",
         "official": true
@@ -383,6 +388,11 @@
     {
         "id": "letitdie",
         "name": "Let It Die"
+    },
+    {
+        "id": "lifeinadventure",
+        "oldId": "life-in-adventure",
+        "name": "Life In Adventure"
     },
     [
         {
