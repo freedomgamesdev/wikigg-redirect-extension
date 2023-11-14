@@ -43,7 +43,10 @@ const filter = {
         // If no parent, skip - means we've already processed this
         if ( linkElement.parentElement ) {
             // Find result container
-            const oldElement = crawlUntilParentFound( linkElement, '.g' );
+            const oldElement = crawlUntilParentFound( linkElement, '.g, .xpd' );
+            if ( oldElement === null ) {
+                return;
+            }
 
             // Verify that the top-level result is a link the same wiki
             const topLevelLinkElement = oldElement.querySelector( 'a[data-jsarwt="1"], a[ping]' );

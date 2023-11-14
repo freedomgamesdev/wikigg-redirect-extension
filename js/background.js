@@ -20,7 +20,7 @@ const RTW = {
     DNR_RULE_ID: 1,
 
     settings: defaultSettingsFactory(),
-    domainRegex: _buildDomainRegex( '^($domains)\\.(?:fandom|gamepedia)\\.com$' ),
+    domainRegex: _buildDomainRegex( '^($domains)\\.(?:(?:fandom|gamepedia)\\.com|wikia\\.org)$' ),
     intlDomainRegex: _buildDomainRegex( '^($domains)-([a-z]+)\\.(?:gamepedia)\\.com$' ),
     oldToNumIdMap: ( () => {
         const out = {};

@@ -1,0 +1,200 @@
+body {
+    width: 500px;
+    max-width: 500px;
+    max-height: 600px;
+    font-size: .85em;
+    display: grid;
+    grid-template-areas:
+        "t r"
+        "l r"
+        "b b";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows:
+        minmax(0, auto)
+        1fr
+        auto;
+    column-gap: 0.8rem;
+}
+#area-top { grid-area: t; }
+#area-mobile-fallback { grid-area: a; display: contents; }
+#area-mobile-fallback > .tabber-header { display: none; }
+#area-left { grid-area: l; }
+#area-right { grid-area: r; }
+#area-bottom { grid-area: b; }
+
+.tabber-header {
+    display: none;
+    align-items: stretch;
+    gap: 0.2rem;
+    padding-bottom: 0.2rem;
+    border-bottom: 1px solid #fff3;
+}
+.tabber-header button {
+    appearance: none;
+    padding: 0.4em 1.2em;
+    background: transparent;
+    color: #fff;
+    border: 0;
+    border-radius: 2px;
+    font-size: 0.94em;
+    transition: background .2s;
+}
+.tabber-header button:not( .selected ):hover {
+    background: rgba( var(--accent-colour--rgb ), 0.3 );
+}
+.tabber-header button.selected {
+    background: rgba( var(--accent-colour--rgb ), 0.8 );
+    outline: 1px solid rgba( var(--accent-colour--rgb ), 1 );
+}
+.tabber > section:not( .selected ) {
+    display: none;
+}
+.tabber#area-mobile-fallback > section:not( .selected ) {
+    display: block;
+}
+
+h3,
+h4,
+h5,
+a,
+label {
+    user-select: none;
+}
+.options-group > p {
+    font-size: 90%;
+}
+#wikis-container {
+    position: relative;
+    border: 1px solid var(--spacer-colour);
+    margin-bottom: var(--spacing);
+    overflow-y: auto;
+    max-height: 350px;
+    font-size: 105%;
+    flex-grow: 1;
+}
+#wikis-container {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-colour);
+}
+#wikis-container::-webkit-scrollbar {
+    width: 5px;
+}
+#wikis-container::-webkit-scrollbar-track {
+    background: var(--spacer-colour);
+}
+#wikis-container::-webkit-scrollbar-thumb {
+    background: var(--accent-colour);
+    border-radius: 8px;
+    border: 1.5px solid var(--spacer-colour);
+}
+#wikis {
+    margin: 0;
+    padding: calc(var(--spacing) / 2);
+    list-style: none;
+}
+#wikis li {
+    display: flex;
+    align-items: center;
+    padding: 1px calc(var(--spacing) / 4);
+    vertical-align: middle;
+}
+#wikis li:not(.pseudo):not(#hasWikiSearch):hover {
+    background: #fff1;
+}
+#wikis li.wiki-indent {
+    border-left: 1px solid var(--spacer-colour);
+    margin-left: calc(var(--spacing));
+}
+#wikis li label {
+    flex-grow: 1;
+}
+#wikis li a {
+    display: block;
+    flex-basis: 12px;
+    flex-shrink: 0;
+    width: 12px;
+    height: 12px;
+    margin-right: calc(var(--spacing) / 2);
+    background: url(/icons/ooui-ltr.svg) center center / contain no-repeat;
+    filter: var(--icon-filter);
+    opacity: 0.5;
+}
+#wikis li a:hover {
+    opacity: 0.8;
+}
+#wiki-search-container {
+    display: none;
+    position: sticky;
+    top: 0;
+    background: var(--background-colour);
+    padding: calc(var(--spacing) / 2) calc(var(--spacing) / 1.2);
+    z-index: 20;
+}
+#wikiSearch {
+    width: 100%;
+    border: 1px solid var(--accent-colour);
+    border-radius: 2px;
+    padding: calc(var(--spacing) / 2) calc(var(--spacing) / 1.2);
+    background: transparent;
+    color: #fff;
+    opacity: 0.5;
+    transition: opacity .2s;
+}
+#wikiSearch:hover,
+#wikiSearch:focus {
+    opacity: 1;
+    outline-color: var(--accent-colour);
+}
+[data-means-inactive] {
+    accent-color: #cf240a;
+}
+#bottom-links {
+    margin: calc( var(--spacing) / 2 ) 0 0;
+    text-align: center;
+    font-size: 80%;
+    opacity: var(--bottom-links-opacity);
+}
+
+@media screen and ( max-device-width: 900px ) {
+    :root {
+        --spacing: 1em;
+    }
+    body {
+        font-size: 0.925em;
+        max-height: 100vh;
+        width: 100%;
+        padding-top: 0;
+        max-width: unset;
+        grid-template-areas:
+            "t"
+            "a"
+            "b";
+        grid-template-rows: auto 1fr minmax(0, auto);
+        grid-template-columns: auto;
+    }
+    /* TODO: rework tabber into a min dw query */
+    #area-mobile-fallback { display: block; }
+    #area-mobile-fallback > .tabber-header {
+        display: flex;
+    }
+    .tabber#area-mobile-fallback > section:not( .selected ) {
+        display: none;
+    }
+    h3 {
+        margin: 0 -1rem 0.5rem;
+        padding: 0.5rem;
+        background: var(--accent-colour);
+        color: var(--accent-colour--text-against);
+        font-size: 1.5em;
+    }
+    #wikis-container {
+        max-height: 80vh;
+    }
+    #bottom-links {
+        font-size: 90%;
+    }
+
+    .no-mobile {
+        display: none !important;
+    }
+}
