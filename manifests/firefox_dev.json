@@ -1,8 +1,8 @@
 {
-    "name": "[DEVBUILD] Redirect to wiki.gg",
+    "name": "__MSG_extension_name_dev__",
     "author": "alex4401",
-    "version": "1.6.999998",
-    "description": "Redirects visits from unsupported Fandom wikis that moved to wiki.gg, and filters search results in Google and DuckDuckGo.",
+    "version": "1.6.9",
+    "description": "__MSG_extension_desc__",
     "default_locale": "en",
     "permissions": [
         "storage",
@@ -28,7 +28,7 @@
     },
     "browser_action": {
         "default_icon": "icons/128_dev.png",
-        "default_title": "Redirect to wiki.gg",
+        "default_title": "__MSG_extension_name_dev__",
         "default_popup": "popup.html"
     },
     "content_scripts": [
