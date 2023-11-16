@@ -8,7 +8,7 @@
         "description": "Extension name when packaged for the development target."
     },
     "extension_desc": {
-        "message": "Redirects all requests from former Fandom and Gamepedia wikis that moved to wiki.gg to the new wikis, and filters Google search results."
+        "message": "Redirects all requests from former Fandom and Gamepedia wikis that moved to wiki.gg to the new wikis, and filters search results."
     },
 
     "popup_name": {
