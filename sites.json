@@ -169,6 +169,10 @@
         }
     },
     {
+        "id": "cookieclicker",
+        "name": "Cookie Clicker"
+    },
+    {
         "id": "coromon",
         "name": "Coromon",
         "official": true
@@ -182,10 +186,6 @@
         "id": "cobaltcore",
         "oldId": "cobalt-core",
         "name": "Cobalt Core"
-    },
-    {
-        "id": "cookieclicker",
-        "name": "Cookie Clicker"
     },
     {
         "id": "cosmoteer",
