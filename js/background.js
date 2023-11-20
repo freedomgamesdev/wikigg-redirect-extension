@@ -33,7 +33,7 @@ const RTW = {
 
     updateIcon() {
         const icon = {
-            path: ( this.settings.isRedirectDisabled ? '/icons/32_black.png' : '/icons/128.png' )
+            path: ( this.settings.isRedirectDisabled ? '/icons/128_black.png' : '/icons/128.png' )
         };
         if ( chrome && chrome.action && chrome.action.setIcon ) {
             chrome.action.setIcon( icon );

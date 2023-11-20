@@ -1,8 +1,8 @@
 {
-    "name": "Redirect to wiki.gg",
-    "author": "alex4401",
-    "version": "1.6.9",
-    "description": "Redirects visits from unsupported Fandom wikis that moved to wiki.gg, and filters search results in Google and DuckDuckGo.",
+    "name": "__MSG_extension_name__",
+    "author": "Freedom Games",
+    "version": "1.6.10",
+    "description": "__MSG_extension_desc__",
     "default_locale": "en",
     "permissions": [
         "storage",
@@ -23,7 +23,7 @@
     },
     "browser_action": {
         "default_icon": "icons/128.png",
-        "default_title": "Redirect to wiki.gg",
+        "default_title": "__MSG_extension_name__",
         "default_popup": "popup.html"
     },
     "content_scripts": [
