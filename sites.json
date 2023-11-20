@@ -184,6 +184,10 @@
         "name": "Cobalt Core"
     },
     {
+        "id": "cookieclicker",
+        "name": "Cookie Clicker",
+    },
+    {
         "id": "cosmoteer",
         "name": "Cosmoteer",
         "official": true
