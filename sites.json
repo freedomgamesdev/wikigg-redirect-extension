@@ -174,9 +174,18 @@
         "official": true
     },
     {
+        "id": "corporateclash",
+        "oldId": "toontown-corporate-clash",
+        "name": "Toontown Corporate Clash"
+    },
+    {
         "id": "cobaltcore",
         "oldId": "cobalt-core",
         "name": "Cobalt Core"
+    },
+    {
+        "id": "cookieclicker",
+        "name": "Cookie Clicker"
     },
     {
         "id": "cosmoteer",
@@ -355,6 +364,10 @@
     {
         "id": "galaxyonfire",
         "name": "Galaxy on Fire"
+    },
+    {
+        "id": "gttod",
+        "name": "Get To The Orange Door"
     },
     {
         "id": "hearthstone",
