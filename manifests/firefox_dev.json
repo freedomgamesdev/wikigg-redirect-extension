@@ -1,7 +1,7 @@
 {
     "name": "__MSG_extension_name_dev__",
     "author": "Freedom Games",
-    "version": "1.6.10",
+    "version": "1.6.9999911",
     "description": "__MSG_extension_desc__",
     "default_locale": "en",
     "permissions": [
