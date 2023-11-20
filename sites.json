@@ -525,6 +525,10 @@
         "name": "Plants vs. Zombies"
     },
     {
+        "id": "rejuvenation",
+        "name": "Rejuvenation"
+    },
+    {
         "id": "revita",
         "oldId": "revitagame",
         "name": "Revita",
