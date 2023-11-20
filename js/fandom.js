@@ -11,18 +11,19 @@ import {
 getNativeSettings().local.get( [ 'isRedirectDisabled', 'disabledWikis' ], result => {
     result = result || defaultSettingsFactory();
 
-    const mode = result.isRedirectDisabled || false;
-    if ( mode !== 'banner' ) {
-        return;
-    }
+    const disabledWikis = result.disabledWikis || [];
 
     const hostId = location.host.split( '.' )[ 0 ],
         wiki = prepareWikisInfo( getWikis( false, true ), {
             titles: true
         } ).find( x => {
-            return !( result.disabledWikis && result.disabledWikis.includes( x.id ) )
-                && ( ( x.oldId || x.id ) === hostId );
+            return !( disabledWikis.includes( x.id ) ) && ( ( x.oldId || x.id ) === hostId );
         } );
+
+    const mode = result.isRedirectDisabled || false;
+    if ( mode !== 'banner' && !( wiki && wiki.bannerOnly ) ) {
+        return;
+    }
 
     if ( wiki ) {
         const bannerElement = document.createElement( 'div' );
@@ -56,7 +57,12 @@ getNativeSettings().local.get( [ 'isRedirectDisabled', 'disabledWikis' ], result
             bannerElement.remove();
         } );
 
-        const textNodePre = document.createTextNode( 'This wiki has moved to a new address: ' ),
+        let bannerText = 'This wiki has moved to a new address: ';
+        if ( hostId === 'riskofrain' || hostId === 'riskofrain2' ) {
+            bannerText = 'Risk of Rain Returns content can be found instead on its official wiki: ';
+        }
+
+        const textNodePre = document.createTextNode( bannerText ),
             linkNode = document.createElement( 'a' ),
             textNodePost = document.createTextNode( '.' );
         linkNode.href = location.href.replace( `${wiki.oldId || wiki.id}.fandom.com`, newDomain );

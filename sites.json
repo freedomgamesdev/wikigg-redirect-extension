@@ -534,6 +534,20 @@
         "name": "Revita",
         "official": true
     },
+    [
+        {
+            "id": "riskofrainreturns",
+            "oldId": "riskofrain",
+            "name": "Risk of Rain Returns",
+            "official": true,
+            "bannerOnly": true
+        },
+        {
+            "parentRef": "riskofrainreturns",
+            "oldId": "riskofrain2",
+            "bannerOnly": true
+        }
+    ],
     {
         "id": "rsmc",
         "name": "RSMC"

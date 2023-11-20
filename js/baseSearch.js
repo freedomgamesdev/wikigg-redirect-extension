@@ -17,9 +17,11 @@ export function invokeSearchModule( wikis, rewriteRoutine, filterRoutine, rootNo
             return;
         }
 
+        const disabledWikis = ( result && result.disabledWikis || defaults.disabledWikis );
+
         // TODO: merge selectors and run that query, then determine the wiki
         for ( const wiki of wikis ) {
-            if ( ( result && result.disabledWikis || defaults.disabledWikis ).includes( wiki.id ) ) {
+            if ( wiki.bannerOnly || disabledWikis.includes( wiki.id ) ) {
                 continue;
             }
 
