@@ -198,3 +198,20 @@ label {
         display: none !important;
     }
 }
+
+
+/* EDGE: Warning about publisher change */
+.edge__warning {
+    border-radius: 5px;
+    border: 1px solid #8c7814;
+    color: #000;
+    background-color: #ebcc34;
+    padding: calc( var(--spacing) * 0.8 ) var(--spacing);
+    line-height: 1.5;
+    font-size: 95%;
+    box-shadow: 0 0 4px 1px #0003;
+}
+.edge__warning a:link,
+.edge__warning a:visited {
+    color: #991377;
+}

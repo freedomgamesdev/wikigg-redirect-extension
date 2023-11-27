@@ -145,11 +145,22 @@ const RTW = {
             obj[ key ] = chunk[ key ].newValue;
         }
         this.mergeStorageChunk( obj );
+    },
+
+
+    _handleInstallEvent: async function ( event ) {
+        // Edge only: on install or update, open a tab to ask the user to switch to the official extension listing from
+        //            Freedom.
+        if ( event.reason === 'install' || event.reason === 'update' ) {
+            chrome.tabs.create( { url: 'edge-listing-changes.html' } );
+        }
     }
 };
 
 
 storage.onChanged.addListener( changes => RTW.mergeStorageDiffChunk( changes ) );
 storage.local.get( Object.keys( RTW.settings ), result => RTW.mergeStorageChunk( result ) );
+
+chrome.runtime.onInstalled.addListener( RTW._handleInstallEvent );
 
 globalThis.RTW = RTW;
