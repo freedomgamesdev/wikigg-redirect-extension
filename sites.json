@@ -58,6 +58,11 @@
         }
     },
     {
+        "id": "almostahero",
+        "oldId": "almost-a-hero",
+        "name": "Almost a Hero"
+    },
+    {
         "id": "airportceo",
         "name": "Airport CEO",
         "official": true
@@ -148,6 +153,14 @@
         "id": "beforedarknessfalls",
         "oldId": "before-darkness-falls",
         "name": "Before Darkness Falls"
+    },
+    {
+        "id": "bellasara",
+        "name": "Bella Sara",
+
+        "search": {
+            "oldName": "The Bella Sara"
+        }
     },
     {
         "id": "cherryforest",
@@ -246,6 +259,16 @@
         "oldId": "dotage-game",
         "name": "DotAGE",
         "official": true
+    },
+    {
+        "id": "doggytalentsnext",
+        "oldId": "doggytalents",
+        "name": "Doggy Talents",
+        "official": true
+    },
+    {
+        "id": "dragoncourt",
+        "name": "Dragon Court"
     },
     {
         "id": "dreamscaper",
@@ -347,6 +370,11 @@
     {
         "id": "flight",
         "name": "Flight Sim"
+    },
+    {
+        "id": "fortheking",
+        "name": "For The King",
+        "official": true
     },
     {
         "id": "foxhole",
@@ -603,6 +631,12 @@
         "id": "supersnail",
         "oldId": "super-snail",
         "name": "Super Snail"
+    },
+    {
+        "id": "teamabnormals",
+        "oldId": "minecraftabnormals",
+        "name": "Team Abnormals",
+        "official": true
     },
     {
         "id": "temtem",
