@@ -65,7 +65,7 @@ const RTW = {
         }
         const newWiki = wikis[ internalWikiId ];
         // Check if redirect is disabled
-        if ( this.settings.disabledWikis.includes( newWiki.id ) ) {
+        if ( newWiki.bannerOnly || this.settings.disabledWikis.includes( newWiki.id ) ) {
             return;
         }
         // Copy path

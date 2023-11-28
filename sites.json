@@ -58,6 +58,11 @@
         }
     },
     {
+        "id": "almostahero",
+        "oldId": "almost-a-hero",
+        "name": "Almost a Hero"
+    },
+    {
         "id": "airportceo",
         "name": "Airport CEO",
         "official": true
@@ -150,6 +155,14 @@
         "name": "Before Darkness Falls"
     },
     {
+        "id": "bellasara",
+        "name": "Bella Sara",
+
+        "search": {
+            "oldName": "The Bella Sara"
+        }
+    },
+    {
         "id": "cherryforest",
         "oldId": "cherry-forest",
         "name": "Cherry Forest",
@@ -167,6 +180,10 @@
         "search": {
             "oldName": "Chivalry: Medieval Warfare"
         }
+    },
+    {
+        "id": "cookieclicker",
+        "name": "Cookie Clicker"
     },
     {
         "id": "coromon",
@@ -246,6 +263,16 @@
         "oldId": "dotage-game",
         "name": "DotAGE",
         "official": true
+    },
+    {
+        "id": "doggytalentsnext",
+        "oldId": "doggytalents",
+        "name": "Doggy Talents",
+        "official": true
+    },
+    {
+        "id": "dragoncourt",
+        "name": "Dragon Court"
     },
     {
         "id": "dreamscaper",
@@ -347,6 +374,11 @@
     {
         "id": "flight",
         "name": "Flight Sim"
+    },
+    {
+        "id": "fortheking",
+        "name": "For The King",
+        "official": true
     },
     {
         "id": "foxhole",
@@ -525,11 +557,29 @@
         "name": "Plants vs. Zombies"
     },
     {
+        "id": "rejuvenation",
+        "name": "Rejuvenation"
+    },
+    {
         "id": "revita",
         "oldId": "revitagame",
         "name": "Revita",
         "official": true
     },
+    [
+        {
+            "id": "riskofrainreturns",
+            "oldId": "riskofrain",
+            "name": "Risk of Rain Returns",
+            "official": true,
+            "bannerOnly": true
+        },
+        {
+            "parentRef": "riskofrainreturns",
+            "oldId": "riskofrain2",
+            "bannerOnly": true
+        }
+    ],
     {
         "id": "rsmc",
         "name": "RSMC"
@@ -585,6 +635,12 @@
         "id": "supersnail",
         "oldId": "super-snail",
         "name": "Super Snail"
+    },
+    {
+        "id": "teamabnormals",
+        "oldId": "minecraftabnormals",
+        "name": "Team Abnormals",
+        "official": true
     },
     {
         "id": "temtem",
