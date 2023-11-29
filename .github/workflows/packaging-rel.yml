@@ -26,7 +26,7 @@ jobs:
     - name: Compile scripts
       run: npm run build
     - name: Create packages
-      run: npm run package-release
+      run: mkdir pkgs && npm run package-release
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
