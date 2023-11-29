@@ -266,6 +266,11 @@
         "official": true
     },
     {
+        "id": "domekeeper",
+        "oldId": "dome-keeper",
+        "name": "Dome Keeper"
+    },
+    {
         "id": "doggytalentsnext",
         "oldId": "doggytalents",
         "name": "Doggy Talents",
