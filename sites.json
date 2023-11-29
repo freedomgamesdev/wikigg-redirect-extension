@@ -156,6 +156,7 @@
     },
     {
         "id": "bellasara",
+        "oldId": "thebellasara",
         "name": "Bella Sara",
 
         "search": {
@@ -261,6 +262,11 @@
         "official": true
     },
     {
+        "id": "domekeeper",
+        "oldId": "dome-keeper",
+        "name": "Dome Keeper"
+    },
+    {
         "id": "doggytalentsnext",
         "oldId": "doggytalents",
         "name": "Doggy Talents",
@@ -316,6 +322,11 @@
         "oldId": "enajoelg",
         "name": "ENA"
     }, 
+    {
+        "id": "enterthegungeon",
+        "name": "Enter The Gungeon",
+        "official": true
+    },
     {
         "id": "everdreamvalley",
         "name": "Everdream Valley",
@@ -390,6 +401,11 @@
         "name": "Friday Night Funkin'"
     },
     {
+        "id": "gangbeasts",
+        "oldId": "gang-beasts",
+        "name": "Gang Beasts"
+    },
+    {
         "id": "galaxyonfire",
         "name": "Galaxy on Fire"
     },
@@ -462,6 +478,10 @@
         "id": "monumenta",
         "oldId": "monumentammo",
         "name": "Monumenta"
+    },
+    {
+        "id": "multiversus",
+        "name": "Multiversus"
     },
     {
         "id": "megidoabyss",
