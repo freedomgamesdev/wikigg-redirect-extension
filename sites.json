@@ -400,6 +400,11 @@
         "name": "Friday Night Funkin'"
     },
     {
+        "id": "gangbeasts",
+        "oldId": "gang-beasts",
+        "name": "Gang Beasts"
+    },
+    {
         "id": "galaxyonfire",
         "name": "Galaxy on Fire"
     },
