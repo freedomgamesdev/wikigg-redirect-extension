@@ -1,18 +1,18 @@
 {
     "extension_name": {
-        "message": "Redirect to wiki.gg",
+        "message": "wiki.gg Redirect",
         "description": "Extension name when packaged for the release/RC targets."
     },
     "extension_name_dev": {
-        "message": "[DEVBUILD] Redirect to wiki.gg",
+        "message": "[DEVBUILD] wiki.gg Redirect",
         "description": "Extension name when packaged for the development target."
     },
     "extension_desc": {
-        "message": "Redirects all requests from former Fandom and Gamepedia wikis that moved to wiki.gg to the new wikis, and filters search results."
+        "message": "Redirects all requests from wikis that have moved to wiki.gg from their former host."
     },
 
     "popup_name": {
-        "message": "wiki.gg migration helper"
+        "message": "wiki.gg Redirect"
     },
 
     "popup_tab_options": {
