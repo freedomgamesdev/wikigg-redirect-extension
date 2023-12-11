@@ -74,10 +74,11 @@
     [
         {
             "id": "ark",
-            "name": "ARK: Survival Evolved",
+            "name": "ARK",
             "official": true,
 
             "search": {
+                "oldName": "ARK: Survival Evolved",
                 "newTitle": "ARK Official Community Wiki"
             }
         },
