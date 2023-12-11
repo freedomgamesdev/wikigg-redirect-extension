@@ -198,3 +198,24 @@ label {
         display: none !important;
     }
 }
+
+
+table {
+    border: 1px solid var( --spacer-colour );
+}
+table > thead > tr:last-child > th {
+    border-bottom: 1px solid var( --spacer-colour );
+}
+
+
+[data-component='SearchFilterSettings'] th > span {
+    font-size: 95%;
+    font-weight: 500;
+}
+[data-component='SearchFilterSettings'] td:first-child {
+    font-weight: 600;
+    text-align: left;
+}
+[data-component='SearchFilterSettings'] td {
+    text-align: center;
+}

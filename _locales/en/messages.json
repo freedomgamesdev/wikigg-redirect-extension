@@ -54,6 +54,22 @@
         "message": "Enable experimental DuckDuckGo support"
     },
 
+    "sfs_filter": {
+        "message": "[PH]Filter results from old wikis."
+    },
+    "sfs_rewrite": {
+        "message": "[PH]Replace results from old wikis."
+    },
+    "sfs_none": {
+        "message": "[PH]Do nothing."
+    },
+    "sfs_engine_google": {
+        "message": "Google"
+    },
+    "sfs_engine_ddg": {
+        "message": "DuckDuckGo"
+    },
+
     "options_wikis": {
         "message": "Wikis to affect"
     },

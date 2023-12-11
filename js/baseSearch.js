@@ -2,6 +2,62 @@ import { getNativeSettings } from './util.js';
 import defaultSettingsFactory from '../defaults.js';
 
 
+/**
+ * @abstract
+ */
+export class SearchModule {
+    getId() {
+        throw new Error( `${this.constructor.name}.getId not implemented.` );
+    }
+
+    async replaceResults() {
+        throw new Error( `${this.constructor.name}.replaceResults not implemented.` );
+    }
+
+    async filterResults() {
+        throw new Error( `${this.constructor.name}.filterResults not implemented.` );
+    }
+
+    static async invoke( wikis, rootNode ) {
+        rootNode = rootNode || document;
+
+        const instance = new ( this )(),
+            id = instance.getId();
+
+        // TODO: `sfs` is not available yet
+        getNativeSettings().local.get( [
+            'sfs',
+            'disabledWikis'
+        ], result => {
+            const
+                defaults = defaultSettingsFactory(),
+                mode = result.sfs[ id ] || defaults.sfs[ id ],
+                doRoutine = instance[ {
+                    filter: 'filterResults',
+                    rewrite: 'replaceResults'
+                }[ mode ] ];
+
+            if ( !doRoutine ) {
+                return;
+            }
+
+            const disabledWikis = ( result && result.disabledWikis || defaults.disabledWikis );
+
+            // TODO: merge selectors and run that query, then determine the wiki
+            for ( const wiki of wikis ) {
+                if ( wiki.bannerOnly || disabledWikis.includes( wiki.id ) ) {
+                    continue;
+                }
+
+                for ( const element of rootNode.querySelectorAll( wiki.search.badSelector ) ) {
+                    doRoutine( wiki, element );
+                }
+            }
+        } );
+    }
+}
+
+
 export function invokeSearchModule( wikis, rewriteRoutine, filterRoutine, rootNode ) {
     const defaults = defaultSettingsFactory();
     rootNode = rootNode || document;
