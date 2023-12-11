@@ -799,6 +799,11 @@
         "name": "Void Crew",
         "official": true
     },
+    {
+        "id": "tvruhh",
+        "oldId": "the-void-rains-upon-her-heart",
+        "name": "The Void Rains Upon Her Heart"
+    }, 
     [
         {
             "id": "loathing",
