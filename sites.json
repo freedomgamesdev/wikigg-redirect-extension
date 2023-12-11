@@ -164,6 +164,10 @@
         }
     },
     {
+        "id": "cladecraft",
+        "name": "CladeCraft"
+    },
+    {
         "id": "cherryforest",
         "oldId": "cherry-forest",
         "name": "Cherry Forest",
