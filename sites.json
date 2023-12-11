@@ -468,7 +468,7 @@
         "id": "doggytalentsnext",
         "oldId": "doggytalents",
         "name": "Doggy Talents",
-        "official": true
+        "official": true,
         "uiClass": "wiki-indent"
         },
         {
