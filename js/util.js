@@ -164,3 +164,75 @@ export function getWikis( withSpacers, withVirtuals ) {
 export function getNativeSettings() {
     return chrome && chrome.storage || window.storage;
 }
+
+
+/**
+ * @typedef {Object} DomElementFactoryOptions
+ * @property {string[]?} [classes]
+ * @property {string} [text]
+ * @property {string|HTMLElement|HTMLElement[]} [html]
+ * @property {Record<string, string|undefined|boolean|number>} [attributes]
+ * @property {Partial<CSSStyleDeclaration>} [style]
+ * @property {Partial<{
+ *     [ P in keyof HTMLElementEventMap ]: ( ( event: HTMLElementEventMap[ P ] ) => void ) | ( () => void )
+ * }>} [events]
+ * @property {HTMLElement} [appendTo]
+ * @property {HTMLElement} [prependTo]
+*/
+
+/**
+ * @param {keyof HTMLElementTagNameMap} tag
+ * @param {DomElementFactoryOptions} options
+ * @return {HTMLElement}
+ */
+export function createDomElement( tag, options ) {
+    const result = document.createElement( tag );
+    if ( options.text ) {
+        result.innerText = options.text;
+    }
+    if ( options.html ) {
+        if ( typeof options.html === 'string' ) {
+            result.innerHTML = options.html;
+        } else if ( Array.isArray( options.html ) ) {
+            for ( const element of options.html ) {
+                result.appendChild( element );
+            }
+        } else {
+            result.appendChild( options.html );
+        }
+    }
+    if ( options.classes ) {
+        result.classList.add( ...options.classes );
+    }
+    if ( options.attributes ) {
+        for ( const key in options.attributes ) {
+            const value = options.attributes[ key ];
+            if ( value !== undefined && value !== null ) {
+                result.setAttribute( key, `${value}` );
+            }
+        }
+    }
+    if ( options.style ) {
+        for ( const key in options.style ) {
+            const value = options.style[ key ];
+            if ( value !== undefined && value !== null ) {
+                result.style[ key ] = value;
+            }
+        }
+    }
+    if ( options.events ) {
+        for ( const name in options.events ) {
+            const listener = options.events[ name ];
+            if ( listener ) {
+                result.addEventListener( name, listener );
+            }
+        }
+    }
+    if ( options.appendTo ) {
+        options.appendTo.appendChild( result );
+    }
+    if ( options.prependTo ) {
+        options.prependTo.prepend( result );
+    }
+    return result;
+}
