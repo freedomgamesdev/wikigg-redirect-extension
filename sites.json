@@ -675,11 +675,11 @@
         {
             "id": "starstable",
             "oldId": "jorvikipedia",
-            "name": "Star Stable",
+            "name": "Star Stable"
         },
         {
             "parentRef": "starstable",
-            "oldId": "starstable-archive",
+            "oldId": "starstable-archive"
         }
     ],
     {
