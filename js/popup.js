@@ -1,6 +1,7 @@
 import {
     getWikis,
-    isDevelopmentBuild
+    isDevelopmentBuild,
+    getMessage
 } from './util.js';
 import defaultSettingsFactory from '../defaults.js';
 
@@ -148,18 +149,12 @@ const RTW = {
     },
 
 
-    getMessageFallback( key, ...params ) {
-        const msg = chrome.i18n.getMessage( key, ...params );
-        return msg || key;
-    },
-
-
     /**
      * Replaces `<i18n>key</i18n>` tags in the document with appropriate localised message.
      */
     processMessageTags() {
         for ( const node of document.querySelectorAll( 'i18n' ) ) {
-            node.replaceWith( this.getMessageFallback( node.textContent ) );
+            node.replaceWith( getMessage( node.textContent ) );
         }
     },
 
@@ -171,7 +166,7 @@ const RTW = {
             headerElement.className = 'tabber-header';
 
             for ( const tabElement of tabberElement.querySelectorAll( ':scope > section[data-tab-msg]' ) ) {
-                const msg = this.getMessageFallback( tabElement.getAttribute( 'data-tab-msg' ) ),
+                const msg = getMessage( tabElement.getAttribute( 'data-tab-msg' ) ),
                     buttonElement = document.createElement( 'button' );
                 buttonElement.textContent = msg;
 

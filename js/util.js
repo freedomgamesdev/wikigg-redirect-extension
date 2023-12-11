@@ -13,6 +13,19 @@ export function isDevelopmentBuild() {
 
 
 /**
+ * Returns localised message or key as fallback.
+ *
+ * @param {string} key
+ * @param {...any} params
+ * @return {string}
+ */
+export function getMessage( key, ...params ) {
+    const msg = chrome.i18n.getMessage( key, ...params );
+    return msg || key;
+}
+
+
+/**
  * Checks if declarative network requests are supported by the browser.
  *
  * @return {boolean}
