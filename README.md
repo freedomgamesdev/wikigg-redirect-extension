@@ -1,4 +1,4 @@
-**wiki.gg Redirect** is a browser extension that automatically redirects you from wikis that are forked/abandoned from Fandom to wiki.gg. It will also adjust Google's search results to try and populate the wiki instead of Fandom's SEO.
+**wiki.gg Redirect** is a browser extension that automatically redirects you from wikis that are forked/abandoned from Fandom to [wiki.gg](https://wiki.gg/). It will also adjust Google's search results to try and populate the wiki instead of Fandom's SEO.
 
 The extension is available on these browsers:
 - [Google Chrome](https://chrome.google.com/webstore/detail/redirect-to-wikigg/cngoemokfjekjkmajenlaokhnmmiinca)
