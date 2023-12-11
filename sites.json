@@ -680,6 +680,7 @@
         {
             "parentRef": "starstable",
             "oldId": "starstable-archive",
+        }
     ],
     {
         "id": "teamabnormals",
