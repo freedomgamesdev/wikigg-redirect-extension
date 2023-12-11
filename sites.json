@@ -469,11 +469,11 @@
             "official": true
         },
         {
-        "id": "doggytalentsnext",
-        "oldId": "doggytalents",
-        "name": "Doggy Talents",
-        "official": true,
-        "uiClass": "wiki-indent"
+            "id": "doggytalentsnext",
+            "oldId": "doggytalents",
+            "name": "Doggy Talents",
+            "official": true,
+            "uiClass": "wiki-indent"
         },
         {
             "id": "mcdf",
