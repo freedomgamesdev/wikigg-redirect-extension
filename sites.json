@@ -671,6 +671,16 @@
         "oldId": "super-snail",
         "name": "Super Snail"
     },
+    [
+        {
+            "id": "starstable",
+            "oldId": "jorvikipedia",
+            "name": "Star Stable",
+        },
+        {
+            "parentRef": "starstable",
+            "oldId": "starstable-archive",
+    ],
     {
         "id": "teamabnormals",
         "oldId": "minecraftabnormals",
