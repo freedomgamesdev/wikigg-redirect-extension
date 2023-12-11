@@ -3,6 +3,16 @@ import sites from '../sites.json';
 
 
 /**
+ * Checks if the extension wasn't packaged for store.
+ *
+ * @return {boolean}
+ */
+export function isDevelopmentBuild() {
+    return chrome.runtime.getManifest().name.includes( 'DEVBUILD' );
+}
+
+
+/**
  * Checks if declarative network requests are supported by the browser.
  *
  * @return {boolean}

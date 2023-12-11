@@ -1,4 +1,7 @@
-import { getWikis } from './util.js';
+import {
+    getWikis,
+    isDevelopmentBuild
+} from './util.js';
 import defaultSettingsFactory from '../defaults.js';
 
 
@@ -137,7 +140,7 @@ const RTW = {
 
 
     initialiseDynamic() {
-        if ( !chrome.runtime.getManifest().name.includes( 'DEVBUILD' ) ) {
+        if ( !isDevelopmentBuild() ) {
             for ( const toRemove of document.querySelectorAll( '[data-hide-in-stable]' ) ) {
                 toRemove.remove();
             }
