@@ -217,6 +217,11 @@
         "name": "Cuphead"
     },
     {
+        "id": "cuisineer",
+        "name": "Cuisineer",
+        "official": true
+    },
+    {
         "id": "darkdeity",
         "name": "Dark Deity",
         "official": true
