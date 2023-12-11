@@ -1,0 +1,35 @@
+name: Compile and build store-ready packages
+
+on:
+  push:
+    tags:
+    - v.*
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [21.x]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm ci
+    - name: Compile scripts
+      run: npm run build
+    - name: Create packages
+      run: mkdir pkgs && npm run package-release
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        if-no-files-found: error
+        path: |
+          pkgs/*.zip
