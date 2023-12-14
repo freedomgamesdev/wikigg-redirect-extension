@@ -1,5 +1,10 @@
-import { getWikis } from './util.js';
+import {
+    getWikis,
+    isDevelopmentBuild,
+    getMessage
+} from './util.js';
 import defaultSettingsFactory from '../defaults.js';
+import SearchFilterSettings from './popup/SearchFilterSettings.js';
 
 
 const storage = window.storage || chrome.storage,
@@ -137,17 +142,11 @@ const RTW = {
 
 
     initialiseDynamic() {
-        if ( !chrome.runtime.getManifest().name.includes( 'DEVBUILD' ) ) {
+        if ( !isDevelopmentBuild() ) {
             for ( const toRemove of document.querySelectorAll( '[data-hide-in-stable]' ) ) {
                 toRemove.remove();
             }
         }
-    },
-
-
-    getMessageFallback( key, ...params ) {
-        const msg = chrome.i18n.getMessage( key, ...params );
-        return msg || key;
     },
 
 
@@ -156,7 +155,7 @@ const RTW = {
      */
     processMessageTags() {
         for ( const node of document.querySelectorAll( 'i18n' ) ) {
-            node.replaceWith( this.getMessageFallback( node.textContent ) );
+            node.replaceWith( getMessage( node.textContent ) );
         }
     },
 
@@ -168,7 +167,7 @@ const RTW = {
             headerElement.className = 'tabber-header';
 
             for ( const tabElement of tabberElement.querySelectorAll( ':scope > section[data-tab-msg]' ) ) {
-                const msg = this.getMessageFallback( tabElement.getAttribute( 'data-tab-msg' ) ),
+                const msg = getMessage( tabElement.getAttribute( 'data-tab-msg' ) ),
                     buttonElement = document.createElement( 'button' );
                 buttonElement.textContent = msg;
 
@@ -194,6 +193,14 @@ const RTW = {
 
             tabberElement.prepend( headerElement );
         }
+    },
+
+
+    initialiseSearchFilterSettings() {
+        const element = document.querySelector( '[data-component="SearchFilterSettings"]' );
+        if ( element ) {
+            SearchFilterSettings.initialise( element );
+        }
     }
 };
 
@@ -203,6 +210,7 @@ const RTW = {
     RTW.initialiseDynamic();
     RTW.processMessageTags();
     RTW.initialiseTabbers();
+    RTW.initialiseSearchFilterSettings();
 
     for ( const wiki of wikis ) {
         RTW.addWikiEntry( wiki );

@@ -19,9 +19,17 @@ import { supportsDNR } from './js/util.js';
 export default function () {
     return {
         isRedirectDisabled: false,
+        disabledWikis: [],
+        useTabRedirect: !supportsDNR(),
+
+        // Legacy search engine settings - this should be migrated and dropped in 1.7.0
         searchMode: 'rewrite',
         ddgEnable: true,
-        disabledWikis: [],
-        useTabRedirect: !supportsDNR()
+
+        // Search filtering settings - this should match SearchFilterSettings.engines
+        sfs: {
+            google: 'rewrite',
+            ddg: 'rewrite'
+        }
     };
 }
