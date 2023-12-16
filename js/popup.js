@@ -5,6 +5,7 @@ import {
 } from './util.js';
 import defaultSettingsFactory from '../defaults.js';
 import SearchFilterSettings from './popup/SearchFilterSettings.js';
+import WikiList from './popup/WikiList.js';
 
 
 const storage = window.storage || chrome.storage,
@@ -196,10 +197,16 @@ const RTW = {
     },
 
 
-    initialiseSearchFilterSettings() {
-        const element = document.querySelector( '[data-component="SearchFilterSettings"]' );
-        if ( element ) {
-            SearchFilterSettings.initialise( element );
+    initialiseComponents() {
+        const registry = {
+            SearchFilterSettings,
+            WikiList
+        };
+        for ( const element of document.querySelectorAll( '[data-component]' ) ) {
+            const compId = element.getAttribute( 'data-component' );
+            if ( registry[ compId ] ) {
+                registry[ compId ].initialise( element );
+            }
         }
     }
 };
@@ -210,7 +217,7 @@ const RTW = {
     RTW.initialiseDynamic();
     RTW.processMessageTags();
     RTW.initialiseTabbers();
-    RTW.initialiseSearchFilterSettings();
+    RTW.initialiseComponents();
 
     for ( const wiki of wikis ) {
         RTW.addWikiEntry( wiki );

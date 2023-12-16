@@ -14,7 +14,9 @@
         </div>
 
         <div id="area-mobile-fallback" class="tabber">
+            <!--- SETTINGS --->
             <section id="area-left" data-tab-msg="popup_tab_options">
+                <!--- REDIRECT SETTINGS --->
                 <div class="options-group">
                     <h5><i18n>options_redirecting</i18n></h5>
                     <div>
@@ -34,6 +36,7 @@
                     </div>
                 </div>
 
+                <!--- WIP SEARCH FILTER SETTINGS, NOT VISIBLE IN STORE PACKAGES --->
                 <div class="options-group" data-hide-in-stable>
                     <h5>INDEV: <i18n>options_filtering</i18n></h5>
                     <table data-component="SearchFilterSettings">
@@ -49,6 +52,7 @@
                     </table>
                 </div>
 
+                <!--- SEARCH FILTER SETTINGS --->
                 <div class="options-group">
                     <h5><i18n>options_filtering</i18n></h5>
                     <p>
@@ -76,6 +80,7 @@
                     </div>
                 </div>
 
+                <!--- DEVELOPMENT BUILD OPTIONS --->
                 <div class="options-group" data-hide-in-stable>
                     <h5>Hidden options</h5>
                     <div>
@@ -86,8 +91,13 @@
                 </div>
             </section>
 
+            <!--- WIKI LIST --->
             <section id="area-right" data-tab-msg="popup_tab_wikis">
                 <h4 class="no-mobile"><i18n>options_wikis</i18n></h4>
+                <div data-component="WikiList" data-hide-in-stable>
+                    <!-- This will be filled in by JavaScript -->
+                </div>
+                <h4 data-hide-in-stable>LEGACY UI BELOW</h4>
                 <div id="wikis-container">
                     <div id="wiki-search-container">
                         <input id="wikiSearch" type="text" placeholder="Search..." />
