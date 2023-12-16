@@ -490,6 +490,11 @@
         }
     ], 
     {
+        "id": "metalhellsinger",
+        "oldId": "metal-hellsinger",
+        "name": "Metal Hellsinger"
+    },
+    {
         "id": "monumenta",
         "oldId": "monumentammo",
         "name": "Monumenta"
