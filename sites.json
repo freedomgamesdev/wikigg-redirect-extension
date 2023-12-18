@@ -164,6 +164,10 @@
         }
     },
     {
+        "id": "cladecraft",
+        "name": "CladeCraft"
+    },
+    {
         "id": "cherryforest",
         "oldId": "cherry-forest",
         "name": "Cherry Forest",
@@ -217,6 +221,11 @@
         "name": "Cuphead"
     },
     {
+        "id": "cuisineer",
+        "name": "Cuisineer",
+        "official": true
+    },
+    {
         "id": "darkdeity",
         "name": "Dark Deity",
         "official": true
@@ -265,12 +274,6 @@
         "id": "domekeeper",
         "oldId": "dome-keeper",
         "name": "Dome Keeper"
-    },
-    {
-        "id": "doggytalentsnext",
-        "oldId": "doggytalents",
-        "name": "Doggy Talents",
-        "official": true
     },
     {
         "id": "dragoncourt",
@@ -430,6 +433,11 @@
         "official": true
     },
     {
+        "id": "instarsandtime",
+        "oldId": "in-stars-and-time",
+        "name": "In Stars and Time"
+    },
+    {
         "id": "lastorigin",
         "name": "Last Origin"
     },
@@ -461,6 +469,13 @@
             "official": true
         },
         {
+            "id": "doggytalentsnext",
+            "oldId": "doggytalents",
+            "name": "Doggy Talents",
+            "official": true,
+            "uiClass": "wiki-indent"
+        },
+        {
             "id": "mcdf",
             "oldId": "mcdiscontinued",
             "farm": "miraheze",
@@ -478,6 +493,10 @@
         "id": "monumenta",
         "oldId": "monumentammo",
         "name": "Monumenta"
+    },
+    {
+        "id": "mindhack",
+        "name": "MINDHACK"
     },
     {
         "id": "multiversus",
@@ -652,6 +671,17 @@
         "oldId": "super-snail",
         "name": "Super Snail"
     },
+    [
+        {
+            "id": "starstable",
+            "oldId": "jorvikipedia",
+            "name": "Star Stable"
+        },
+        {
+            "parentRef": "starstable",
+            "oldId": "starstable-archive"
+        }
+    ],
     {
         "id": "teamabnormals",
         "oldId": "minecraftabnormals",
@@ -794,6 +824,11 @@
         "name": "Void Crew",
         "official": true
     },
+    {
+        "id": "tvruhh",
+        "oldId": "the-void-rains-upon-her-heart",
+        "name": "The Void Rains Upon Her Heart"
+    }, 
     [
         {
             "id": "loathing",
