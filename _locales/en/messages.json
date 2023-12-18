@@ -8,7 +8,7 @@
         "description": "Extension name when packaged for the development target."
     },
     "extension_desc": {
-        "message": "Redirects all requests from former Fandom and Gamepedia wikis that moved to wiki.gg to the new wikis, and filters search results."
+        "message": "RTW is no longer supported, please switch to the first-party wiki.gg Redirect instead."
     },
 
     "popup_name": {
