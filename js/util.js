@@ -81,6 +81,7 @@ export function supportsDNR() {
  * @typedef {Object} SiteListUnpackOptions
  * @property {boolean} [withSpacers=false] Whether spacers should be included.
  * @property {boolean} [withVirtuals=false] Whether derived records should be included.
+ * @property {boolean} [compacted=true]
  */
 
 
@@ -109,7 +110,12 @@ function _unpackSiteArray( entities, options ) {
 
         // Recurse if an array, or append
         if ( Array.isArray( entity ) ) {
-            out = out.concat( _unpackSiteArray( entity, options ) );
+            const unpacked = _unpackSiteArray( entity, options );
+            if ( options.compacted ?? true ) {
+                out = out.concat( unpacked );
+            } else {
+                out.push( unpacked );
+            }
         } else {
             out.push( entity );
         }
@@ -127,12 +133,14 @@ function _unpackSiteArray( entities, options ) {
  * @public
  * @param {boolean} [withSpacers=false]
  * @param {boolean} [withVirtuals=false]
+ * @param {boolean} [compacted=true]
  * @return {SiteListEntity[]}
  */
-export function getWikis( withSpacers, withVirtuals ) {
+export function getWikis( withSpacers, withVirtuals, compacted ) {
     const out = _unpackSiteArray( sites, {
         withSpacers,
-        withVirtuals
+        withVirtuals,
+        compacted
     } );
 
     if ( withVirtuals ) {
