@@ -151,6 +151,11 @@
         }
     },
     {
+        "id": "bookoftravels",
+        "name": "Book Of Travels",
+        "official": true
+    },
+    {
         "id": "beforedarknessfalls",
         "oldId": "before-darkness-falls",
         "name": "Before Darkness Falls"
