@@ -510,6 +510,11 @@
         "name": "MINDHACK"
     },
     {
+        "id": "minihealer",
+        "name": "MiniHealer",
+        "official": true
+    },
+    {
         "id": "multiversus",
         "name": "Multiversus"
     },
