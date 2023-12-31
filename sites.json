@@ -654,6 +654,20 @@
             "bannerOnly": true
         }
     ],
+    [
+        {
+            "id": "roody2d",
+            "name": "Roody:2D"
+        },
+        {
+            "parentRef": "roody2d",
+            "oldId": "roody-2d",
+
+            "search": {
+                "oldName": "Roody:2D ReEdit"
+            }
+        }
+    ],
     {
         "id": "rsmc",
         "name": "RSMC"
