@@ -677,10 +677,16 @@
         "id": "seaofthieves",
         "name": "Sea of Thieves"
     },
-     {
-        "id": "secretsofgrindea",
-        "name": "Secrets of Grindea"
-    },
+    [
+        {
+            "id": "secretsofgrindea",
+            "name": "Secrets of Grindea"
+        },
+        {
+            "parentRef": "secretsofgrindea",
+            "oldId": "secrets-of-grindea"
+        }
+    ],
     {
         "id": "sonsoftheforest",
         "name": "Sons of the Forest"
