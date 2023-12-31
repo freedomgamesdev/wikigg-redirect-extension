@@ -582,6 +582,11 @@
         "name": "Pico"
     },
     {
+        "id": "planetlife",
+        "oldId": "planet-life",
+        "name": "Planet Life"
+    },
+    {
         "id": "pubg",
         "name": "PUBG",
         "official": true
