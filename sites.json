@@ -151,6 +151,11 @@
         }
     },
     {
+        "id": "bookoftravels",
+        "name": "Book Of Travels",
+        "official": true
+    },
+    {
         "id": "beforedarknessfalls",
         "oldId": "before-darkness-falls",
         "name": "Before Darkness Falls"
@@ -410,6 +415,10 @@
         "name": "Gang Beasts"
     },
     {
+        "id": "galaxylife",
+        "name": "Galaxy Life"
+    },
+    {
         "id": "galaxyonfire",
         "name": "Galaxy on Fire"
     },
@@ -460,6 +469,11 @@
         "oldId": "life-in-adventure",
         "name": "Life In Adventure"
     },
+     {
+        "id": "karmazoo",
+        "name": "KarmaZoo",
+        "official": true
+    },
     [
         {
             "spacer": "Minecraft Wikis (minecraft.wiki)"
@@ -505,6 +519,11 @@
         "name": "MINDHACK"
     },
     {
+        "id": "minihealer",
+        "name": "MiniHealer",
+        "official": true
+    },
+    {
         "id": "multiversus",
         "name": "Multiversus"
     },
@@ -517,6 +536,10 @@
         "id": "needystreameroverload",
         "oldId": "needy-streamer-overload",
         "name": "NEEDY STREAMER OVERLOAD"
+    },
+    {
+        "id": "necromerger",
+        "name": "NecroMerger"
     },
     {
         "id": "neutronized",
@@ -568,8 +591,18 @@
         "name": "Palworld"
     },
     {
+        "id": "peglin",
+        "name": "Peglin",
+        "official": true
+    },
+    {
         "id": "pico",
         "name": "Pico"
+    },
+    {
+        "id": "planetlife",
+        "oldId": "planet-life",
+        "name": "Planet Life"
     },
     {
         "id": "pubg",
@@ -643,6 +676,10 @@
     {
         "id": "seaofthieves",
         "name": "Sea of Thieves"
+    },
+     {
+        "id": "secretsofgrindea",
+        "name": "Secrets of Grindea"
     },
     {
         "id": "sonsoftheforest",
