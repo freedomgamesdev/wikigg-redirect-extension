@@ -460,6 +460,11 @@
         "oldId": "life-in-adventure",
         "name": "Life In Adventure"
     },
+     {
+        "id": "karmazoo",
+        "name": "KarmaZoo",
+        "official": true
+    },
     [
         {
             "spacer": "Minecraft Wikis (minecraft.wiki)"
