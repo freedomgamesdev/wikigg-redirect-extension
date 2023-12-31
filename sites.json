@@ -568,6 +568,11 @@
         "name": "Palworld"
     },
     {
+        "id": "peglin",
+        "name": "Peglin",
+        "official": true
+    },
+    {
         "id": "pico",
         "name": "Pico"
     },
