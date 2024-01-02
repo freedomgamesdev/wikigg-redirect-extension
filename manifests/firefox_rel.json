@@ -94,6 +94,15 @@
                 "built/fandom.js"
             ],
             "run_at": "document_end"
+        },
+	{
+            "matches": [
+                "https://search.brave.com/*"
+            ],
+            "js": [
+                "built/braveSearch.js"
+            ],
+            "run_at": "document_end"
         }
     ],
     "manifest_version": 2

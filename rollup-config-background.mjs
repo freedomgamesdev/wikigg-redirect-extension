@@ -1,6 +1,5 @@
 import json from '@rollup/plugin-json';
 
-
 const scripts = [
     { script: 'background' },
     { script: 'popup' },

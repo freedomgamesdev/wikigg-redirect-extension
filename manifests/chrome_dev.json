@@ -74,7 +74,17 @@
                 "built/fandom.js"
             ],
             "run_at": "document_end"
+        },
+	{
+            "matches": [
+                "https://search.brave.com/*"
+            ],
+            "js": [
+                "built/braveSearch.js"
+            ],
+            "run_at": "document_end"
         }
+
     ],
     "icons": {
         "128": "icons/128_dev.png"
