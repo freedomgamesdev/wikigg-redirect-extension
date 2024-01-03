@@ -126,6 +126,11 @@
         "name": "Astrea"
     },
     {
+        "id": "backpackbattles",
+        "oldId": "backpack-battles",
+        "name": "Backpack Battles"
+    },
+    {
         "id": "backpackhero",
         "oldId": "backpack-hero",
         "name": "Backpack Hero"
@@ -722,6 +727,12 @@
         "id": "sugaryspire",
         "oldId": "sugary-spire",
         "name": "Sugary Spire"
+    },
+    {
+        "id": "sunhaven",
+        "oldId": "sun-haven",
+        "name": "Sun Haven",
+        "official": true
     },
     {
         "id": "superautopets",
