@@ -642,16 +642,14 @@
     },
     [
         {
-            "id": "riskofrainreturns",
-            "oldId": "riskofrain",
-            "name": "Risk of Rain Returns",
-            "official": true,
-            "bannerOnly": true
+            "id": "riskofrain",
+            "name": "Risk of Rain",
+            "official": true
         },
         {
-            "parentRef": "riskofrainreturns",
-            "oldId": "riskofrain2",
-            "bannerOnly": true
+            "id": "riskofrain2",
+            "name": "Risk of Rain 2",
+            "official": true
         }
     ],
     [
