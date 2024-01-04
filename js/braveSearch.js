@@ -2,7 +2,7 @@
 
 
 import { getWikis, getNativeSettings } from './util.js';
-import { 
+import {
     prepareWikisInfo,
     invokeSearchModule,
     awaitElement,
@@ -29,12 +29,12 @@ function findNextOfficialWikiResult( wiki, oldElement, selector ) {
 
 // Replaces a Fandom result with an official wiki result or a placeholder
 const filter = {
-    
+
     MARKER_ATTRIBUTE: 'data-lock',
     ENGINE_LAYOUT_SELECTOR: '#results',
     ENGINE_RESULT_CONTAINER_SELECTOR: '.svelte-1ckzfks',
-    Url_ELEMENT_SELECTOR: '.snippet-url' ,
-    SPAN_TITLE_ELEMENT_SELECTOR: '.heading-serpresult', 
+    Url_ELEMENT_SELECTOR: '.snippet-url',
+    SPAN_TITLE_ELEMENT_SELECTOR: '.heading-serpresult',
     BADGE_ELEMENT_SELECTOR: '.organic__title-wrapper', // What is this?
     ANCHOR_ELEMENT_SELECTOR: 'a.svelte-1dihpoi',
 
@@ -105,8 +105,8 @@ const rewrite = {
     MARKER_ATTRIBUTE: 'data-lock',
     ENGINE_LAYOUT_SELECTOR: '#results',
     ENGINE_RESULT_CONTAINER_SELECTOR: '.svelte-1ckzfks',
-    URL_ELEMENT_SELECTOR: '.snippet-url' ,
-    SPAN_TITLE_ELEMENT_SELECTOR: '.heading-serpresult', 
+    URL_ELEMENT_SELECTOR: '.snippet-url',
+    SPAN_TITLE_ELEMENT_SELECTOR: '.heading-serpresult',
     BADGE_ELEMENT_SELECTOR: '.svelte-1ckzfks', // Which element shall contain the Badge?
     ANCHOR_ELEMENT_SELECTOR: 'a.svelte-1dihpoi',
 
@@ -114,7 +114,7 @@ const rewrite = {
     makeBadgeElement( isTopLevel ) {
         const out = document.createElement( 'span' );
         out.innerText = isTopLevel ? 'redirected' : 'some redirected';
-        out.style.backgroundColor = document.querySelector("html.dark")
+        out.style.backgroundColor = document.querySelector( 'html.dark' )
             ? '#ffffff'
             : '#0002';
         out.style.color = '#232323';
@@ -147,11 +147,11 @@ const rewrite = {
     rewriteTitle( wiki, node ) {
         for ( const child of node.childNodes ) {
             if ( child.textContent && child.textContent.length >= 5 ) {
-                 child.textContent = this.rewriteText( wiki, child.textContent );
-             }else {
-                 this.rewriteTitle( wiki, child );
-             }
-         }
+                child.textContent = this.rewriteText( wiki, child.textContent );
+            } else {
+                this.rewriteTitle( wiki, child );
+            }
+        }
     },
 
 
@@ -161,7 +161,7 @@ const rewrite = {
             if ( /(?<=.+):\/\//.test( child.textContent ) ) {
                 continue;
             }
-            child.textContent = child.textContent.replace( new RegExp(`${wiki.oldId || wiki.id}.(fandom|gamepedia)?.com`), `${wiki.id}.wiki.gg` );
+            child.textContent = child.textContent.replace( new RegExp( `${wiki.oldId || wiki.id}.(fandom|gamepedia)?.com` ), `${wiki.id}.wiki.gg` );
         }
     },
 
@@ -176,7 +176,7 @@ const rewrite = {
     },
 
     run( wiki, linkElement ) {
-        if ( linkElement !== null && !this.isLocked( linkElement ) )  {
+        if ( linkElement !== null && !this.isLocked( linkElement ) ) {
             // Find result container
             const element = linkElement.closest( this.ENGINE_RESULT_CONTAINER_SELECTOR );
 
@@ -216,10 +216,9 @@ const rewrite = {
 };
 
 function runCallback() {
-    console.debug("invokeSearchModule")
-    invokeSearchModule( wikis, rewrite.run.bind( rewrite ), filter.run.bind( filter ))
+    invokeSearchModule( wikis, rewrite.run.bind( rewrite ), filter.run.bind( filter ) );
 
 }
 
-observeElement('#results', undefined, runCallback)
+observeElement( '#results', undefined, runCallback );
 

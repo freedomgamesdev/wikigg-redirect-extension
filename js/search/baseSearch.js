@@ -259,13 +259,13 @@ export function awaitElement( knownParent, selector, callback ) {
     } );
 }
 
-export function observeElement( selector, config, callback) {
+export function observeElement( selector, config, callback ) {
     // This isn't a good idea
     config = config || { attributes: false, childList: true, subtree: true };
-    
+
     const targetElement = document.querySelector( selector );
-    const observer = new MutationObserver(callback);
-    
-    observer.observe(targetElement, config);
-    
+    const observer = new MutationObserver( callback );
+
+    observer.observe( targetElement, config );
+
 }

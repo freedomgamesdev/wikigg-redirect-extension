@@ -186,7 +186,7 @@ export function getNativeSettings() {
  * }>} [events]
  * @property {HTMLElement} [appendTo]
  * @property {HTMLElement} [prependTo]
-*/
+ */
 
 /**
  * @param {keyof HTMLElementTagNameMap} tag
