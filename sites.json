@@ -614,6 +614,11 @@
         "name": "Planet Life"
     },
     {
+        "id": "plagueinc",
+        "name": "Plague Inc",
+        "official": true
+    },
+    {
         "id": "pubg",
         "name": "PUBG",
         "official": true
