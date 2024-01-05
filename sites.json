@@ -326,6 +326,11 @@
         "official": true
     },
     {
+        "id": "eastscarp",
+        "name": "East Scarp",
+        "official": true
+    },
+    {
         "id": "equestriaatwar",
         "oldId": "equestria-at-war",
         "name": "Equestria at War",
