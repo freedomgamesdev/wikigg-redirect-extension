@@ -442,6 +442,10 @@
         "official": true
     },
     {
+        "id": "holocure",
+        "name": "Holocure",
+    },
+    {
         "id": "helloneighbor",
         "oldId": "hello-neighbor",
         "name": "Hello Neighbor",
