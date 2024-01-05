@@ -487,10 +487,15 @@
         "oldId": "life-in-adventure",
         "name": "Life In Adventure"
     },
-     {
+    {
         "id": "karmazoo",
         "name": "KarmaZoo",
         "official": true
+    },
+    {
+        "id": "kameo",
+        "oldId": "wotnot",
+        "name": "Kameo Elements of Power"
     },
     [
         {
