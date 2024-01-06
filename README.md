@@ -10,6 +10,13 @@ The extension is available on these browsers:
 
 **Only wiki.gg wikis will be added to this extension.** Independent or nearly-independent wikis are out of scope, because a separate **[Indie Wiki Buddy](https://github.com/KevinPayravi/indie-wiki-buddy)** extension is already available for Chrome and Firefox that you can use alongside **wiki.gg Redirect**.
 
+## Permission justifications
+* Persistent storage (`storage`): used for saving and loading user preferences.
+* Navigation activity (`webNavigation`): used to react to navigation events resulting in visits to former wikis. This enables performing the redirection functionality.
+* Site data access to fandom.com, gamepedia.com: used to redirect visits to former wikis (through the use of the limited `tabs` API). This enables performing the redirection functionality.
+* Running scripts on google.com, duckduckgo.com, and their regional sites: used to rewrite search results.
+* Running scripts on fandom.com: used to display notice banners about wiki forks, if enabled in settings.
+
 ------
 
 The code was originally based on [proEndreeper's RSWikiRedirector](https://github.com/proEndreeper/RSWikiRedirector), and is licenced under the MIT licence.
