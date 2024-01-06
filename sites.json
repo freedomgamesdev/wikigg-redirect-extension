@@ -166,6 +166,10 @@
         "name": "Before Darkness Falls"
     },
     {
+        "id": "bejeweled",
+        "name": "Bejeweled"
+    },
+    {
         "id": "bellasara",
         "oldId": "thebellasara",
         "name": "Bella Sara",
@@ -326,6 +330,11 @@
         "official": true
     },
     {
+        "id": "eastscarp",
+        "name": "East Scarp",
+        "official": true
+    },
+    {
         "id": "equestriaatwar",
         "oldId": "equestria-at-war",
         "name": "Equestria at War",
@@ -442,6 +451,10 @@
         "official": true
     },
     {
+        "id": "holocure",
+        "name": "Holocure"
+    },
+    {
         "id": "helloneighbor",
         "oldId": "hello-neighbor",
         "name": "Hello Neighbor",
@@ -474,10 +487,15 @@
         "oldId": "life-in-adventure",
         "name": "Life In Adventure"
     },
-     {
+    {
         "id": "karmazoo",
         "name": "KarmaZoo",
         "official": true
+    },
+    {
+        "id": "kameo",
+        "oldId": "wotnot",
+        "name": "Kameo Elements of Power"
     },
     [
         {
@@ -608,6 +626,11 @@
         "id": "planetlife",
         "oldId": "planet-life",
         "name": "Planet Life"
+    },
+    {
+        "id": "plagueinc",
+        "name": "Plague Inc",
+        "official": true
     },
     {
         "id": "pubg",
