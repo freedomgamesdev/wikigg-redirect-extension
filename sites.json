@@ -728,6 +728,10 @@
         }
     ],
     {
+        "id": "signalis",
+        "name": "SIGNALIS"
+    },
+    {
         "id": "sonsoftheforest",
         "name": "Sons of the Forest"
     },
