@@ -183,8 +183,7 @@ const rewrite = {
             };
 
             // Rewrite anchor href links
-                this.rewriteLink( wiki, a );
-            }
+            this.rewriteLink( wiki, a );
 
             // Rewrite title and append a badge
             for ( const span of element.querySelectorAll( this.SPAN_TITLE_ELEMENT_SELECTOR ) ) {
