@@ -33,7 +33,7 @@ const filter = {
     MARKER_ATTRIBUTE: 'data-lock',
     ENGINE_LAYOUT_SELECTOR: '#results',
     ENGINE_RESULT_CONTAINER_SELECTOR: '.svelte-1ckzfks',
-    Url_ELEMENT_SELECTOR: '.snippet-url',
+    URL_ELEMENT_SELECTOR: '.snippet-url',
     SPAN_TITLE_ELEMENT_SELECTOR: '.heading-serpresult',
     BADGE_ELEMENT_SELECTOR: '.organic__title-wrapper', // What is this?
     ANCHOR_ELEMENT_SELECTOR: 'a.svelte-1dihpoi',
@@ -91,9 +91,7 @@ const filter = {
 
             // Hides the main result element
             oldElement.style.display = 'none';
-            // Creates a placeholder indicating the user that we removed the result
             oldElement.parentElement.prepend( this.makePlaceholderElement( wiki ), oldElement );
-            this.lock( linkElement );
         }
     }
 };
@@ -184,33 +182,26 @@ const rewrite = {
                 return a.href.startsWith( `https://${wiki.oldId || wiki.id}.fandom.com` );
             };
 
-            if ( element !== null && !this.isLocked( element ) ) {
-                // Rewrite anchor href links
-                for ( const a of element.getElementsByTagName( 'a' ) ) {
-                    this.rewriteLink( wiki, a );
-                }
-
-                // Rewrite title and append a badge
-                for ( const span of element.querySelectorAll( this.SPAN_TITLE_ELEMENT_SELECTOR ) ) {
-                    if ( !wiki.search.titlePattern.test( span.textContent ) ) {
-                        continue;
-                    }
-
-                    // TODO: This should get placed at the end if and only if everything is sucessful.
-                    element.prepend( this.makeBadgeElement( isTopLevel ) );
-
-                    this.lock( span.parentElement );
-                    this.rewriteTitle( wiki, span );
-                    this.lock( span );
-                }
-
-                // Rewrite URL element
-                for ( const url of element.querySelectorAll( this.URL_ELEMENT_SELECTOR ) ) {
-                    this.rewriteURLElement( wiki, url );
-                }
-
-                this.lock( element );
+            // Rewrite anchor href links
+                this.rewriteLink( wiki, a );
             }
+
+            // Rewrite title and append a badge
+            for ( const span of element.querySelectorAll( this.SPAN_TITLE_ELEMENT_SELECTOR ) ) {
+                if ( !wiki.search.titlePattern.test( span.textContent ) ) {
+                    continue;
+                }
+
+                this.rewriteTitle( wiki, span );
+            }
+
+            // Rewrite URL element
+            for ( const url of element.querySelectorAll( this.URL_ELEMENT_SELECTOR ) ) {
+                this.rewriteURLElement( wiki, url );
+            }
+
+            element.prepend( this.makeBadgeElement( isTopLevel ) );
+            this.lock( linkElement );
         }
     }
 };
@@ -221,4 +212,3 @@ function runCallback() {
 }
 
 observeElement( '#results', undefined, runCallback );
-
