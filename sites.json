@@ -493,6 +493,11 @@
         "official": true
     },
     {
+        "id": "katanazero",
+        "oldId": "katana-zero",
+        "name": "Katana ZERO"
+    },
+    {
         "id": "kameo",
         "oldId": "wotnot",
         "name": "Kameo Elements of Power"
