@@ -475,6 +475,11 @@
         "name": "Leaf Blower Revolution"
     },
     {
+        "id": "lethalcompany",
+        "oldId": "lethal-company",
+        "name": "Lethal Company"
+    },
+    {
         "id": "legiontd2",
         "name": "Legion TD 2"
     },
