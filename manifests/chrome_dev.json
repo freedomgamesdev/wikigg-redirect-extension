@@ -74,7 +74,17 @@
                 "built/fandom.js"
             ],
             "run_at": "document_end"
+        },
+	{
+            "matches": [
+                "https://www.bing.com/*"
+            ],
+            "js": [
+                "built/bing.js"
+            ],
+            "run_at": "document_end"
         }
+
     ],
     "icons": {
         "128": "icons/128_dev.png"

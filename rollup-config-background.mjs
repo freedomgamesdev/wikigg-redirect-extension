@@ -7,6 +7,8 @@ const scripts = {
     google: { isContentScript: true },
     ddg: { isContentScript: true },
     fandom: { isContentScript: true },
+    bing: { isContentScript: true }
+
 };
 const release = process.env.NODE_ENV === 'release';
 
