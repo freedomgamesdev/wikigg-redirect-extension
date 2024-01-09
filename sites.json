@@ -475,6 +475,11 @@
         "name": "Leaf Blower Revolution"
     },
     {
+        "id": "lethalcompany",
+        "oldId": "lethal-company",
+        "name": "Lethal Company"
+    },
+    {
         "id": "legiontd2",
         "name": "Legion TD 2"
     },
@@ -491,6 +496,11 @@
         "id": "karmazoo",
         "name": "KarmaZoo",
         "official": true
+    },
+    {
+        "id": "katanazero",
+        "oldId": "katana-zero",
+        "name": "Katana ZERO"
     },
     {
         "id": "kameo",
