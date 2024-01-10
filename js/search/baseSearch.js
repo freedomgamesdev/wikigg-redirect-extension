@@ -258,6 +258,16 @@ export function awaitElement( knownParent, selector, callback ) {
         childList: true
     } );
 }
+export function makePlaceholderElement( wiki ) {
+        const element = document.createElement( 'span' );
+        element.innerHTML = 'Result from ' + wiki.search.placeholderTitle + ' hidden by wiki.gg redirector';
+        element.style.color = '#5f6368';
+        element.classList.add( 'filter_badge' );
+        element.style.padding = '0px 0px 1em 10px';
+        element.style.display = 'block';
+        return element;
+  }
+
 
 export function observeElement( selector, config, callback ) {
     // This isn't a good idea

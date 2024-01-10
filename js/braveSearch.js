@@ -6,7 +6,8 @@ import {
     prepareWikisInfo,
     invokeSearchModule,
     awaitElement,
-    observeElement
+    observeElement,
+    makePlaceholderElement
 } from './baseSearch.js';
 
 
@@ -49,16 +50,6 @@ const filter = {
     },
 
 
-    makePlaceholderElement( wiki ) {
-        const element = document.createElement( 'span' );
-        element.innerHTML = 'Result from ' + wiki.search.placeholderTitle + ' hidden by wiki.gg redirector';
-        element.style.color = '#5f6368';
-        element.classList.add( 'filter_badge' );
-        element.style.padding = '0px 0px 1em 10px';
-        element.style.display = 'block';
-        return element;
-    },
-
 
     run( wiki, linkElement ) {
         if ( linkElement.parentElement && document.querySelector( this.ENGINE_LAYOUT_SELECTOR ).contains( linkElement ) ) {
@@ -86,12 +77,12 @@ const filter = {
             } else {
                 // Insert a placeholder before this result
                 const resultContainer = document.querySelector( this.ENGINE_LAYOUT_SELECTOR );
-                resultContainer.insertBefore( this.makePlaceholderElement( wiki ), oldElement );
+                resultContainer.insertBefore( makePlaceholderElement( wiki ), oldElement );
             }
 
             // Hides the main result element
             oldElement.style.display = 'none';
-            oldElement.parentElement.prepend( this.makePlaceholderElement( wiki ), oldElement );
+            oldElement.parentElement.prepend( makePlaceholderElement( wiki ), oldElement );
         }
     }
 };
@@ -112,7 +103,7 @@ const rewrite = {
     makeBadgeElement( isTopLevel ) {
         const out = document.createElement( 'span' );
         out.innerText = isTopLevel ? 'redirected' : 'some redirected';
-        out.style.backgroundColor = document.querySelector( 'html.dark' )
+        out.style.backgroundColor = document.documentElement.classList.has( 'dark' )
             ? '#ffffff'
             : '#0002';
         out.style.color = '#232323';
@@ -129,11 +120,7 @@ const rewrite = {
 
 
     rewriteLink( wiki, link ) {
-        if ( link.href.startsWith( '/url?' ) ) {
-            link.href = ( new URLSearchParams( link.href ) ).get( 'url' );
-        } else {
             link.href = link.href.replace( `${wiki.oldId || wiki.id}.fandom.com`, `${wiki.id}.wiki.gg` );
-        }
     },
 
 
@@ -153,13 +140,10 @@ const rewrite = {
     },
 
 
-    rewriteURLElement( wiki, node ) {
+    rewriteUrlElement( wiki, node ) {
+	const urlRegex = new RegExp( `${wiki.oldId || wiki.id}.(fandom|gamepedia)?.com` );
         for ( const child of node.childNodes ) {
-	    // Checks if the child is a protocol, some engines split the url in: <proto://><domain>
-            if ( /(?<=.+):\/\//.test( child.textContent ) ) {
-                continue;
-            }
-            child.textContent = child.textContent.replace( new RegExp( `${wiki.oldId || wiki.id}.(fandom|gamepedia)?.com` ), `${wiki.id}.wiki.gg` );
+            child.textContent = child.textContent.replace( urlRegex, `${wiki.id}.wiki.gg` );
         }
     },
 
@@ -196,7 +180,7 @@ const rewrite = {
 
             // Rewrite URL element
             for ( const url of element.querySelectorAll( this.URL_ELEMENT_SELECTOR ) ) {
-                this.rewriteURLElement( wiki, url );
+                this.rewriteUrlElement( wiki, url );
             }
 
             element.prepend( this.makeBadgeElement( isTopLevel ) );
@@ -210,4 +194,4 @@ function runCallback() {
 
 }
 
-observeElement( '#results', undefined, runCallback );
+observeElement( '#results', null, runCallback );
