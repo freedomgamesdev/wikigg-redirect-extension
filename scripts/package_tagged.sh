@@ -15,10 +15,10 @@ function _package_for() {
 	echo "OUTPUT:   $TARBALL"
 
 	zip -r $TARBALL $FILE_LIST $MANIFEST
-	7za rn $TARBALL $MANIFEST manifest.json
+	7za rn $TARBALL $MANIFEST $MANIFEST
 }
 
-
+mkdir -p pkgs/
 npm run build
 for target in chrome firefox; do
 	_package_for $target $1
