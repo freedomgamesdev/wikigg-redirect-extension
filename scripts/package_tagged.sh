@@ -18,7 +18,7 @@ function _package_for() {
 	7za rn $TARBALL $MANIFEST manifest.json
 }
 
-
+mkdir -p pkgs/
 npm run build
 for target in chrome firefox; do
 	_package_for $target $1
