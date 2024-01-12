@@ -14,7 +14,7 @@ function _package_for() {
 	echo "TAG:      $TAG"
 	echo "OUTPUT:   $TARBALL"
 
-	zip -r $TARBALL $FILE_LIST $MANIFEST
+	zip -r $TARBALL $FILE_LIST manifest
 	7za rn $TARBALL $MANIFEST $MANIFEST
 }
 
