@@ -280,6 +280,11 @@
         "official": true
     },
     {
+        "id": "dicefolk",
+        "name": "Dicefolk",
+        "official": true
+    },
+    {
         "id": "dotage",
         "oldId": "dotage-game",
         "name": "DotAGE",
