@@ -118,11 +118,9 @@ const rewrite = {
         return out;
     },
 
-
     rewriteLink( wiki, link ) {
             link.href = link.href.replace( `${wiki.oldId || wiki.id}.fandom.com`, `${wiki.id}.wiki.gg` );
     },
-
 
     rewriteText( wiki, text ) {
         return text.replace( wiki.search.titlePattern, wiki.search.newTitle );
@@ -167,8 +165,10 @@ const rewrite = {
             };
 
             // Rewrite anchor href links
-            this.rewriteLink( wiki, a );
-
+            for ( const a of element.getElementsByTagName( 'a' ) ) {
+                    this.rewriteLink( wiki, a );
+            }
+	    
             // Rewrite title and append a badge
             for ( const span of element.querySelectorAll( this.SPAN_TITLE_ELEMENT_SELECTOR ) ) {
                 if ( !wiki.search.titlePattern.test( span.textContent ) ) {
@@ -193,5 +193,7 @@ function runCallback() {
     invokeSearchModule( wikis, rewrite.run.bind( rewrite ), filter.run.bind( filter ) );
 
 }
-
+document.addEventListener("readystatechange", (event) => {
+    console.log('readystatechange')
+});
 observeElement( '#results', null, runCallback );
