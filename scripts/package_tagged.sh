@@ -14,8 +14,8 @@ function _package_for() {
 	echo "TAG:      $TAG"
 	echo "OUTPUT:   $TARBALL"
 
-	zip -r $TARBALL $FILE_LIST manifest
-	7za rn $TARBALL $MANIFEST $MANIFEST
+	zip -r $TARBALL $FILE_LIST $MANIFEST
+	7za rn $TARBALL $MANIFEST manifest.json
 }
 
 mkdir -p pkgs/
