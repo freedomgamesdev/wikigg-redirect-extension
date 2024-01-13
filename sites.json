@@ -1015,15 +1015,15 @@
         "oldId": "yohane-deepblue",
         "name": "Yohane the Parhelion -BLAZE in the DEEPBLUE-"
     },
-        [
+    [
         {
-        "id": "yourchronicle",
-        "oldId": "your-chronicle",
-        "name": "Your Chronicle"
+            "id": "yourchronicle",
+            "oldId": "your-chronicle",
+            "name": "Your Chronicle"
         },
         {
             "parentRef": "yourchronicle",
             "oldId": "anotherchronicle"
         }
-    ],
+    ]
 ]
