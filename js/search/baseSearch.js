@@ -259,20 +259,33 @@ export function awaitElement( knownParent, selector, callback ) {
     } );
 }
 export function makePlaceholderElement( wiki ) {
-        const element = document.createElement( 'span' );
-        element.innerHTML = 'Result from ' + wiki.search.placeholderTitle + ' hidden by wiki.gg redirector';
-        element.style.color = '#5f6368';
-        element.classList.add( 'filter_badge' );
-        element.style.padding = '0px 0px 1em 10px';
-        element.style.display = 'block';
-        return element;
-  }
-
+    const element = document.createElement( 'span' );
+    element.innerHTML = 'Result from ' + wiki.search.placeholderTitle + ' hidden by wiki.gg redirector';
+    element.style.color = '#5f6368';
+    element.classList.add( 'filter_badge' );
+    element.style.padding = '0px 0px 1em 10px';
+    element.style.display = 'block';
+    return element;
+}
+export function makeBadgeElement( isTopLevel ) {
+        const out = document.createElement( 'span' );
+        out.innerText = isTopLevel ? 'redirected' : 'some redirected';
+        out.style.backgroundColor = document.documentElement.classList.has( 'dark' )
+            ? '#ffffff'
+            : '#0002';
+        out.style.color = '#232323';
+        out.style.fontSize = '70%';
+        out.style.borderRadius = '4px';
+        out.style.padding = '1px 6px';
+        out.style.marginLeft = '0px';
+        out.style.opacity = '0.6';
+        out.style.textDecoration = 'none';
+        out.style.verticalAlign = 'middle';
+        out.classList.add( 'rewrite_badge' );
+        return out;
+    }
 
 export function observeElement( selector, config, callback ) {
-    // This isn't a good idea
-    config = config || { attributes: false, childList: true, subtree: true };
-
     const targetElement = document.querySelector( selector );
     const observer = new MutationObserver( callback );
 

@@ -56,10 +56,12 @@ const filter = {
             // Find result container
             const oldElement = linkElement.closest( this.ENGINE_RESULT_CONTAINER_SELECTOR );
             // If we're hidden - skip, we were already here
-            if ( oldElement.style.display === 'none' ) {
+            if ( this.isLocked( oldElement ) ) {
                 return;
             }
 
+	    this.lock( this.oldElement )
+	    
             // Verify that the top-level result is a link to the same wiki
             const topLevelLinkElement = oldElement.querySelector( this.ANCHOR_ELEMENT_SELECTOR );
             if ( topLevelLinkElement && !topLevelLinkElement.href.startsWith( `https://${wiki.oldId || wiki.id}.fandom.com` ) ) {
@@ -166,7 +168,7 @@ const rewrite = {
 
             // Rewrite anchor href links
             for ( const a of element.getElementsByTagName( 'a' ) ) {
-                    this.rewriteLink( wiki, a );
+                this.rewriteLink( wiki, a );
             }
 	    
             // Rewrite title and append a badge
@@ -193,7 +195,4 @@ function runCallback() {
     invokeSearchModule( wikis, rewrite.run.bind( rewrite ), filter.run.bind( filter ) );
 
 }
-document.addEventListener("readystatechange", (event) => {
-    console.log('readystatechange')
-});
-observeElement( '#results', null, runCallback );
+observeElement( '#results', { attributes: false, childList: true, subtree: true }, runCallback );
