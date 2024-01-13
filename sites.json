@@ -280,6 +280,11 @@
         "official": true
     },
     {
+        "id": "dicefolk",
+        "name": "Dicefolk",
+        "official": true
+    },
+    {
         "id": "dotage",
         "oldId": "dotage-game",
         "name": "DotAGE",
@@ -1010,9 +1015,15 @@
         "oldId": "yohane-deepblue",
         "name": "Yohane the Parhelion -BLAZE in the DEEPBLUE-"
     },
-    {
-        "id": "yourchronicle",
-        "oldId": "your-chronicle",
-        "name": "Your Chronicle"
-    }
+    [
+        {
+            "id": "yourchronicle",
+            "oldId": "your-chronicle",
+            "name": "Your Chronicle"
+        },
+        {
+            "parentRef": "yourchronicle",
+            "oldId": "anotherchronicle"
+        }
+    ]
 ]
