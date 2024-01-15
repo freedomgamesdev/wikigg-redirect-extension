@@ -191,7 +191,7 @@ const rewrite = {
                     this.rewriteSpan( wiki, span );
                 }
 
-                const isTopLevel = linkElement.href.startsWith( `https://${wiki.oldId || wiki.id}.fandom.com` );
+                const isTopLevel = true;
                 titleSpans[ 0 ].appendChild( this.makeBadgeElement( isTopLevel ) );
                 // Rewrite URL element
                 for ( const url of element.querySelectorAll( this.ANCHOR_ELEMENT_SELECTOR ) ) {
