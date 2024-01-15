@@ -165,6 +165,17 @@
         "oldId": "before-darkness-falls",
         "name": "Before Darkness Falls"
     },
+    [
+        {
+            "id": "bigfoot",
+            "oldId": "bigfootgame",
+            "name": "BIGFOOT"
+        },
+        {
+            "parentRef": "bigfoot",
+            "oldId": "finding-bigfoot-game"
+        }
+    ]
     {
         "id": "bejeweled",
         "name": "Bejeweled"
