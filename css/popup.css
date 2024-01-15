@@ -60,6 +60,14 @@ a,
 label {
     user-select: none;
 }
+img.icon {
+    pointer-events: none;
+    user-select: none;
+    vertical-align: bottom;
+    height: 1.2em;
+    width: auto;
+    margin-right: 0.1em;
+}
 .options-group > p {
     font-size: 90%;
 }
@@ -115,7 +123,7 @@ label {
     width: 12px;
     height: 12px;
     margin-right: calc(var(--spacing) / 2);
-    background: url(/icons/ooui-ltr.svg) center center / contain no-repeat;
+    background: url(/icons/cdx/function-argument.svg) center center / contain no-repeat;
     filter: var(--icon-filter);
     opacity: 0.5;
 }
@@ -274,7 +282,7 @@ table > thead > tr:last-child > th {
     width: 12px;
     height: 12px;
     margin-right: calc(var(--spacing) / 2);
-    background: url(/icons/ooui-ltr.svg) center center / contain no-repeat;
+    background: url(/icons/cdx/function-argument.svg) center center / contain no-repeat;
     filter: var(--icon-filter);
     opacity: 0.5;
 }

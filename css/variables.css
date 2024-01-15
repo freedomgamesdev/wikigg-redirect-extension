@@ -1,21 +1,21 @@
 :root {
     --spacing: 0.6em;
 
-    --background-colour: #d8dada;
+    --background-colour: #e1dee1;
     --text-colour: #000;
-    --accent-colour: #770e5c;
-    --accent-colour--rgb: 119, 14, 92;
+    --accent-colour: #ff1980;
+    --accent-colour--rgb: 255, 25, 128;
     --spacer-colour: #adaeae;
     --bottom-links-opacity: 0.6;
 }
 @media screen and (prefers-color-scheme: dark) {
-    body {
-        --background-colour: #272828;
+    :root {
+        --background-colour: #232425;
         --text-colour: #ebebeb;
-        --accent-colour: #e348bb;
+        --accent-colour: #ff1980;
         --accent-colour--text-against: #000;
         --spacer-colour: #525353;
-        --icon-filter: invert(1);
+        --icon-filter: brightness(140%);
         --bottom-links-opacity: 0.8;
     }
 }
