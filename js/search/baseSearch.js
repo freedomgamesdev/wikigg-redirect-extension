@@ -1,5 +1,5 @@
-import { getNativeSettings } from './util.js';
-import defaultSettingsFactory from '../defaults.js';
+import { getNativeSettings } from '../util.js';
+import defaultSettingsFactory from '../../defaults.js';
 
 
 /**

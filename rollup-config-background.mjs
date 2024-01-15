@@ -1,25 +1,23 @@
 import json from '@rollup/plugin-json';
 
 
-const scripts = {
-    background: {},
-    popup: {},
-    google: { isContentScript: true },
-    ddg: { isContentScript: true },
-    fandom: { isContentScript: true },
-};
-const release = process.env.NODE_ENV === 'release';
-
+const scripts = [
+    { script: 'background' },
+    { script: 'popup' },
+    { script: 'search/google', output: 'google', isContentScript: true },
+    { script: 'search/ddg', output: 'ddg', isContentScript: true },
+    { script: 'fandom', isContentScript: true },
+];
 
 /** @type {import('rollup').RollupOptions[]} */
-export default Object.entries( scripts ).map( ( [ script, params ] ) => {
+export default scripts.map( params => {
     return {
-        input: `js/${script}.js`,
+        input: `js/${params.script}.js`,
         output: [
             {
-                file: `built/${script}.js`,
+                file: `built/${params.output || params.script}.js`,
                 format: params.isContentScript ? 'iife' : 'umd',
-                name: script,
+                name: params.output,
                 sourcemap: false,
                 freeze: false,
                 esModule: false

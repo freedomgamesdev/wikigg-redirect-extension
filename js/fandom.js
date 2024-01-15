@@ -5,7 +5,7 @@ import defaultSettingsFactory from '../defaults.js';
 import { getWikis } from './util.js';
 import {
     prepareWikisInfo
-} from './baseSearch.js';
+} from './search/baseSearch.js';
 
 
 getNativeSettings().local.get( [ 'isRedirectDisabled', 'disabledWikis' ], result => {

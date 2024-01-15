@@ -1,7 +1,7 @@
 'use strict';
 
 
-import { getWikis, getNativeSettings } from './util.js';
+import { getWikis, getNativeSettings } from '../util.js';
 import {
     prepareWikisInfo,
     invokeSearchModule,
