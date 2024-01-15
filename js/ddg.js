@@ -5,7 +5,6 @@ import { getWikis, getNativeSettings } from './util.js';
 import {
     prepareWikisInfo,
     invokeSearchModule,
-    awaitElement
 } from './baseSearch.js';
 
 
@@ -212,18 +211,23 @@ const rewrite = {
 
 getNativeSettings().local.get( [ 'ddgEnable' ], result => {
     if ( result.ddgEnable || result.ddgEnable === undefined ) {
-        awaitElement(
-            document.getElementById( 'react-layout' ),
-            'div > div > section',
-            sectionNode => {
-                awaitElement(
-                    sectionNode,
-                    '.react-results--main',
-                    node => {
-                        invokeSearchModule( wikis, rewrite.run.bind( rewrite ), filter.run.bind( filter ), node );
+        const moreResultsContainer = document.getElementById( 'react-layout' );
+        const dynamicObserver = new MutationObserver( updates => {
+            for ( const update of updates ) {
+                if ( update.addedNodes && update.addedNodes.length > 0 ) {
+                    for ( const addedNode of update.addedNodes ) {
+                        invokeSearchModule( wikis, rewrite.run.bind( rewrite ), filter.run.bind( filter ) );
                     }
-                );
+                }
             }
-        );
+        } );
+
+        dynamicObserver.observe( moreResultsContainer, {
+            childList: true,
+            subtree: true
+        } );
+
     }
 } );
+
+
