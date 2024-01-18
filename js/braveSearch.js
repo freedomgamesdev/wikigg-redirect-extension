@@ -5,9 +5,9 @@ import { getWikis, getNativeSettings } from './util.js';
 import {
     prepareWikisInfo,
     invokeSearchModule,
-    awaitElement,
     observeElement,
-    makePlaceholderElement
+    makePlaceholderElement,
+    makeBadgeElement
 } from './baseSearch.js';
 
 
@@ -101,25 +101,6 @@ const rewrite = {
     BADGE_ELEMENT_SELECTOR: '.svelte-1ckzfks', // Which element shall contain the Badge?
     ANCHOR_ELEMENT_SELECTOR: 'a.svelte-1dihpoi',
 
-
-    makeBadgeElement( isTopLevel ) {
-        const out = document.createElement( 'span' );
-        out.innerText = isTopLevel ? 'redirected' : 'some redirected';
-        out.style.backgroundColor = document.documentElement.classList.has( 'dark' )
-            ? '#ffffff'
-            : '#0002';
-        out.style.color = '#232323';
-        out.style.fontSize = '70%';
-        out.style.borderRadius = '4px';
-        out.style.padding = '1px 6px';
-        out.style.marginLeft = '0px';
-        out.style.opacity = '0.6';
-        out.style.textDecoration = 'none';
-        out.style.verticalAlign = 'middle';
-        out.classList.add( 'rewrite_badge' );
-        return out;
-    },
-
     rewriteLink( wiki, link ) {
             link.href = link.href.replace( `${wiki.oldId || wiki.id}.fandom.com`, `${wiki.id}.wiki.gg` );
     },
@@ -162,9 +143,7 @@ const rewrite = {
             // Find result container
             const element = linkElement.closest( this.ENGINE_RESULT_CONTAINER_SELECTOR );
 
-            const isTopLevel = a => {
-                return a.href.startsWith( `https://${wiki.oldId || wiki.id}.fandom.com` );
-            };
+            const isTopLevel = linkElement.href.startsWith( `https://${wiki.oldId || wiki.id}.fandom.com` );
 
             // Rewrite anchor href links
             for ( const a of element.getElementsByTagName( 'a' ) ) {
@@ -185,7 +164,7 @@ const rewrite = {
                 this.rewriteUrlElement( wiki, url );
             }
 
-            element.prepend( this.makeBadgeElement( isTopLevel ) );
+            element.prepend( makeBadgeElement( isTopLevel ) );
             this.lock( linkElement );
         }
     }
