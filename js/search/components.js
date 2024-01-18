@@ -47,3 +47,29 @@ export function constructReplacementMarker( wikiInfo ) {
         }
     } );
 }
+
+
+/**
+ * @param {SiteRecord} wikiInfo
+ * @return {HTMLElement}
+ */
+export function constructDisabledResultControl( wikiInfo ) {
+    return createDomElement( 'aside', {
+        classes: [ 'ggr-disarmed-control' ],
+        style: {
+            backgroundImage: `
+                linear-gradient( 45deg, #220942 0%, #420a46 100% ),
+                linear-gradient( 60deg, transparent 40%, #52145190 100% )
+            `,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: '#fff'
+        },
+        html: [
+            createDomElement( 'a', {
+                text: 'Read about "$1" on wiki.gg instead'
+            } )
+        ]
+    } );
+}

@@ -44,6 +44,18 @@ export class SearchModule {
 
 
     /**
+     * @abstract
+     * @protected
+     * @param {SiteRecord} wikiInfo
+     * @param {HTMLElement} containerElement
+     * @param {HTMLElement} foundLinkElement
+     */
+    async disarmResult( wikiInfo, containerElement, foundLinkElement ) {
+        throw new Error( `${this.constructor.name}.disarmResult not implemented.` );
+    }
+
+
+    /**
      * Finds a general result container for a given element, if any.
      *
      * @abstract
@@ -83,7 +95,8 @@ export class SearchModule {
                 mode = result.sfs[ id ] || defaults.sfs[ id ],
                 doRoutine = instance[ {
                     filter: 'hideResult',
-                    rewrite: 'replaceResult'
+                    rewrite: 'replaceResult',
+                    disarm: 'disarmResult'
                 }[ mode ] ];
 
             if ( !doRoutine ) {
@@ -114,15 +127,7 @@ export class SearchModule {
  * @abstract
  */
 export class GenericSearchModule extends SearchModule {
-    /**
-     * @protected
-     * @param {SiteRecord} wikiInfo
-     * @param {HTMLElement} containerElement
-     * @param {HTMLElement} foundLinkElement
-     */
-    async replaceResult( wikiInfo, containerElement, foundLinkElement ) {
-        throw new Error( `${this.constructor.name}.replaceResult not implemented.` );
-    }
+    DISABLED_RESULT_CLASS = 'ggr-disarmed';
 
 
     /**
@@ -142,6 +147,19 @@ export class GenericSearchModule extends SearchModule {
             replacement = constructReplacementMarker( wikiInfo );
         }
         containerElement.parentNode.replaceChild( replacement, containerElement );
+    }
+
+
+    /**
+     * @protected
+     * @param {SiteRecord} wikiInfo
+     * @param {HTMLElement} containerElement
+     * @param {HTMLElement} foundLinkElement
+     */
+    async disarmResult( wikiInfo, containerElement, foundLinkElement ) {
+        const controlElement = constructDisabledResultControl( wikiInfo );
+        containerElement.prepend( controlElement );
+        containerElement.classList.add( this.DISABLED_RESULT_CLASS );
     }
 }
 
