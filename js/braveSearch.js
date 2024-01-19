@@ -5,7 +5,6 @@ import { getWikis, getNativeSettings } from './util.js';
 import {
     prepareWikisInfo,
     invokeSearchModule,
-    observeElement,
     makePlaceholderElement,
     makeBadgeElement
 } from './baseSearch.js';
@@ -33,7 +32,7 @@ const filter = {
 
     MARKER_ATTRIBUTE: 'data-lock',
     ENGINE_LAYOUT_SELECTOR: '#results',
-    ENGINE_RESULT_CONTAINER_SELECTOR: '.svelte-1ckzfks',
+    ENGINE_RESULT_CONTAINER_SELECTOR: '.svelte-eejxak',
     URL_ELEMENT_SELECTOR: '.snippet-url',
     SPAN_TITLE_ELEMENT_SELECTOR: '.heading-serpresult',
     BADGE_ELEMENT_SELECTOR: '.organic__title-wrapper', // What is this?
@@ -49,42 +48,37 @@ const filter = {
         return element.getAttribute( this.MARKER_ATTRIBUTE ) === '1';
     },
 
-
+    clearChildren( element ) {
+        element.textContent = '';
+    },
 
     run( wiki, linkElement ) {
-        if ( linkElement.parentElement && document.querySelector( this.ENGINE_LAYOUT_SELECTOR ).contains( linkElement ) ) {
+        if ( linkElement.parentElement ) {
             // Find result container
             const oldElement = linkElement.closest( this.ENGINE_RESULT_CONTAINER_SELECTOR );
-            // If we're hidden - skip, we were already here
-            if ( this.isLocked( oldElement ) ) {
-                return;
-            }
-
-	    this.lock( this.oldElement )
-	    
-            // Verify that the top-level result is a link to the same wiki
-            const topLevelLinkElement = oldElement.querySelector( this.ANCHOR_ELEMENT_SELECTOR );
-            if ( topLevelLinkElement && !topLevelLinkElement.href.startsWith( `https://${wiki.oldId || wiki.id}.fandom.com` ) ) {
-                return;
-            }
 
             if ( oldElement !== null ) {
+                const resultContainer = document.querySelector( this.ENGINE_LAYOUT_SELECTOR );
+                // Verify that the top-level result is a link to the same wiki
+                const topLevelLinkElement = oldElement.querySelector( this.ANCHOR_ELEMENT_SELECTOR );
+
+                if ( topLevelLinkElement && !topLevelLinkElement.href.startsWith( `https://${wiki.oldId || wiki.id}.fandom.com` ) ) {
+                    return;
+                }
+
                 // Find an official wiki result after this one
                 const officialResult = findNextOfficialWikiResult( wiki, oldElement, this.ENGINE_RESULT_CONTAINER_SELECTOR );
                 if ( officialResult ) {
                     // Move the official result before this one
-                    const resultContainer = document.querySelector( this.ENGINE_LAYOUT_SELECTOR );
                     resultContainer.insertBefore( officialResult, oldElement );
+		    this.clearChildren( oldElement );
+                    oldElement.append( makePlaceholderElement( wiki ) );
+                } else {
+                    // Insert a placeholder before this result
+                    this.clearChildren( oldElement );
+                    oldElement.append( makePlaceholderElement( wiki ) );
                 }
-            } else {
-                // Insert a placeholder before this result
-                const resultContainer = document.querySelector( this.ENGINE_LAYOUT_SELECTOR );
-                resultContainer.insertBefore( makePlaceholderElement( wiki ), oldElement );
             }
-
-            // Hides the main result element
-            oldElement.style.display = 'none';
-            oldElement.parentElement.prepend( makePlaceholderElement( wiki ), oldElement );
         }
     }
 };
@@ -95,14 +89,14 @@ const filter = {
 const rewrite = {
     MARKER_ATTRIBUTE: 'data-lock',
     ENGINE_LAYOUT_SELECTOR: '#results',
-    ENGINE_RESULT_CONTAINER_SELECTOR: '.svelte-1ckzfks',
+    ENGINE_RESULT_CONTAINER_SELECTOR: '.svelte-eejxak',
     URL_ELEMENT_SELECTOR: '.snippet-url',
     SPAN_TITLE_ELEMENT_SELECTOR: '.heading-serpresult',
-    BADGE_ELEMENT_SELECTOR: '.svelte-1ckzfks', // Which element shall contain the Badge?
+    BADGE_ELEMENT_SELECTOR: '.svelte-1dihpoi', // Element that will contain the badge.
     ANCHOR_ELEMENT_SELECTOR: 'a.svelte-1dihpoi',
 
     rewriteLink( wiki, link ) {
-            link.href = link.href.replace( `${wiki.oldId || wiki.id}.fandom.com`, `${wiki.id}.wiki.gg` );
+        link.href = link.href.replace( `${wiki.oldId || wiki.id}.fandom.com`, `${wiki.id}.wiki.gg` );
     },
 
     rewriteText( wiki, text ) {
@@ -122,7 +116,7 @@ const rewrite = {
 
 
     rewriteUrlElement( wiki, node ) {
-	const urlRegex = new RegExp( `${wiki.oldId || wiki.id}.(fandom|gamepedia)?.com` );
+        const urlRegex = new RegExp( `${wiki.oldId || wiki.id}.(fandom|gamepedia)?.com` );
         for ( const child of node.childNodes ) {
             child.textContent = child.textContent.replace( urlRegex, `${wiki.id}.wiki.gg` );
         }
@@ -149,14 +143,13 @@ const rewrite = {
             for ( const a of element.getElementsByTagName( 'a' ) ) {
                 this.rewriteLink( wiki, a );
             }
-	    
+
             // Rewrite title and append a badge
             for ( const span of element.querySelectorAll( this.SPAN_TITLE_ELEMENT_SELECTOR ) ) {
-                if ( !wiki.search.titlePattern.test( span.textContent ) ) {
-                    continue;
+                if ( wiki.search.titlePattern.test( span.textContent ) ) {
+                    this.rewriteTitle( wiki, span );
                 }
 
-                this.rewriteTitle( wiki, span );
             }
 
             // Rewrite URL element
@@ -164,14 +157,16 @@ const rewrite = {
                 this.rewriteUrlElement( wiki, url );
             }
 
-            element.prepend( makeBadgeElement( isTopLevel ) );
+            element.prepend( makeBadgeElement( isTopLevel, document.querySelector( '.theme--dark' ) ) );
             this.lock( linkElement );
         }
     }
 };
 
-function runCallback() {
-    invokeSearchModule( wikis, rewrite.run.bind( rewrite ), filter.run.bind( filter ) );
+new MutationObserver( callback =>
+    invokeSearchModule( wikis, rewrite.run.bind( rewrite ), filter.run.bind( filter ) ) )
+    .observe( document.querySelector( '#results' ), {
+        subtree: true,
+        childList: true
+    } );
 
-}
-observeElement( '#results', { attributes: false, childList: true, subtree: true }, runCallback );

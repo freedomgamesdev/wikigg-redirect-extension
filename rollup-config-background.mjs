@@ -1,10 +1,14 @@
 import json from '@rollup/plugin-json';
 
+
 const scripts = [
     { script: 'background' },
     { script: 'popup' },
     { script: 'search/google', output: 'google', isContentScript: true },
     { script: 'search/ddg', output: 'ddg', isContentScript: true },
+    { script: 'search/braveSearch', output: 'braveSearch', isContentScript: true },
+    { script: 'search/ddg', output: 'ddg', isContentScript: true },
+
     { script: 'fandom', isContentScript: true },
 ];
 

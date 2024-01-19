@@ -267,28 +267,21 @@ export function makePlaceholderElement( wiki ) {
     element.style.display = 'block';
     return element;
 }
-export function makeBadgeElement( isTopLevel ) {
-        const out = document.createElement( 'span' );
-        out.innerText = isTopLevel ? 'redirected' : 'some redirected';
-        out.style.backgroundColor = document.documentElement.classList.has( 'dark' )
-            ? '#ffffff'
-            : '#0002';
-        out.style.color = '#232323';
-        out.style.fontSize = '70%';
-        out.style.borderRadius = '4px';
-        out.style.padding = '1px 6px';
-        out.style.marginLeft = '0px';
-        out.style.opacity = '0.6';
-        out.style.textDecoration = 'none';
-        out.style.verticalAlign = 'middle';
-        out.classList.add( 'rewrite_badge' );
-        return out;
-    }
 
-export function observeElement( selector, config, callback ) {
-    const targetElement = document.querySelector( selector );
-    const observer = new MutationObserver( callback );
-
-    observer.observe( targetElement, config );
-
+export function makeBadgeElement( isTopLevel, isDarkMode ) {
+    const out = document.createElement( 'span' );
+    out.innerText = isTopLevel ? 'redirected' : 'some redirected';
+    out.style.backgroundColor = isDarkMode
+        ? '#ffffff'
+        : '#0002';
+    out.style.color = '#232323';
+    out.style.fontSize = '70%';
+    out.style.borderRadius = '4px';
+    out.style.padding = '1px 6px';
+    out.style.marginLeft = '0px';
+    out.style.opacity = '0.6';
+    out.style.textDecoration = 'none';
+    out.style.verticalAlign = 'middle';
+    out.classList.add( 'rewrite_badge' );
+    return out;
 }
