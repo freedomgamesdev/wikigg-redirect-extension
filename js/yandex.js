@@ -1,11 +1,10 @@
 'use strict';
 
 
-import { getWikis, getNativeSettings } from './util.js';
+import { getWikis } from './util.js';
 import {
     prepareWikisInfo,
-    invokeSearchModule,
-    awaitElement
+    invokeSearchModule
 } from './baseSearch.js';
 
 
@@ -32,8 +31,7 @@ const filter = {
     MARKER_ATTRIBUTE: 'data-lock',
     ENGINE_LAYOUT_SELECTOR: 'ul#search-result',
     ENGINE_RESULT_CONTAINER_SELECTOR: '.serp-item_card',
-    URL_ELEMENT_SELECTOR: '.Organic-Subtitle  b',
-    SPAN_TITLE_ELEMENT_SELECTOR: '.OrganicTitleContentSpan',
+    ANCHOR_ELEMENT_SELECTOR: '.organic__url',
 
 
     lock( element ) {
@@ -61,10 +59,7 @@ const filter = {
         if ( linkElement.parentElement && document.querySelector( this.ENGINE_LAYOUT_SELECTOR ).contains( linkElement ) ) {
             // Find result container
             const oldElement = linkElement.closest( this.ENGINE_RESULT_CONTAINER_SELECTOR );
-            // If we're hidden - skip, we were already here
-            if ( oldElement.style.display === 'none' ) {
-                return;
-            }
+            const resultContainer = document.querySelector( this.ENGINE_LAYOUT_SELECTOR );
 
             // Verify that the top-level result is a link to the same wiki
             const topLevelLinkElement = oldElement.querySelector( this.ANCHOR_ELEMENT_SELECTOR );
@@ -77,20 +72,14 @@ const filter = {
                 const officialResult = findNextOfficialWikiResult( wiki, oldElement, this.ENGINE_RESULT_CONTAINER_SELECTOR );
                 if ( officialResult ) {
                     // Move the official result before this one
-                    const resultContainer = document.querySelector( this.ENGINE_LAYOUT_SELECTOR );
                     resultContainer.insertBefore( officialResult, oldElement );
-                }
-            } else {
+                } else {
                 // Insert a placeholder before this result
-                const resultContainer = document.querySelector( this.ENGINE_LAYOUT_SELECTOR );
-                resultContainer.insertBefore( this.makePlaceholderElement( wiki ), oldElement );
-            }
+                    resultContainer.insertBefore( this.makePlaceholderElement( wiki ), oldElement );
+                }
 
-            // Hides the main result element
-            oldElement.style.display = 'none';
-            // Creates a placeholder indicating the user that we removed the result
-            oldElement.parentElement.prepend( this.makePlaceholderElement( wiki ), oldElement );
-            this.lock( linkElement );
+          	oldElement.remove();
+            }
         }
     }
 };
@@ -185,18 +174,15 @@ const rewrite = {
 
                 // Rewrite title and append a badge
                 for ( const titleElement of element.querySelectorAll( this.TITLE_ELEMENT_SELECTOR ) ) {
-                    if ( !wiki.search.titlePattern.test( titleElement.textContent ) ) {
-                        continue;
-                    }
-
-                    element.querySelectorAll( this.BADGE_ELEMENT_SELECTOR )[ 0 ].appendChild( this.makeBadgeElement( isTopLevel ) );
-                    this.lock( titleElement.parentElement );
+                    if ( wiki.search.titlePattern.test( titleElement.textContent ) ) {
+                        element.querySelectorAll( this.BADGE_ELEMENT_SELECTOR )[ 0 ].appendChild( this.makeBadgeElement( isTopLevel ) );
 
 		    if ( !this.isLocalized( 'ru' ) ) {
-                        this.rewriteTitle( wiki, titleElement );
+                            this.rewriteTitle( wiki, titleElement );
 		    }
+                    }
 
-                    this.lock( titleElement );
+
                 }
 
                 // Rewrite URL element
@@ -210,6 +196,6 @@ const rewrite = {
     }
 };
 
-document.addEventListener('readystatechange', (event) => {
+document.addEventListener( 'readystatechange', event => {
     invokeSearchModule( wikis, rewrite.run.bind( rewrite ), filter.run.bind( filter ) );
 } );
