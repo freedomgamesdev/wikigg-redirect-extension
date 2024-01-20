@@ -22,7 +22,8 @@ export function constructRedirectBadge( options ) {
     return createDomElement( 'span', {
         text: options.allMoved ? 'redirected' : 'some redirected',
         style: {
-            backgroundColor: '#0002',
+            backgroundColor: options.isDarkmode ? '#ffffff' : '#0002',
+	    color: options.textColor ? options.textColor : 'inherit',
             fontSize: '90%',
             opacity: 0.6,
             borderRadius: '4px',

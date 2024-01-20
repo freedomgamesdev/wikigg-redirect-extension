@@ -1,7 +1,8 @@
 'use strict';
 
 
-import { getWikis } from './util.js';
+import { getWikis } from '../util.js';
+import { constructRedirectBadge } from './components.js';
 import {
     prepareWikisInfo,
     invokeSearchModule
@@ -75,7 +76,7 @@ const filter = {
                     resultContainer.insertBefore( officialResult, oldElement );
                 } else {
                 // Insert a placeholder before this result
-                    resultContainer.insertBefore( this.makePlaceholderElement( wiki ), oldElement );
+                    resultcontainer.insertbefore( constructreplacementmarker( ( wiki ), oldelement ) );
                 }
 
           	oldElement.remove();
@@ -162,9 +163,9 @@ const rewrite = {
             // Find result container
             const element = linkElement.closest( this.ENGINE_RESULT_CONTAINER_SELECTOR );
 
-            const isTopLevel = a => {
-                return a.href.startsWith( `https://${wiki.oldId || wiki.id}.fandom.com` );
-            };
+            // const isTopLevel = a => {
+            //     return a.href.startsWith( `https://${wiki.oldId || wiki.id}.fandom.com` );
+            // };
 
             if ( element !== null && !this.isLocked( element ) ) {
                 // Rewrite anchor href links
@@ -175,9 +176,8 @@ const rewrite = {
                 // Rewrite title and append a badge
                 for ( const titleElement of element.querySelectorAll( this.TITLE_ELEMENT_SELECTOR ) ) {
                     if ( wiki.search.titlePattern.test( titleElement.textContent ) ) {
-                        element.querySelectorAll( this.BADGE_ELEMENT_SELECTOR )[ 0 ].appendChild( this.makeBadgeElement( isTopLevel ) );
 
-		    if ( !this.isLocalized( 'ru' ) ) {
+                        if ( !this.isLocalized( titleElement, 'ru' ) ) {
                             this.rewriteTitle( wiki, titleElement );
 		    }
                     }
@@ -190,6 +190,12 @@ const rewrite = {
                     this.rewriteURLElement( wiki, url );
                 }
 
+                element.prepend( constructRedirectBadge(
+		    { isDarkmode: true,
+		      textColor: 'black',
+		      allMoved: true,
+		      isMobile: false
+		    } ) );
                 this.lock( element );
             }
         }
