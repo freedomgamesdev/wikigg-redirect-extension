@@ -149,7 +149,6 @@ const rewrite = {
                 if ( wiki.search.titlePattern.test( span.textContent ) ) {
                     this.rewriteTitle( wiki, span );
                 }
-
             }
 
             // Rewrite URL element
@@ -169,4 +168,3 @@ new MutationObserver( callback =>
         subtree: true,
         childList: true
     } );
-

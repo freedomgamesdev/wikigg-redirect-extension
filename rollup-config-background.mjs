@@ -7,7 +7,6 @@ const scripts = [
     { script: 'search/google', output: 'google', isContentScript: true },
     { script: 'search/ddg', output: 'ddg', isContentScript: true },
     { script: 'search/braveSearch', output: 'braveSearch', isContentScript: true },
-    { script: 'search/ddg', output: 'ddg', isContentScript: true },
     { script: 'fandom', isContentScript: true },
 ];
 
