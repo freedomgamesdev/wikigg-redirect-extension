@@ -258,6 +258,7 @@ export function awaitElement( knownParent, selector, callback ) {
         childList: true
     } );
 }
+
 export function makePlaceholderElement( wiki ) {
     const element = document.createElement( 'span' );
     element.innerHTML = 'Result from ' + wiki.search.placeholderTitle + ' hidden by wiki.gg redirector';
