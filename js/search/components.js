@@ -23,7 +23,7 @@ export function constructRedirectBadge( options ) {
         text: options.allMoved ? 'redirected' : 'some redirected',
         style: {
             backgroundColor: options.isDarkmode ? '#ffffff' : '#0002',
-	    color: options.textColor ? options.textColor : 'inherit',
+	    color: 'gray',
             fontSize: '90%',
             opacity: 0.6,
             borderRadius: '4px',
