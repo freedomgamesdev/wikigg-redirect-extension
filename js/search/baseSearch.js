@@ -1,22 +1,83 @@
-import { getNativeSettings } from './util.js';
-import defaultSettingsFactory from '../defaults.js';
+/** @typedef {import( '../util.js' ).SiteRecord} SiteRecord */
+
+import { getNativeSettings } from '../util.js';
+import defaultSettingsFactory from '../../defaults.js';
+import { constructReplacementMarker } from './components.js';
 
 
 /**
  * @abstract
  */
 export class SearchModule {
+    /**
+     * @abstract
+     * @protected
+     * @return {string}
+     */
     getId() {
         throw new Error( `${this.constructor.name}.getId not implemented.` );
     }
 
-    async replaceResults() {
-        throw new Error( `${this.constructor.name}.replaceResults not implemented.` );
+
+    /**
+     * @abstract
+     * @protected
+     * @param {SiteRecord} wikiInfo
+     * @param {HTMLElement} containerElement
+     * @param {HTMLElement} foundLinkElement
+     */
+    async replaceResult( wikiInfo, containerElement, foundLinkElement ) {
+        throw new Error( `${this.constructor.name}.replaceResult not implemented.` );
     }
 
-    async filterResults() {
-        throw new Error( `${this.constructor.name}.filterResults not implemented.` );
+
+    /**
+     * @abstract
+     * @protected
+     * @param {SiteRecord} wikiInfo
+     * @param {HTMLElement} containerElement
+     * @param {HTMLElement} foundLinkElement
+     */
+    async hideResult( wikiInfo, containerElement, foundLinkElement ) {
+        throw new Error( `${this.constructor.name}.hideResult not implemented.` );
     }
+
+
+    /**
+     * @abstract
+     * @protected
+     * @param {SiteRecord} wikiInfo
+     * @param {HTMLElement} containerElement
+     * @param {HTMLElement} foundLinkElement
+     */
+    async disarmResult( wikiInfo, containerElement, foundLinkElement ) {
+        throw new Error( `${this.constructor.name}.disarmResult not implemented.` );
+    }
+
+
+    /**
+     * Finds a general result container for a given element, if any.
+     *
+     * @abstract
+     * @protected
+     * @param {HTMLElement} element Element to find result container for.
+     * @return {HTMLElement?}
+     */
+    resolveResultContainer( element ) {
+        throw new Error( `${this.constructor.name}._resolveResultContainer not implemented.` );
+    }
+
+
+    /**
+     * @protected
+     * @param {SiteRecord} wikiInfo
+     * @param {HTMLElement} boundaryElement
+     * @return {HTMLElement?}
+     */
+    findNearestGgResult( wikiInfo, boundaryElement ) {
+        return null;
+    }
+
 
     static async invoke( wikis, rootNode ) {
         rootNode = rootNode || document;
@@ -33,8 +94,9 @@ export class SearchModule {
                 defaults = defaultSettingsFactory(),
                 mode = result.sfs[ id ] || defaults.sfs[ id ],
                 doRoutine = instance[ {
-                    filter: 'filterResults',
-                    rewrite: 'replaceResults'
+                    filter: 'hideResult',
+                    rewrite: 'replaceResult',
+                    disarm: 'disarmResult'
                 }[ mode ] ];
 
             if ( !doRoutine ) {
@@ -44,16 +106,60 @@ export class SearchModule {
             const disabledWikis = ( result && result.disabledWikis || defaults.disabledWikis );
 
             // TODO: merge selectors and run that query, then determine the wiki
-            for ( const wiki of wikis ) {
-                if ( wiki.bannerOnly || disabledWikis.includes( wiki.id ) ) {
+            for ( const wikiInfo of wikis ) {
+                if ( wikiInfo.bannerOnly || disabledWikis.includes( wikiInfo.id ) ) {
                     continue;
                 }
 
-                for ( const element of rootNode.querySelectorAll( wiki.search.badSelector ) ) {
-                    doRoutine( wiki, element );
+                for ( const element of rootNode.querySelectorAll( wikiInfo.search.badSelector ) ) {
+                    const container = this.resolveResultContainer( element );
+                    if ( container !== null && container.parentElement !== null ) {
+                        doRoutine( wikiInfo, container, element );
+                    }
                 }
             }
         } );
+    }
+}
+
+
+/**
+ * @abstract
+ */
+export class GenericSearchModule extends SearchModule {
+    DISABLED_RESULT_CLASS = 'ggr-disarmed';
+
+
+    /**
+     * @protected
+     * @param {SiteRecord} wikiInfo
+     * @param {HTMLElement} containerElement
+     * @param {HTMLElement} _foundLinkElement
+     */
+    async hideResult( wikiInfo, containerElement, _foundLinkElement ) {
+        // Try to find the first wiki.gg result after this one
+        const ggResult = this.findNearestGgResult( wikiInfo, containerElement );
+
+        let replacement;
+        if ( ggResult ) {
+            replacement = ggResult;
+        } else {
+            replacement = constructReplacementMarker( wikiInfo );
+        }
+        containerElement.parentNode.replaceChild( replacement, containerElement );
+    }
+
+
+    /**
+     * @protected
+     * @param {SiteRecord} wikiInfo
+     * @param {HTMLElement} containerElement
+     * @param {HTMLElement} foundLinkElement
+     */
+    async disarmResult( wikiInfo, containerElement, foundLinkElement ) {
+        const controlElement = constructDisabledResultControl( wikiInfo );
+        containerElement.prepend( controlElement );
+        containerElement.classList.add( this.DISABLED_RESULT_CLASS );
     }
 }
 

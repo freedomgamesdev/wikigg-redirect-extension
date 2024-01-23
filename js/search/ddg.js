@@ -1,7 +1,7 @@
 'use strict';
 
 
-import { getWikis, getNativeSettings } from './util.js';
+import { getWikis, getNativeSettings } from '../util.js';
 import {
     prepareWikisInfo,
     invokeSearchModule,
@@ -171,40 +171,34 @@ const rewrite = {
 
 
     run( wiki, linkElement ) {
-        if ( linkElement !== null && !this.isLocked( linkElement ) ) {
+        if ( linkElement !== null ) {
             // Find result container
             const element = linkElement.closest( 'article' );
 
-            const isTopLevel = a => {
-                return a.href.startsWith( `https://${wiki.oldId || wiki.id}.fandom.com` );
-            };
-
-            if ( element !== null ) {
+            if ( element !== null && !this.isLocked( element ) ) {
                 // Rewrite anchor href links
                 for ( const a of element.getElementsByTagName( 'a' ) ) {
                     this.rewriteLink( wiki, a );
                 }
 
                 // Rewrite title and append a badge
-                for ( const span of element.querySelectorAll( this.SPAN_TITLE_ELEMENT_SELECTOR ) ) {
+                const titleSpans = element.querySelectorAll( this.SPAN_TITLE_ELEMENT_SELECTOR );
+                for ( const span of titleSpans ) {
                     if ( !wiki.search.titlePattern.test( span.textContent ) ) {
                         continue;
                     }
 
-                    // TODO: This should get placed at the end if and only if everything is sucessful.
-                    span.parentElement.appendChild( this.makeBadgeElement( isTopLevel ) );
-
-                    this.lock( span.parentElement );
                     this.rewriteSpan( wiki, span );
-                    this.lock( span );
                 }
 
+                const isTopLevel = true;
+                titleSpans[ 0 ].appendChild( this.makeBadgeElement( isTopLevel ) );
                 // Rewrite URL element
                 for ( const url of element.querySelectorAll( this.ANCHOR_ELEMENT_SELECTOR ) ) {
                     this.rewriteURLElement( wiki, url );
                 }
 
-                this.lock( linkElement );
+                this.lock( element );
             }
         }
     }

@@ -617,7 +617,7 @@
     },
     {
         "id": "paperplanet",
-        "oldid": "paper-planet",
+        "oldId": "paper-planet",
         "name": "Paper Planet"
     },
     {
@@ -758,7 +758,7 @@
     },
     {
         "id": "shogunshowdown",
-        "oldid": "shogun-showdown",
+        "oldId": "shogun-showdown",
         "name": "Shogun Showdown",
         "official": true
     },
@@ -857,7 +857,7 @@
         },
         {
             "id": "tboicompliance",
-            "oldid": "compliance",
+            "oldId": "compliance",
             "name": "Compliance",
             "uiClass": "wiki-indent"
         },
@@ -889,7 +889,7 @@
     ],
     {
         "id": "themagicalmixturemill",
-        "oldid": "the-magical-mixture-mill",
+        "oldId": "the-magical-mixture-mill",
         "name": "The Magical Mixture Mill",
         "official": true
     },
