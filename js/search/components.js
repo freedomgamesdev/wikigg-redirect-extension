@@ -10,15 +10,17 @@ import {
 /**
  * @typedef {Object} RedirectBadgeOptions
  * @property {boolean} [allMoved=false]
+ * @property {Object} properties
  * @property {boolean} [isGoogleMobile=false]
  */
 
 
 /**
  * @param {RedirectBadgeOptions} options
+ * @param properties
  * @return {HTMLElement}
  */
-export function constructRedirectBadge( options ) {
+export function constructRedirectBadge( options, properties ) {
     return createDomElement( 'span', {
         text: options.allMoved ? 'redirected' : 'some redirected',
         style: {
@@ -27,7 +29,8 @@ export function constructRedirectBadge( options ) {
             opacity: 0.6,
             borderRadius: '4px',
             padding: '1px 6px',
-            marginLeft: options.isMobile ? null : '4px'
+            marginLeft: options.isMobile ? null : '4px',
+	    ...properties
         }
     } );
 }

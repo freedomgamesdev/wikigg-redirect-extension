@@ -6,6 +6,7 @@ const scripts = [
     { script: 'popup' },
     { script: 'search/google', output: 'google', isContentScript: true },
     { script: 'search/ddg', output: 'ddg', isContentScript: true },
+    { script: 'search/startpage', output: 'startpage', isContentScript: true },
     { script: 'fandom', isContentScript: true },
 ];
 

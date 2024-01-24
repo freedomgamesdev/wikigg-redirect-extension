@@ -74,6 +74,15 @@
                 "built/fandom.js"
             ],
             "run_at": "document_end"
+        },
+	{	
+            "matches": [
+                "https://www.startpage.com/sp/search"
+            ],
+            "js": [
+                "built/startpage.js"
+            ],
+            "run_at": "document_end"
         }
     ],
     "icons": {
