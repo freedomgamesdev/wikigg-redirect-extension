@@ -286,6 +286,10 @@
         "official": true
     },
     {
+        "id": "dredge",
+        "name": "Dredge"
+    },
+    {
         "id": "deeprockgalactic",
         "name": "Deep Rock Galactic",
         "official": true
