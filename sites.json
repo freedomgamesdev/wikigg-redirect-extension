@@ -487,6 +487,11 @@
         "name": "In Stars and Time"
     },
     {
+        "id": "infectionfreezone",
+        "oldId": "infection-free-zone",
+        "name": "Infection Free Zone"
+    },
+    {
         "id": "lastorigin",
         "name": "Last Origin"
     },
