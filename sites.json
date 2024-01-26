@@ -490,6 +490,17 @@
         "oldId": "leaf-blower-revolution",
         "name": "Leaf Blower Revolution"
     },
+    [
+        {
+            "id": "lightnofire",
+            "oldId": "light-no-fire",
+            "name": "Light No Fire"
+        },
+        {
+            "parentRef": "yourchronicle",
+            "oldId": "lightnofire"
+        }
+    ]
     {
         "id": "legiontd2",
         "name": "Legion TD 2"
