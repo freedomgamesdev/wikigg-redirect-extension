@@ -1001,6 +1001,10 @@
         "official": true
     },
     {
+        "id": "voidigo",
+        "name": "Voidigo"
+    },
+    {
         "id": "warcommander",
         "name": "War Commander"
     },
