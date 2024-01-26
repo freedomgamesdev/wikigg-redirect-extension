@@ -497,7 +497,7 @@
             "name": "Light No Fire"
         },
         {
-            "parentRef": "yourchronicle",
+            "parentRef": "lightnofire",
             "oldId": "lightnofire"
         }
     ]
