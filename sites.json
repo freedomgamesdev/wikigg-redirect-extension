@@ -362,6 +362,11 @@
         "name": "ENA"
     }, 
     {
+        "id": "exapico",
+        "oldId": "artonelico",
+        "name": "EXA PICO"
+    },
+    {
         "id": "enterthegungeon",
         "name": "Enter The Gungeon",
         "official": true
