@@ -5,7 +5,8 @@ import { getWikis } from '../util.js';
 import { constructRedirectBadge, constructReplacementMarker } from './components.js';
 import {
     prepareWikisInfo,
-    invokeSearchModule
+    invokeSearchModule,
+    awaitElement
 } from './baseSearch.js';
 
 
@@ -33,7 +34,7 @@ const filter = {
     ENGINE_LAYOUT_SELECTOR: '.w-gl',
     ENGINE_RESULT_CONTAINER_SELECTOR: '.w-gl__desktop__result', // This result is different than filtering!.
     ANCHOR_ELEMENT_SELECTOR: '.w-gl__result-url-container > .result-link',
-    
+
     lock( element ) {
         element.setAttribute( this.MARKER_ATTRIBUTE, '1' );
     },
@@ -81,7 +82,7 @@ const rewrite = {
     URL_ELEMENT_SELECTOR: '.w-gl__result-url',
     TITLE_ELEMENT_SELECTOR: '.w-gl__result-title',
     BADGE_ELEMENT_SELECTOR: '.organic__title-wrapper',
-    
+
     rewriteText( wiki, text ) {
         return text.replace( wiki.search.titlePattern, wiki.search.newTitle );
     },
@@ -127,13 +128,11 @@ const rewrite = {
 
                 this.rewriteUrlElement( wiki, element.querySelector( this.URL_ELEMENT_SELECTOR ) );
 
-                element.prepend( constructRedirectBadge( {
-		    isMobile: true,
-		    allMoved: true
-		    },
+                element.prepend( constructRedirectBadge(
+		    { allMoved: true },
 		    {
-                    display: 'inline-block',
-                    marginBottom: '4px'
+			display: 'inline-block',
+			marginBottom: '4px'
 		    } ) );
 
                 this.lock( element );
@@ -143,9 +142,9 @@ const rewrite = {
 };
 
 awaitElement(
-    '.w-gl--desktop',
-    '.w-gl--desktop',
-    node => {
-        invokeSearchModule( wikis, rewrite.run.bind( rewrite ), filter.run.bind( filter ), node );
+    document,
+    '.w-gl__result__main',
+    callback => {
+        invokeSearchModule( wikis, rewrite.run.bind( rewrite ), filter.run.bind( filter ) );
     }
 );
