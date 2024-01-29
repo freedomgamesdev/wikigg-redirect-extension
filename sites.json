@@ -513,7 +513,8 @@
         {
             "id": "lightnofire",
             "oldId": "light-no-fire",
-            "name": "Light No Fire"
+            "name": "Light No Fire",
+            "isFork": false
         },
         {
             "parentRef": "lightnofire",
