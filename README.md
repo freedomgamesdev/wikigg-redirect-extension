@@ -8,7 +8,7 @@ The extension is available on these browsers:
   - Update verification can be slow for Edge, and this version may be lagging slightly behind Chrome and Firefox.
   - Listing in the Edge Add-ons Portal has changed in mid-November 2023 due to a publisher change. To receive updates, switch to the listing linked above.
 - Opera GX
-  - Download the [Open in Google Chrome](https://addons.opera.com/en/extensions/details/open-in-google-chrome/) extension then head to to the Chrome Store to download the [wiki.gg Redirect](https://chrome.google.com/webstore/detail/redirect-to-wikigg/cngoemokfjekjkmajenlaokhnmmiinca).
+  - Download the [Open in Google Chrome](https://addons.opera.com/en/extensions/details/open-in-google-chrome/) extension then head to to the [Chrome Store to download](https://chrome.google.com/webstore/detail/redirect-to-wikigg/cngoemokfjekjkmajenlaokhnmmiinca) the extension.
 
 **Only wiki.gg wikis will be added to this extension.** Independent or nearly-independent wikis are out of scope, because a separate **[Indie Wiki Buddy](https://github.com/KevinPayravi/indie-wiki-buddy)** extension is already available for Chrome and Firefox that you can use alongside **wiki.gg Redirect**.
 
