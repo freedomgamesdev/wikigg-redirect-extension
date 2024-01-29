@@ -286,6 +286,10 @@
         "official": true
     },
     {
+        "id": "dredge",
+        "name": "Dredge"
+    },
+    {
         "id": "deeprockgalactic",
         "name": "Deep Rock Galactic",
         "official": true
@@ -361,6 +365,11 @@
         "oldId": "enajoelg",
         "name": "ENA"
     }, 
+    {
+        "id": "exapico",
+        "oldId": "artonelico",
+        "name": "EXA PICO"
+    },
     {
         "id": "enterthegungeon",
         "name": "Enter The Gungeon",
@@ -482,6 +491,16 @@
         "name": "In Stars and Time"
     },
     {
+        "id": "theinnerworld",
+        "oldId": "the-inner-world",
+        "name": "The Inner World"
+    },
+    {
+        "id": "infectionfreezone",
+        "oldId": "infection-free-zone",
+        "name": "Infection Free Zone"
+    },
+    {
         "id": "lastorigin",
         "name": "Last Origin"
     },
@@ -490,6 +509,18 @@
         "oldId": "leaf-blower-revolution",
         "name": "Leaf Blower Revolution"
     },
+    [
+        {
+            "id": "lightnofire",
+            "oldId": "light-no-fire",
+            "name": "Light No Fire",
+            "isFork": false
+        },
+        {
+            "parentRef": "lightnofire",
+            "oldId": "lightnofire"
+        }
+    ],
     {
         "id": "legiontd2",
         "name": "Legion TD 2"
@@ -927,6 +958,10 @@
         "name": "UnderMine",
         "official": true
     },
+    {
+        "id": "undertaleyellow",
+        "name": "Undertale Yellow"
+    },
     [
         {
             "id": "vibrantventure",
@@ -978,6 +1013,10 @@
         "oldId": "vtol-vr",
         "name": "VTOL VR",
         "official": true
+    },
+    {
+        "id": "voidigo",
+        "name": "Voidigo"
     },
     {
         "id": "warcommander",
