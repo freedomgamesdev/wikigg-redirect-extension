@@ -466,6 +466,10 @@
         "name": "Get To The Orange Door"
     },
     {
+        "id": "hawked",
+        "name": "Hawked"
+    },
+    {
         "id": "hearthstone",
         "name": "Hearthstone"
     },
