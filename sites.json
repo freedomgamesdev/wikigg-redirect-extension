@@ -599,6 +599,11 @@
         "name": "Monumenta"
     },
     {
+        "id": "misttraingirls",
+        "oldId": "mist-train-girls",
+        "name": "Mist Train Girls"
+    },
+    {
         "id": "mindhack",
         "name": "MINDHACK"
     },
