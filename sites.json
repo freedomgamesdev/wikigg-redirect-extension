@@ -509,11 +509,6 @@
         "name": "In Stars and Time"
     },
     {
-        "id": "theinnerworld",
-        "oldId": "the-inner-world",
-        "name": "The Inner World"
-    },
-    {
         "id": "inconvenientmodpack",
         "oldId": "inconvenient-modpack",
         "name": "Inconvenient Modpack"
@@ -959,6 +954,16 @@
             "uiClass": "wiki-indent"
         }
     ],
+    {
+        "id": "theinnerworld",
+        "oldId": "the-inner-world",
+        "name": "The Inner World"
+    },
+    {
+        "id": "tno",
+        "oldId": "the-new-order-last-days-of-europe",
+        "name": "The New Order: Last Days of Europe"
+    },
     {
         "id": "themagicalmixturemill",
         "oldId": "the-magical-mixture-mill",
