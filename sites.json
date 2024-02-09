@@ -505,6 +505,11 @@
         "name": "The Inner World"
     },
     {
+        "id": "inconvenientmodpack",
+        "oldId": "inconvenient-modpack",
+        "name": "Inconvenient Modpack"
+    },
+    {
         "id": "infectionfreezone",
         "oldId": "infection-free-zone",
         "name": "Infection Free Zone"
