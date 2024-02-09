@@ -126,6 +126,10 @@
         "name": "Astrea"
     },
     {
+        "id": "ahc",
+        "name": "Anime Hunter Canon"
+    },
+    {
         "id": "backpackbattles",
         "oldId": "backpack-battles",
         "name": "Backpack Battles"
@@ -311,6 +315,11 @@
         "name": "Dome Keeper"
     },
     {
+        "id": "dontescape",
+        "oldId": "dont-escape",
+        "name": "Don't Escape"
+    },
+    {
         "id": "dragoncourt",
         "name": "Dragon Court"
     },
@@ -449,6 +458,11 @@
         "name": "Friday Night Funkin'"
     },
     {
+        "id": "getawayshootout",
+        "oldId": "getaway-shootout",
+        "name": "Getaway Shootout"
+    },
+    {
         "id": "gangbeasts",
         "oldId": "gang-beasts",
         "name": "Gang Beasts"
@@ -464,6 +478,10 @@
     {
         "id": "gttod",
         "name": "Get To The Orange Door"
+    },
+    {
+        "id": "hawked",
+        "name": "Hawked"
     },
     {
         "id": "hearthstone",
@@ -496,6 +514,11 @@
         "name": "The Inner World"
     },
     {
+        "id": "inconvenientmodpack",
+        "oldId": "inconvenient-modpack",
+        "name": "Inconvenient Modpack"
+    },
+    {
         "id": "infectionfreezone",
         "oldId": "infection-free-zone",
         "name": "Infection Free Zone"
@@ -524,6 +547,10 @@
     {
         "id": "legiontd2",
         "name": "Legion TD 2"
+    },
+    {
+        "id": "legendsofequestria",
+        "name": "Legends of Equestria"
     },
     {
         "id": "letitdie",
@@ -590,6 +617,11 @@
         "name": "Monumenta"
     },
     {
+        "id": "misttraingirls",
+        "oldId": "mist-train-girls",
+        "name": "Mist Train Girls"
+    },
+    {
         "id": "mindhack",
         "name": "MINDHACK"
     },
@@ -619,6 +651,10 @@
     {
         "id": "neutronized",
         "name": "Neutronized"
+    },
+    {
+        "id": "nightsofazure",
+        "name": "Nights of Azure"
     },
     {
         "id": "mightyparty",
@@ -709,6 +745,11 @@
     {
         "id": "plantsvszombies",
         "name": "Plants vs. Zombies"
+    },
+    {
+        "id": "quasimorph",
+        "name": "Quasimorph",
+        "official": true
     },
     {
         "id": "rejuvenation",
