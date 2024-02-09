@@ -126,6 +126,10 @@
         "name": "Astrea"
     },
     {
+        "id": "ahc",
+        "name": "Anime Hunter Canon"
+    },
+    {
         "id": "backpackbattles",
         "oldId": "backpack-battles",
         "name": "Backpack Battles"
