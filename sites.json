@@ -748,7 +748,8 @@
     },
     {
         "id": "quasimorph",
-        "name": "Quasimorph"
+        "name": "Quasimorph",
+        "official": true
     },
     {
         "id": "rejuvenation",
