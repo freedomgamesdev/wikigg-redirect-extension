@@ -130,6 +130,10 @@
         "name": "Anime Hunter Canon"
     },
     {
+        "id": "apexlegends",
+        "name": "Apex Legends"
+    },
+    {
         "id": "backpackbattles",
         "oldId": "backpack-battles",
         "name": "Backpack Battles"
@@ -234,6 +238,10 @@
         "id": "cobaltcore",
         "oldId": "cobalt-core",
         "name": "Cobalt Core"
+    },
+        {
+        "id": "conflictofnations",
+        "name": "Conflict of Nations"
     },
     {
         "id": "cosmoteer",
