@@ -130,6 +130,10 @@
         "name": "Anime Hunter Canon"
     },
     {
+        "id": "apexlegends",
+        "name": "Apex Legends"
+    },
+    {
         "id": "backpackbattles",
         "oldId": "backpack-battles",
         "name": "Backpack Battles"
