@@ -34,24 +34,17 @@ export default class SearchFilterSettings {
     static initialise( table ) {
         const tbody = table.tBodies[ 0 ];
         for ( const info of this.engines ) {
-            // TODO: settings integration doesn't do sub-keys yet
             createDomElement( 'tr', {
                 html: [
                     createDomElement( 'td', {
                         text: getMessage( `sfs_engine_${info.id}` ),
                     } ),
-                    createDomElement( 'td', {
-                        html: this.#createRadio( `sfs_mode_${info.id}`, 'sfs_rewrite', `sfs.${info.id}`, 'rewrite',
-                            false ),
-                    } ),
-                    createDomElement( 'td', {
-                        html: this.#createRadio( `sfs_mode_${info.id}`, 'sfs_filter', `sfs.${info.id}`, 'filter',
-                            false ),
-                    } ),
-                    createDomElement( 'td', {
-                        html: this.#createRadio( `sfs_mode_${info.id}`, 'sfs_rewrite', `sfs.${info.id}`, 'none',
-                            true ),
-                    } ),
+                    this.#createRadioCell( `sfs_mode_${info.id}`, 'sfs_rewrite', `sfs.${info.id}`, 'rewrite',
+                        false ),
+                    this.#createRadioCell( `sfs_mode_${info.id}`, 'sfs_filter', `sfs.${info.id}`, 'filter',
+                        false ),
+                    this.#createRadioCell( `sfs_mode_${info.id}`, 'sfs_rewrite', `sfs.${info.id}`, 'none',
+                        true ),
                 ],
                 appendTo: tbody
             } );
@@ -59,16 +52,19 @@ export default class SearchFilterSettings {
     }
 
 
-    static #createRadio( id, tooltipMsg, settingId, settingValue, meansInactive ) {
-        return createDomElement( 'input', {
-            attributes: {
-                type: 'radio',
-                name: id,
-                title: getMessage( tooltipMsg ),
-                'data-setting-id': settingId,
-                'data-value': settingValue,
-                'data-means-inactive': meansInactive ? true : null
-            }
+    static #createRadioCell( id, tooltipMsg, key, settingValue, meansInactive ) {
+        return createDomElement( 'td', {
+            html: createDomElement( 'input', {
+                attributes: {
+                    type: 'radio',
+                    name: id,
+                    title: getMessage( tooltipMsg ),
+                    'data-component': 'DeclarativeSettings',
+                    'data-key': key,
+                    'data-value': settingValue,
+                    'data-means-inactive': meansInactive ? true : null
+                }
+            } )
         } );
     }
 }

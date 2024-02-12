@@ -21,23 +21,30 @@
                     <h5><img class="icon" src="icons/cdx/redirect.svg" /><i18n>options_redirecting</i18n></h5>
                     <div>
                         <input type="radio" name="redirectMode" id="redirectMode__do"
-                            data-setting-id="isRedirectDisabled" data-value="false" />
+                            data-component="DeclarativeSettings"
+                            data-key="isRedirectDisabled"
+                            data-value="false" />
                         <label for="redirectMode__do"><i18n>options_redirecting_yes</i18n></label>
                     </div>
                     <div>
                         <input type="radio" name="redirectMode" id="redirectMode__banner"
-                            data-setting-id="isRedirectDisabled" data-value="banner" />
+                            data-component="DeclarativeSettings"
+                            data-key="isRedirectDisabled"
+                            data-value="banner" />
                         <label for="redirectMode__banner"><i18n>options_redirecting_soft</i18n></label>
                     </div>
                     <div>
-                        <input type="radio" name="redirectMode" id="redirectMode__dont" data-means-inactive
-                            data-setting-id="isRedirectDisabled" data-value="true" />
+                        <input type="radio" name="redirectMode" id="redirectMode__dont"
+                            data-component="DeclarativeSettings"
+                            data-key="isRedirectDisabled"
+                            data-value="true"
+                            data-means-inactive />
                         <label for="redirectMode__dont"><i18n>options_redirecting_no</i18n></label>
                     </div>
                 </div>
 
-                <!--- WIP SEARCH FILTER SETTINGS, NOT VISIBLE IN STORE PACKAGES --->
-                <div class="options-group" data-hide-in-stable>
+                <!--- SEARCH FILTER SETTINGS --->
+                <div class="options-group"e>
                     <h5><img class="icon" src="icons/cdx/search.svg" /> INDEV: <i18n>options_filtering</i18n></h5>
                     <table data-component="SearchFilterSettings">
                         <thead>
@@ -52,40 +59,15 @@
                     </table>
                 </div>
 
-                <!--- SEARCH FILTER SETTINGS --->
-                <div class="options-group">
-                    <h5><img class="icon" src="icons/cdx/search.svg" /><i18n>options_filtering</i18n></h5>
-                    <p>
-                        <b><i18n>options_filtering_supported_engines</i18n></b> <i>Google</i>, <i>DuckDuckGo</i>.
-                    </p>
-                    <div>
-                        <input type="radio" name="searchMode" id="rewriteSearch"
-                            data-setting-id="searchMode" data-value="rewrite" />
-                        <label for="rewriteSearch"><i18n>options_filtering_rewrite</i18n></label>
-                    </div>
-                    <div>
-                        <input type="radio" name="searchMode" id="filterSearch"
-                            data-setting-id="searchMode" data-value="filter" />
-                        <label for="filterSearch"><i18n>options_filtering_hide</i18n></label>
-                    </div>
-                    <div>
-                        <input type="radio" name="searchMode" id="dontTouchSearch" data-means-inactive
-                            data-setting-id="searchMode" data-value="none" />
-                        <label for="dontTouchSearch"><i18n>options_filtering_no</i18n></label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="ddgSupportExp"
-                            data-setting-id="ddgEnable" data-on="true" data-off="false" />
-                        <label for="ddgSupportExp"><i18n>options_filtering_ddg_exp</i18n></label>
-                    </div>
-                </div>
-
                 <!--- DEVELOPMENT BUILD OPTIONS --->
                 <div class="options-group" data-hide-in-stable>
                     <h5>Hidden options</h5>
                     <div>
                         <input type="checkbox" id="useTabRedirect"
-                            data-setting-id="useTabRedirect" data-on="true" data-off="false" />
+                            data-component="DeclarativeSettings"
+                            data-key="useTabRedirect"
+                            data-on="true"
+                            data-off="false" />
                         <label for="useTabRedirect">Use legacy redirection method</label>
                     </div>
                 </div>
