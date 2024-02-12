@@ -68,6 +68,7 @@ const rewriteUtil = {
 
 
 class GoogleSearchModule extends GenericSearchModule {
+    RESULTS_CONTAINER_CLASS = 'div.g';
     SITE_NETWORK_TITLE_SELECTOR = 'span.VuuXrf';
     TRANSLATE_SELECTOR = '.fl.iUh30';
     RESULT_SIDEPANEL_SELECTOR = 'div[jsslot] > div[jsname="I3kE2c"]';
@@ -91,7 +92,10 @@ class GoogleSearchModule extends GenericSearchModule {
      * @return {HTMLElement?}
      */
     resolveResultContainer( element ) {
-        return crawlUntilParentFound( element, '.g, .xpd' );
+        const result = crawlUntilParentFound( element, '.g, .xpd' );
+        // We might be in another result container, and if so, there's a table with more results
+        const upperContainer = crawlUntilParentFound( result, this.RESULTS_CONTAINER_CLASS, 3 );
+        return upperContainer ?? result;
     }
 
 
@@ -104,26 +108,11 @@ class GoogleSearchModule extends GenericSearchModule {
     findNearestGgResult( wikiInfo, boundaryElement ) {
         for ( const node of document.querySelectorAll( wikiInfo.search.goodSelector ) ) {
             if ( node.compareDocumentPosition( boundaryElement ) & 0x02 ) {
-                return crawlUntilParentFound( node, '.g' );
+                return crawlUntilParentFound( node, this.RESULTS_CONTAINER_CLASS );
             }
         }
         return null;
     }
-
-
-    /**
-     * @private
-     * @param {SiteRecord} wikiInfo
-     * @param {HTMLElement} elementToCheck
-     * @return {boolean}
-     */
-    _isTopLevelResult( wikiInfo, elementToCheck ) {
-        const
-            oldUrl = `https://${wikiInfo.oldId || wikiInfo.id}.fandom.com`,
-            topLevelLinkElement = elementToCheck.querySelector( 'a[data-jsarwt="1"], a[ping]' );
-        return topLevelLinkElement && !topLevelLinkElement.href.startsWith( oldUrl );
-    }
-
 
     /**
      * @protected
@@ -132,9 +121,7 @@ class GoogleSearchModule extends GenericSearchModule {
      * @param {HTMLElement} _foundLinkElement
      */
     async hideResult( wikiInfo, containerElement, _foundLinkElement ) {
-        if ( this._isTopLevelResult( wikiInfo, containerElement ) ) {
-            super.hideResult( wikiInfo, containerElement, _foundLinkElement );
-        }
+        super.hideResult( wikiInfo, containerElement, _foundLinkElement );
     }
 
 
@@ -147,8 +134,7 @@ class GoogleSearchModule extends GenericSearchModule {
     async replaceResult( wikiInfo, containerElement, foundLinkElement ) {
         const oldDomain = `${wikiInfo.oldId || wikiInfo.id}.fandom.com`,
             newDomain = `${wikiInfo.id}.wiki.gg`;
-        const isMobile = containerElement.classList.contains( 'xpd' ),
-            isTopLevel = isMobile || this._isTopLevelResult( wikiInfo, containerElement );
+        const isMobile = containerElement.classList.contains( 'xpd' );
 
         // Rewrite title
         for ( const h3 of containerElement.getElementsByTagName( 'h3' ) ) {
@@ -158,7 +144,7 @@ class GoogleSearchModule extends GenericSearchModule {
             if ( !networkHeader && !rewriteUtil.isLocked( containerElement ) && !rewriteUtil.isLocked( h3 ) ) {
                 const badgeElement = constructRedirectBadge( {
                     isGoogleMobile: isMobile,
-                    allMoved: isTopLevel
+                    allMoved: true
                 } );
                 h3.parentNode.parentNode.insertBefore( badgeElement, h3.parentNode.nextSibling );
             }
