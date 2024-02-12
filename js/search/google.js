@@ -70,6 +70,7 @@ const rewriteUtil = {
 class GoogleSearchModule extends GenericSearchModule {
     SITE_NETWORK_TITLE_SELECTOR = 'span.VuuXrf';
     TRANSLATE_SELECTOR = '.fl.iUh30';
+    RESULT_SIDEPANEL_SELECTOR = 'div[jsslot] > div[jsname="I3kE2c"]';
     MORE_FROM_NETWORK_SELECTOR = 'a.fl[href*="site:fandom.com"]';
 
 
@@ -195,12 +196,16 @@ class GoogleSearchModule extends GenericSearchModule {
                 mobileBreadcrumb.textContent = mobileBreadcrumb.textContent.replace( oldDomain, newDomain );
             }
         }
-
         // Look for "More results from" in this result group and switch them onto wiki.gg
         for ( const moreResults of containerElement.querySelectorAll( this.MORE_FROM_NETWORK_SELECTOR ) ) {
             moreResults.href = moreResults.href.replace( 'site:fandom.com', 'site:wiki.gg' )
                 .replace( `site:${wikiInfo.oldId || wikiInfo.id}.fandom.com`, `site:${wikiInfo.id}.wiki.gg` );
             moreResults.innerText = moreResults.innerText.replace( 'fandom.com', 'wiki.gg' );
+        }
+        // Hide the side-panel button - there's no point in attempting to rewrite it
+        const sidePanelButton = containerElement.querySelector( this.RESULT_SIDEPANEL_SELECTOR );
+        if ( sidePanelButton ) {
+            sidePanelButton.style.display = 'none';
         }
     }
 }
