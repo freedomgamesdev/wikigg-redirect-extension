@@ -47,15 +47,10 @@ const rewriteUtil = {
     },
 
 
-    doTitleText( wiki, text ) {
-        return text.replace( wiki.search.titlePattern, wiki.search.newTitle );
-    },
-
-
     doH3( wiki, node ) {
         for ( const child of node.childNodes ) {
             if ( child.textContent ) {
-                child.textContent = this.doTitleText( wiki, child.textContent );
+                child.textContent = child.textContent.replace( wiki.search.titlePattern, wiki.search.newTitle )
             } else {
                 this.doH3( wiki, child );
             }
