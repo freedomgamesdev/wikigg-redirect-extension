@@ -234,14 +234,28 @@ export function prepareWikisInfo( wikis, options ) {
 }
 
 
-// Looks for a search result container by walking an element's parents
-export function crawlUntilParentFound( element, selector, maxDepth = 10 ) {
-    if ( element === null ) {
+/**
+ * Locates an ancestor that matches the given selector.
+ *
+ * If max depth is not given, this is equivalent to a simple null sanity check and a `closest` call for performance
+ * reasons.
+ *
+ * @param {HTMLElement} element 
+ * @param {string} selector 
+ * @param {int} [maxDepth=-1]
+ * @return {HTMLElement?}
+ */
+export function crawlUntilParentFound( element, selector, maxDepth = -1 ) {
+    if ( element === null || element.parentElement === null ) {
         return null;
     }
 
+    if ( maxDepth === -1 ) {
+        return element.closest( selector );
+    }
+
     element = element.parentElement;
-    if ( maxDepth > 0 && element !== null && element.parentElement ) {
+    if ( maxDepth > 0 ) {
         if ( element.matches( selector ) ) {
             return element;
         }
