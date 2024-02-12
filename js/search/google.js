@@ -225,4 +225,4 @@ if ( bottomStuff ) {
     );
 }
 // Run the initial filtering
-GoogleSearchModule.invoke( wikis, results );
+GoogleSearchModule.invoke( wikis );
