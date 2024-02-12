@@ -9,6 +9,8 @@ import { constructReplacementMarker } from './components.js';
  * @abstract
  */
 export class SearchModule {
+    static MARKER_ATTRIBUTE = 'data-ggr-checked';
+
     /**
      * @abstract
      * @protected
@@ -115,8 +117,9 @@ export class SearchModule {
 
                 for ( const element of rootNode.querySelectorAll( wikiInfo.search.badSelector ) ) {
                     const container = instance.resolveResultContainer( element );
-                    if ( container !== null && container.parentElement !== null ) {
+                    if ( container !== null && container.parentElement !== null && !container.getAttribute( SearchModule.MARKER_ATTRIBUTE ) ) {
                         doRoutine.call( instance, wikiInfo, container, element );
+                        container.setAttribute( SearchModule.MARKER_ATTRIBUTE, true );
                     }
                 }
             }

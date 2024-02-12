@@ -6,7 +6,6 @@ import { getWikis } from '../util.js';
 import {
     GenericSearchModule,
     prepareWikisInfo,
-    invokeSearchModule,
     crawlUntilParentFound,
     awaitElement
 } from './baseSearch.js';
@@ -20,9 +19,6 @@ const wikis = prepareWikisInfo( getWikis( false, true ), {
 
 
 const rewriteUtil = {
-    MARKER_ATTRIBUTE: 'data-ggr-processed',
-
-
     doLink( wiki, link ) {
         if ( link.tagName.toLowerCase() !== 'a' ) {
             return;
@@ -55,16 +51,6 @@ const rewriteUtil = {
                 this.doH3( wiki, child );
             }
         }
-    },
-
-
-    lock( element ) {
-        element.setAttribute( this.MARKER_ATTRIBUTE, '1' );
-    },
-
-
-    isLocked( element ) {
-        return element.getAttribute( this.MARKER_ATTRIBUTE ) === '1';
     }
 };
 
@@ -148,7 +134,6 @@ class GoogleSearchModule extends GenericSearchModule {
             } );
             networkHeader.textContent = 'wiki.gg';
             networkHeader.appendChild( badgeElement );
-            rewriteUtil.lock( networkHeader );
         }
         // Rewrite the main link
         for ( const subLinkElement of containerElement.querySelectorAll( this.EXTERNAL_LINK_SELECTOR ) ) {
@@ -159,16 +144,13 @@ class GoogleSearchModule extends GenericSearchModule {
             rewriteUtil.doH3( wikiInfo, h3 );
             // Insert a badge indicating the result was modified if we haven't done that already (check heading and
             // result group)
-            if ( !networkHeader && !rewriteUtil.isLocked( containerElement ) && !rewriteUtil.isLocked( h3 ) ) {
+            if ( !networkHeader ) {
                 const badgeElement = constructRedirectBadge( {
                     isGoogleMobile: isMobile,
                     allMoved: true
                 } );
                 h3.parentNode.parentNode.insertBefore( badgeElement, h3.parentNode.nextSibling );
             }
-            // Tag heading and result group as ones we badged
-            rewriteUtil.lock( containerElement );
-            rewriteUtil.lock( h3 );
         }
         // Rewrite translate link
         for ( const translate of containerElement.querySelectorAll( this.TRANSLATE_SELECTOR ) ) {
