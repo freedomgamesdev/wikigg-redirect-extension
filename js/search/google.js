@@ -138,6 +138,17 @@ class GoogleSearchModule extends GenericSearchModule {
             newDomain = `${wikiInfo.id}.wiki.gg`;
         const isMobile = containerElement.classList.contains( 'xpd' );
 
+        // Rewrite the network header
+        const networkHeader = containerElement.querySelector( this.SITE_NETWORK_TITLE_SELECTOR );
+        if ( networkHeader ) {
+            const badgeElement = constructRedirectBadge( {
+                isGoogleMobile: isMobile,
+                allMoved: true
+            } );
+            networkHeader.textContent = 'wiki.gg';
+            networkHeader.appendChild( badgeElement );
+            rewriteUtil.lock( networkHeader );
+        }
         // Rewrite title
         for ( const h3 of containerElement.getElementsByTagName( 'h3' ) ) {
             rewriteUtil.doH3( wikiInfo, h3 );
@@ -156,17 +167,6 @@ class GoogleSearchModule extends GenericSearchModule {
         }
         // Rewrite the main link
         rewriteUtil.doLink( wikiInfo, linkElement );
-        // Rewrite the network header
-        const networkHeader = containerElement.querySelector( this.SITE_NETWORK_TITLE_SELECTOR );
-        if ( networkHeader ) {
-            const badgeElement = constructRedirectBadge( {
-                isGoogleMobile: isMobile,
-                allMoved: isTopLevel
-            } );
-            networkHeader.textContent = 'wiki.gg';
-            networkHeader.appendChild( badgeElement );
-            rewriteUtil.lock( networkHeader );
-        }
         // Rewrite translate link
         for ( const translate of containerElement.querySelectorAll( this.TRANSLATE_SELECTOR ) ) {
             rewriteUtil.doLink( wikiInfo, translate );
