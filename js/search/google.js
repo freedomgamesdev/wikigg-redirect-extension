@@ -72,6 +72,7 @@ const rewriteUtil = {
 class GoogleSearchModule extends GenericSearchModule {
     RESULTS_CONTAINER_CLASS = 'div.g';
     SITE_NETWORK_TITLE_SELECTOR = 'span.VuuXrf';
+    EXTERNAL_LINK_SELECTOR = 'h3 > a.l, span > a[data-ved]';
     TRANSLATE_SELECTOR = '.fl.iUh30';
     RESULT_SIDEPANEL_SELECTOR = 'div[jsslot] > div[jsname="I3kE2c"]';
     MORE_FROM_NETWORK_SELECTOR = 'a.fl[href*="site:fandom.com"]';
@@ -131,9 +132,9 @@ class GoogleSearchModule extends GenericSearchModule {
      * @protected
      * @param {SiteRecord} wikiInfo
      * @param {HTMLElement} containerElement
-     * @param {HTMLElement} foundLinkElement
+     * @param {HTMLElement} _foundLinkElement
      */
-    async replaceResult( wikiInfo, containerElement, foundLinkElement ) {
+    async replaceResult( wikiInfo, containerElement, _foundLinkElement ) {
         const oldDomain = `${wikiInfo.oldId || wikiInfo.id}.fandom.com`,
             newDomain = `${wikiInfo.id}.wiki.gg`;
         const isMobile = containerElement.classList.contains( 'xpd' );
@@ -148,6 +149,10 @@ class GoogleSearchModule extends GenericSearchModule {
             networkHeader.textContent = 'wiki.gg';
             networkHeader.appendChild( badgeElement );
             rewriteUtil.lock( networkHeader );
+        }
+        // Rewrite the main link
+        for ( const subLinkElement of containerElement.querySelectorAll( this.EXTERNAL_LINK_SELECTOR ) ) {
+            rewriteUtil.doLink( wikiInfo, subLinkElement );
         }
         // Rewrite title
         for ( const h3 of containerElement.getElementsByTagName( 'h3' ) ) {
@@ -165,8 +170,6 @@ class GoogleSearchModule extends GenericSearchModule {
             rewriteUtil.lock( containerElement );
             rewriteUtil.lock( h3 );
         }
-        // Rewrite the main link
-        rewriteUtil.doLink( wikiInfo, linkElement );
         // Rewrite translate link
         for ( const translate of containerElement.querySelectorAll( this.TRANSLATE_SELECTOR ) ) {
             rewriteUtil.doLink( wikiInfo, translate );
