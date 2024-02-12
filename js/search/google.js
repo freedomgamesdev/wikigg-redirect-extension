@@ -24,19 +24,26 @@ const rewriteUtil = {
 
 
     doLink( wiki, link ) {
-        if ( link.tagName.toLowerCase() === 'a' ) {
-            if ( link.href.startsWith( '/url?' ) ) {
-                link.href = ( new URLSearchParams( link.href ) ).get( 'url' );
-            } else {
-                link.href = link.href.replace( `${wiki.oldId || wiki.id}.fandom.com`, `${wiki.id}.wiki.gg` );
-            }
-            if ( link.getAttribute( 'data-jsarwt' ) ) {
-                link.setAttribute( 'data-jsarwt', '0' );
-            }
-            if ( link.getAttribute( 'ping' ) ) {
-                link.removeAttribute( 'ping' );
-            }
+        if ( link.tagName.toLowerCase() !== 'a' ) {
+            return;
         }
+        
+        let href = link.href;
+        if ( href.startsWith( '/url?' ) ) {
+            href = ( new URLSearchParams( link.href ) ).get( 'url' );
+        }
+
+        if ( !href.includes( wiki.oldId || wiki.id ) ) {
+            return;
+        }
+
+        link.href = href.replace( `${wiki.oldId || wiki.id}.fandom.com`, `${wiki.id}.wiki.gg` );
+        // Defuse hijacking protection - replacing with the new wiki's link will trigger it
+        if ( link.getAttribute( 'data-jsarwt' ) ) {
+            link.setAttribute( 'data-jsarwt', '0' );
+        }
+        // Defuse pingbacks
+        link.removeAttribute( 'ping' );
     },
 
 
