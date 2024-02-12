@@ -34,7 +34,7 @@ const rewriteUtil = {
                 link.setAttribute( 'data-jsarwt', '0' );
             }
             if ( link.getAttribute( 'ping' ) ) {
-                link.setAttribute( 'ping', null );
+                link.removeAttribute( 'ping' );
             }
         }
     },
