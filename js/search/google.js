@@ -125,17 +125,18 @@ class GoogleSearchModule extends GenericSearchModule {
             newDomain = `${wikiInfo.id}.wiki.gg`;
         const isMobile = containerElement.classList.contains( 'xpd' );
 
+        const badgeElement = constructRedirectBadge( {
+            isGoogleMobile: isMobile,
+            allMoved: true
+        } );
+
         // Rewrite the network header
         const networkHeader = containerElement.querySelector( this.SITE_NETWORK_TITLE_SELECTOR );
         if ( networkHeader ) {
-            const badgeElement = constructRedirectBadge( {
-                isGoogleMobile: isMobile,
-                allMoved: true
-            } );
             networkHeader.textContent = 'wiki.gg';
             networkHeader.appendChild( badgeElement );
         }
-        // Rewrite the main link
+        // Rewrite links
         for ( const subLinkElement of containerElement.querySelectorAll( this.EXTERNAL_LINK_SELECTOR ) ) {
             rewriteUtil.doLink( wikiInfo, subLinkElement );
         }
@@ -144,11 +145,7 @@ class GoogleSearchModule extends GenericSearchModule {
             rewriteUtil.doH3( wikiInfo, h3 );
             // Insert a badge indicating the result was modified if we haven't done that already (check heading and
             // result group)
-            if ( !networkHeader ) {
-                const badgeElement = constructRedirectBadge( {
-                    isGoogleMobile: isMobile,
-                    allMoved: true
-                } );
+            if ( !badgeElement.parentElement ) {
                 h3.parentNode.parentNode.insertBefore( badgeElement, h3.parentNode.nextSibling );
             }
         }
