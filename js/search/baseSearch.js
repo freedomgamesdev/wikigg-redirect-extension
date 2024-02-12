@@ -90,9 +90,11 @@ export class SearchModule {
             'sfs',
             'disabledWikis'
         ], result => {
+            result = result ?? defaults;
+
             const
                 defaults = defaultSettingsFactory(),
-                mode = result.sfs[ id ] || defaults.sfs[ id ],
+                mode = ( result.sfs ?? defaults.sfs )[ id ] ?? defaults.sfs[ id ],
                 doRoutine = instance[ {
                     filter: 'hideResult',
                     rewrite: 'replaceResult',
@@ -103,7 +105,7 @@ export class SearchModule {
                 return;
             }
 
-            const disabledWikis = ( result && result.disabledWikis || defaults.disabledWikis );
+            const disabledWikis = result.disabledWikis || defaults.disabledWikis;
 
             // TODO: merge selectors and run that query, then determine the wiki
             for ( const wikiInfo of wikis ) {
@@ -112,9 +114,9 @@ export class SearchModule {
                 }
 
                 for ( const element of rootNode.querySelectorAll( wikiInfo.search.badSelector ) ) {
-                    const container = this.resolveResultContainer( element );
+                    const container = instance.resolveResultContainer( element );
                     if ( container !== null && container.parentElement !== null ) {
-                        doRoutine( wikiInfo, container, element );
+                        doRoutine.call( instance, wikiInfo, container, element );
                     }
                 }
             }
