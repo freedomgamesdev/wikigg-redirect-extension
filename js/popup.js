@@ -3,93 +3,16 @@ import {
     isDevelopmentBuild,
     getMessage
 } from './util.js';
-import defaultSettingsFactory from '../defaults.js';
 import SearchFilterSettings from './popup/SearchFilterSettings.js';
 import WikiList from './popup/WikiList.js';
+import * as DeclarativeSettings from './popup/DeclarativeSettings.js';
 
 
-const storage = window.storage || chrome.storage,
-    userDefaults = defaultSettingsFactory(),
-    wikis = getWikis( true, false );
+const wikis = getWikis( true, false );
 
 
 const RTW = {
     $container: document.getElementById( 'wikis' ),
-    settingsIds: [],
-    updateCallbacks: [
-        ( settings => {
-            RTW.settingsCache = settings;
-            RTW.disabledWikis = RTW.getCurrentSettingValue( 'disabledWikis' );
-        } )
-    ],
-    disabledWikis: [],
-    settingsCache: {},
-
-
-    getCurrentSettingValue( key ) {
-        return ( this.settingsCache && this.settingsCache[ key ] ) ?? userDefaults[ key ];
-    },
-
-
-    _normaliseOptionValue( v ) {
-        return v === 'true' ? true : ( v === 'false' ? false : v );
-    },
-
-
-    bindCheckboxToOption( checkbox ) {
-        const settingId = checkbox.getAttribute( 'data-setting-id' ),
-            arrayValue = checkbox.getAttribute( 'data-array-value' ),
-            valueOn = this._normaliseOptionValue( checkbox.getAttribute( 'data-on' ) ),
-            valueOff = this._normaliseOptionValue( checkbox.getAttribute( 'data-off' ) );
-
-        this.settingsIds.push( settingId );
-        this.updateCallbacks.push( () => {
-            let rawValue = this.getCurrentSettingValue( settingId );
-            if ( settingId === 'disabledWikis' && arrayValue ) {
-                rawValue = rawValue.includes( arrayValue );
-            }
-            checkbox.checked = rawValue === valueOn;
-        } );
-
-        checkbox.addEventListener( 'change', () => {
-            const obj = {};
-            let value = null;
-
-            if ( settingId === 'disabledWikis' && arrayValue ) {
-                const add = checkbox.checked ? valueOn : valueOff;
-                if ( add ) {
-                    this.disabledWikis.push( arrayValue );
-                } else {
-                    this.disabledWikis = this.disabledWikis.filter( x => x !== arrayValue );
-                }
-                value = this.disabledWikis;
-            } else {
-                value = checkbox.checked ? valueOn : valueOff;
-            }
-
-            obj[ settingId ] = value;
-            storage.local.set( obj );
-            this.update();
-        } );
-    },
-
-
-    bindRadioToOption( radio ) {
-        const settingId = radio.getAttribute( 'data-setting-id' ),
-            value = this._normaliseOptionValue( radio.getAttribute( 'data-value' ) );
-        this.settingsIds.push( settingId );
-        this.updateCallbacks.push( () => {
-            radio.checked = value == this.getCurrentSettingValue( settingId );
-        } );
-        radio.addEventListener( 'change', () => {
-            if ( radio.checked ) {
-                const obj = {};
-                obj[ settingId ] = value;
-                storage.local.set( obj );
-                this.update();
-            }
-        } );
-    },
 
 
     addWikiEntry( info ) {
@@ -107,7 +30,8 @@ const RTW = {
             const $checkbox = document.createElement( 'input' );
             $checkbox.setAttribute( 'id', 'wiki-cb-' + info.id );
             $checkbox.setAttribute( 'type', 'checkbox' );
-            $checkbox.setAttribute( 'data-setting-id', 'disabledWikis' );
+            $checkbox.setAttribute( 'data-component', 'DeclarativeSettings' );
+            $checkbox.setAttribute( 'data-key', 'disabledWikis' );
             $checkbox.setAttribute( 'data-array-value', info.id );
             $checkbox.setAttribute( 'data-on', 'false' );
             $checkbox.setAttribute( 'data-off', 'true' );
@@ -125,15 +49,6 @@ const RTW = {
         }
 
         this.$container.appendChild( $out );
-    },
-
-
-    update() {
-        storage.local.get( this.settingsIds, result => {
-            for ( const callback of this.updateCallbacks ) {
-                callback( result );
-            }
-        } );
     },
 
 
@@ -208,6 +123,10 @@ const RTW = {
                 registry[ compId ].initialise( element );
             }
         }
+
+        for ( const element of document.querySelectorAll( '[data-component="DeclarativeSettings"]' ) ) {
+            DeclarativeSettings.Control.initialise( element );
+        }
     }
 };
 
@@ -217,18 +136,10 @@ const RTW = {
     RTW.initialiseDynamic();
     RTW.processMessageTags();
     RTW.initialiseTabbers();
-    RTW.initialiseComponents();
-
     for ( const wiki of wikis ) {
         RTW.addWikiEntry( wiki );
     }
+    RTW.initialiseComponents();
 
-    for ( const checkbox of document.querySelectorAll( 'input[type=checkbox][data-setting-id]' ) ) {
-        RTW.bindCheckboxToOption( checkbox );
-    }
-    for ( const radio of document.querySelectorAll( 'input[type=radio][data-setting-id]' ) ) {
-        RTW.bindRadioToOption( radio );
-    }
-
-    RTW.update();
+    DeclarativeSettings.updateCache();
 }() );
