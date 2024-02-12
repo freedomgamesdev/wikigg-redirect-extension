@@ -12,6 +12,9 @@ import {
 import { constructRedirectBadge } from './components.js';
 
 
+const TRY_DEFUSE_CLICK_TRACKING = true;
+
+
 const wikis = prepareWikisInfo( getWikis( false, true ), {
     titles: true,
     selectors: true
@@ -176,6 +179,10 @@ class GoogleSearchModule extends GenericSearchModule {
         const sidePanelButton = containerElement.querySelector( this.RESULT_SIDEPANEL_SELECTOR );
         if ( sidePanelButton ) {
             sidePanelButton.style.display = 'none';
+        }
+
+        if ( TRY_DEFUSE_CLICK_TRACKING ) {
+            containerElement.addEventListener( 'click', event => event.stopPropagation() );
         }
     }
 }
