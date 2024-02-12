@@ -74,6 +74,15 @@ class GoogleSearchModule extends GenericSearchModule {
 
 
     /**
+     * @protected
+     * @return {string}
+     */
+    getId() {
+        return 'google';
+    }
+
+
+    /**
      * Finds a general result container for a given element, if any.
      *
      * @protected
