@@ -79,5 +79,12 @@
     },
     "source_code": {
         "message": "Source code"
+    },
+
+    "search_component_redirected": {
+        "message": "redirected"
+    },
+    "search_component_redirected_partial": {
+        "message": "partially redirected"
     }
 }
