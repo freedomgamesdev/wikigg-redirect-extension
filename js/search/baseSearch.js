@@ -9,6 +9,8 @@ import { constructReplacementMarker } from './components.js';
  * @abstract
  */
 export class SearchModule {
+    static MARKER_ATTRIBUTE = 'data-ggr-checked';
+
     /**
      * @abstract
      * @protected
@@ -90,9 +92,11 @@ export class SearchModule {
             'sfs',
             'disabledWikis'
         ], result => {
+            result = result ?? defaults;
+
             const
                 defaults = defaultSettingsFactory(),
-                mode = result.sfs[ id ] || defaults.sfs[ id ],
+                mode = ( result.sfs ?? defaults.sfs )[ id ] ?? defaults.sfs[ id ],
                 doRoutine = instance[ {
                     filter: 'hideResult',
                     rewrite: 'replaceResult',
@@ -103,7 +107,7 @@ export class SearchModule {
                 return;
             }
 
-            const disabledWikis = ( result && result.disabledWikis || defaults.disabledWikis );
+            const disabledWikis = result.disabledWikis || defaults.disabledWikis;
 
             // TODO: merge selectors and run that query, then determine the wiki
             for ( const wikiInfo of wikis ) {
@@ -112,9 +116,10 @@ export class SearchModule {
                 }
 
                 for ( const element of rootNode.querySelectorAll( wikiInfo.search.badSelector ) ) {
-                    const container = this.resolveResultContainer( element );
-                    if ( container !== null && container.parentElement !== null ) {
-                        doRoutine( wikiInfo, container, element );
+                    const container = instance.resolveResultContainer( element );
+                    if ( container !== null && container.parentElement !== null && !container.getAttribute( SearchModule.MARKER_ATTRIBUTE ) ) {
+                        doRoutine.call( instance, wikiInfo, container, element );
+                        container.setAttribute( SearchModule.MARKER_ATTRIBUTE, true );
                     }
                 }
             }
@@ -229,13 +234,32 @@ export function prepareWikisInfo( wikis, options ) {
 }
 
 
-// Looks for a search result container by walking an element's parents
-export function crawlUntilParentFound( element, selector, maxDepth = 10 ) {
-    if ( maxDepth > 0 && element.parentElement ) {
+/**
+ * Locates an ancestor that matches the given selector.
+ *
+ * If max depth is not given, this is equivalent to a simple null sanity check and a `closest` call for performance
+ * reasons.
+ *
+ * @param {HTMLElement} element 
+ * @param {string} selector 
+ * @param {int} [maxDepth=-1]
+ * @return {HTMLElement?}
+ */
+export function crawlUntilParentFound( element, selector, maxDepth = -1 ) {
+    if ( element === null || element.parentElement === null ) {
+        return null;
+    }
+
+    if ( maxDepth === -1 ) {
+        return element.closest( selector );
+    }
+
+    element = element.parentElement;
+    if ( maxDepth > 0 ) {
         if ( element.matches( selector ) ) {
             return element;
         }
-        return crawlUntilParentFound( element.parentElement, selector, maxDepth - 1 );
+        return crawlUntilParentFound( element, selector, maxDepth - 1 );
     }
     return null;
 }

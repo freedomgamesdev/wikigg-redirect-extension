@@ -20,15 +20,31 @@ import {
  */
 export function constructRedirectBadge( options ) {
     return createDomElement( 'span', {
-        text: options.allMoved ? 'redirected' : 'some redirected',
         style: {
             backgroundColor: '#0002',
             fontSize: '90%',
             opacity: 0.6,
+            border: '1px solid #0005',
             borderRadius: '4px',
             padding: '1px 6px',
-            marginLeft: options.isMobile ? null : '4px'
-        }
+            marginLeft: options.isMobile ? null : '0.8em'
+        },
+        html: [
+            document.createTextNode(
+                getMessage( options.allMoved ? 'search_component_redirected' : 'search_component_redirected_partial' )
+            ),
+            createDomElement( 'img', {
+                attributes: {
+                    src: chrome.runtime.getURL( '/icons/redirectBadge.svg' )
+                },
+                style: {
+                    verticalAlign: 'middle',
+                    width: '0.8em',
+                    height: '0.8em',
+                    marginLeft: '0.4em'
+                }
+            } )
+        ]
     } );
 }
 
