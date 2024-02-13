@@ -978,6 +978,12 @@
         "name": "The New Order: Last Days of Europe"
     },
     {
+        "id": "lordofembers",
+        "oldId": "the-lord-of-embers",
+        "name": "The Lord of Embers",
+        "official": true
+    },
+    {
         "id": "themagicalmixturemill",
         "oldId": "the-magical-mixture-mill",
         "name": "The Magical Mixture Mill",
