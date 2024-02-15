@@ -341,6 +341,11 @@
         "name": "Dragon Court"
     },
     {
+        "id": "dragonvillageseries",
+        "oldId": "dragon-village-series",
+        "name": "Dragon Village Series"
+    },
+    {
         "id": "dreamscaper",
         "name": "Dreamscaper",
         "official": true
