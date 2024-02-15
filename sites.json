@@ -235,6 +235,10 @@
         "official": true
     },
     {
+        "id": "crowsworn",
+        "name": "Crowsworn"
+    },
+    {
         "id": "corporateclash",
         "oldId": "toontown-corporate-clash",
         "name": "Toontown Corporate Clash"
