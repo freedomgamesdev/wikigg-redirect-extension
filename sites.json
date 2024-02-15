@@ -189,6 +189,11 @@
         "name": "Bejeweled"
     },
     {
+        "id": "bleed",
+        "oldId": "bleed-game",
+        "name": "Bleed"
+    },
+    {
         "id": "bellasara",
         "oldId": "thebellasara",
         "name": "Bella Sara",
