@@ -57,11 +57,7 @@ getNativeSettings().local.get( [ 'isRedirectDisabled', 'disabledWikis' ], result
             bannerElement.remove();
         } );
 
-        let bannerText = 'This wiki has moved to a new address: ';
-        if ( hostId === 'riskofrain' || hostId === 'riskofrain2' ) {
-            bannerText = 'Risk of Rain Returns content can be found instead on its official wiki: ';
-        }
-
+        const bannerText = 'This wiki has moved to a new address: ';
         const textNodePre = document.createTextNode( bannerText ),
             linkNode = document.createElement( 'a' ),
             textNodePost = document.createTextNode( '.' );
