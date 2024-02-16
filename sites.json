@@ -773,6 +773,11 @@
         "official": true
     },
     {
+        "id": "rebelinc",
+        "oldId": "rebel-inc",
+        "name": "Rebel Inc"
+    },
+    {
         "id": "rejuvenation",
         "name": "Rejuvenation"
     },
