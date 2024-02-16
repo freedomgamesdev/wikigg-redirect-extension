@@ -168,37 +168,6 @@ export class GenericSearchModule extends SearchModule {
 }
 
 
-export function invokeSearchModule( wikis, rewriteRoutine, filterRoutine, rootNode ) {
-    const defaults = defaultSettingsFactory();
-    rootNode = rootNode || document;
-
-    getNativeSettings().local.get( [ 'searchMode', 'disabledWikis' ], result => {
-        const mode = ( result || defaults ).searchMode || 'rewrite',
-            doRoutine = ( {
-                filter: filterRoutine,
-                rewrite: rewriteRoutine
-            } )[ mode ];
-
-        if ( !doRoutine ) {
-            return;
-        }
-
-        const disabledWikis = ( result && result.disabledWikis || defaults.disabledWikis );
-
-        // TODO: merge selectors and run that query, then determine the wiki
-        for ( const wiki of wikis ) {
-            if ( wiki.bannerOnly || disabledWikis.includes( wiki.id ) ) {
-                continue;
-            }
-
-            for ( const element of rootNode.querySelectorAll( wiki.search.badSelector ) ) {
-                doRoutine( wiki, element );
-            }
-        }
-    } );
-}
-
-
 export function prepareWikisInfo( wikis, options ) {
     for ( const wiki of wikis ) {
         // Generate search properties if not provided already
