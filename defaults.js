@@ -9,6 +9,7 @@ import { supportsDNR } from './js/util.js';
 
 /**
  * @typedef {Object} ExtensionSettings
+ * @property {number} version
  * @property {false|banner|true} isRedirectDisabled Whether Fandom sites should be redirected.
  * @property {string[]} disabledWikis List of disabled wikis, by ID.
  * @property {boolean} useTabRedirect Whether legacy redirection method should be used. Not implemented.
@@ -25,6 +26,8 @@ import { supportsDNR } from './js/util.js';
  */
 export default function () {
     return {
+        version: 0,
+
         isRedirectDisabled: false,
         disabledWikis: [],
         useTabRedirect: !supportsDNR(),

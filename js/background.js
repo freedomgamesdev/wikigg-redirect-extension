@@ -2,6 +2,7 @@
 
 import { getNativeSettings, getWikis } from './util.js';
 import defaultSettingsFactory from '../defaults.js';
+import { applyMigrations } from './background/storageMigrations.js';
 
 
 const storage = getNativeSettings(),
@@ -149,7 +150,10 @@ const RTW = {
 };
 
 
-storage.onChanged.addListener( changes => RTW.mergeStorageDiffChunk( changes ) );
-storage.local.get( Object.keys( RTW.settings ), result => RTW.mergeStorageChunk( result ) );
+chrome.storage.onChanged.addListener( changes => RTW.mergeStorageDiffChunk( changes ) );
+chrome.storage.local.get( Object.keys( RTW.settings ), result => {
+    applyMigrations( result );
+    RTW.mergeStorageChunk( result );
+} );
 
 globalThis.RTW = RTW;
