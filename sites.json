@@ -189,6 +189,11 @@
         "name": "Bejeweled"
     },
     {
+        "id": "bleed",
+        "oldId": "bleed-game",
+        "name": "Bleed"
+    },
+    {
         "id": "bellasara",
         "oldId": "thebellasara",
         "name": "Bella Sara",
@@ -212,6 +217,10 @@
         "name": "Changed"
     },
     {
+        "id": "chippy",
+        "name": "Chippy"
+    },
+    {
         "id": "chivalry",
         "name": "Chivalry",
         "official": true,
@@ -228,6 +237,10 @@
         "id": "coromon",
         "name": "Coromon",
         "official": true
+    },
+    {
+        "id": "crowsworn",
+        "name": "Crowsworn"
     },
     {
         "id": "corporateclash",
@@ -330,6 +343,11 @@
     {
         "id": "dragoncourt",
         "name": "Dragon Court"
+    },
+    {
+        "id": "dragonvillageseries",
+        "oldId": "dragon-village-series",
+        "name": "Dragon Village Series"
     },
     {
         "id": "dreamscaper",
@@ -755,8 +773,17 @@
         "official": true
     },
     {
+        "id": "rebelinc",
+        "oldId": "rebel-inc",
+        "name": "Rebel Inc"
+    },
+    {
         "id": "rejuvenation",
         "name": "Rejuvenation"
+    },
+    {
+        "id": "roboquest",
+        "name": "Roboquest"
     },
     {
         "id": "revita",
@@ -976,6 +1003,12 @@
         "id": "tno",
         "oldId": "the-new-order-last-days-of-europe",
         "name": "The New Order: Last Days of Europe"
+    },
+    {
+        "id": "lordofembers",
+        "oldId": "the-lord-of-embers",
+        "name": "The Lord of Embers",
+        "official": true
     },
     {
         "id": "themagicalmixturemill",
