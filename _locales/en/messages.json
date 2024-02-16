@@ -55,13 +55,13 @@
     },
 
     "sfs_filter": {
-        "message": "[PH]Filter results from old wikis."
+        "message": "Filter results from old wikis."
     },
     "sfs_rewrite": {
-        "message": "[PH]Replace results from old wikis."
+        "message": "Replace results from old wikis."
     },
     "sfs_none": {
-        "message": "[PH]Do nothing."
+        "message": "Do nothing."
     },
     "sfs_engine_google": {
         "message": "Google"
@@ -75,7 +75,7 @@
     },
 
     "feedback": {
-        "message": "Feedback?"
+        "message": "Issue tracker"
     },
     "source_code": {
         "message": "Source code"

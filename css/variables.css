@@ -7,6 +7,8 @@
     --accent-colour--rgb: 255, 25, 128;
     --spacer-colour: #adaeae;
     --bottom-links-opacity: 0.6;
+    --table-head-colour: #0003;
+    --table-zebra-colour: #0001;
 }
 @media screen and (prefers-color-scheme: dark) {
     :root {
@@ -17,5 +19,7 @@
         --spacer-colour: #525353;
         --icon-filter: brightness(140%);
         --bottom-links-opacity: 0.8;
+        --table-head-colour: #fff1;
+        --table-zebra-colour: #aaa1;
     }
 }

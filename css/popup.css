@@ -3,6 +3,7 @@ body {
     max-width: 500px;
     max-height: 600px;
     font-size: .85em;
+    line-height: 1.5;
     display: grid;
     grid-template-areas:
         "t r"
@@ -211,6 +212,9 @@ img.icon {
 table {
     border: 1px solid var( --spacer-colour );
 }
+table > thead {
+    background: var( --table-head-colour );
+}
 table > thead > tr:last-child > th {
     border-bottom: 1px solid var( --spacer-colour );
 }
@@ -226,6 +230,9 @@ table > thead > tr:last-child > th {
 }
 [data-component='SearchFilterSettings'] td {
     text-align: center;
+}
+[data-component='SearchFilterSettings'] tr:nth-child( 2n ) {
+    background-color: var( --table-zebra-colour );
 }
 
 

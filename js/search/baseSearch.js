@@ -87,7 +87,6 @@ export class SearchModule {
         const instance = new ( this )(),
             id = instance.getId();
 
-        // TODO: `sfs` is not available yet
         getNativeSettings().local.get( [
             'sfs',
             'disabledWikis'
@@ -96,12 +95,12 @@ export class SearchModule {
 
             const
                 defaults = defaultSettingsFactory(),
-                mode = ( result.sfs ?? defaults.sfs )[ id ] ?? defaults.sfs[ id ],
+                settings = ( result.sfs ?? defaults.sfs )[ id ] ?? defaults.sfs[ id ],
                 doRoutine = instance[ {
                     filter: 'hideResult',
                     rewrite: 'replaceResult',
                     disarm: 'disarmResult'
-                }[ mode ] ];
+                }[ settings.mode ] ];
 
             if ( !doRoutine ) {
                 return;
@@ -166,37 +165,6 @@ export class GenericSearchModule extends SearchModule {
         containerElement.prepend( controlElement );
         containerElement.classList.add( this.DISABLED_RESULT_CLASS );
     }
-}
-
-
-export function invokeSearchModule( wikis, rewriteRoutine, filterRoutine, rootNode ) {
-    const defaults = defaultSettingsFactory();
-    rootNode = rootNode || document;
-
-    getNativeSettings().local.get( [ 'searchMode', 'disabledWikis' ], result => {
-        const mode = ( result || defaults ).searchMode || 'rewrite',
-            doRoutine = ( {
-                filter: filterRoutine,
-                rewrite: rewriteRoutine
-            } )[ mode ];
-
-        if ( !doRoutine ) {
-            return;
-        }
-
-        const disabledWikis = ( result && result.disabledWikis || defaults.disabledWikis );
-
-        // TODO: merge selectors and run that query, then determine the wiki
-        for ( const wiki of wikis ) {
-            if ( wiki.bannerOnly || disabledWikis.includes( wiki.id ) ) {
-                continue;
-            }
-
-            for ( const element of rootNode.querySelectorAll( wiki.search.badSelector ) ) {
-                doRoutine( wiki, element );
-            }
-        }
-    } );
 }
 
 
@@ -282,3 +250,51 @@ export function awaitElement( knownParent, selector, callback ) {
         childList: true
     } );
 }
+
+
+export const RewriteUtil = {
+    doLink( wiki, link ) {
+        if ( link.tagName.toLowerCase() !== 'a' ) {
+            return;
+        }
+        
+        let href = link.href;
+        if ( href.startsWith( '/url?' ) ) {
+            href = ( new URLSearchParams( link.href ) ).get( 'url' );
+        }
+
+        if ( !href.includes( wiki.oldId || wiki.id ) ) {
+            return;
+        }
+
+        link.href = href.replace( `${wiki.oldId || wiki.id}.fandom.com`, `${wiki.id}.wiki.gg` );
+        // Defuse Google's hijacking protection - replacing with the new wiki's link will trigger it
+        if ( link.getAttribute( 'data-jsarwt' ) ) {
+            link.setAttribute( 'data-jsarwt', '0' );
+        }
+        // Defuse pingbacks
+        link.removeAttribute( 'ping' );
+    },
+
+
+    doH3( wiki, node ) {
+        for ( const child of node.childNodes ) {
+            if ( child.textContent ) {
+                child.textContent = child.textContent.replace( wiki.search.titlePattern, wiki.search.newTitle )
+            } else {
+                this.doH3( wiki, child );
+            }
+        }
+    },
+
+
+    doUrlSpan( wiki, node ) {
+        for ( const child of node.childNodes ) {
+            if ( child.textContent ) {
+                child.textContent = child.textContent.replace( `${wiki.oldId || wiki.id}.fandom.com`, `${wiki.id}.wiki.gg` );
+            } else {
+                this.doUrlSpan( wiki, child );
+            }
+        }
+    }
+};

@@ -2,12 +2,20 @@ import { supportsDNR } from './js/util.js';
 
 
 /**
+ * @typedef {Object} SearchModuleSettings
+ * @property {'filter'|'rewrite'|'none'|'disarm'} mode
+ */
+
+
+/**
  * @typedef {Object} ExtensionSettings
+ * @property {number} version
  * @property {false|banner|true} isRedirectDisabled Whether Fandom sites should be redirected.
- * @property {'none'|'filter'|'rewrite'} searchMode Search integration behaviour choice.
- * @property {boolean} ddgEnable Whether DuckDuckGo search integration should be enabled.
  * @property {string[]} disabledWikis List of disabled wikis, by ID.
  * @property {boolean} useTabRedirect Whether legacy redirection method should be used. Not implemented.
+ * @property {Record<string, SearchModuleSettings>} sfs Search filtering settings, per module.
+ * @property {'none'|'filter'|'rewrite'} searchMode [DEPRECATED] Search integration behaviour choice.
+ * @property {boolean} ddgEnable [DEPRECATED] Whether DuckDuckGo search integration should be enabled.
  */
 
 
@@ -18,6 +26,8 @@ import { supportsDNR } from './js/util.js';
  */
 export default function () {
     return {
+        version: 0,
+
         isRedirectDisabled: false,
         disabledWikis: [],
         useTabRedirect: !supportsDNR(),
@@ -28,8 +38,12 @@ export default function () {
 
         // Search filtering settings - this should match SearchFilterSettings.engines
         sfs: {
-            google: 'rewrite',
-            ddg: 'rewrite'
+            google: {
+                mode: 'rewrite'
+            },
+            ddg: {
+                mode: 'rewrite'
+            }
         }
     };
 }
