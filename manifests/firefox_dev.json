@@ -91,42 +91,7 @@
         "128": "icons/128_dev.png"
     },
     "web_accessible_resources": [
-        {
-            "resources": [
-                "/icons/redirectBadge.svg"
-            ],
-            "matches": [
-                "https://www.google.at/*",
-                "https://www.google.be/*",
-                "https://www.google.ch/*",
-                "https://www.google.cl/*",
-                "https://www.google.ca/*",
-                "https://www.google.co.in/*",
-                "https://www.google.co.jp/*",
-                "https://www.google.co.kr/*",
-                "https://www.google.com/*",
-                "https://www.google.com.ar/*",
-                "https://www.google.com.au/*",
-                "https://www.google.com.br/*",
-                "https://www.google.com.co/*",
-                "https://www.google.com.gr/*",
-                "https://www.google.com.mx/*",
-                "https://www.google.com.pk/*",
-                "https://www.google.com.tr/*",
-                "https://www.google.com.tw/*",
-                "https://www.google.co.uk/*",
-                "https://www.google.de/*",
-                "https://www.google.dk/*",
-                "https://www.google.es/*",
-                "https://www.google.fr/*",
-                "https://www.google.ie/*",
-                "https://www.google.it/*",
-                "https://www.google.nl/*",
-                "https://www.google.pl/*",
-                "https://www.google.pt/*",
-                "https://duckduckgo.com/*"
-            ]
-        }
+        "/icons/redirectBadge.svg"
     ],
     "manifest_version": 2
 }
