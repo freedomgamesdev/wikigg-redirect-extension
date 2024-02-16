@@ -3,6 +3,7 @@ body {
     max-width: 500px;
     max-height: 600px;
     font-size: .85em;
+    line-height: 1.5;
     display: grid;
     grid-template-areas:
         "t r"
