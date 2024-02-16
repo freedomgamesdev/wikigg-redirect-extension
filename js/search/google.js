@@ -7,7 +7,8 @@ import {
     GenericSearchModule,
     prepareWikisInfo,
     crawlUntilParentFound,
-    awaitElement
+    awaitElement,
+    RewriteUtil
 } from './baseSearch.js';
 import { constructRedirectBadge } from './components.js';
 
@@ -19,43 +20,6 @@ const wikis = prepareWikisInfo( getWikis( false, true ), {
     titles: true,
     selectors: true
 } );
-
-
-const rewriteUtil = {
-    doLink( wiki, link ) {
-        if ( link.tagName.toLowerCase() !== 'a' ) {
-            return;
-        }
-        
-        let href = link.href;
-        if ( href.startsWith( '/url?' ) ) {
-            href = ( new URLSearchParams( link.href ) ).get( 'url' );
-        }
-
-        if ( !href.includes( wiki.oldId || wiki.id ) ) {
-            return;
-        }
-
-        link.href = href.replace( `${wiki.oldId || wiki.id}.fandom.com`, `${wiki.id}.wiki.gg` );
-        // Defuse hijacking protection - replacing with the new wiki's link will trigger it
-        if ( link.getAttribute( 'data-jsarwt' ) ) {
-            link.setAttribute( 'data-jsarwt', '0' );
-        }
-        // Defuse pingbacks
-        link.removeAttribute( 'ping' );
-    },
-
-
-    doH3( wiki, node ) {
-        for ( const child of node.childNodes ) {
-            if ( child.textContent ) {
-                child.textContent = child.textContent.replace( wiki.search.titlePattern, wiki.search.newTitle )
-            } else {
-                this.doH3( wiki, child );
-            }
-        }
-    }
-};
 
 
 class GoogleSearchModule extends GenericSearchModule {
@@ -141,11 +105,11 @@ class GoogleSearchModule extends GenericSearchModule {
         }
         // Rewrite links
         for ( const subLinkElement of containerElement.querySelectorAll( this.EXTERNAL_LINK_SELECTOR ) ) {
-            rewriteUtil.doLink( wikiInfo, subLinkElement );
+            RewriteUtil.doLink( wikiInfo, subLinkElement );
         }
         // Rewrite title
         for ( const h3 of containerElement.getElementsByTagName( 'h3' ) ) {
-            rewriteUtil.doH3( wikiInfo, h3 );
+            RewriteUtil.doH3( wikiInfo, h3 );
             // Insert a badge indicating the result was modified if we haven't done that already (check heading and
             // result group)
             if ( !badgeElement.parentElement ) {
@@ -154,7 +118,7 @@ class GoogleSearchModule extends GenericSearchModule {
         }
         // Rewrite translate link
         for ( const translate of containerElement.querySelectorAll( this.TRANSLATE_SELECTOR ) ) {
-            rewriteUtil.doLink( wikiInfo, translate );
+            RewriteUtil.doLink( wikiInfo, translate );
         }
         // Rewrite URL element
         if ( !isMobile ) {

@@ -281,3 +281,51 @@ export function awaitElement( knownParent, selector, callback ) {
         childList: true
     } );
 }
+
+
+export const RewriteUtil = {
+    doLink( wiki, link ) {
+        if ( link.tagName.toLowerCase() !== 'a' ) {
+            return;
+        }
+        
+        let href = link.href;
+        if ( href.startsWith( '/url?' ) ) {
+            href = ( new URLSearchParams( link.href ) ).get( 'url' );
+        }
+
+        if ( !href.includes( wiki.oldId || wiki.id ) ) {
+            return;
+        }
+
+        link.href = href.replace( `${wiki.oldId || wiki.id}.fandom.com`, `${wiki.id}.wiki.gg` );
+        // Defuse Google's hijacking protection - replacing with the new wiki's link will trigger it
+        if ( link.getAttribute( 'data-jsarwt' ) ) {
+            link.setAttribute( 'data-jsarwt', '0' );
+        }
+        // Defuse pingbacks
+        link.removeAttribute( 'ping' );
+    },
+
+
+    doH3( wiki, node ) {
+        for ( const child of node.childNodes ) {
+            if ( child.textContent ) {
+                child.textContent = child.textContent.replace( wiki.search.titlePattern, wiki.search.newTitle )
+            } else {
+                this.doH3( wiki, child );
+            }
+        }
+    },
+
+
+    doUrlSpan( wiki, node ) {
+        for ( const child of node.childNodes ) {
+            if ( child.textContent ) {
+                child.textContent = child.textContent.replace( `${wiki.oldId || wiki.id}.fandom.com`, `${wiki.id}.wiki.gg` );
+            } else {
+                this.doUrlSpan( wiki, child );
+            }
+        }
+    }
+};
