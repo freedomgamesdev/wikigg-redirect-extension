@@ -217,6 +217,10 @@
         "name": "Changed"
     },
     {
+        "id": "chippy",
+        "name": "Chippy"
+    },
+    {
         "id": "chivalry",
         "name": "Chivalry",
         "official": true,
