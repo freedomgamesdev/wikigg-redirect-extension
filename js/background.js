@@ -152,8 +152,8 @@ const RTW = {
 
 chrome.storage.onChanged.addListener( changes => RTW.mergeStorageDiffChunk( changes ) );
 chrome.storage.local.get( Object.keys( RTW.settings ), result => {
-    applyMigrations( result );
     RTW.mergeStorageChunk( result );
+    applyMigrations( result );
 } );
 
 globalThis.RTW = RTW;
