@@ -11,6 +11,7 @@ import {
  * @typedef {Object} RedirectBadgeOptions
  * @property {boolean} [allMoved=false]
  * @property {boolean} [isGoogleMobile=false]
+ * @property {Partial<CSSStyleDeclaration>?} [theme]
  */
 
 
@@ -20,15 +21,17 @@ import {
  */
 export function constructRedirectBadge( options ) {
     return createDomElement( 'span', {
-        style: {
+        style: Object.assign( {
             backgroundColor: '#0002',
             fontSize: '90%',
-            opacity: 0.6,
+            opacity: 0.8,
             border: '1px solid #0005',
             borderRadius: '4px',
             padding: '1px 6px',
-            marginLeft: options.isMobile ? null : '0.8em'
-        },
+            verticalAlign: 'middle',
+            marginLeft: options.isMobile ? null : '0.8em',
+            textDecoration: 'none'
+        }, options.theme ?? {} ),
         html: [
             document.createTextNode(
                 getMessage( options.allMoved ? 'search_component_redirected' : 'search_component_redirected_partial' )
