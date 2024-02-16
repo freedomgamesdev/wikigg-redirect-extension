@@ -39,11 +39,11 @@ export default class SearchFilterSettings {
                     createDomElement( 'td', {
                         text: getMessage( `sfs_engine_${info.id}` ),
                     } ),
-                    this.#createRadioCell( `sfs_mode_${info.id}`, 'sfs_rewrite', `sfs.${info.id}`, 'rewrite',
+                    this.#createRadioCell( `sfs_mode_${info.id}`, 'sfs_rewrite', `sfs.${info.id}.mode`, 'rewrite',
                         false ),
-                    this.#createRadioCell( `sfs_mode_${info.id}`, 'sfs_filter', `sfs.${info.id}`, 'filter',
+                    this.#createRadioCell( `sfs_mode_${info.id}`, 'sfs_filter', `sfs.${info.id}.mode`, 'filter',
                         false ),
-                    this.#createRadioCell( `sfs_mode_${info.id}`, 'sfs_rewrite', `sfs.${info.id}`, 'none',
+                    this.#createRadioCell( `sfs_mode_${info.id}`, 'sfs_rewrite', `sfs.${info.id}.mode`, 'none',
                         true ),
                 ],
                 appendTo: tbody

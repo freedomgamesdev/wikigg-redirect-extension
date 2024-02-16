@@ -87,7 +87,6 @@ export class SearchModule {
         const instance = new ( this )(),
             id = instance.getId();
 
-        // TODO: `sfs` is not available yet
         getNativeSettings().local.get( [
             'sfs',
             'disabledWikis'
@@ -96,12 +95,12 @@ export class SearchModule {
 
             const
                 defaults = defaultSettingsFactory(),
-                mode = ( result.sfs ?? defaults.sfs )[ id ] ?? defaults.sfs[ id ],
+                settings = ( result.sfs ?? defaults.sfs )[ id ] ?? defaults.sfs[ id ],
                 doRoutine = instance[ {
                     filter: 'hideResult',
                     rewrite: 'replaceResult',
                     disarm: 'disarmResult'
-                }[ mode ] ];
+                }[ settings.mode ] ];
 
             if ( !doRoutine ) {
                 return;
