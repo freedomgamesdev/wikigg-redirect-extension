@@ -16,11 +16,18 @@ export function applyMigrations( data ) {
 
         if ( 'searchMode' in data ) {
             data.sfs = {
-                google: data.searchMode,
-                ddg: data.searchMode
+                google: {
+                    mode: data.searchMode
+                },
+                ddg: {
+                    mode: data.searchMode
+                }
             };
+            delete data.searchMode;
             wasModified = true;
         }
+
+        data.version = Versions.FIRST_VERSIONED_AND_SFS;
     }
 
     if ( wasModified ) {
