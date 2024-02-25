@@ -530,6 +530,12 @@
         "official": true
     },
     {
+        "id": "immortallife",
+        "oldId": "immortal-life",
+        "name": "Immortal Life",
+        "official": true
+    },
+    {
         "id": "instarsandtime",
         "oldId": "in-stars-and-time",
         "name": "In Stars and Time"
@@ -546,7 +552,8 @@
     },
     {
         "id": "junkjack",
-        "name": "Junk Jack"
+        "name": "Junk Jack",
+        "official": true
     },
     {
         "id": "infectionfreezone",
