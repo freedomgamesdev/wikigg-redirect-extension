@@ -539,6 +539,11 @@
         "oldId": "inconvenient-modpack",
         "name": "Inconvenient Modpack"
     },
+        {
+        "id": "jurassicworld",
+        "oldId": "jurassic-world-the-mobile-game",
+        "name": "Jurassic World"
+    },
     {
         "id": "infectionfreezone",
         "oldId": "infection-free-zone",
