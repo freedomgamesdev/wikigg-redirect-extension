@@ -530,6 +530,12 @@
         "official": true
     },
     {
+        "id": "immortallife",
+        "oldId": "immortal-life",
+        "name": "Immortal Life",
+        "official": true
+    },
+    {
         "id": "instarsandtime",
         "oldId": "in-stars-and-time",
         "name": "In Stars and Time"
@@ -538,6 +544,16 @@
         "id": "inconvenientmodpack",
         "oldId": "inconvenient-modpack",
         "name": "Inconvenient Modpack"
+    },
+    {
+        "id": "jurassicworld",
+        "oldId": "jurassic-world-the-mobile-game",
+        "name": "Jurassic World"
+    },
+    {
+        "id": "junkjack",
+        "name": "Junk Jack",
+        "official": true
     },
     {
         "id": "infectionfreezone",
@@ -963,6 +979,12 @@
             "spacer": "The Binding of Isaac mods"
         },
         {
+            "id": "moddingofisaac",
+            "oldId": "moddingofisaac",
+            "name": "Modding of Isaac",
+            "uiClass": "wiki-indent"
+        },
+        {
             "id": "tboicompliance",
             "oldId": "compliance",
             "name": "Compliance",
@@ -998,6 +1020,10 @@
         "id": "theinnerworld",
         "oldId": "the-inner-world",
         "name": "The Inner World"
+    },
+    {
+        "id": "thevoid",
+        "name": "The Void"
     },
     {
         "id": "tno",
