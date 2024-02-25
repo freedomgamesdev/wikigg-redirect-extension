@@ -968,6 +968,12 @@
             "spacer": "The Binding of Isaac mods"
         },
         {
+            "id": "moddingofisaac",
+            "oldId": "moddingofisaac",
+            "name": "Modding of Isaac",
+            "uiClass": "wiki-indent"
+        },
+        {
             "id": "tboicompliance",
             "oldId": "compliance",
             "name": "Compliance",
