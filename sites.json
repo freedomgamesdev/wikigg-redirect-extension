@@ -886,6 +886,10 @@
         "official": true
     },
     {
+        "id": "spiderheck",
+        "name": "SpiderHeck"
+    },
+    {
         "id": "spellrogue",
         "name": "Spellrogue"
     },
