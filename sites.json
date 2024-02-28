@@ -277,6 +277,10 @@
         "official": true
     },
     {
+        "id": "continentalwarserver",
+        "name": "Continental War Server"
+    },
+    {
         "id": "darkdeity",
         "name": "Dark Deity",
         "official": true
