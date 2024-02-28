@@ -1075,6 +1075,17 @@
         "name": "The Magical Mixture Mill",
         "official": true
     },
+    [
+        {
+        "id": "titanfall",
+        "name": "Titanfall",
+        "official": true
+        },
+        {
+            "parentRef": "titanfall",
+            "oldId": "titanfall2"
+        }
+    ],
     {
         "id": "timberborn",
         "name": "Timberborn",
