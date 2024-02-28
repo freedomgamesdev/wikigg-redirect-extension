@@ -63,6 +63,11 @@
         "name": "Almost a Hero"
     },
     {
+        "id": "aloft",
+        "name": "Aloft",
+        "official": true
+    },
+    {
         "id": "airportceo",
         "name": "Airport CEO",
         "official": true
