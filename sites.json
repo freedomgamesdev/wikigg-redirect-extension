@@ -509,6 +509,26 @@
         "id": "hawked",
         "name": "Hawked"
     },
+    [
+        {
+        "id": "helldivers",
+        "oldId": "helldivers",
+        "name": "Helldivers"
+        },
+        {
+            "parentRef": "helldivers",
+            "oldId": "helldivers-ii"
+        },
+
+        {
+            "parentRef": "helldivers",
+            "oldId": "helldivers-archive"
+        },
+        {
+            "parentRef": "helldivers",
+            "oldId": "helldivers-2"
+        }
+    ],
     {
         "id": "hearthstone",
         "name": "Hearthstone"
