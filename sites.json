@@ -63,6 +63,11 @@
         "name": "Almost a Hero"
     },
     {
+        "id": "aloft",
+        "name": "Aloft",
+        "official": true
+    },
+    {
         "id": "airportceo",
         "name": "Airport CEO",
         "official": true
@@ -275,6 +280,10 @@
         "id": "cuisineer",
         "name": "Cuisineer",
         "official": true
+    },
+    {
+        "id": "continentalwarserver",
+        "name": "Continental War Server"
     },
     {
         "id": "darkdeity",
@@ -509,6 +518,26 @@
         "id": "hawked",
         "name": "Hawked"
     },
+    [
+        {
+        "id": "helldivers",
+        "oldId": "helldivers",
+        "name": "Helldivers"
+        },
+        {
+            "parentRef": "helldivers",
+            "oldId": "helldivers-ii"
+        },
+
+        {
+            "parentRef": "helldivers",
+            "oldId": "helldivers-archive"
+        },
+        {
+            "parentRef": "helldivers",
+            "oldId": "helldivers-2"
+        }
+    ],
     {
         "id": "hearthstone",
         "name": "Hearthstone"
@@ -886,6 +915,10 @@
         "official": true
     },
     {
+        "id": "spiderheck",
+        "name": "SpiderHeck"
+    },
+    {
         "id": "spellrogue",
         "name": "Spellrogue"
     },
@@ -1042,6 +1075,17 @@
         "name": "The Magical Mixture Mill",
         "official": true
     },
+    [
+        {
+        "id": "titanfall",
+        "name": "Titanfall",
+        "official": true
+        },
+        {
+            "parentRef": "titanfall",
+            "oldId": "titanfall2"
+        }
+    ],
     {
         "id": "timberborn",
         "name": "Timberborn",
