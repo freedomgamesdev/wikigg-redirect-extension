@@ -614,6 +614,11 @@
         "name": "Last Origin"
     },
     {
+        "id": "lancer",
+        "oldId": "omninet",
+        "name": "LANCER"
+    },
+    {
         "id": "leafblowerrevolution",
         "oldId": "leaf-blower-revolution",
         "name": "Leaf Blower Revolution"
