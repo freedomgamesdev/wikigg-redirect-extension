@@ -522,6 +522,10 @@
         "name": "Galaxy on Fire"
     },
     {
+        "id": "ghostrunner",
+        "name": "Ghostrunner"
+    },
+    {
         "id": "gnorp",
         "oldId": "gnorp-apologue",
         "name": "Gnorp Apologue"
@@ -1130,6 +1134,11 @@
         "id": "twistedwonderland",
         "oldId": "twisted-wonderland",
         "name": "Twisted Wonderland"
+    },
+    {
+        "id": "ultrakill",
+        "name": "ULTRAKILL",
+        "official": true
     },
     {
         "id": "undermine",
