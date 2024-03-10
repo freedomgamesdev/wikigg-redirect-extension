@@ -331,6 +331,10 @@
         "official": true
     },
     {
+        "id": "d2mc",
+        "name": "Destiny 2 Minecraft Edition"
+    },
+    {
         "id": "dredge",
         "name": "Dredge"
     },
@@ -636,6 +640,11 @@
         }
     ],
     {
+        "id": "livealive",
+        "oldId": "live-a-live",
+        "name": "Live a Live"
+    },
+    {
         "id": "legiontd2",
         "name": "Legion TD 2"
     },
@@ -667,6 +676,20 @@
         "oldId": "wotnot",
         "name": "Kameo Elements of Power"
     },
+    {
+        "id": "megidoabyss",
+        "oldId": "megido-abyss",
+        "name": "Megido Abyss"
+    },
+    {
+        "id": "metalhellsinger",
+        "oldId": "metal-hellsinger",
+        "name": "Metal Hellsinger"
+    },
+    {
+        "id": "mindhack",
+        "name": "MINDHACK"
+    },
     [
         {
             "spacer": "Minecraft Wikis (minecraft.wiki)"
@@ -696,16 +719,11 @@
             "name": "The Midnight Mod",
             "uiClass": "wiki-indent"
         }
-    ], 
+    ],
     {
-        "id": "metalhellsinger",
-        "oldId": "metal-hellsinger",
-        "name": "Metal Hellsinger"
-    },
-    {
-        "id": "monumenta",
-        "oldId": "monumentammo",
-        "name": "Monumenta"
+        "id": "minihealer",
+        "name": "MiniHealer",
+        "official": true
     },
     {
         "id": "misttraingirls",
@@ -713,22 +731,17 @@
         "name": "Mist Train Girls"
     },
     {
-        "id": "mindhack",
-        "name": "MINDHACK"
+        "id": "momodora",
+        "name": "Momodora"
     },
     {
-        "id": "minihealer",
-        "name": "MiniHealer",
-        "official": true
+        "id": "monumenta",
+        "oldId": "monumentammo",
+        "name": "Monumenta"
     },
     {
         "id": "multiversus",
         "name": "Multiversus"
-    },
-    {
-        "id": "megidoabyss",
-        "oldId": "megido-abyss",
-        "name": "Megido Abyss"
     },
     {
         "id": "needystreameroverload",
@@ -928,6 +941,15 @@
     {
         "id": "signalis",
         "name": "SIGNALIS"
+    },
+    {
+        "id": "slycooper",
+        "name": "Sly Cooper"
+    },
+    {
+        "id": "smileforme",
+        "oldId": "smile-for-me",
+        "name": "Smile For Me"
     },
     {
         "id": "sonsoftheforest",
