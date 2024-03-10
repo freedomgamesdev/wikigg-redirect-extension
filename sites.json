@@ -131,6 +131,11 @@
         "name": "Astrea"
     },
     {
+        "id": "aurora",
+        "oldId": "aurorawebcomic",
+        "name": "Aurora"
+    },
+    {
         "id": "ahc",
         "name": "Anime Hunter Canon"
     },
@@ -270,6 +275,12 @@
         "id": "crossimpact",
         "oldId": "crossimpactoffical",
         "name": "Cross Impact",
+        "official": true
+    },
+    {
+        "id": "cultofthelamb",
+        "oldId": "cult-of-the-lamb",
+        "name": "Cult of the Lamb",
         "official": true
     },
     {
@@ -511,6 +522,15 @@
         "name": "Galaxy on Fire"
     },
     {
+        "id": "ghostrunner",
+        "name": "Ghostrunner"
+    },
+    {
+        "id": "gnorp",
+        "oldId": "gnorp-apologue",
+        "name": "Gnorp Apologue"
+    },
+    {
         "id": "gttod",
         "name": "Get To The Orange Door"
     },
@@ -592,6 +612,11 @@
     {
         "id": "lastorigin",
         "name": "Last Origin"
+    },
+    {
+        "id": "lancer",
+        "oldId": "omninet",
+        "name": "LANCER"
     },
     {
         "id": "leafblowerrevolution",
@@ -1114,6 +1139,11 @@
         "id": "twistedwonderland",
         "oldId": "twisted-wonderland",
         "name": "Twisted Wonderland"
+    },
+    {
+        "id": "ultrakill",
+        "name": "ULTRAKILL",
+        "official": true
     },
     {
         "id": "undermine",
