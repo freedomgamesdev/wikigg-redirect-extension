@@ -206,7 +206,12 @@
     {
         "id": "blightsurvival",
         "oldId": "blight",
-        "name": "Blight Survival".
+        "name": "Blight Survival",
+        "official": true
+    },
+    {
+        "id": "brawlhalla",
+        "name": "Brawlhalla",
         "official": true
     },
     {
