@@ -204,6 +204,12 @@
         "name": "Bleed"
     },
     {
+        "id": "blightsurvival",
+        "oldId": "blight",
+        "name": "Blight Survival".
+        "official": true
+    },
+    {
         "id": "bellasara",
         "oldId": "thebellasara",
         "name": "Bella Sara",
