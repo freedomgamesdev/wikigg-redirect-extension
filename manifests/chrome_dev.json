@@ -77,10 +77,10 @@
         },
 	{
             "matches": [
-                "https://www.bing.com/*"
+                "https://www.startpage.com/sp/search/*"
             ],
             "js": [
-                "built/bing.js"
+                "built/startpage.js"
             ],
             "run_at": "document_end"
         }
@@ -125,7 +125,8 @@
                 "https://www.google.pl/*",
                 "https://www.google.pt/*",
                 "https://duckduckgo.com/*",
-		"https://www.bing.com/*"
+		"https://www.bing.com/*",
+		"https://www.startpage.com/*"
             ]
         }
     ],
