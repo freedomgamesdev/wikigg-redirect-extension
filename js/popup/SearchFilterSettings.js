@@ -25,6 +25,11 @@ export default class SearchFilterSettings {
             supportsFilter: true,
             supportsRewrite: true,
         },
+	{
+            id: 'startpage',
+            supportsFilter: true,
+            supportsRewrite: true,
+        }
     ];
 
 

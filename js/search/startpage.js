@@ -19,18 +19,17 @@ const wikis = prepareWikisInfo( getWikis( false, true ), {
 
 
 class DdgSearchModule extends GenericSearchModule {
-    ENGINE_LAYOUT_SELECTOR = '.w-gl--desktop';
-    RESULT_CONTAINER_SELECTOR = '.w-gl__result';
-    URL_ELEMENT_SELECTOR = '.w-gl__result-url';
-    SPAN_TITLE_ELEMENT_SELECTOR = '.w-gl__result-title > h3';
-    BADGE_ELEMENT_SELECTOR = '.w-gl__result-title';
-    ANCHOR_ELEMENT_SELECTOR = '.w-gl__result-url'; // URL breadcumb
+    ENGINE_LAYOUT_SELECTOR = '.w-gl--desktop, .w-gl';
+    RESULT_CONTAINER_SELECTOR = '.w-gl__result, .result';
+    SPAN_TITLE_ELEMENT_SELECTOR = '.w-gl__result-title > h3, .result-title > h2 ';
+    BADGE_ELEMENT_SELECTOR = this.SPAN_TITLE_ELEMENT_SELECTOR; // Element that will hold the badge.
+    ANCHOR_ELEMENT_SELECTOR = '.w-gl__result-url, .css-1su0nhd > span, .css-1qvmgy0 > span'; // URL breadcumb
     /**
      * @protected
      * @return {string}
      */
     getId() {
-        return 'ddg';
+        return 'startpage';
     }
 
 
@@ -96,7 +95,7 @@ class DdgSearchModule extends GenericSearchModule {
             allMoved: true,
             theme: {
                 fontSize: '80%',
-		color: document.documentElement.classList.contains("startpage-html--dark" || "startpage-html--night") ? '#a7b1fc' : '#000000',
+		color: document.documentElement.classList.contains("dark" || "startpage-html--night") ? '#a7b1fc' : '#000000',
 		marginBottom: '1%',
 		display: 'inline-block'
             }
@@ -110,7 +109,6 @@ class DdgSearchModule extends GenericSearchModule {
     }
 }
 
-debugger;
 document.onreadystatechange = () => {
   if (document.readyState === "complete") {
       DdgSearchModule.invoke( wikis );
