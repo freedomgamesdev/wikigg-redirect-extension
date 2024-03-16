@@ -32,7 +32,7 @@ class DdgSearchModule extends GenericSearchModule {
      * @return {string}
      */
     getId() {
-        return 'ddg';
+        return 'bing';
     }
 
 
@@ -56,8 +56,8 @@ class DdgSearchModule extends GenericSearchModule {
 
     findNearestGgResult( wikiInfo, boundaryElement ) {
         for ( const node of document.querySelectorAll( wikiInfo.search.goodSelector ) ) {
-            if ( this.isBlacklisted( node ) && ( node.compareDocumentPosition( boundaryElement ) & 0x02 ) ) {
-                return crawlUntilParentFound( node, this.RESULT_CONTAINER_SELECTOR );
+            if ( node.compareDocumentPosition( boundaryElement ) & 0x02 ) {
+                return crawlUntilParentFound( node, this.ORDINARY_RESULT_CLASS_NAME );
             }
         }
         return null;
