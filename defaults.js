@@ -43,7 +43,11 @@ export default function () {
             },
             ddg: {
                 mode: 'rewrite'
+            },
+	    bing: {
+                mode: 'rewrite'
             }
+
         }
     };
 }
