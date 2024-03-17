@@ -973,6 +973,11 @@
         "name": "Smile For Me"
     },
     {
+        "id": "soulknightprequel",
+        "oldId": "soul-knight-prequel",
+        "name": "Soul Knight Prequel"
+    },
+    {
         "id": "sonsoftheforest",
         "name": "Sons of the Forest"
     },
