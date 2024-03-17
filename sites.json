@@ -204,6 +204,11 @@
         "name": "Bleed"
     },
     {
+        "id": "boomslingers",
+        "oldId": "boom-slingers",
+        "name": "Boom Slingers"
+    },
+    {
         "id": "blightsurvival",
         "oldId": "blight",
         "name": "Blight Survival",
