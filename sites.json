@@ -926,6 +926,11 @@
         }
     ],
     {
+        "id": "rootsofpacha",
+        "name": "Roots of Pacha",
+        "official": true
+    },
+    {
         "id": "rsmc",
         "name": "RSMC"
     },
