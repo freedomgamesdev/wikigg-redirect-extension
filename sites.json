@@ -278,9 +278,13 @@
         "oldId": "cobalt-core",
         "name": "Cobalt Core"
     },
-        {
+    {
         "id": "conflictofnations",
         "name": "Conflict of Nations"
+    },
+    {
+        "id": "counterpact",
+        "name": "Counterpact"
     },
     {
         "id": "cosmoteer",
