@@ -204,6 +204,11 @@
         "name": "Bleed"
     },
     {
+        "id": "boomslingers",
+        "oldId": "boom-slingers",
+        "name": "Boom Slingers"
+    },
+    {
         "id": "blightsurvival",
         "oldId": "blight",
         "name": "Blight Survival",
@@ -273,9 +278,13 @@
         "oldId": "cobalt-core",
         "name": "Cobalt Core"
     },
-        {
+    {
         "id": "conflictofnations",
         "name": "Conflict of Nations"
+    },
+    {
+        "id": "counterpact",
+        "name": "Counterpact"
     },
     {
         "id": "cosmoteer",
@@ -434,6 +443,11 @@
         "id": "ena",
         "oldId": "enajoelg",
         "name": "ENA"
+    }, 
+    {
+        "id": "erenshor",
+        "name": "Erenshor",
+        "official": true
     }, 
     {
         "id": "exapico",
@@ -688,6 +702,10 @@
         "name": "Kameo Elements of Power"
     },
     {
+        "id": "mewgenics",
+        "name": "Mewgenics"
+    },
+    {
         "id": "megidoabyss",
         "oldId": "megido-abyss",
         "name": "Megido Abyss"
@@ -912,6 +930,11 @@
         }
     ],
     {
+        "id": "rootsofpacha",
+        "name": "Roots of Pacha",
+        "official": true
+    },
+    {
         "id": "rsmc",
         "name": "RSMC"
     },
@@ -961,6 +984,11 @@
         "id": "smileforme",
         "oldId": "smile-for-me",
         "name": "Smile For Me"
+    },
+    {
+        "id": "soulknightprequel",
+        "oldId": "soul-knight-prequel",
+        "name": "Soul Knight Prequel"
     },
     {
         "id": "sonsoftheforest",
@@ -1272,6 +1300,10 @@
         "name": "Weird and Unfortunate Things Are Happening"
     },
     {
+        "id": "wynncraft",
+        "name": "Wynncraft"
+    },
+    {
         "id": "willyousnail",
         "name": "Will You Snail?",
         "official": true
@@ -1300,5 +1332,9 @@
             "parentRef": "yourchronicle",
             "oldId": "anotherchronicle"
         }
-    ]
+    ],
+    {
+        "id": "zeldacraft",
+        "name": "Zeldacraft"
+    }
 ]
