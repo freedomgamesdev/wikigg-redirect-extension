@@ -1001,6 +1001,11 @@
         "official": true
     },
     {
+        "id": "spaceengineers",
+        "name": "Space Engineers",
+        "official": true
+    },
+    {
         "id": "spiderheck",
         "name": "SpiderHeck"
     },
