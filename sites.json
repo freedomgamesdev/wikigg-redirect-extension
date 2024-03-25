@@ -1014,6 +1014,10 @@
         "name": "Spellrogue"
     },
     {
+        "id": "starsector",
+        "name": "Starsector"
+    },
+    {
         "id": "steamworld",
         "name": "Steamworld",
         "official": true
