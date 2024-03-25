@@ -606,6 +606,11 @@
         "name": "Holocure"
     },
     {
+        "id": "heavygear",
+        "oldId": "heavy-gear",
+        "name": "Heavy Gear"
+    },
+    {
         "id": "helloneighbor",
         "oldId": "hello-neighbor",
         "name": "Hello Neighbor",
