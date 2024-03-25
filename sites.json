@@ -716,6 +716,11 @@
         "name": "Megido Abyss"
     },
     {
+        "id": "metalstorm",
+        "name": "MetalStorm",
+        "official": true
+    },
+    {
         "id": "metalhellsinger",
         "oldId": "metal-hellsinger",
         "name": "Metal Hellsinger"
