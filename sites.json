@@ -555,6 +555,10 @@
         "name": "Ghostrunner"
     },
     {
+        "id": "guiltygear",
+        "name": "Guilty Gear"
+    },
+    {
         "id": "gnorp",
         "oldId": "gnorp-apologue",
         "name": "Gnorp Apologue"
