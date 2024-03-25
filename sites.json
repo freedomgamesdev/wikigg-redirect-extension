@@ -634,6 +634,11 @@
         "official": true
     },
     {
+        "id": "kaetram",
+        "name": "Kaetram",
+        "official": true
+    },
+    {
         "id": "infectionfreezone",
         "oldId": "infection-free-zone",
         "name": "Infection Free Zone"
