@@ -748,6 +748,13 @@
             "official": true
         },
         {
+            "id": "darkagebizarre",
+            "oldId": "darkage-bizarre",
+            "name": "DarkAge Bizarre",
+            "official": true,
+            "uiClass": "wiki-indent"
+        },
+        {
             "id": "doggytalentsnext",
             "oldId": "doggytalents",
             "name": "Doggy Talents",
