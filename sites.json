@@ -767,6 +767,12 @@
             "uiClass": "wiki-indent"
         },
         {
+            "id": "hybridanimals",
+            "name": "Hybrid Animals",
+            "official": true,
+            "uiClass": "wiki-indent"
+        },
+        {
             "id": "mcdf",
             "oldId": "mcdiscontinued",
             "farm": "miraheze",
