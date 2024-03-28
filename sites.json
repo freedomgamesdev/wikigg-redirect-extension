@@ -73,6 +73,11 @@
         "official": true
     },
     {
+        "id": "animalwell",
+        "oldId": "animal-well",
+        "name": "Animal Well"
+    },
+    {
         "id": "animalcrossingpocketcamp",
         "name": "Animal Crossing: Pocket Camp"
     },
