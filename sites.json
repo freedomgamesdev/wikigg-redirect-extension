@@ -1032,6 +1032,10 @@
         "official": true
     },
     {
+        "id": "spellforce",
+        "name": "Spellforce"
+    },
+    {
         "id": "spaceengineers",
         "name": "Space Engineers",
         "official": true
