@@ -661,15 +661,6 @@
         "official": true
     },
     {
-        "id": "knighthood",
-        "name": "Knighthood",
-    },
-    {
-        "id": "kaetram",
-        "name": "Kaetram",
-        "official": true
-    },
-    {
         "id": "infectionfreezone",
         "oldId": "infection-free-zone",
         "name": "Infection Free Zone"
@@ -731,6 +722,15 @@
         "id": "katanazero",
         "oldId": "katana-zero",
         "name": "Katana ZERO"
+    },
+    {
+        "id": "knighthood",
+        "name": "Knighthood"
+    },
+    {
+        "id": "kaetram",
+        "name": "Kaetram",
+        "official": true
     },
     {
         "id": "kameo",
