@@ -326,6 +326,11 @@
         "name": "Continental War Server"
     },
     {
+        "id": "darza",
+        "oldId": "darzas",
+        "name": "Darza's Dominion",
+    },
+    {
         "id": "darkdeity",
         "name": "Dark Deity",
         "official": true
