@@ -652,6 +652,10 @@
         "official": true
     },
     {
+        "id": "knighthood",
+        "name": "Knighthood",
+    },
+    {
         "id": "kaetram",
         "name": "Kaetram",
         "official": true
