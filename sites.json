@@ -1095,6 +1095,11 @@
         }
     ],
     {
+        "id": "trailmakers",
+        "name": "Trailmakers",
+        "official": true
+    },
+    {
         "id": "teamabnormals",
         "oldId": "minecraftabnormals",
         "name": "Team Abnormals",
