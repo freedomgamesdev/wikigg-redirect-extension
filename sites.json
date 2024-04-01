@@ -47,7 +47,11 @@
             }
         }
     },
-
+    {
+        "id": "13sentinels",
+        "oldId": "13-sentinels-aegis-rim",
+        "name": "13 Sentinels"
+    },
     {
         "id": "acecombat",
         "name": "Ace Combat",
