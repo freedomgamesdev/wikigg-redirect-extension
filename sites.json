@@ -47,7 +47,11 @@
             }
         }
     },
-
+    {
+        "id": "13sentinels",
+        "oldId": "13-sentinels-aegis-rim",
+        "name": "13 Sentinels"
+    },
     {
         "id": "acecombat",
         "name": "Ace Combat",
@@ -71,6 +75,11 @@
         "id": "airportceo",
         "name": "Airport CEO",
         "official": true
+    },
+    {
+        "id": "animalwell",
+        "oldId": "animal-well",
+        "name": "Animal Well"
     },
     {
         "id": "animalcrossingpocketcamp",
@@ -129,6 +138,10 @@
         "id": "astrea",
         "oldId": "astrea-sso",
         "name": "Astrea"
+    },
+    {
+        "id": "autoforge",
+        "name": "AutoForge"
     },
     {
         "id": "aurora",
@@ -315,6 +328,11 @@
     {
         "id": "continentalwarserver",
         "name": "Continental War Server"
+    },
+    {
+        "id": "darza",
+        "oldId": "darzas",
+        "name": "Darza's Dominion"
     },
     {
         "id": "darkdeity",
@@ -555,6 +573,10 @@
         "name": "Ghostrunner"
     },
     {
+        "id": "guiltygear",
+        "name": "Guilty Gear"
+    },
+    {
         "id": "gnorp",
         "oldId": "gnorp-apologue",
         "name": "Gnorp Apologue"
@@ -600,6 +622,11 @@
     {
         "id": "holocure",
         "name": "Holocure"
+    },
+    {
+        "id": "heavygear",
+        "oldId": "heavy-gear",
+        "name": "Heavy Gear"
     },
     {
         "id": "helloneighbor",
@@ -697,6 +724,15 @@
         "name": "Katana ZERO"
     },
     {
+        "id": "knighthood",
+        "name": "Knighthood"
+    },
+    {
+        "id": "kaetram",
+        "name": "Kaetram",
+        "official": true
+    },
+    {
         "id": "kameo",
         "oldId": "wotnot",
         "name": "Kameo Elements of Power"
@@ -709,6 +745,11 @@
         "id": "megidoabyss",
         "oldId": "megido-abyss",
         "name": "Megido Abyss"
+    },
+    {
+        "id": "metalstorm",
+        "name": "MetalStorm",
+        "official": true
     },
     {
         "id": "metalhellsinger",
@@ -729,9 +770,22 @@
             "official": true
         },
         {
+            "id": "darkagebizarre",
+            "oldId": "darkage-bizarre",
+            "name": "DarkAge Bizarre",
+            "official": true,
+            "uiClass": "wiki-indent"
+        },
+        {
             "id": "doggytalentsnext",
             "oldId": "doggytalents",
             "name": "Doggy Talents",
+            "official": true,
+            "uiClass": "wiki-indent"
+        },
+        {
+            "id": "hybridanimals",
+            "name": "Hybrid Animals",
             "official": true,
             "uiClass": "wiki-indent"
         },
@@ -1001,12 +1055,25 @@
         "official": true
     },
     {
+        "id": "spellforce",
+        "name": "Spellforce"
+    },
+    {
+        "id": "spaceengineers",
+        "name": "Space Engineers",
+        "official": true
+    },
+    {
         "id": "spiderheck",
         "name": "SpiderHeck"
     },
     {
         "id": "spellrogue",
         "name": "Spellrogue"
+    },
+    {
+        "id": "starsector",
+        "name": "Starsector"
     },
     {
         "id": "steamworld",
@@ -1044,6 +1111,11 @@
             "oldId": "starstable-archive"
         }
     ],
+    {
+        "id": "trailmakers",
+        "name": "Trailmakers",
+        "official": true
+    },
     {
         "id": "teamabnormals",
         "oldId": "minecraftabnormals",
