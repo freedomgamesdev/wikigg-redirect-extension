@@ -718,6 +718,17 @@
         "name": "KarmaZoo",
         "official": true
     },
+    [
+        {
+            "id": "kartriderdrift",
+            "oldId": "kartrider-drift",
+            "name": "KartRider: Drift"
+        },
+        {
+            "parentRef": "kartriderdrift",
+            "oldId": "kartrider"
+        }
+    ],
     {
         "id": "katanazero",
         "oldId": "katana-zero",
