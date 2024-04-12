@@ -569,6 +569,10 @@
         "name": "Galaxy on Fire"
     },
     {
+        "id": "gigantic",
+        "name": "Gigantic"
+    },
+    {
         "id": "ghostrunner",
         "name": "Ghostrunner"
     },
@@ -588,6 +592,10 @@
     {
         "id": "hawked",
         "name": "Hawked"
+    },
+    {
+            "id": "hybridanimals",
+            "name": "Hybrid Animals"
     },
     [
         {
@@ -718,6 +726,17 @@
         "name": "KarmaZoo",
         "official": true
     },
+    [
+        {
+            "id": "kartriderdrift",
+            "oldId": "kartrider-drift",
+            "name": "KartRider: Drift"
+        },
+        {
+            "parentRef": "kartriderdrift",
+            "oldId": "kartrider"
+        }
+    ],
     {
         "id": "katanazero",
         "oldId": "katana-zero",
@@ -784,9 +803,9 @@
             "uiClass": "wiki-indent"
         },
         {
-            "id": "hybridanimals",
-            "name": "Hybrid Animals",
-            "official": true,
+            "id": "thechocolateedition",
+            "oldId": "the-chocolate-edition",
+            "name": "The Chocolate Edition",
             "uiClass": "wiki-indent"
         },
         {
@@ -1053,6 +1072,10 @@
         "oldId": "shogun-showdown",
         "name": "Shogun Showdown",
         "official": true
+    },
+    {
+        "id": "speedrunners",
+        "name": "Speedrunners"
     },
     {
         "id": "spellforce",
