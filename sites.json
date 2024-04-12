@@ -79,7 +79,8 @@
     {
         "id": "animalwell",
         "oldId": "animal-well",
-        "name": "Animal Well"
+        "name": "Animal Well",
+        "official": true
     },
     {
         "id": "animalcrossingpocketcamp",
@@ -141,7 +142,8 @@
     },
     {
         "id": "autoforge",
-        "name": "AutoForge"
+        "name": "AutoForge",
+        "official": true
     },
     {
         "id": "aurora",
@@ -207,6 +209,10 @@
             "oldId": "finding-bigfoot-game"
         }
     ],
+    {
+        "id": "bitcraft",
+        "name": "BitCraft"
+    },
     {
         "id": "bejeweled",
         "name": "Bejeweled"
@@ -298,6 +304,11 @@
     {
         "id": "counterpact",
         "name": "Counterpact"
+    },
+    {
+        "id": "cosmicreach",
+        "name": "Cosmic Reach",
+        "official": true
     },
     {
         "id": "cosmoteer",
@@ -396,6 +407,12 @@
         "id": "domekeeper",
         "oldId": "dome-keeper",
         "name": "Dome Keeper"
+    },
+    {
+        "id": "donotfeedthemonkeys2099",
+        "oldId": "do-not-feed-the-monkeys",
+        "name": "Do Not Feed The Monkeys 2099",
+        "official": true
     },
     {
         "id": "dontescape",
@@ -511,6 +528,11 @@
             "oldName": "\"Fear and Hunger: the Tormentpedia\""
         }
     },
+    {
+        "id": "fearstofathom",
+        "name": "Fears to Fathom",
+        "official": true
+    },
     [
         {
             "_": "Fandom ID was changed, and has been added as a separate redirect rule (both may appear in search indexes)",
@@ -584,6 +606,11 @@
         "id": "gnorp",
         "oldId": "gnorp-apologue",
         "name": "Gnorp Apologue"
+    },
+    {
+        "id": "godofweapons",
+        "oldId": "god-of-weapons",
+        "name": "God of Weapons"
     },
     {
         "id": "gttod",
@@ -700,6 +727,11 @@
         }
     ],
     {
+        "id": "littlecornerteahouse",
+        "oldId": "little-corner-tea-house",
+        "name": "Little Corner Tea House"
+    },
+    {
         "id": "livealive",
         "oldId": "live-a-live",
         "name": "Live a Live"
@@ -755,6 +787,11 @@
         "id": "kameo",
         "oldId": "wotnot",
         "name": "Kameo Elements of Power"
+    },
+    {
+        "id": "mainframedefenders",
+        "oldId": "mainframe-defenders",
+        "name": "Mainframe Defenders"
     },
     {
         "id": "mewgenics",
@@ -857,6 +894,11 @@
     {
         "id": "neutronized",
         "name": "Neutronized"
+    },
+    {
+        "id": "nightmarereaper",
+        "oldId": "nightmare-reaper",
+        "name": "Nightmare Reaper"
     },
     {
         "id": "nightsofazure",
@@ -1396,11 +1438,17 @@
     },
     {
         "id": "wynncraft",
-        "name": "Wynncraft"
+        "name": "Wynncraft",
+        "official": true
     },
     {
         "id": "willyousnail",
         "name": "Will You Snail?",
+        "official": true
+    },
+    {
+        "id": "windowkill",
+        "name": "Windowkill",
         "official": true
     },
     {
@@ -1411,7 +1459,12 @@
         "id": "worship",
         "oldId": "worshipcrg",
         "name": "Worship"
-    }, 
+    },
+    {
+        "id": "worldofbabel",
+        "oldId": "world-of-babel",
+        "name": "World of Babel"
+    },
     {
         "id": "yohanebid",
         "oldId": "yohane-deepblue",
