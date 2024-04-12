@@ -593,6 +593,10 @@
         "id": "hawked",
         "name": "Hawked"
     },
+    {
+            "id": "hybridanimals",
+            "name": "Hybrid Animals"
+    },
     [
         {
         "id": "helldivers",
@@ -799,9 +803,9 @@
             "uiClass": "wiki-indent"
         },
         {
-            "id": "hybridanimals",
-            "name": "Hybrid Animals",
-            "official": true,
+            "id": "thechocolateedition",
+            "oldId": "the-chocolate-edition",
+            "name": "The Chocolate Edition",
             "uiClass": "wiki-indent"
         },
         {
