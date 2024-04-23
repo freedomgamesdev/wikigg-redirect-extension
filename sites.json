@@ -1484,5 +1484,11 @@
     {
         "id": "zeldacraft",
         "name": "Zeldacraft"
+    },
+    {
+        "id": "idlewizard",
+        "name": "Idle Wizard",
+        "oldId": "idle-wizard",
+        "official": true
     }
 ]
