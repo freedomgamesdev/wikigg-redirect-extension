@@ -2,11 +2,7 @@ name: Lint included sites list file
 
 on:
   push:
-    branches:
-    - master
   pull_request:
-    branches:
-    - master
 
 jobs:
   build:
