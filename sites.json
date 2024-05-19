@@ -189,14 +189,13 @@
         }
     },
     {
-        "id": "bookoftravels",
-        "name": "Book Of Travels",
-        "official": true
-    },
-    {
         "id": "beforedarknessfalls",
         "oldId": "before-darkness-falls",
         "name": "Before Darkness Falls"
+    },
+    {
+        "id": "bendy",
+        "name": "Bendy"
     },
     [
         {
@@ -226,6 +225,16 @@
         "id": "boomslingers",
         "oldId": "boom-slingers",
         "name": "Boom Slingers"
+    },
+    {
+        "id": "bookoftravels",
+        "name": "Book Of Travels",
+        "official": true
+    },
+    {
+        "id": "bopathoftheteallotus",
+        "name": "Bō Path of the Teal Lotus",
+        "official": true
     },
     {
         "id": "blightsurvival",
@@ -635,8 +644,18 @@
         "name": "Hawked"
     },
     {
-            "id": "hybridanimals",
-            "name": "Hybrid Animals"
+        "id": "hearthstone",
+        "name": "Hearthstone"
+    },
+    {
+        "id": "heavygear",
+        "oldId": "heavy-gear",
+        "name": "Heavy Gear"
+    },
+    {
+        "id": "herosiege",
+        "name": "Hero Siege",
+        "official": true
     },
     [
         {
@@ -659,8 +678,10 @@
         }
     ],
     {
-        "id": "hearthstone",
-        "name": "Hearthstone"
+        "id": "helloneighbor",
+        "oldId": "hello-neighbor",
+        "name": "Hello Neighbor",
+        "official": true
     },
     {
         "id": "haveanicedeath",
@@ -673,15 +694,8 @@
         "name": "Holocure"
     },
     {
-        "id": "heavygear",
-        "oldId": "heavy-gear",
-        "name": "Heavy Gear"
-    },
-    {
-        "id": "helloneighbor",
-        "oldId": "hello-neighbor",
-        "name": "Hello Neighbor",
-        "official": true
+        "id": "hybridanimals",
+        "name": "Hybrid Animals"
     },
     {
         "id": "idlewizard",
@@ -779,6 +793,11 @@
         "name": "Life In Adventure"
     },
     {
+        "id": "kaetram",
+        "name": "Kaetram",
+        "official": true
+    },
+    {
         "id": "karmazoo",
         "name": "KarmaZoo",
         "official": true
@@ -795,6 +814,11 @@
         }
     ],
     {
+        "id": "kameo",
+        "oldId": "wotnot",
+        "name": "Kameo Elements of Power"
+    },
+    {
         "id": "katanazero",
         "oldId": "katana-zero",
         "name": "Katana ZERO"
@@ -804,14 +828,8 @@
         "name": "Knighthood"
     },
     {
-        "id": "kaetram",
-        "name": "Kaetram",
-        "official": true
-    },
-    {
-        "id": "kameo",
-        "oldId": "wotnot",
-        "name": "Kameo Elements of Power"
+        "id": "kryeit",
+        "name": "Kryeit"
     },
     {
         "id": "mahjongsoul",
@@ -840,6 +858,11 @@
         "id": "metalhellsinger",
         "oldId": "metal-hellsinger",
         "name": "Metal Hellsinger"
+    },
+    {
+        "id": "mili",
+        "oldId": "project-mili",
+        "name": "Mili"
     },
     {
         "id": "mindhack",
@@ -969,6 +992,11 @@
         "name": "Oxygen Not Included"
     },
     {
+        "id": "paperlily",
+        "oldId": "paper-lily",
+        "name": "Paper Lily"
+    },
+    {
         "id": "paperplanet",
         "oldId": "paper-planet",
         "name": "Paper Planet"
@@ -1043,6 +1071,12 @@
         "name": "Rebel Inc"
     },
     {
+        "id": "redflood",
+        "oldId": "red-flood",
+        "name": "Red Flood",
+        "official": true
+    },
+    {
         "id": "rejuvenation",
         "name": "Rejuvenation"
     },
@@ -1055,6 +1089,11 @@
         "oldId": "revitagame",
         "name": "Revita",
         "official": true
+    },
+    {
+        "id": "riseofcultures",
+        "oldId": "rise-of-cultures",
+        "name": "Rise of Cultures"
     },
     [
         {
@@ -1220,6 +1259,11 @@
         }
     ],
     {
+        "id": "tabs",
+        "oldId": "totally-accurate-battle-simulator",
+        "name": "Totally Accurate Battle Simulator"
+    },
+    {
         "id": "trailmakers",
         "name": "Trailmakers",
         "official": true
@@ -1343,9 +1387,9 @@
     },
     [
         {
-        "id": "titanfall",
-        "name": "Titanfall",
-        "official": true
+            "id": "titanfall",
+            "name": "Titanfall",
+            "official": true
         },
         {
             "parentRef": "titanfall",
@@ -1356,6 +1400,19 @@
         "id": "timberborn",
         "name": "Timberborn",
         "official": true
+    },
+    {
+        "id": "tomclancy",
+        "oldId": "jackryan",
+        "name": "Tom Clancy",
+
+        "search": {
+            "oldName": "Jack Ryan"
+        }
+    },
+    {
+        "id": "toontown",
+        "name": "Toontown"
     },
     {
         "id": "totherescue",
