@@ -34,27 +34,30 @@
             "only a string field 'spacer'."
         ],
         "entryStructure": {
-            "[parentRef]": "string (unset): ID of another entry if you're only adding an alternative redirect. 'oldId' MUST be changed if this is set. Other fields are copied from the referenced entry, and may be modified if needed.",
             "id": "string: The domain of the wiki.gg wiki",
-            "[oldId]": "string (same as 'id'): The domain of the Fandom wiki, if different from the wiki.gg ID",
             "name": "string: The name of the wiki.gg wiki",
             "[official]": "boolean (false): Whether the new wiki is considered official by the developers",
-            "[uiClass]": "...: Display style in the settings view. Only 'wiki-indent' is accepted, which adds space to the left of the entry.",
-            
-            "[search]": {
-                "[oldName]": "string (same as 'name'): Name of the Fandom wiki, if different from the wiki.gg name.",
-                "[newIncludesWiki]": "boolean (false): Whether the 'Wiki' word should not be expected in the old name when rewriting Fandom results."
-            }
+            "[pageTitle]": "string (name): Page title, if different from name",
+
+            "redirect": [
+                {
+                    "on": "fandom OR miraheze: wikifarm this wiki was hosted on",
+                    "[id]": "string (same as 'id'): The domain of the other wiki, if different from the wiki.gg ID",
+                    "[name]": "string: The name of the other wiki"
+                }
+            ]
         }
     },
     {
         "id": "13sentinels",
-        "oldId": "13-sentinels-aegis-rim",
-        "name": "13 Sentinels"
+        "name": "13 Sentinels Wiki",
+        "redirect": [
+            { "on": "fandom", "id": "13-sentinels-aegis-rim" }
+        ]
     },
     {
         "id": "acecombat",
-        "name": "Ace Combat",
+        "name": "Ace Combat Wiki",
         "official": true,
         "redirect": [
             { "on": "fandom", "name": "Acepedia" }
@@ -62,136 +65,148 @@
     },
     {
         "id": "almostahero",
-        "oldId": "almost-a-hero",
-        "name": "Almost a Hero",
+        "name": "Almost a Hero Wiki",
         "redirect": [
             { "on": "fandom", "id": "almost-a-hero" }
         ]
     },
     {
         "id": "aloft",
-        "name": "Aloft",
-        "official": true
+        "name": "Aloft Wiki",
+        "official": true,
+        "redirect": [ "fandom" ]
     },
     {
         "id": "airportceo",
-        "name": "Airport CEO",
+        "name": "Airport CEO Wiki",
         "official": true,
         "redirect": [ "fandom" ]
     },
     {
         "id": "animalwell",
-        "oldId": "animal-well",
-        "name": "Animal Well",
-        "official": true
+        "name": "Animal Well Wiki",
+        "official": true,
+        "redirect": [
+            { "on": "fandom", "id": "animal-well" }
+        ]
     },
     {
         "id": "animalcrossingpocketcamp",
-        "name": "Animal Crossing: Pocket Camp",
+        "name": "Animal Crossing: Pocket Camp Wiki",
         "redirect": [ "fandom" ]
     },
     {
         "id": "ark",
-        "name": "ARK",
+        "name": "ARK Wiki",
         "official": true,
-
         "pageTitle": "ARK Official Community Wiki",
         "redirect": [
-            { "on": "fandom", "id": "ark", "name": "ARK: Survival Evolved" },
-            { "on": "fandom", "id": "ark-survival-evolved", "name": "ARK: Survival Evolved" },
-            { "on": "fandom", "id": "ark-survival-evolved-archive", "name": "ARK: Survival Evolved" }
+            { "on": "fandom", "id": "ark", "name": "ARK: Survival Evolved Wiki" },
+            { "on": "fandom", "id": "ark-survival-evolved", "name": "ARK: Survival Evolved Wiki" },
+            { "on": "fandom", "id": "ark-survival-evolved-archive", "name": "ARK: Survival Evolved Wiki" }
         ]
     },
     {
         "id": "arknights",
-        "name": "Arknights",
+        "name": "Arknights Wiki",
         "redirect": [ "fandom" ]
     },
     {
         "id": "atelier",
-        "name": "Atelier",
+        "name": "Atelier Wiki",
         "redirect": [ "fandom" ]
     },
     {
         "id": "townshiptale",
-        "name": "A Township Tale",
+        "name": "A Township Tale Wiki",
         "official": true,
         "redirect": [ "fandom" ]
     },
     {
         "id": "ashestown",
-        "name": "Ashes Town",
+        "name": "Ashes Town Wiki",
         "redirect": [ "fandom" ]
     },
     {
         "id": "astroneer",
-        "name": "Astroneer",
+        "name": "Astroneer Wiki",
         "redirect": [ "fandom" ]
     },
     {
         "id": "astrea",
-        "name": "Astrea",
+        "name": "Astrea Wiki",
         "redirect": [
             { "on": "fandom", "id": "astrea-sso" }
         ]
     },
     {
         "id": "autoforge",
-        "name": "AutoForge",
-        "official": true
+        "name": "AutoForge Wiki",
+        "official": true,
+        "redirect": [ "fandom" ]
     },
     {
         "id": "aurora",
         "oldId": "aurorawebcomic",
-        "name": "Aurora"
+        "name": "Aurora Wiki",
+        "redirect": [
+            { "on": "fandom", "id": "aurorawebcomic" }
+        ]
     },
     {
         "id": "ahc",
-        "name": "Anime Hunter Canon"
+        "name": "Anime Hunter Canon Wiki",
+        "redirect": [ "fandom" ]
     },
     {
         "id": "apexlegends",
-        "name": "Apex Legends"
+        "name": "Apex Legends Wiki",
+        "redirect": [ "fandom" ]
     },
     {
         "id": "backpackbattles",
-        "oldId": "backpack-battles",
-        "name": "Backpack Battles"
+        "name": "Backpack Battles Wiki",
+        "redirect": [
+            { "on": "fandom", "id": "backpack-battles" }
+        ]
     },
     {
         "id": "backpackhero",
-        "oldId": "backpack-hero",
-        "name": "Backpack Hero"
+        "name": "Backpack Hero Wiki",
+        "redirect": [
+            { "on": "fandom", "id": "backpack-hero" }
+        ]
     },
     {
         "id": "bakegg",
-        "name": "Bake.gg",
+        "name": "Bake.gg Wiki",
         "redirect": [ "fandom" ]
     },
     {
         "id": "battlebit",
-        "oldId": "battlebit",
-        "name": "BattleBit",
-        "official": true
+        "name": "BattleBit Wiki",
+        "official": true,
+        "redirect": [ "fandom" ]
     },
     {
         "id": "battletabs",
-        "oldId": "battletabs-io",
-        "name": "BattleTabs",
+        "name": "BattleTabs Wiki",
         "official": true,
-
-        "search": {
-            "oldName": "BattleTabs.io"
-        }
+        "redirect": [
+            { "on": "fandom", "id": "battletabs-io", "name": "BattleTabs.io Wiki" }
+        ]
     },
     {
         "id": "beforedarknessfalls",
-        "oldId": "before-darkness-falls",
-        "name": "Before Darkness Falls"
+        "name": "Before Darkness Falls Wiki",
+        "redirect": [
+            { "on": "fandom", "id": "before-darkness-falls" }
+        ]
     },
     {
         "id": "bendy",
-        "name": "Bendy"
+        "name": "Bendy Wiki",
+        "redirect": [ "fandom" ]
     },
     [
         {
@@ -206,11 +221,13 @@
     ],
     {
         "id": "bitcraft",
-        "name": "BitCraft"
+        "name": "BitCraft Wiki",
+        "redirect": [ "fandom" ]
     },
     {
         "id": "bejeweled",
-        "name": "Bejeweled"
+        "name": "Bejeweled",
+        "redirect": [ "fandom" ]
     },
     {
         "id": "bleed",
@@ -224,14 +241,15 @@
     },
     {
         "id": "bookoftravels",
-        "name": "Book Of Travels",
+        "name": "Book Of Travels Wiki",
         "official": true,
         "redirect": [ "fandom" ]
     },
     {
         "id": "bopathoftheteallotus",
-        "name": "Bō Path of the Teal Lotus",
-        "official": true
+        "name": "Bō Path of the Teal Lotus Wiki",
+        "official": true,
+        "redirect": [ "fandom" ]
     },
     {
         "id": "blightsurvival",
@@ -241,8 +259,9 @@
     },
     {
         "id": "brawlhalla",
-        "name": "Brawlhalla",
-        "official": true
+        "name": "Brawlhalla Wiki",
+        "official": true,
+        "redirect": [ "fandom" ]
     },
     {
         "id": "bellasara",
@@ -255,7 +274,7 @@
     },
     {
         "id": "cladecraft",
-        "name": "CladeCraft",
+        "name": "CladeCraft Wiki",
         "redirect": [ "fandom" ]
     },
     {
@@ -266,12 +285,13 @@
     },
     {
         "id": "changed",
-        "name": "Changed",
+        "name": "Changed Wiki",
         "redirect": [ "fandom" ]
     },
     {
         "id": "chippy",
-        "name": "Chippy"
+        "name": "Chippy Wiki",
+        "redirect": [ "fandom" ]
     },
     {
         "id": "chivalry",
@@ -284,18 +304,19 @@
     },
     {
         "id": "cookieclicker",
-        "name": "Cookie Clicker",
+        "name": "Cookie Clicker Wiki",
         "redirect": [ "fandom" ]
     },
     {
         "id": "coromon",
-        "name": "Coromon",
+        "name": "Coromon Wiki",
         "official": true,
         "redirect": [ "fandom" ]
     },
     {
         "id": "crowsworn",
-        "name": "Crowsworn"
+        "name": "Crowsworn Wiki",
+        "redirect": [ "fandom" ]
     },
     {
         "id": "corporateclash",
@@ -309,20 +330,23 @@
     },
     {
         "id": "conflictofnations",
-        "name": "Conflict of Nations"
+        "name": "Conflict of Nations Wiki",
+        "redirect": [ "fandom" ]
     },
     {
         "id": "counterpact",
-        "name": "Counterpact"
+        "name": "Counterpact Wiki",
+        "redirect": [ "fandom" ]
     },
     {
         "id": "cosmicreach",
-        "name": "Cosmic Reach",
-        "official": true
+        "name": "Cosmic Reach Wiki",
+        "official": true,
+        "redirect": [ "fandom" ]
     },
     {
         "id": "cosmoteer",
-        "name": "Cosmoteer",
+        "name": "Cosmoteer Wiki",
         "official": true,
         "redirect": [ "fandom" ]
     },
@@ -340,12 +364,12 @@
     },
     {
         "id": "cuphead",
-        "name": "Cuphead",
+        "name": "Cuphead Wiki",
         "redirect": [ "fandom" ]
     },
     {
         "id": "cuisineer",
-        "name": "Cuisineer",
+        "name": "Cuisineer Wiki",
         "official": true,
         "redirect": [ "fandom" ]
     },
@@ -356,7 +380,8 @@
     },
     {
         "id": "continentalwarserver",
-        "name": "Continental War Server"
+        "name": "Continental War Server Wiki",
+        "redirect": [ "fandom" ]
     },
     {
         "id": "darza",
@@ -365,13 +390,13 @@
     },
     {
         "id": "darkdeity",
-        "name": "Dark Deity",
+        "name": "Dark Deity Wiki",
         "official": true,
         "redirect": [ "fandom" ]
     },
     {
         "id": "darkestdungeon",
-        "name": "Darkest Dungeon",
+        "name": "Darkest Dungeon Wiki",
         "official": true,
         "redirect": [ "fandom" ]
     },
@@ -382,34 +407,36 @@
     },
     {
         "id": "deadcells",
-        "name": "Dead Cells",
+        "name": "Dead Cells Wiki",
         "official": true,
         "redirect": [ "fandom" ]
     },
     {
         "id": "deadestate",
-        "name": "Dead Estate",
+        "name": "Dead Estate Wiki",
         "official": true,
         "redirect": [ "fandom" ]
     },
     {
         "id": "deadlink",
-        "name": "Deadlink",
+        "name": "Deadlink Wiki",
         "redirect": [ "fandom" ]
     },
     {
         "id": "deathbulge",
-        "name": "Deathbulge",
+        "name": "Deathbulge Wiki",
         "official": true,
         "redirect": [ "fandom" ]
     },
     {
         "id": "d2mc",
-        "name": "Destiny 2 Minecraft Edition"
+        "name": "Destiny 2 Minecraft Edition Wiki",
+        "redirect": [ "fandom" ]
     },
     {
         "id": "dredge",
-        "name": "Dredge"
+        "name": "Dredge Wiki",
+        "redirect": [ "fandom" ]
     },
     {
         "id": "deeprockgalactic",
@@ -419,8 +446,9 @@
     },
     {
         "id": "dicefolk",
-        "name": "Dicefolk",
-        "official": true
+        "name": "Dicefolk Wiki",
+        "official": true,
+        "redirect": [ "fandom" ]
     },
     {
         "id": "dotage",
@@ -446,7 +474,7 @@
     },
     {
         "id": "dragoncourt",
-        "name": "Dragon Court",
+        "name": "Dragon Court Wiki",
         "redirect": [ "fandom" ]
     },
     {
@@ -456,7 +484,7 @@
     },
     {
         "id": "dreamscaper",
-        "name": "Dreamscaper",
+        "name": "Dreamscaper Wiki",
         "official": true,
         "redirect": [ "fandom" ]
     },
@@ -480,8 +508,9 @@
     ],
     {
         "id": "dyinglight",
-        "name": "Dying Light",
-        "official": true
+        "name": "Dying Light Wiki",
+        "official": true,
+        "redirect": [ "fandom" ]
     },
     {
         "id": "schoolofdragons",
@@ -491,8 +520,9 @@
     },
     {
         "id": "eastscarp",
-        "name": "East Scarp",
-        "official": true
+        "name": "East Scarp Wiki",
+        "official": true,
+        "redirect": [ "fandom" ]
     },
     {
         "id": "equestriaatwar",
@@ -507,8 +537,9 @@
     }, 
     {
         "id": "erenshor",
-        "name": "Erenshor",
-        "official": true
+        "name": "Erenshor Wiki",
+        "official": true,
+        "redirect": [ "fandom" ]
     }, 
     {
         "id": "exapico",
@@ -517,13 +548,13 @@
     },
     {
         "id": "enterthegungeon",
-        "name": "Enter The Gungeon",
+        "name": "Enter The Gungeon Wiki",
         "official": true,
         "redirect": [ "fandom" ]
     },
     {
         "id": "everdreamvalley",
-        "name": "Everdream Valley",
+        "name": "Everdream Valley Wiki",
         "official": true,
         "redirect": [ "fandom" ]
     }, 
@@ -534,14 +565,15 @@
     },
     {
         "id": "farworldpioneers",
-        "name": "Farworld Pioneers",
+        "name": "Farworld Pioneers Wiki",
         "official": true,
         "redirect": [ "fandom" ]
     },
     [
         {
             "id": "farmingsimulator",
-            "name": "Farming Simulator"
+            "name": "Farming Simulator Wiki",
+            "redirect": [ "fandom" ]
         },
         {
             "parentRef": "farmingsimulator",
@@ -559,12 +591,14 @@
     },
     {
         "id": "fearstofathom",
-        "name": "Fears to Fathom",
-        "official": true
+        "name": "Fears to Fathom Wiki",
+        "official": true,
+        "redirect": [ "fandom" ]
     },
     {
         "id": "felvidek",
-        "name": "Felvidek"
+        "name": "Felvidek Wiki",
+        "redirect": [ "fandom" ]
     },
     [
         {
@@ -585,29 +619,29 @@
     ],
     {
         "id": "flight",
-        "name": "Flight Sim",
+        "name": "Flight Sim Wiki",
         "redirect": [ "fandom" ]
     },
     {
         "id": "fortheking",
-        "name": "For The King",
+        "name": "For The King Wiki",
         "official": true,
         "redirect": [ "fandom" ]
     },
     {
         "id": "foxhole",
-        "name": "Foxhole",
+        "name": "Foxhole Wiki",
         "official": true,
         "redirect": [ "fandom" ]
     },
     {
         "id": "frackinuniverse",
-        "name": "Frackin' Universe",
+        "name": "Frackin' Universe Wiki",
         "redirect": [ "fandom" ]
     },
     {
         "id": "fridaynightfunkin",
-        "name": "Friday Night Funkin'",
+        "name": "Friday Night Funkin' Wiki",
         "redirect": [ "fandom" ]
     },
     {
@@ -617,12 +651,12 @@
     },
     {
         "id": "galaxylife",
-        "name": "Galaxy Life",
+        "name": "Galaxy Life Wiki",
         "redirect": [ "fandom" ]
     },
     {
         "id": "galaxyonfire",
-        "name": "Galaxy on Fire",
+        "name": "Galaxy on Fire Wiki",
         "redirect": [ "fandom" ]
     },
     {
@@ -632,11 +666,13 @@
     },
     {
         "id": "ghostrunner",
-        "name": "Ghostrunner"
+        "name": "Ghostrunner Wiki",
+        "redirect": [ "fandom" ]
     },
     {
         "id": "gigantic",
-        "name": "Gigantic"
+        "name": "Gigantic Wiki",
+        "redirect": [ "fandom" ]
     },
     {
         "id": "gmce",
@@ -655,20 +691,22 @@
     },
     {
         "id": "gttod",
-        "name": "Get To The Orange Door",
+        "name": "Get To The Orange Door Wiki",
         "redirect": [ "fandom" ]
     },
     {
         "id": "guiltygear",
-        "name": "Guilty Gear"
+        "name": "Guilty Gear Wiki",
+        "redirect": [ "fandom" ]
     },
     {
         "id": "hawked",
-        "name": "Hawked"
+        "name": "Hawked Wiki",
+        "redirect": [ "fandom" ]
     },
     {
         "id": "hearthstone",
-        "name": "Hearthstone",
+        "name": "Hearthstone Wiki",
         "redirect": [ "fandom" ]
     },
     {
@@ -678,8 +716,9 @@
     },
     {
         "id": "herosiege",
-        "name": "Hero Siege",
-        "official": true
+        "name": "Hero Siege Wiki",
+        "official": true,
+        "redirect": [ "fandom" ]
     },
     [
         {
