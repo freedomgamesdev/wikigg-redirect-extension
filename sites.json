@@ -429,11 +429,6 @@
         "official": true
     },
     {
-        "id": "dontescape",
-        "oldId": "dont-escape",
-        "name": "Don't Escape"
-    },
-    {
         "id": "dragoncourt",
         "name": "Dragon Court"
     },
@@ -1149,6 +1144,11 @@
         "id": "satisfactory",
         "name": "Satisfactory",
         "official": true
+    },
+    {
+        "id": "scriptwelder",
+        "oldId": "dont-escape",
+        "name": "Scriptwelder"
     },
     {
         "id": "seaofthieves",
