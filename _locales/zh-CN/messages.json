@@ -1,0 +1,90 @@
+{
+    "extension_name": {
+        "message": "wiki.gg重定向",
+        "description": "正式版/RC版扩展程序名。"
+    },
+    "extension_name_dev": {
+        "message": "[开发版] wiki.gg重定向",
+        "description": "开发版扩展程序名。"
+    },
+    "extension_desc": {
+        "message": "将所有已迁移wiki的访问请求重定向至wiki.gg"
+    },
+
+    "popup_name": {
+        "message": "wiki.gg重定向"
+    },
+
+    "popup_tab_options": {
+        "message": "选项"
+    },
+    "popup_tab_wikis": {
+        "message": "Wiki"
+    },
+
+    "options_redirecting": {
+        "message": "重定向"
+    },
+    "options_redirecting_yes": {
+        "message": "从旧wiki重定向至新wiki"
+    },
+    "options_redirecting_soft": {
+        "message": "不重定向，但显示横幅"
+    },
+    "options_redirecting_no": {
+        "message": "不自动重定向"
+    },
+
+    "options_filtering": {
+        "message": "搜索过滤"
+    },
+    "options_filtering_supported_engines": {
+        "message": "现阶段支持"
+    },
+    "options_filtering_rewrite": {
+        "message": "重写Fandom结果"
+    },
+    "options_filtering_hide": {
+        "message": "隐藏Fandom结果"
+    },
+    "options_filtering_no": {
+        "message": "不改变结果"
+    },
+    "options_filtering_ddg_exp": {
+        "message": "启用实验性DuckDuckGo支持"
+    },
+
+    "sfs_filter": {
+        "message": "过滤旧wiki结果。"
+    },
+    "sfs_rewrite": {
+        "message": "替换旧wiki结果。"
+    },
+    "sfs_none": {
+        "message": "什么也不做。"
+    },
+    "sfs_engine_google": {
+        "message": "Google"
+    },
+    "sfs_engine_ddg": {
+        "message": "DuckDuckGo"
+    },
+
+    "options_wikis": {
+        "message": "会影响的wiki"
+    },
+
+    "feedback": {
+        "message": "问题反馈"
+    },
+    "source_code": {
+        "message": "源代码"
+    },
+
+    "search_component_redirected": {
+        "message": "已重定向"
+    },
+    "search_component_redirected_partial": {
+        "message": "已部分重定向"
+    }
+}
