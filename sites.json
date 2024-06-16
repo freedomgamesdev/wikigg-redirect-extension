@@ -179,6 +179,11 @@
         "official": true
     },
     {
+        "id": "battlecrush",
+        "oldId": "battle-crush",
+        "name": "Battle Crush"
+    },
+    {
         "id": "battletabs",
         "oldId": "battletabs-io",
         "name": "BattleTabs",
@@ -429,6 +434,11 @@
         "official": true
     },
     {
+        "id": "dungeonnowloading",
+        "oldId": "dungeon-now-loading",
+        "name": "Dungeon Now Loading"
+    },
+    {
         "id": "dragoncourt",
         "name": "Dragon Court"
     },
@@ -566,6 +576,12 @@
     {
         "id": "flight",
         "name": "Flight Sim"
+    },
+    {
+        "id": "forgottenseas",
+        "oldId": "forgotten-seas",
+        "name": "Forgotten Seas",
+        "official": true
     },
     {
         "id": "fortheking",
@@ -725,6 +741,12 @@
         "name": "In Stars and Time"
     },
     {
+        "id": "tboiipecac",
+        "oldId": "ipecacmod",
+        "name": "IPECAC Community Mod",
+        "official": true
+    },
+    {
         "id": "jurassicworld",
         "oldId": "jurassic-world-the-mobile-game",
         "name": "Jurassic World"
@@ -766,6 +788,10 @@
         "name": "Little Corner Tea House"
     },
     {
+        "id": "littlekingsstory",
+        "name": "Little King's Story"
+    },
+    {
         "id": "livealive",
         "oldId": "live-a-live",
         "name": "Live a Live"
@@ -786,6 +812,17 @@
         "id": "lifeinadventure",
         "oldId": "life-in-adventure",
         "name": "Life In Adventure"
+    },
+    {
+        "id": "lkg",
+        "oldId": "littleknown-galaxy",
+        "name": "Little-Known Galaxy"
+    },
+    {
+        "id": "lordofembers",
+        "oldId": "the-lord-of-embers",
+        "name": "The Lord of Embers",
+        "official": true
     },
     {
         "id": "kaetram",
@@ -834,6 +871,10 @@
         "id": "mainframedefenders",
         "oldId": "mainframe-defenders",
         "name": "Mainframe Defenders"
+    },
+    {
+        "id": "marvelrivals",
+        "name": "Marvel Rivals"
     },
     {
         "id": "mewgenics",
@@ -1011,6 +1052,11 @@
         "name": "Palworld"
     },
     {
+        "id": "peaksofyore",
+        "oldId": "peaks-of-yore",
+        "name": "Peaks of Yore"
+    },
+    {
         "id": "peglin",
         "name": "Peglin",
         "official": true
@@ -1032,6 +1078,11 @@
     {
         "id": "pubg",
         "name": "PUBG",
+        "official": true
+    },
+    {
+        "id": "predecessor",
+        "name": "Predecessor",
         "official": true
     },
     {
@@ -1180,6 +1231,10 @@
         "name": "SIGNALIS"
     },
     {
+        "id": "slarpg",
+        "name": "Super Lesbian Animal RPG"
+    },
+    {
         "id": "slycooper",
         "name": "Sly Cooper"
     },
@@ -1226,6 +1281,11 @@
         "id": "steamworld",
         "name": "Steamworld",
         "official": true
+    },
+    {
+        "id": "synthetikuniverse",
+        "oldId": "synthetik",
+        "name": "SYNTHETIK"
     },
     {
         "id": "sugaryspire",
@@ -1372,12 +1432,6 @@
         "id": "tno",
         "oldId": "the-new-order-last-days-of-europe",
         "name": "The New Order: Last Days of Europe"
-    },
-    {
-        "id": "lordofembers",
-        "oldId": "the-lord-of-embers",
-        "name": "The Lord of Embers",
-        "official": true
     },
     {
         "id": "themagicalmixturemill",
@@ -1555,6 +1609,10 @@
         "id": "windowkill",
         "name": "Windowkill",
         "official": true
+    },
+    {
+        "id": "witchfire",
+        "name": "Witchfire"
     },
     {
         "id": "wizardry",
