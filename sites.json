@@ -814,6 +814,10 @@
         "name": "Life In Adventure"
     },
     {
+        "id": "limbuscompany",
+        "name": "Limbus Company"
+    },
+    {
         "id": "lkg",
         "oldId": "littleknown-galaxy",
         "name": "Little-Known Galaxy"
