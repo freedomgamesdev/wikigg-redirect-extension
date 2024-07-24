@@ -48,6 +48,13 @@
     color: color-mix( in srgb, var( --accent-colour ) 65%, var( --text-colour ) );
 }
 
+.site-list__heading {
+    text-align: left;
+    margin: 0 0.3rem;
+    font-size: 0.9em;
+    color: color-mix(in srgb, var(--accent-colour) 60%, var(--spacer-colour));
+}
+
 
 [data-component='WikiList'] .site-list__search-box {
     width: 100%;

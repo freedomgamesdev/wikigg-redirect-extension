@@ -130,6 +130,8 @@ export default class WikiList {
             classes: [ 'site-list' ],
         } );
 
+        const buckets = {};
+
         for ( const pack of wikis ) {
             // Recurse if this is a site group
             if ( Array.isArray( pack ) ) {
@@ -141,7 +143,12 @@ export default class WikiList {
                     appendTo: result,
                 } );
             } else {
-                createDomElement( 'div', {
+                const bucketId = pack.name[ 0 ].toLowerCase();
+                if ( !buckets[ bucketId ] ) {
+                    buckets[ bucketId ] = [];
+                }
+
+                const element = createDomElement( 'div', {
                     classes: [ 'site-list__entry' ],
                     attributes: {
                         'data-wiki-id': pack.id,
@@ -172,8 +179,27 @@ export default class WikiList {
                             },
                         } ),
                     ],
-                    appendTo: result,
                 } );
+                buckets[ bucketId ].push( element );
+            }
+        }
+
+        // Sort bucket keys
+        const bucketIds = Object.keys( buckets );
+        bucketIds.sort();
+        // Sort each bucket
+        for ( const id of bucketIds ) {
+            buckets[ id ].sort();
+        }
+        // Append to the DOM
+        for ( const id of bucketIds ) {
+            createDomElement( 'h3', {
+                classes: [ 'site-list__heading' ],
+                text: id.toUpperCase(),
+                appendTo: result,
+            } );
+            for ( const element of buckets[ id ] ) {
+                result.appendChild( element );
             }
         }
 
