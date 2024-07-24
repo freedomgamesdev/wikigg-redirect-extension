@@ -1,0 +1,103 @@
+.site-list,
+.site-list__shelf {
+    position: relative;
+    border: 1px solid var(--spacer-colour);
+    padding: 0.2rem 0;
+    border-radius: 2px;
+}
+
+.site-list__shelf {
+    margin-bottom: 0.2rem;
+    display: flex;
+    justify-content: flex-end;
+    padding: 2px;
+    z-index: 5;
+}
+
+.site-list__qc > button {
+    height: 1.5em;
+    width: 1.5em;
+    display: block;
+}
+.site-list__qc:not( .site-list__qc--is-open ) > div {
+    display: none;
+}
+.site-list__qc > div {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--spacer-colour);
+    z-index: 5;
+    padding: 0.1em;
+    border: 1px solid var(--spacer-colour);
+    width: 10em;
+    border-radius: 2px;
+    border-top-right-radius: 0;
+}
+.site-list__qc {
+    position: relative;
+}
+.site-list__qc > div > button {
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: none;
+    color: var(--text-colour);
+}
+.site-list__qc > div > button:hover {
+    color: color-mix( in srgb, var( --accent-colour ) 65%, var( --text-colour ) );
+}
+
+
+[data-component='WikiList'] .site-list__search-box {
+    width: 100%;
+    background: #bdc1c1aa;
+    border-radius: 4px;
+    border: 1px solid var( --spacer-colour );
+    margin-top: calc(-0.2rem - 1px);
+    margin-bottom: 0.3rem;
+}
+[data-component='WikiList'] .site-list__search-box > input {
+    appearance: none;
+    border: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    padding: 0.3rem 0.6rem;
+}
+[data-component='WikiList'] > .site-list-wrapper > .site-list {
+    max-height: 350px;
+    overflow-y: auto;
+    font-size: 102%;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-colour);
+}
+[data-component=WikiList] .site-list__entry {
+    display: flex;
+    align-items: center;
+    padding: 0.15rem 0.2rem;
+    box-sizing: border-box;
+}
+[data-component=WikiList] .site-list__entry[data-is-filtered-out='true'] {
+    height: 0px;
+    max-height: 0px;
+    overflow-y: clip;
+    padding: 0;
+}
+[data-component=WikiList] .site-list__entry > label {
+    flex-grow: 1;
+    line-height: 1.2;
+    margin: 0 0.15rem;
+}
+[data-component=WikiList] .site-list__site-link {
+    display: block;
+    flex-basis: 12px;
+    flex-shrink: 0;
+    width: 12px;
+    height: 12px;
+    margin-right: calc(var(--spacing) / 2);
+    background: url(/icons/cdx/function-argument.svg) center center / contain no-repeat;
+    filter: var(--icon-filter);
+    opacity: 0.5;
+}
+  

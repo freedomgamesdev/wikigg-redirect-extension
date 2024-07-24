@@ -4,7 +4,17 @@ import {
     getWikis,
     createDomElement,
     getMessage
-} from "../util.js"; 
+} from "../util.js";
+import {
+    getForKey,
+    setAtKey
+} from './DeclarativeSettings.js';
+
+
+const
+    DEPRECATED_ENABLE_LEGACY_GROUPING = false,
+    ENABLE_SEARCH = false,
+    ENABLE_QC = true;
 
 
 function debounce( callback, wait ) {
@@ -21,11 +31,23 @@ export default class WikiList {
      * @param {HTMLElement} container
      */
     static initialise( container ) {
-        const wikis = getWikis( true, false, false );
-
+        const wikis = getWikis( DEPRECATED_ENABLE_LEGACY_GROUPING, false, !DEPRECATED_ENABLE_LEGACY_GROUPING );
         const siteList = this.#createSiteList( wikis );
-        container.appendChild( this.#createSearch( siteList ) );
-        container.appendChild( siteList );
+
+        createDomElement( 'div', {
+            classes: [ 'site-list-wrapper' ],
+            html: [
+                createDomElement( 'div', {
+                    classes: [ 'site-list__shelf' ],
+                    html: [
+                        ENABLE_QC ? this.#createQuickControls( wikis, siteList ) : null,
+                    ],
+                } ),
+                ENABLE_SEARCH ? this.#createSearch( siteList ) : null,
+                siteList
+            ],
+            appendTo: container,
+        } );
     }
 
 
@@ -47,6 +69,54 @@ export default class WikiList {
                     }, 50 ),
                 }
             } ),
+        } );
+    }
+
+    
+    static #createQuickControls( wikis ) {
+        const processGlobalToggleClick = value => {
+            if ( value ) {
+                setAtKey( 'disabledWikis', [] );
+            } else {
+                const allKeys = wikis.map( el => el.id );
+                setAtKey( 'disabledWikis', allKeys );
+            }
+        };
+
+        return createDomElement( 'div', {
+            classes: [ 'site-list__qc' ],
+            html: [
+                createDomElement( 'button', {
+                    attributes: {
+                        'aria-label': 'More options...',
+                    },
+                    events: {
+                        click: event => {
+                            event.target.parentNode.classList.toggle( 'site-list__qc--is-open' );
+                        },
+                    },
+                } ),
+                createDomElement( 'div', {
+                    html: [
+                        createDomElement( 'button', {
+                            text: 'Select all',
+                            events: {
+                                click: event => {
+                                    processGlobalToggleClick( true );
+                                },
+                            },
+                        } ),
+                        createDomElement( 'button', {
+                            text: 'Deselect all',
+                            events: {
+                                click: event => {
+                                    processGlobalToggleClick( false );
+                                },
+                            },
+                        } ),
+                    ],
+                } ),
+            ]
         } );
     }
 
@@ -81,7 +151,8 @@ export default class WikiList {
                             attributes: {
                                 type: 'checkbox',
                                 id: `site-list__toggle--${pack.id}`,
-                                'data-setting-id': 'disabledWikis',
+                                'data-component': 'DeclarativeSettings',
+                                'data-key': 'disabledWikis',
                                 'data-array-value': pack.id,
                                 'data-on': 'false',
                                 'data-off': 'true',

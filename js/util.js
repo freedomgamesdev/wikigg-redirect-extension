@@ -178,7 +178,7 @@ export function getNativeSettings() {
  * @typedef {Object} DomElementFactoryOptions
  * @property {string[]?} [classes]
  * @property {string} [text]
- * @property {string|HTMLElement|HTMLElement[]} [html]
+ * @property {string|HTMLElement|HTMLElement?[]} [html]
  * @property {Record<string, string|undefined|boolean|number>} [attributes]
  * @property {Partial<CSSStyleDeclaration>} [style]
  * @property {Partial<{
@@ -203,7 +203,9 @@ export function createDomElement( tag, options ) {
             result.innerHTML = options.html;
         } else if ( Array.isArray( options.html ) ) {
             for ( const element of options.html ) {
-                result.appendChild( element );
+                if ( element ) {
+                    result.appendChild( element );
+                }
             }
         } else {
             result.appendChild( options.html );
