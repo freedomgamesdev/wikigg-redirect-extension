@@ -1,5 +1,4 @@
 import {
-    getWikis,
     isDevelopmentBuild,
     getMessage
 } from './util.js';
@@ -8,48 +7,8 @@ import WikiList from './popup/WikiList.js';
 import * as DeclarativeSettings from './popup/DeclarativeSettings.js';
 
 
-const wikis = getWikis( true, false );
-
-
 const RTW = {
     $container: document.getElementById( 'wikis' ),
-
-
-    addWikiEntry( info ) {
-        const $out = document.createElement( 'li' );
-        if ( info.uiClass ) {
-            $out.classList.add( info.uiClass );
-        }
-
-        if ( info.spacer ) {
-            $out.classList.add( 'pseudo' );
-            $out.innerText = info.spacer;
-        } else {
-            $out.setAttribute( 'data-wiki-id', info.id );
-
-            const $checkbox = document.createElement( 'input' );
-            $checkbox.setAttribute( 'id', 'wiki-cb-' + info.id );
-            $checkbox.setAttribute( 'type', 'checkbox' );
-            $checkbox.setAttribute( 'data-component', 'DeclarativeSettings' );
-            $checkbox.setAttribute( 'data-key', 'disabledWikis' );
-            $checkbox.setAttribute( 'data-array-value', info.id );
-            $checkbox.setAttribute( 'data-on', 'false' );
-            $checkbox.setAttribute( 'data-off', 'true' );
-            $out.appendChild( $checkbox );
-
-            const $label = document.createElement( 'label' );
-            $label.setAttribute( 'for', 'wiki-cb-' + info.id );
-            $label.innerText = info.name;
-            $out.appendChild( $label );
-
-            const $link = document.createElement( 'a' );
-            $link.setAttribute( 'href', `https://${info.id}.wiki.gg` );
-            $link.setAttribute( 'target', '_blank' );
-            $out.appendChild( $link );
-        }
-
-        this.$container.appendChild( $out );
-    },
 
 
     updateVersion() {
@@ -136,9 +95,6 @@ const RTW = {
     RTW.initialiseDynamic();
     RTW.processMessageTags();
     RTW.initialiseTabbers();
-    for ( const wiki of wikis ) {
-        RTW.addWikiEntry( wiki );
-    }
     RTW.initialiseComponents();
 
     DeclarativeSettings.updateCache();
