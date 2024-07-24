@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="css/core.css" type="text/css" />
         <link rel="stylesheet" href="css/popup.css" type="text/css" />
         <link rel="stylesheet" href="css/components/WikiList.css" type="text/css" />
+        <link rel="stylesheet" href="css/components/RuntimeListUpdates.css" type="text/css" />
     </head>
     <body>
         <div id="area-top">
@@ -70,6 +71,25 @@
                             data-on="true"
                             data-off="false" />
                         <label for="useTabRedirect">Use legacy redirection method</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="ffUseOptimisedSearchCore"
+                            data-component="DeclarativeSettings"
+                            data-key="ffUseOptimisedSearchCore"
+                            data-on="true"
+                            data-off="false" />
+                        <label for="ffUseOptimisedSearchCore">Use in-dev optimised search module core</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="useRuntimeLists"
+                            data-component="DeclarativeSettings"
+                            data-key="useRuntimeLists"
+                            data-on="true"
+                            data-off="false" />
+                        <label for="useRuntimeLists">[PH]Allow use of runtime lists</label>
+                    </div>
+                    <div data-component="RuntimeListUpdates">
+                        <!-- This will be filled in by JavaScript -->
                     </div>
                 </div>
             </section>

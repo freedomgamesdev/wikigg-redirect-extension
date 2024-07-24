@@ -30,7 +30,12 @@ export default function () {
 
         isRedirectDisabled: false,
         disabledWikis: [],
+
+        // Developer settings - subject to change
         useTabRedirect: !supportsDNR(),
+        useRuntimeLists: false,
+        rtListLastSyncTime: 0,
+        ffUseOptimisedSearchCore: false,
 
         // Legacy search engine settings - this should be migrated and dropped in 1.7.0
         searchMode: 'rewrite',

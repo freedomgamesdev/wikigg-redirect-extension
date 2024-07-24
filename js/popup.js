@@ -4,6 +4,7 @@ import {
 } from './util.js';
 import SearchFilterSettings from './popup/SearchFilterSettings.js';
 import WikiList from './popup/WikiList.js';
+import RuntimeListUpdates from './popup/RuntimeListUpdates.js';
 import * as DeclarativeSettings from './popup/DeclarativeSettings.js';
 
 
@@ -74,7 +75,8 @@ const RTW = {
     initialiseComponents() {
         const registry = {
             SearchFilterSettings,
-            WikiList
+            WikiList,
+            RuntimeListUpdates,
         };
         for ( const element of document.querySelectorAll( '[data-component]' ) ) {
             const compId = element.getAttribute( 'data-component' );
