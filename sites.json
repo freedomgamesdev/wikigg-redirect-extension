@@ -1,1660 +1,1659 @@
 [
-    {
-        "$README": true,
-        "$comment": [
-            "To add a new site, add an entry to the list below following the structure",
-            "described below this comment.",
-            
-            "This is a JSON document, therefore no dangling commas are allowed after any",
-            "LAST field of an array '[...]' or an object '{...}'. All fields must also",
-            "have a comma after their value if a field follows right after within the",
-            "same array/object. Not abiding by this rule results in syntax errors.",
-            
-            "Objects contain pairs consisting of a TEXT KEY and a VALUE. The key and the",
-            "value are separated with a colon. Not abiding by this format results in",
-            "syntax errors.",
-            
-            "A BOOLEAN may only be 'true' or 'false', without quotes. A NUMBER shall not",
-            "be wrapped with any quotes, and a point '.' is the decimal separator. TEXT",
-            "(i.e. STRINGS) must be surrounded with double quotes.",
-            
-            "Right below is a description of a site entry, with all fields (that are in",
-            "use) listed and described. Optional fields are denoted by having their key",
-            "wrapped in square brackets '[...]' - these fields do not have to be included",
-            "if not needed. Do not include those square brackets in the final object, they",
-            "are only for your information.",
+	{
+		"$README": true,
+		"$comment": [
+			"To add a new site, add an entry to the list below following the structure",
+			"described below this comment.",
+			"",
+			"This is a JSON document, therefore no dangling commas are allowed after any",
+			"LAST field of an array '[...]' or an object '{...}'. All fields must also",
+			"have a comma after their value if a field follows right after within the",
+			"same array/object. Not abiding by this rule results in syntax errors.",
+			"",
+			"Objects contain pairs consisting of a TEXT KEY and a VALUE. The key and the",
+			"value are separated with a colon. Not abiding by this format results in",
+			"syntax errors.",
+			"",
+			"A BOOLEAN may only be 'true' or 'false', without quotes. A NUMBER shall not",
+			"be wrapped with any quotes, and a point '.' is the decimal separator. TEXT",
+			"(i.e. STRINGS) must be surrounded with double quotes.",
+			"",
+			"Right below is a description of a site entry, with all fields (that are in",
+			"use) listed and described. Optional fields are denoted by having their key",
+			"wrapped in square brackets '[...]' - these fields do not have to be included",
+			"if not needed. Do not include those square brackets in the final object, they",
+			"are only for your information.",
+			"",
+			"Each field description follows a format of 'type (default value or 'unset' if",
+			"field is optional): purpose'.",
+			"",
+			"Entries may be grouped up in an array - this currently is only for human",
+			"information and has no impact on the extension's behaviour.",
+			"",
+			"Headings can be added to the popup by adding an object to the list below with",
+			"only a string field 'spacer'."
+		],
+		"entryStructure": {
+			"[parentRef]": "string (unset): ID of another entry if you're only adding an alternative redirect. 'oldId' MUST be changed if this is set. Other fields are copied from the referenced entry, and may be modified if needed.",
+			"id": "string: The domain of the wiki.gg wiki",
+			"[oldId]": "string (same as 'id'): The domain of the Fandom wiki, if different from the wiki.gg ID",
+			"name": "string: The name of the wiki.gg wiki",
+			"[official]": "boolean (false): Whether the new wiki is considered official by the developers",
+			"[uiClass]": "...: Display style in the settings view. Only 'wiki-indent' is accepted, which adds space to the left of the entry.",
+			"[search]": {
+				"[oldName]": "string (same as 'name'): Name of the Fandom wiki, if different from the wiki.gg name.",
+				"[newIncludesWiki]": "boolean (false): Whether the 'Wiki' word should not be expected in the old name when rewriting Fandom results."
+			}
+		}
+	},
+	{
+		"id": "13sentinels",
+		"oldId": "13-sentinels-aegis-rim",
+		"name": "13 Sentinels"
+	},
+	{
+		"id": "acecombat",
+		"name": "Ace Combat",
+		"official": true,
 
-            "Each field description follows a format of 'type (default value or 'unset' if",
-            "field is optional): purpose'.",
+		"search": {
+			"oldName": "Acepedia"
+		}
+	},
+	{
+		"id": "almostahero",
+		"oldId": "almost-a-hero",
+		"name": "Almost a Hero"
+	},
+	{
+		"id": "aloft",
+		"name": "Aloft",
+		"official": true
+	},
+	{
+		"id": "airportceo",
+		"name": "Airport CEO",
+		"official": true
+	},
+	{
+		"id": "animalwell",
+		"oldId": "animal-well",
+		"name": "Animal Well",
+		"official": true
+	},
+	{
+		"id": "animalcrossingpocketcamp",
+		"name": "Animal Crossing: Pocket Camp"
+	},
+	[
+		{
+			"id": "ark",
+			"name": "ARK",
+			"official": true,
 
-            "Entries may be grouped up in an array - this currently is only for human",
-            "information and has no impact on the extension's behaviour.",
+			"search": {
+				"oldName": "ARK: Survival Evolved",
+				"newTitle": "ARK Official Community Wiki"
+			}
+		},
+		{
+			"parentRef": "ark",
+			"oldId": "ark-survival-evolved",
 
-            "Headings can be added to the popup by adding an object to the list below with",
-            "only a string field 'spacer'."
-        ],
-        "entryStructure": {
-            "[parentRef]": "string (unset): ID of another entry if you're only adding an alternative redirect. 'oldId' MUST be changed if this is set. Other fields are copied from the referenced entry, and may be modified if needed.",
-            "id": "string: The domain of the wiki.gg wiki",
-            "[oldId]": "string (same as 'id'): The domain of the Fandom wiki, if different from the wiki.gg ID",
-            "name": "string: The name of the wiki.gg wiki",
-            "[official]": "boolean (false): Whether the new wiki is considered official by the developers",
-            "[uiClass]": "...: Display style in the settings view. Only 'wiki-indent' is accepted, which adds space to the left of the entry.",
-            
-            "[search]": {
-                "[oldName]": "string (same as 'name'): Name of the Fandom wiki, if different from the wiki.gg name.",
-                "[newIncludesWiki]": "boolean (false): Whether the 'Wiki' word should not be expected in the old name when rewriting Fandom results."
-            }
-        }
-    },
-    {
-        "id": "13sentinels",
-        "oldId": "13-sentinels-aegis-rim",
-        "name": "13 Sentinels"
-    },
-    {
-        "id": "acecombat",
-        "name": "Ace Combat",
-        "official": true,
+			"search": {
+				"oldName": "ARK: Survival Evolved"
+			}
+		},
+		{
+			"parentRef": "ark",
+			"oldId": "ark-survival-evolved-archive",
 
-        "search": {
-            "oldName": "Acepedia"
-        }
-    },
-    {
-        "id": "almostahero",
-        "oldId": "almost-a-hero",
-        "name": "Almost a Hero"
-    },
-    {
-        "id": "aloft",
-        "name": "Aloft",
-        "official": true
-    },
-    {
-        "id": "airportceo",
-        "name": "Airport CEO",
-        "official": true
-    },
-    {
-        "id": "animalwell",
-        "oldId": "animal-well",
-        "name": "Animal Well",
-        "official": true
-    },
-    {
-        "id": "animalcrossingpocketcamp",
-        "name": "Animal Crossing: Pocket Camp"
-    },
-    [
-        {
-            "id": "ark",
-            "name": "ARK",
-            "official": true,
+			"search": {
+				"oldName": "ARK: Survival Evolved"
+			}
+		}
+	],
+	{
+		"id": "arknights",
+		"name": "Arknights"
+	},
+	{
+		"id": "atelier",
+		"name": "Atelier"
+	},
+	{
+		"id": "townshiptale",
+		"name": "A Township Tale",
+		"official": true
+	},
+	{
+		"id": "ashestown",
+		"name": "Ashes Town"
+	},
+	{
+		"id": "astroneer",
+		"name": "Astroneer"
+	},
+	{
+		"id": "astrea",
+		"oldId": "astrea-sso",
+		"name": "Astrea"
+	},
+	{
+		"id": "autoforge",
+		"name": "AutoForge",
+		"official": true
+	},
+	{
+		"id": "aurora",
+		"oldId": "aurorawebcomic",
+		"name": "Aurora"
+	},
+	{
+		"id": "ahc",
+		"name": "Anime Hunter Canon"
+	},
+	{
+		"id": "apexlegends",
+		"name": "Apex Legends"
+	},
+	{
+		"id": "backpackbattles",
+		"oldId": "backpack-battles",
+		"name": "Backpack Battles"
+	},
+	{
+		"id": "backpackhero",
+		"oldId": "backpack-hero",
+		"name": "Backpack Hero"
+	},
+	{
+		"id": "bakegg",
+		"name": "Bake.gg"
+	},
+	{
+		"id": "battlebit",
+		"oldId": "battlebit",
+		"name": "BattleBit",
+		"official": true
+	},
+	{
+		"id": "battlecrush",
+		"oldId": "battle-crush",
+		"name": "Battle Crush"
+	},
+	{
+		"id": "battletabs",
+		"oldId": "battletabs-io",
+		"name": "BattleTabs",
+		"official": true,
 
-            "search": {
-                "oldName": "ARK: Survival Evolved",
-                "newTitle": "ARK Official Community Wiki"
-            }
-        },
-        {
-            "parentRef": "ark",
-            "oldId": "ark-survival-evolved",
+		"search": {
+			"oldName": "BattleTabs.io"
+		}
+	},
+	{
+		"id": "beforedarknessfalls",
+		"oldId": "before-darkness-falls",
+		"name": "Before Darkness Falls"
+	},
+	{
+		"id": "bendy",
+		"name": "Bendy"
+	},
+	[
+		{
+			"id": "bigfoot",
+			"oldId": "bigfootgame",
+			"name": "BIGFOOT"
+		},
+		{
+			"parentRef": "bigfoot",
+			"oldId": "finding-bigfoot-game"
+		}
+	],
+	{
+		"id": "bitcraft",
+		"name": "BitCraft"
+	},
+	{
+		"id": "bejeweled",
+		"name": "Bejeweled"
+	},
+	{
+		"id": "bleed",
+		"oldId": "bleed-game",
+		"name": "Bleed"
+	},
+	{
+		"id": "boomslingers",
+		"oldId": "boom-slingers",
+		"name": "Boom Slingers"
+	},
+	{
+		"id": "bookoftravels",
+		"name": "Book Of Travels",
+		"official": true
+	},
+	{
+		"id": "bopathoftheteallotus",
+		"name": "Bō Path of the Teal Lotus",
+		"official": true
+	},
+	{
+		"id": "blightsurvival",
+		"oldId": "blight",
+		"name": "Blight Survival",
+		"official": true
+	},
+	{
+		"id": "brawlhalla",
+		"name": "Brawlhalla",
+		"official": true
+	},
+	{
+		"id": "bellasara",
+		"oldId": "thebellasara",
+		"name": "Bella Sara",
 
-            "search": {
-                "oldName": "ARK: Survival Evolved"
-            }
-        },
-        {
-            "parentRef": "ark",
-            "oldId": "ark-survival-evolved-archive",
+		"search": {
+			"oldName": "The Bella Sara"
+		}
+	},
+	{
+		"id": "cladecraft",
+		"name": "CladeCraft"
+	},
+	{
+		"id": "cherryforest",
+		"oldId": "cherry-forest",
+		"name": "Cherry Forest",
+		"official": true
+	},
+	{
+		"id": "changed",
+		"name": "Changed"
+	},
+	{
+		"id": "chippy",
+		"name": "Chippy"
+	},
+	{
+		"id": "chivalry",
+		"name": "Chivalry",
+		"official": true,
 
-            "search": {
-                "oldName": "ARK: Survival Evolved"
-            }
-        }
-    ],
-    {
-        "id": "arknights",
-        "name": "Arknights"
-    },
-    {
-        "id": "atelier",
-        "name": "Atelier"
-    },
-    {
-        "id": "townshiptale",
-        "name": "A Township Tale",
-        "official": true
-    },
-    {
-        "id": "ashestown",
-        "name": "Ashes Town"
-    },
-    {
-        "id": "astroneer",
-        "name": "Astroneer"
-    },
-    {
-        "id": "astrea",
-        "oldId": "astrea-sso",
-        "name": "Astrea"
-    },
-    {
-        "id": "autoforge",
-        "name": "AutoForge",
-        "official": true
-    },
-    {
-        "id": "aurora",
-        "oldId": "aurorawebcomic",
-        "name": "Aurora"
-    },
-    {
-        "id": "ahc",
-        "name": "Anime Hunter Canon"
-    },
-    {
-        "id": "apexlegends",
-        "name": "Apex Legends"
-    },
-    {
-        "id": "backpackbattles",
-        "oldId": "backpack-battles",
-        "name": "Backpack Battles"
-    },
-    {
-        "id": "backpackhero",
-        "oldId": "backpack-hero",
-        "name": "Backpack Hero"
-    },
-    {
-        "id": "bakegg",
-        "name": "Bake.gg"
-    },
-    {
-        "id": "battlebit",
-        "oldId": "battlebit",
-        "name": "BattleBit",
-        "official": true
-    },
-    {
-        "id": "battlecrush",
-        "oldId": "battle-crush",
-        "name": "Battle Crush"
-    },
-    {
-        "id": "battletabs",
-        "oldId": "battletabs-io",
-        "name": "BattleTabs",
-        "official": true,
+		"search": {
+			"oldName": "Chivalry: Medieval Warfare"
+		}
+	},
+	{
+		"id": "cookieclicker",
+		"name": "Cookie Clicker"
+	},
+	{
+		"id": "coromon",
+		"name": "Coromon",
+		"official": true
+	},
+	{
+		"id": "crowsworn",
+		"name": "Crowsworn"
+	},
+	{
+		"id": "corporateclash",
+		"oldId": "toontown-corporate-clash",
+		"name": "Toontown Corporate Clash"
+	},
+	{
+		"id": "cobaltcore",
+		"oldId": "cobalt-core",
+		"name": "Cobalt Core"
+	},
+	{
+		"id": "conflictofnations",
+		"name": "Conflict of Nations"
+	},
+	{
+		"id": "counterpact",
+		"name": "Counterpact"
+	},
+	{
+		"id": "cosmicreach",
+		"name": "Cosmic Reach",
+		"official": true
+	},
+	{
+		"id": "cosmoteer",
+		"name": "Cosmoteer",
+		"official": true
+	},
+	{
+		"id": "crossimpact",
+		"oldId": "crossimpactoffical",
+		"name": "Cross Impact",
+		"official": true
+	},
+	{
+		"id": "cultofthelamb",
+		"oldId": "cult-of-the-lamb",
+		"name": "Cult of the Lamb",
+		"official": true
+	},
+	{
+		"id": "cuphead",
+		"name": "Cuphead"
+	},
+	{
+		"id": "cuisineer",
+		"name": "Cuisineer",
+		"official": true
+	},
+	{
+		"id": "contentwarning",
+		"oldId": "content-warning-landfall",
+		"name": "Content Warning"
+	},
+	{
+		"id": "continentalwarserver",
+		"name": "Continental War Server"
+	},
+	{
+		"id": "darza",
+		"oldId": "darzas",
+		"name": "Darza's Dominion"
+	},
+	{
+		"id": "darkdeity",
+		"name": "Dark Deity",
+		"official": true
+	},
+	{
+		"id": "darkestdungeon",
+		"name": "Darkest Dungeon",
+		"official": true
+	},
+	{
+		"id": "deadahead",
+		"oldId": "dead-ahead",
+		"name": "Dead Ahead"
+	},
+	{
+		"id": "deadcells",
+		"name": "Dead Cells",
+		"official": true
+	},
+	{
+		"id": "deadestate",
+		"name": "Dead Estate",
+		"official": true
+	},
+	{
+		"id": "deadlink",
+		"name": "Deadlink"
+	},
+	{
+		"id": "deathbulge",
+		"name": "Deathbulge",
+		"official": true
+	},
+	{
+		"id": "d2mc",
+		"name": "Destiny 2 Minecraft Edition"
+	},
+	{
+		"id": "dredge",
+		"name": "Dredge"
+	},
+	{
+		"id": "deeprockgalactic",
+		"name": "Deep Rock Galactic",
+		"official": true
+	},
+	{
+		"id": "dicefolk",
+		"name": "Dicefolk",
+		"official": true
+	},
+	{
+		"id": "dotage",
+		"oldId": "dotage-game",
+		"name": "DotAGE",
+		"official": true
+	},
+	{
+		"id": "domekeeper",
+		"oldId": "dome-keeper",
+		"name": "Dome Keeper"
+	},
+	{
+		"id": "donotfeedthemonkeys2099",
+		"oldId": "do-not-feed-the-monkeys",
+		"name": "Do Not Feed The Monkeys 2099",
+		"official": true
+	},
+	{
+		"id": "dungeonnowloading",
+		"oldId": "dungeon-now-loading",
+		"name": "Dungeon Now Loading"
+	},
+	{
+		"id": "dragoncourt",
+		"name": "Dragon Court"
+	},
+	{
+		"id": "dragonvillageseries",
+		"oldId": "dragon-village-series",
+		"name": "Dragon Village Series"
+	},
+	{
+		"id": "dreamscaper",
+		"name": "Dreamscaper",
+		"official": true
+	},
+	[
+		{
+			"id": "dontstarve",
+			"name": "Don't Starve",
+			"official": true
+		},
+		{
+			"id": "islandadventures",
+			"oldId": "island-adventures",
+			"name": "Island Adventures",
+			"uiClass": "wiki-indent"
+		},
+		{
+			"id": "uncompromisingmode",
+			"oldId": "uncompromising-mode",
+			"name": "Uncompromising Mode",
+			"uiClass": "wiki-indent"
+		}
+	],
+	{
+		"id": "dyinglight",
+		"name": "Dying Light",
+		"official": true
+	},
+	{
+		"id": "schoolofdragons",
+		"oldId": "dreamworks-school-of-dragons",
+		"name": "DreamWorks School of Dragons",
+		"official": true
+	},
+	{
+		"id": "eastscarp",
+		"name": "East Scarp",
+		"official": true
+	},
+	{
+		"id": "equestriaatwar",
+		"oldId": "equestria-at-war",
+		"name": "Equestria at War",
+		"official": true
+	},
+	{
+		"id": "ena",
+		"oldId": "enajoelg",
+		"name": "ENA"
+	}, 
+	{
+		"id": "erenshor",
+		"name": "Erenshor",
+		"official": true
+	}, 
+	{
+		"id": "exapico",
+		"oldId": "artonelico",
+		"name": "EXA PICO"
+	},
+	{
+		"id": "enterthegungeon",
+		"name": "Enter The Gungeon",
+		"official": true
+	},
+	{
+		"id": "everdreamvalley",
+		"name": "Everdream Valley",
+		"official": true
+	}, 
+	{
+		"id": "fantasylife",
+		"oldId": "fantasy-life",
+		"name": "Fantasy Life"
+	},
+	{
+		"id": "farworldpioneers",
+		"name": "Farworld Pioneers",
+		"official": true
+	},
+	[
+		{
+			"id": "farmingsimulator",
+			"name": "Farming Simulator"
+		},
+		{
+			"parentRef": "farmingsimulator",
+			"oldId": "farming-simulator-2017"
+		}
+	],
+	{
+		"id": "fearandhunger",
+		"name": "Fear and Hunger",
+		"official": true,
 
-        "search": {
-            "oldName": "BattleTabs.io"
-        }
-    },
-    {
-        "id": "beforedarknessfalls",
-        "oldId": "before-darkness-falls",
-        "name": "Before Darkness Falls"
-    },
-    {
-        "id": "bendy",
-        "name": "Bendy"
-    },
-    [
-        {
-            "id": "bigfoot",
-            "oldId": "bigfootgame",
-            "name": "BIGFOOT"
-        },
-        {
-            "parentRef": "bigfoot",
-            "oldId": "finding-bigfoot-game"
-        }
-    ],
-    {
-        "id": "bitcraft",
-        "name": "BitCraft"
-    },
-    {
-        "id": "bejeweled",
-        "name": "Bejeweled"
-    },
-    {
-        "id": "bleed",
-        "oldId": "bleed-game",
-        "name": "Bleed"
-    },
-    {
-        "id": "boomslingers",
-        "oldId": "boom-slingers",
-        "name": "Boom Slingers"
-    },
-    {
-        "id": "bookoftravels",
-        "name": "Book Of Travels",
-        "official": true
-    },
-    {
-        "id": "bopathoftheteallotus",
-        "name": "Bō Path of the Teal Lotus",
-        "official": true
-    },
-    {
-        "id": "blightsurvival",
-        "oldId": "blight",
-        "name": "Blight Survival",
-        "official": true
-    },
-    {
-        "id": "brawlhalla",
-        "name": "Brawlhalla",
-        "official": true
-    },
-    {
-        "id": "bellasara",
-        "oldId": "thebellasara",
-        "name": "Bella Sara",
+		"search": {
+			"oldName": "\"Fear and Hunger: the Tormentpedia\""
+		}
+	},
+	{
+		"id": "fearstofathom",
+		"name": "Fears to Fathom",
+		"official": true
+	},
+	{
+		"id": "felvidek",
+		"name": "Felvidek"
+	},
+	[
+		{
+			"_": "Fandom ID was changed, and has been added as a separate redirect rule (both may appear in search indexes)",
+			"id": "fiendfolio",
+			"oldId": "fiend-folio",
+			"name": "Fiend Folio",
+			"official": true
+		},
+		{
+			"parentRef": "fiendfolio",
+			"oldId": "fiend-folio-afterbirth",
 
-        "search": {
-            "oldName": "The Bella Sara"
-        }
-    },
-    {
-        "id": "cladecraft",
-        "name": "CladeCraft"
-    },
-    {
-        "id": "cherryforest",
-        "oldId": "cherry-forest",
-        "name": "Cherry Forest",
-        "official": true
-    },
-    {
-        "id": "changed",
-        "name": "Changed"
-    },
-    {
-        "id": "chippy",
-        "name": "Chippy"
-    },
-    {
-        "id": "chivalry",
-        "name": "Chivalry",
-        "official": true,
+			"search": {
+				"oldName": "Fiend Folio Afterbirth+"
+			}
+		}
+	],
+	{
+		"id": "flight",
+		"name": "Flight Sim"
+	},
+	{
+		"id": "forgottenseas",
+		"oldId": "forgotten-seas",
+		"name": "Forgotten Seas",
+		"official": true
+	},
+	{
+		"id": "fortheking",
+		"name": "For The King",
+		"official": true
+	},
+	{
+		"id": "foxhole",
+		"name": "Foxhole",
+		"official": true
+	},
+	{
+		"id": "frackinuniverse",
+		"name": "Frackin' Universe"
+	},
+	{
+		"id": "fridaynightfunkin",
+		"name": "Friday Night Funkin'"
+	},
+	{
+		"id": "gangbeasts",
+		"oldId": "gang-beasts",
+		"name": "Gang Beasts"
+	},
+	{
+		"id": "galaxylife",
+		"name": "Galaxy Life"
+	},
+	{
+		"id": "galaxyonfire",
+		"name": "Galaxy on Fire"
+	},
+	{
+		"id": "getawayshootout",
+		"oldId": "getaway-shootout",
+		"name": "Getaway Shootout"
+	},
+	{
+		"id": "ghostrunner",
+		"name": "Ghostrunner"
+	},
+	{
+		"id": "gigantic",
+		"name": "Gigantic"
+	},
+	{
+		"id": "gmce",
+		"oldId": "gm-ce",
+		"name": "Ghost Master: Complete Edition"
+	},
+	{
+		"id": "gnorp",
+		"oldId": "gnorp-apologue",
+		"name": "Gnorp Apologue"
+	},
+	{
+		"id": "godofweapons",
+		"oldId": "god-of-weapons",
+		"name": "God of Weapons"
+	},
+	{
+		"id": "gttod",
+		"name": "Get To The Orange Door"
+	},
+	{
+		"id": "guiltygear",
+		"name": "Guilty Gear"
+	},
+	{
+		"id": "hawked",
+		"name": "Hawked"
+	},
+	{
+		"id": "hearthstone",
+		"name": "Hearthstone"
+	},
+	{
+		"id": "heavygear",
+		"oldId": "heavy-gear",
+		"name": "Heavy Gear"
+	},
+	{
+		"id": "herosiege",
+		"name": "Hero Siege",
+		"official": true
+	},
+	[
+		{
+		"id": "helldivers",
+		"oldId": "helldivers",
+		"name": "Helldivers"
+		},
+		{
+			"parentRef": "helldivers",
+			"oldId": "helldivers-ii"
+		},
 
-        "search": {
-            "oldName": "Chivalry: Medieval Warfare"
-        }
-    },
-    {
-        "id": "cookieclicker",
-        "name": "Cookie Clicker"
-    },
-    {
-        "id": "coromon",
-        "name": "Coromon",
-        "official": true
-    },
-    {
-        "id": "crowsworn",
-        "name": "Crowsworn"
-    },
-    {
-        "id": "corporateclash",
-        "oldId": "toontown-corporate-clash",
-        "name": "Toontown Corporate Clash"
-    },
-    {
-        "id": "cobaltcore",
-        "oldId": "cobalt-core",
-        "name": "Cobalt Core"
-    },
-    {
-        "id": "conflictofnations",
-        "name": "Conflict of Nations"
-    },
-    {
-        "id": "counterpact",
-        "name": "Counterpact"
-    },
-    {
-        "id": "cosmicreach",
-        "name": "Cosmic Reach",
-        "official": true
-    },
-    {
-        "id": "cosmoteer",
-        "name": "Cosmoteer",
-        "official": true
-    },
-    {
-        "id": "crossimpact",
-        "oldId": "crossimpactoffical",
-        "name": "Cross Impact",
-        "official": true
-    },
-    {
-        "id": "cultofthelamb",
-        "oldId": "cult-of-the-lamb",
-        "name": "Cult of the Lamb",
-        "official": true
-    },
-    {
-        "id": "cuphead",
-        "name": "Cuphead"
-    },
-    {
-        "id": "cuisineer",
-        "name": "Cuisineer",
-        "official": true
-    },
-    {
-        "id": "contentwarning",
-        "oldId": "content-warning-landfall",
-        "name": "Content Warning"
-    },
-    {
-        "id": "continentalwarserver",
-        "name": "Continental War Server"
-    },
-    {
-        "id": "darza",
-        "oldId": "darzas",
-        "name": "Darza's Dominion"
-    },
-    {
-        "id": "darkdeity",
-        "name": "Dark Deity",
-        "official": true
-    },
-    {
-        "id": "darkestdungeon",
-        "name": "Darkest Dungeon",
-        "official": true
-    },
-    {
-        "id": "deadahead",
-        "oldId": "dead-ahead",
-        "name": "Dead Ahead"
-    },
-    {
-        "id": "deadcells",
-        "name": "Dead Cells",
-        "official": true
-    },
-    {
-        "id": "deadestate",
-        "name": "Dead Estate",
-        "official": true
-    },
-    {
-        "id": "deadlink",
-        "name": "Deadlink"
-    },
-    {
-        "id": "deathbulge",
-        "name": "Deathbulge",
-        "official": true
-    },
-    {
-        "id": "d2mc",
-        "name": "Destiny 2 Minecraft Edition"
-    },
-    {
-        "id": "dredge",
-        "name": "Dredge"
-    },
-    {
-        "id": "deeprockgalactic",
-        "name": "Deep Rock Galactic",
-        "official": true
-    },
-    {
-        "id": "dicefolk",
-        "name": "Dicefolk",
-        "official": true
-    },
-    {
-        "id": "dotage",
-        "oldId": "dotage-game",
-        "name": "DotAGE",
-        "official": true
-    },
-    {
-        "id": "domekeeper",
-        "oldId": "dome-keeper",
-        "name": "Dome Keeper"
-    },
-    {
-        "id": "donotfeedthemonkeys2099",
-        "oldId": "do-not-feed-the-monkeys",
-        "name": "Do Not Feed The Monkeys 2099",
-        "official": true
-    },
-    {
-        "id": "dungeonnowloading",
-        "oldId": "dungeon-now-loading",
-        "name": "Dungeon Now Loading"
-    },
-    {
-        "id": "dragoncourt",
-        "name": "Dragon Court"
-    },
-    {
-        "id": "dragonvillageseries",
-        "oldId": "dragon-village-series",
-        "name": "Dragon Village Series"
-    },
-    {
-        "id": "dreamscaper",
-        "name": "Dreamscaper",
-        "official": true
-    },
-    [
-        {
-            "id": "dontstarve",
-            "name": "Don't Starve",
-            "official": true
-        },
-        {
-            "id": "islandadventures",
-            "oldId": "island-adventures",
-            "name": "Island Adventures",
-            "uiClass": "wiki-indent"
-        },
-        {
-            "id": "uncompromisingmode",
-            "oldId": "uncompromising-mode",
-            "name": "Uncompromising Mode",
-            "uiClass": "wiki-indent"
-        }
-    ],
-    {
-        "id": "dyinglight",
-        "name": "Dying Light",
-        "official": true
-    },
-    {
-        "id": "schoolofdragons",
-        "oldId": "dreamworks-school-of-dragons",
-        "name": "DreamWorks School of Dragons",
-        "official": true
-    },
-    {
-        "id": "eastscarp",
-        "name": "East Scarp",
-        "official": true
-    },
-    {
-        "id": "equestriaatwar",
-        "oldId": "equestria-at-war",
-        "name": "Equestria at War",
-        "official": true
-    },
-    {
-        "id": "ena",
-        "oldId": "enajoelg",
-        "name": "ENA"
-    }, 
-    {
-        "id": "erenshor",
-        "name": "Erenshor",
-        "official": true
-    }, 
-    {
-        "id": "exapico",
-        "oldId": "artonelico",
-        "name": "EXA PICO"
-    },
-    {
-        "id": "enterthegungeon",
-        "name": "Enter The Gungeon",
-        "official": true
-    },
-    {
-        "id": "everdreamvalley",
-        "name": "Everdream Valley",
-        "official": true
-    }, 
-    {
-        "id": "fantasylife",
-        "oldId": "fantasy-life",
-        "name": "Fantasy Life"
-    },
-    {
-        "id": "farworldpioneers",
-        "name": "Farworld Pioneers",
-        "official": true
-    },
-    [
-        {
-            "id": "farmingsimulator",
-            "name": "Farming Simulator"
-        },
-        {
-            "parentRef": "farmingsimulator",
-            "oldId": "farming-simulator-2017"
-        }
-    ],
-    {
-        "id": "fearandhunger",
-        "name": "Fear and Hunger",
-        "official": true,
+		{
+			"parentRef": "helldivers",
+			"oldId": "helldivers-archive"
+		},
+		{
+			"parentRef": "helldivers",
+			"oldId": "helldivers-2"
+		}
+	],
+	{
+		"id": "helloneighbor",
+		"oldId": "hello-neighbor",
+		"name": "Hello Neighbor",
+		"official": true
+	},
+	{
+		"id": "haveanicedeath",
+		"oldId": "have-a-nice-death",
+		"name": "Have a Nice Death",
+		"official": true
+	},
+	{
+		"id": "holocure",
+		"name": "Holocure"
+	},
+	{
+		"id": "hybridanimals",
+		"name": "Hybrid Animals"
+	},
+	{
+		"id": "idlewizard",
+		"name": "Idle Wizard",
+		"oldId": "idle-wizard",
+		"official": true
+	},
+	{
+		"id": "immortallife",
+		"oldId": "immortal-life",
+		"name": "Immortal Life",
+		"official": true
+	},
+	{
+		"id": "inconvenientmodpack",
+		"oldId": "inconvenient-modpack",
+		"name": "Inconvenient Modpack"
+	},
+	{
+		"id": "incrementalfactory",
+		"oldId": "incremental-factory",
+		"name": "Incremental Factory"
+	},
+	{
+		"id": "infectionfreezone",
+		"oldId": "infection-free-zone",
+		"name": "Infection Free Zone"
+	},
+	{
+		"id": "instarsandtime",
+		"oldId": "in-stars-and-time",
+		"name": "In Stars and Time"
+	},
+	{
+		"id": "tboiipecac",
+		"oldId": "ipecacmod",
+		"name": "IPECAC Community Mod",
+		"official": true
+	},
+	{
+		"id": "jurassicworld",
+		"oldId": "jurassic-world-the-mobile-game",
+		"name": "Jurassic World"
+	},
+	{
+		"id": "junkjack",
+		"name": "Junk Jack",
+		"official": true
+	},
+	{
+		"id": "lastorigin",
+		"name": "Last Origin"
+	},
+	{
+		"id": "lancer",
+		"oldId": "omninet",
+		"name": "LANCER"
+	},
+	{
+		"id": "leafblowerrevolution",
+		"oldId": "leaf-blower-revolution",
+		"name": "Leaf Blower Revolution"
+	},
+	[
+		{
+			"id": "lightnofire",
+			"oldId": "light-no-fire",
+			"name": "Light No Fire",
+			"isFork": false
+		},
+		{
+			"parentRef": "lightnofire",
+			"oldId": "lightnofire"
+		}
+	],
+	{
+		"id": "littlecornerteahouse",
+		"oldId": "little-corner-tea-house",
+		"name": "Little Corner Tea House"
+	},
+	{
+		"id": "littlekingsstory",
+		"name": "Little King's Story"
+	},
+	{
+		"id": "livealive",
+		"oldId": "live-a-live",
+		"name": "Live a Live"
+	},
+	{
+		"id": "legiontd2",
+		"name": "Legion TD 2"
+	},
+	{
+		"id": "legendsofequestria",
+		"name": "Legends of Equestria"
+	},
+	{
+		"id": "letitdie",
+		"name": "Let It Die"
+	},
+	{
+		"id": "lifeinadventure",
+		"oldId": "life-in-adventure",
+		"name": "Life In Adventure"
+	},
+	{
+		"id": "limbuscompany",
+		"name": "Limbus Company"
+	},
+	{
+		"id": "lkg",
+		"oldId": "littleknown-galaxy",
+		"name": "Little-Known Galaxy"
+	},
+	{
+		"id": "lordofembers",
+		"oldId": "the-lord-of-embers",
+		"name": "The Lord of Embers",
+		"official": true
+	},
+	{
+		"id": "kaetram",
+		"name": "Kaetram",
+		"official": true
+	},
+	{
+		"id": "karmazoo",
+		"name": "KarmaZoo",
+		"official": true
+	},
+	[
+		{
+			"id": "kartriderdrift",
+			"oldId": "kartrider-drift",
+			"name": "KartRider: Drift"
+		},
+		{
+			"parentRef": "kartriderdrift",
+			"oldId": "kartrider"
+		}
+	],
+	{
+		"id": "kameo",
+		"oldId": "wotnot",
+		"name": "Kameo Elements of Power"
+	},
+	{
+		"id": "katanazero",
+		"oldId": "katana-zero",
+		"name": "Katana ZERO"
+	},
+	{
+		"id": "knighthood",
+		"name": "Knighthood"
+	},
+	{
+		"id": "kryeit",
+		"name": "Kryeit"
+	},
+	{
+		"id": "mahjongsoul",
+		"name": "Mahjong Soul"
+	},
+	{
+		"id": "mainframedefenders",
+		"oldId": "mainframe-defenders",
+		"name": "Mainframe Defenders"
+	},
+	{
+		"id": "marvelrivals",
+		"name": "Marvel Rivals"
+	},
+	{
+		"id": "mewgenics",
+		"name": "Mewgenics"
+	},
+	{
+		"id": "megidoabyss",
+		"oldId": "megido-abyss",
+		"name": "Megido Abyss"
+	},
+	{
+		"id": "metalstorm",
+		"name": "MetalStorm",
+		"official": true
+	},
+	{
+		"id": "metalhellsinger",
+		"oldId": "metal-hellsinger",
+		"name": "Metal Hellsinger"
+	},
+	{
+		"id": "mili",
+		"oldId": "project-mili",
+		"name": "Mili"
+	},
+	{
+		"id": "mindhack",
+		"name": "MINDHACK"
+	},
+	[
+		{
+			"spacer": "Minecraft Wikis (minecraft.wiki)"
+		},
+		{
+			"id": "aether",
+			"name": "Aether Mod",
+			"official": true
+		},
+		{
+			"id": "darkagebizarre",
+			"oldId": "darkage-bizarre",
+			"name": "DarkAge Bizarre",
+			"official": true,
+			"uiClass": "wiki-indent"
+		},
+		{
+			"id": "doggytalentsnext",
+			"oldId": "doggytalents",
+			"name": "Doggy Talents",
+			"official": true,
+			"uiClass": "wiki-indent"
+		},
+		{
+			"id": "thechocolateedition",
+			"oldId": "the-chocolate-edition",
+			"name": "The Chocolate Edition",
+			"uiClass": "wiki-indent"
+		},
+		{
+			"id": "mcdf",
+			"oldId": "mcdiscontinued",
+			"farm": "miraheze",
+			"name": "MC Discontinued Features",
+			"uiClass": "wiki-indent"
+		},
+		{
+			"id": "midnight",
+			"oldId": "the-midnight-mod",
+			"name": "The Midnight Mod",
+			"uiClass": "wiki-indent"
+		}
+	],
+	{
+		"id": "minihealer",
+		"name": "MiniHealer",
+		"official": true
+	},
+	{
+		"id": "misttraingirls",
+		"oldId": "mist-train-girls",
+		"name": "Mist Train Girls"
+	},
+	{
+		"id": "momodora",
+		"name": "Momodora"
+	},
+	{
+		"id": "monumenta",
+		"oldId": "monumentammo",
+		"name": "Monumenta"
+	},
+	{
+		"id": "multiversus",
+		"name": "Multiversus"
+	},
+	{
+		"id": "needystreameroverload",
+		"oldId": "needy-streamer-overload",
+		"name": "NEEDY STREAMER OVERLOAD"
+	},
+	{
+		"id": "necromerger",
+		"name": "NecroMerger"
+	},
+	{
+		"id": "neutronized",
+		"name": "Neutronized"
+	},
+	{
+		"id": "nightmarereaper",
+		"oldId": "nightmare-reaper",
+		"name": "Nightmare Reaper"
+	},
+	{
+		"id": "nightsofazure",
+		"name": "Nights of Azure"
+	},
+	{
+		"id": "mightyparty",
+		"name": "Mighty Party"
+	},
+	{
+		"id": "noita",
+		"name": "Noita"
+	},
+	{
+		"id": "offpeak",
+		"name": "Off-Peak"
+	},
+	{
+		"id": "oldworldblues",
+		"oldId": "old-world-blues",
+		"name": "Old World Blues",
+		
+		"search": {
+			"oldName": "HOI4 total conversion mod"
+		}
+	},
+	{
+		"id": "omegastrikers",
+		"name": "Omega Strikers",
+		"official": true
+	},
+	{
+		"id": "outward",
+		"name": "Outward",
+		"official": true
+	},
+	{
+		"id": "oxygennotincluded",
+		"name": "Oxygen Not Included"
+	},
+	{
+		"id": "paperlily",
+		"oldId": "paper-lily",
+		"name": "Paper Lily"
+	},
+	{
+		"id": "paperplanet",
+		"oldId": "paper-planet",
+		"name": "Paper Planet"
+	},
+	{
+		"id": "pathologic",
+		"name": "Pathologic",
+		"official": true
+	}, 
+	{
+		"id": "palia",
+		"name": "Palia",
+		"official": true
+	},
+	{
+		"id": "palworld",
+		"name": "Palworld"
+	},
+	{
+		"id": "peaksofyore",
+		"oldId": "peaks-of-yore",
+		"name": "Peaks of Yore"
+	},
+	{
+		"id": "peglin",
+		"name": "Peglin",
+		"official": true
+	},
+	{
+		"id": "pico",
+		"name": "Pico"
+	},
+	{
+		"id": "planetlife",
+		"oldId": "planet-life",
+		"name": "Planet Life"
+	},
+	{
+		"id": "plagueinc",
+		"name": "Plague Inc",
+		"official": true
+	},
+	{
+		"id": "pubg",
+		"name": "PUBG",
+		"official": true
+	},
+	{
+		"id": "predecessor",
+		"name": "Predecessor",
+		"official": true
+	},
+	{
+		"id": "projectarrhythmia",
+		"name": "Project Arrhythmia",
+		"official": true
+	},
+	{
+		"id": "projectmalice",
+		"name": "Project Malice"
+	},
+	{
+		"id": "projectwingman",
+		"name": "Project Wingman"
+	},
+	{
+		"id": "planetaryannihilation",
+		"name": "Planetary Annihilation"
+	},
+	{
+		"id": "plantsvszombies",
+		"name": "Plants vs. Zombies"
+	},
+	{
+		"id": "quasimorph",
+		"name": "Quasimorph",
+		"official": true
+	},
+	{
+		"id": "rebelinc",
+		"oldId": "rebel-inc",
+		"name": "Rebel Inc"
+	},
+	{
+		"id": "redflood",
+		"oldId": "red-flood",
+		"name": "Red Flood",
+		"official": true
+	},
+	{
+		"id": "rejuvenation",
+		"name": "Rejuvenation"
+	},
+	{
+		"id": "roboquest",
+		"name": "Roboquest"
+	},
+	{
+		"id": "revita",
+		"oldId": "revitagame",
+		"name": "Revita",
+		"official": true
+	},
+	{
+		"id": "riseofcultures",
+		"oldId": "rise-of-cultures",
+		"name": "Rise of Cultures"
+	},
+	[
+		{
+			"id": "riskofrain",
+			"name": "Risk of Rain",
+			"official": true
+		},
+		{
+			"id": "riskofrain2",
+			"name": "Risk of Rain 2",
+			"official": true
+		}
+	],
+	[
+		{
+			"id": "roody2d",
+			"name": "Roody:2D"
+		},
+		{
+			"parentRef": "roody2d",
+			"oldId": "roody-2d",
 
-        "search": {
-            "oldName": "\"Fear and Hunger: the Tormentpedia\""
-        }
-    },
-    {
-        "id": "fearstofathom",
-        "name": "Fears to Fathom",
-        "official": true
-    },
-    {
-        "id": "felvidek",
-        "name": "Felvidek"
-    },
-    [
-        {
-            "_": "Fandom ID was changed, and has been added as a separate redirect rule (both may appear in search indexes)",
-            "id": "fiendfolio",
-            "oldId": "fiend-folio",
-            "name": "Fiend Folio",
-            "official": true
-        },
-        {
-            "parentRef": "fiendfolio",
-            "oldId": "fiend-folio-afterbirth",
+			"search": {
+				"oldName": "Roody:2D ReEdit"
+			}
+		}
+	],
+	{
+		"id": "rootsofpacha",
+		"name": "Roots of Pacha",
+		"official": true
+	},
+	{
+		"id": "rsmc",
+		"name": "RSMC"
+	},
+	{
+		"id": "sandboxels",
+		"name": "Sandboxels",
+		"official": true
+	},
+	{
+		"id": "sandsofaura",
+		"name": "Sands of Aura",
+		"official": true
+	},
+	{
+		"id": "scrabdackle",
+		"name": "Scrabdackle",
+		"official": true
+	},
+	{
+		"id": "satisfactory",
+		"name": "Satisfactory",
+		"official": true
+	},
+	{
+		"id": "scriptwelder",
+		"oldId": "dont-escape",
+		"name": "Scriptwelder"
+	},
+	{
+		"id": "seaofthieves",
+		"name": "Sea of Thieves"
+	},
+	[
+		{
+			"id": "secretsofgrindea",
+			"name": "Secrets of Grindea"
+		},
+		{
+			"parentRef": "secretsofgrindea",
+			"oldId": "secrets-of-grindea"
+		}
+	],
+	{
+		"id": "sheltered2",
+		"oldId": "sheltered-2",
+		"name": "Sheltered 2"
+	},
+	{
+		"id": "shogunshowdown",
+		"oldId": "shogun-showdown",
+		"name": "Shogun Showdown",
+		"official": true
+	},
+	{
+		"id": "signalis",
+		"name": "SIGNALIS"
+	},
+	{
+		"id": "slarpg",
+		"name": "Super Lesbian Animal RPG"
+	},
+	{
+		"id": "slycooper",
+		"name": "Sly Cooper"
+	},
+	{
+		"id": "smileforme",
+		"oldId": "smile-for-me",
+		"name": "Smile For Me"
+	},
+	{
+		"id": "soulknightprequel",
+		"oldId": "soul-knight-prequel",
+		"name": "Soul Knight Prequel"
+	},
+	{
+		"id": "sonsoftheforest",
+		"name": "Sons of the Forest"
+	},
+	{
+		"id": "speedrunners",
+		"name": "Speedrunners"
+	},
+	{
+		"id": "spellforce",
+		"name": "Spellforce"
+	},
+	{
+		"id": "spaceengineers",
+		"name": "Space Engineers",
+		"official": true
+	},
+	{
+		"id": "spiderheck",
+		"name": "SpiderHeck"
+	},
+	{
+		"id": "spellrogue",
+		"name": "Spellrogue"
+	},
+	{
+		"id": "starsector",
+		"name": "Starsector"
+	},
+	{
+		"id": "steamworld",
+		"name": "Steamworld",
+		"official": true
+	},
+	{
+		"id": "synthetikuniverse",
+		"oldId": "synthetik",
+		"name": "SYNTHETIK"
+	},
+	{
+		"id": "sugaryspire",
+		"oldId": "sugary-spire",
+		"name": "Sugary Spire"
+	},
+	{
+		"id": "sunhaven",
+		"oldId": "sun-haven",
+		"name": "Sun Haven",
+		"official": true
+	},
+	{
+		"id": "superautopets",
+		"name": "Super Auto Pets"
+	},
+	{
+		"id": "supersnail",
+		"oldId": "super-snail",
+		"name": "Super Snail"
+	},
+	[
+		{
+			"id": "starstable",
+			"oldId": "jorvikipedia",
+			"name": "Star Stable"
+		},
+		{
+			"parentRef": "starstable",
+			"oldId": "starstable-archive"
+		}
+	],
+	{
+		"id": "tabs",
+		"oldId": "totally-accurate-battle-simulator",
+		"name": "Totally Accurate Battle Simulator"
+	},
+	{
+		"id": "trailmakers",
+		"name": "Trailmakers",
+		"official": true
+	},
+	{
+		"id": "teamabnormals",
+		"oldId": "minecraftabnormals",
+		"name": "Team Abnormals",
+		"official": true
+	},
+	{
+		"id": "temtem",
+		"name": "Temtem",
+		"official": true
+	},
+	{
+		"id": "tempestrising",
+		"name": "Tempest Rising"
+	},
+	[
+		{
+			"id": "terraria",
+			"name": "Terraria",
+			"official": true
+		},
+		{
+			"parentRef": "terraria",
+			"oldId": "terraria-archive"
+		},
+		{
+			"id": "calamitymod",
+			"name": "Calamity Mod",
+			"official": true,
+			"uiClass": "wiki-indent"
+		},
+		{
+			"id": "spiritmod",
+			"name": "Spirit Mod",
+			"uiClass": "wiki-indent"
+		},
+		{
+			"id": "thoriummod",
+			"name": "Thorium Mod",
+			"official": true,
+			"uiClass": "wiki-indent"
+		},
+		{
+			"id": "terrariamods",
+			"name": "Terraria Mods",
+			"official": true,
+			"uiClass": "wiki-indent"
+		}
+	],
+	[
+		{
+			"spacer": "The Binding of Isaac mods"
+		},
+		{
+			"id": "moddingofisaac",
+			"oldId": "moddingofisaac",
+			"name": "Modding of Isaac",
+			"uiClass": "wiki-indent"
+		},
+		{
+			"id": "tboicompliance",
+			"oldId": "compliance",
+			"name": "Compliance",
+			"uiClass": "wiki-indent"
+		},
+		{
+			"id": "tboiepiphany",
+			"oldId": "tboi-epiphany",
+			"name": "Epiphany",
+			"uiClass": "wiki-indent",
 
-            "search": {
-                "oldName": "Fiend Folio Afterbirth+"
-            }
-        }
-    ],
-    {
-        "id": "flight",
-        "name": "Flight Sim"
-    },
-    {
-        "id": "forgottenseas",
-        "oldId": "forgotten-seas",
-        "name": "Forgotten Seas",
-        "official": true
-    },
-    {
-        "id": "fortheking",
-        "name": "For The King",
-        "official": true
-    },
-    {
-        "id": "foxhole",
-        "name": "Foxhole",
-        "official": true
-    },
-    {
-        "id": "frackinuniverse",
-        "name": "Frackin' Universe"
-    },
-    {
-        "id": "fridaynightfunkin",
-        "name": "Friday Night Funkin'"
-    },
-    {
-        "id": "gangbeasts",
-        "oldId": "gang-beasts",
-        "name": "Gang Beasts"
-    },
-    {
-        "id": "galaxylife",
-        "name": "Galaxy Life"
-    },
-    {
-        "id": "galaxyonfire",
-        "name": "Galaxy on Fire"
-    },
-    {
-        "id": "getawayshootout",
-        "oldId": "getaway-shootout",
-        "name": "Getaway Shootout"
-    },
-    {
-        "id": "ghostrunner",
-        "name": "Ghostrunner"
-    },
-    {
-        "id": "gigantic",
-        "name": "Gigantic"
-    },
-    {
-        "id": "gmce",
-        "oldId": "gm-ce",
-        "name": "Ghost Master: Complete Edition"
-    },
-    {
-        "id": "gnorp",
-        "oldId": "gnorp-apologue",
-        "name": "Gnorp Apologue"
-    },
-    {
-        "id": "godofweapons",
-        "oldId": "god-of-weapons",
-        "name": "God of Weapons"
-    },
-    {
-        "id": "gttod",
-        "name": "Get To The Orange Door"
-    },
-    {
-        "id": "guiltygear",
-        "name": "Guilty Gear"
-    },
-    {
-        "id": "hawked",
-        "name": "Hawked"
-    },
-    {
-        "id": "hearthstone",
-        "name": "Hearthstone"
-    },
-    {
-        "id": "heavygear",
-        "oldId": "heavy-gear",
-        "name": "Heavy Gear"
-    },
-    {
-        "id": "herosiege",
-        "name": "Hero Siege",
-        "official": true
-    },
-    [
-        {
-        "id": "helldivers",
-        "oldId": "helldivers",
-        "name": "Helldivers"
-        },
-        {
-            "parentRef": "helldivers",
-            "oldId": "helldivers-ii"
-        },
+			"search": {
+				"oldName": "TBOI: The Epiphany Mod"
+			}
+		},
+		{
+			"id": "forgottenfables",
+			"name": "Forgotten Fables",
+			"official": true,
+			"uiClass": "wiki-indent",
+	
+			"search": {
+				"oldName": "The Binding of Isaac: Forgotten Fables"
+			}
+		},
+		{
+			"id": "tboirevelations",
+			"name": "Revelations",
+			"uiClass": "wiki-indent"
+		}
+	],
+	{
+		"id": "theinnerworld",
+		"oldId": "the-inner-world",
+		"name": "The Inner World"
+	},
+	{
+		"id": "thevoid",
+		"name": "The Void"
+	},
+	{
+		"id": "tno",
+		"oldId": "the-new-order-last-days-of-europe",
+		"name": "The New Order: Last Days of Europe"
+	},
+	{
+		"id": "themagicalmixturemill",
+		"oldId": "the-magical-mixture-mill",
+		"name": "The Magical Mixture Mill",
+		"official": true
+	},
+	[
+		{
+			"id": "titanfall",
+			"name": "Titanfall",
+			"official": true
+		},
+		{
+			"parentRef": "titanfall",
+			"oldId": "titanfall2"
+		}
+	],
+	{
+		"id": "timberborn",
+		"name": "Timberborn",
+		"official": true
+	},
+	{
+		"id": "tomclancy",
+		"oldId": "jackryan",
+		"name": "Tom Clancy",
 
-        {
-            "parentRef": "helldivers",
-            "oldId": "helldivers-archive"
-        },
-        {
-            "parentRef": "helldivers",
-            "oldId": "helldivers-2"
-        }
-    ],
-    {
-        "id": "helloneighbor",
-        "oldId": "hello-neighbor",
-        "name": "Hello Neighbor",
-        "official": true
-    },
-    {
-        "id": "haveanicedeath",
-        "oldId": "have-a-nice-death",
-        "name": "Have a Nice Death",
-        "official": true
-    },
-    {
-        "id": "holocure",
-        "name": "Holocure"
-    },
-    {
-        "id": "hybridanimals",
-        "name": "Hybrid Animals"
-    },
-    {
-        "id": "idlewizard",
-        "name": "Idle Wizard",
-        "oldId": "idle-wizard",
-        "official": true
-    },
-    {
-        "id": "immortallife",
-        "oldId": "immortal-life",
-        "name": "Immortal Life",
-        "official": true
-    },
-    {
-        "id": "inconvenientmodpack",
-        "oldId": "inconvenient-modpack",
-        "name": "Inconvenient Modpack"
-    },
-    {
-        "id": "incrementalfactory",
-        "oldId": "incremental-factory",
-        "name": "Incremental Factory"
-    },
-    {
-        "id": "infectionfreezone",
-        "oldId": "infection-free-zone",
-        "name": "Infection Free Zone"
-    },
-    {
-        "id": "instarsandtime",
-        "oldId": "in-stars-and-time",
-        "name": "In Stars and Time"
-    },
-    {
-        "id": "tboiipecac",
-        "oldId": "ipecacmod",
-        "name": "IPECAC Community Mod",
-        "official": true
-    },
-    {
-        "id": "jurassicworld",
-        "oldId": "jurassic-world-the-mobile-game",
-        "name": "Jurassic World"
-    },
-    {
-        "id": "junkjack",
-        "name": "Junk Jack",
-        "official": true
-    },
-    {
-        "id": "lastorigin",
-        "name": "Last Origin"
-    },
-    {
-        "id": "lancer",
-        "oldId": "omninet",
-        "name": "LANCER"
-    },
-    {
-        "id": "leafblowerrevolution",
-        "oldId": "leaf-blower-revolution",
-        "name": "Leaf Blower Revolution"
-    },
-    [
-        {
-            "id": "lightnofire",
-            "oldId": "light-no-fire",
-            "name": "Light No Fire",
-            "isFork": false
-        },
-        {
-            "parentRef": "lightnofire",
-            "oldId": "lightnofire"
-        }
-    ],
-    {
-        "id": "littlecornerteahouse",
-        "oldId": "little-corner-tea-house",
-        "name": "Little Corner Tea House"
-    },
-    {
-        "id": "littlekingsstory",
-        "name": "Little King's Story"
-    },
-    {
-        "id": "livealive",
-        "oldId": "live-a-live",
-        "name": "Live a Live"
-    },
-    {
-        "id": "legiontd2",
-        "name": "Legion TD 2"
-    },
-    {
-        "id": "legendsofequestria",
-        "name": "Legends of Equestria"
-    },
-    {
-        "id": "letitdie",
-        "name": "Let It Die"
-    },
-    {
-        "id": "lifeinadventure",
-        "oldId": "life-in-adventure",
-        "name": "Life In Adventure"
-    },
-    {
-        "id": "limbuscompany",
-        "name": "Limbus Company"
-    },
-    {
-        "id": "lkg",
-        "oldId": "littleknown-galaxy",
-        "name": "Little-Known Galaxy"
-    },
-    {
-        "id": "lordofembers",
-        "oldId": "the-lord-of-embers",
-        "name": "The Lord of Embers",
-        "official": true
-    },
-    {
-        "id": "kaetram",
-        "name": "Kaetram",
-        "official": true
-    },
-    {
-        "id": "karmazoo",
-        "name": "KarmaZoo",
-        "official": true
-    },
-    [
-        {
-            "id": "kartriderdrift",
-            "oldId": "kartrider-drift",
-            "name": "KartRider: Drift"
-        },
-        {
-            "parentRef": "kartriderdrift",
-            "oldId": "kartrider"
-        }
-    ],
-    {
-        "id": "kameo",
-        "oldId": "wotnot",
-        "name": "Kameo Elements of Power"
-    },
-    {
-        "id": "katanazero",
-        "oldId": "katana-zero",
-        "name": "Katana ZERO"
-    },
-    {
-        "id": "knighthood",
-        "name": "Knighthood"
-    },
-    {
-        "id": "kryeit",
-        "name": "Kryeit"
-    },
-    {
-        "id": "mahjongsoul",
-        "name": "Mahjong Soul"
-    },
-    {
-        "id": "mainframedefenders",
-        "oldId": "mainframe-defenders",
-        "name": "Mainframe Defenders"
-    },
-    {
-        "id": "marvelrivals",
-        "name": "Marvel Rivals"
-    },
-    {
-        "id": "mewgenics",
-        "name": "Mewgenics"
-    },
-    {
-        "id": "megidoabyss",
-        "oldId": "megido-abyss",
-        "name": "Megido Abyss"
-    },
-    {
-        "id": "metalstorm",
-        "name": "MetalStorm",
-        "official": true
-    },
-    {
-        "id": "metalhellsinger",
-        "oldId": "metal-hellsinger",
-        "name": "Metal Hellsinger"
-    },
-    {
-        "id": "mili",
-        "oldId": "project-mili",
-        "name": "Mili"
-    },
-    {
-        "id": "mindhack",
-        "name": "MINDHACK"
-    },
-    [
-        {
-            "spacer": "Minecraft Wikis (minecraft.wiki)"
-        },
-        {
-            "id": "aether",
-            "name": "Aether Mod",
-            "official": true
-        },
-        {
-            "id": "darkagebizarre",
-            "oldId": "darkage-bizarre",
-            "name": "DarkAge Bizarre",
-            "official": true,
-            "uiClass": "wiki-indent"
-        },
-        {
-            "id": "doggytalentsnext",
-            "oldId": "doggytalents",
-            "name": "Doggy Talents",
-            "official": true,
-            "uiClass": "wiki-indent"
-        },
-        {
-            "id": "thechocolateedition",
-            "oldId": "the-chocolate-edition",
-            "name": "The Chocolate Edition",
-            "uiClass": "wiki-indent"
-        },
-        {
-            "id": "mcdf",
-            "oldId": "mcdiscontinued",
-            "farm": "miraheze",
-            "name": "MC Discontinued Features",
-            "uiClass": "wiki-indent"
-        },
-        {
-            "id": "midnight",
-            "oldId": "the-midnight-mod",
-            "name": "The Midnight Mod",
-            "uiClass": "wiki-indent"
-        }
-    ],
-    {
-        "id": "minihealer",
-        "name": "MiniHealer",
-        "official": true
-    },
-    {
-        "id": "misttraingirls",
-        "oldId": "mist-train-girls",
-        "name": "Mist Train Girls"
-    },
-    {
-        "id": "momodora",
-        "name": "Momodora"
-    },
-    {
-        "id": "monumenta",
-        "oldId": "monumentammo",
-        "name": "Monumenta"
-    },
-    {
-        "id": "multiversus",
-        "name": "Multiversus"
-    },
-    {
-        "id": "needystreameroverload",
-        "oldId": "needy-streamer-overload",
-        "name": "NEEDY STREAMER OVERLOAD"
-    },
-    {
-        "id": "necromerger",
-        "name": "NecroMerger"
-    },
-    {
-        "id": "neutronized",
-        "name": "Neutronized"
-    },
-    {
-        "id": "nightmarereaper",
-        "oldId": "nightmare-reaper",
-        "name": "Nightmare Reaper"
-    },
-    {
-        "id": "nightsofazure",
-        "name": "Nights of Azure"
-    },
-    {
-        "id": "mightyparty",
-        "name": "Mighty Party"
-    },
-    {
-        "id": "noita",
-        "name": "Noita"
-    },
-    {
-        "id": "offpeak",
-        "name": "Off-Peak"
-    },
-    {
-        "id": "oldworldblues",
-        "oldId": "old-world-blues",
-        "name": "Old World Blues",
-        
-        "search": {
-            "oldName": "HOI4 total conversion mod"
-        }
-    },
-    {
-        "id": "omegastrikers",
-        "name": "Omega Strikers",
-        "official": true
-    },
-    {
-        "id": "outward",
-        "name": "Outward",
-        "official": true
-    },
-    {
-        "id": "oxygennotincluded",
-        "name": "Oxygen Not Included"
-    },
-    {
-        "id": "paperlily",
-        "oldId": "paper-lily",
-        "name": "Paper Lily"
-    },
-    {
-        "id": "paperplanet",
-        "oldId": "paper-planet",
-        "name": "Paper Planet"
-    },
-    {
-        "id": "pathologic",
-        "name": "Pathologic",
-        "official": true
-    }, 
-    {
-        "id": "palia",
-        "name": "Palia",
-        "official": true
-    },
-    {
-        "id": "palworld",
-        "name": "Palworld"
-    },
-    {
-        "id": "peaksofyore",
-        "oldId": "peaks-of-yore",
-        "name": "Peaks of Yore"
-    },
-    {
-        "id": "peglin",
-        "name": "Peglin",
-        "official": true
-    },
-    {
-        "id": "pico",
-        "name": "Pico"
-    },
-    {
-        "id": "planetlife",
-        "oldId": "planet-life",
-        "name": "Planet Life"
-    },
-    {
-        "id": "plagueinc",
-        "name": "Plague Inc",
-        "official": true
-    },
-    {
-        "id": "pubg",
-        "name": "PUBG",
-        "official": true
-    },
-    {
-        "id": "predecessor",
-        "name": "Predecessor",
-        "official": true
-    },
-    {
-        "id": "projectarrhythmia",
-        "name": "Project Arrhythmia",
-        "official": true
-    },
-    {
-        "id": "projectmalice",
-        "name": "Project Malice"
-    },
-    {
-        "id": "projectwingman",
-        "name": "Project Wingman"
-    },
-    {
-        "id": "planetaryannihilation",
-        "name": "Planetary Annihilation"
-    },
-    {
-        "id": "plantsvszombies",
-        "name": "Plants vs. Zombies"
-    },
-    {
-        "id": "quasimorph",
-        "name": "Quasimorph",
-        "official": true
-    },
-    {
-        "id": "rebelinc",
-        "oldId": "rebel-inc",
-        "name": "Rebel Inc"
-    },
-    {
-        "id": "redflood",
-        "oldId": "red-flood",
-        "name": "Red Flood",
-        "official": true
-    },
-    {
-        "id": "rejuvenation",
-        "name": "Rejuvenation"
-    },
-    {
-        "id": "roboquest",
-        "name": "Roboquest"
-    },
-    {
-        "id": "revita",
-        "oldId": "revitagame",
-        "name": "Revita",
-        "official": true
-    },
-    {
-        "id": "riseofcultures",
-        "oldId": "rise-of-cultures",
-        "name": "Rise of Cultures"
-    },
-    [
-        {
-            "id": "riskofrain",
-            "name": "Risk of Rain",
-            "official": true
-        },
-        {
-            "id": "riskofrain2",
-            "name": "Risk of Rain 2",
-            "official": true
-        }
-    ],
-    [
-        {
-            "id": "roody2d",
-            "name": "Roody:2D"
-        },
-        {
-            "parentRef": "roody2d",
-            "oldId": "roody-2d",
+		"search": {
+			"oldName": "Jack Ryan"
+		}
+	},
+	{
+		"id": "toontown",
+		"name": "Toontown"
+	},
+	{
+		"id": "totherescue",
+		"name": "To The Rescue"
+	},
+	{
+		"id": "towerfall",
+		"name": "TowerFall"
+	},
+	[
+		{
+		"id": "trucksimulator",
+		"oldId": "truck-simulator",
+		"name": "Truck Simulator"
+		},
+		{
+			"parentRef": "trucksimulator",
+			"oldId": "trucksim"
+		}
+	],
+	{
+		"id": "twistedwonderland",
+		"oldId": "twisted-wonderland",
+		"name": "Twisted Wonderland"
+	},
+	{
+		"id": "ultrakill",
+		"name": "ULTRAKILL",
+		"official": true
+	},
+	{
+		"id": "undermine",
+		"name": "UnderMine",
+		"official": true
+	},
+	{
+		"id": "undertaleyellow",
+		"name": "Undertale Yellow"
+	},
+	{
+		"id": "unturned",
+		"name": "Unturned",
+		"official": true
+	},
+	[
+		{
+			"id": "vibrantventure",
+			"oldId": "vibrantventure",
+			"name": "Vibrant Venture"
+		},
+		{
+			"parentRef": "vibrantventure",
+			"oldId": "vibrant-venture"
+		}
+	],
+	{
+		"id": "voidcrew",
+		"oldId": "void-crew",
+		"name": "Void Crew",
+		"official": true
+	},
+	{
+		"id": "tvruhh",
+		"oldId": "the-void-rains-upon-her-heart",
+		"name": "The Void Rains Upon Her Heart"
+	}, 
+	[
+		{
+			"id": "loathing",
+			"oldId": "westofloathing",
+			"name": "Wiki of Loathing",
 
-            "search": {
-                "oldName": "Roody:2D ReEdit"
-            }
-        }
-    ],
-    {
-        "id": "rootsofpacha",
-        "name": "Roots of Pacha",
-        "official": true
-    },
-    {
-        "id": "rsmc",
-        "name": "RSMC"
-    },
-    {
-        "id": "sandboxels",
-        "name": "Sandboxels",
-        "official": true
-    },
-    {
-        "id": "sandsofaura",
-        "name": "Sands of Aura",
-        "official": true
-    },
-    {
-        "id": "scrabdackle",
-        "name": "Scrabdackle",
-        "official": true
-    },
-    {
-        "id": "satisfactory",
-        "name": "Satisfactory",
-        "official": true
-    },
-    {
-        "id": "scriptwelder",
-        "oldId": "dont-escape",
-        "name": "Scriptwelder"
-    },
-    {
-        "id": "seaofthieves",
-        "name": "Sea of Thieves"
-    },
-    [
-        {
-            "id": "secretsofgrindea",
-            "name": "Secrets of Grindea"
-        },
-        {
-            "parentRef": "secretsofgrindea",
-            "oldId": "secrets-of-grindea"
-        }
-    ],
-    {
-        "id": "sheltered2",
-        "oldId": "sheltered-2",
-        "name": "Sheltered 2"
-    },
-    {
-        "id": "shogunshowdown",
-        "oldId": "shogun-showdown",
-        "name": "Shogun Showdown",
-        "official": true
-    },
-    {
-        "id": "signalis",
-        "name": "SIGNALIS"
-    },
-    {
-        "id": "slarpg",
-        "name": "Super Lesbian Animal RPG"
-    },
-    {
-        "id": "slycooper",
-        "name": "Sly Cooper"
-    },
-    {
-        "id": "smileforme",
-        "oldId": "smile-for-me",
-        "name": "Smile For Me"
-    },
-    {
-        "id": "soulknightprequel",
-        "oldId": "soul-knight-prequel",
-        "name": "Soul Knight Prequel"
-    },
-    {
-        "id": "sonsoftheforest",
-        "name": "Sons of the Forest"
-    },
-    {
-        "id": "speedrunners",
-        "name": "Speedrunners"
-    },
-    {
-        "id": "spellforce",
-        "name": "Spellforce"
-    },
-    {
-        "id": "spaceengineers",
-        "name": "Space Engineers",
-        "official": true
-    },
-    {
-        "id": "spiderheck",
-        "name": "SpiderHeck"
-    },
-    {
-        "id": "spellrogue",
-        "name": "Spellrogue"
-    },
-    {
-        "id": "starsector",
-        "name": "Starsector"
-    },
-    {
-        "id": "steamworld",
-        "name": "Steamworld",
-        "official": true
-    },
-    {
-        "id": "synthetikuniverse",
-        "oldId": "synthetik",
-        "name": "SYNTHETIK"
-    },
-    {
-        "id": "sugaryspire",
-        "oldId": "sugary-spire",
-        "name": "Sugary Spire"
-    },
-    {
-        "id": "sunhaven",
-        "oldId": "sun-haven",
-        "name": "Sun Haven",
-        "official": true
-    },
-    {
-        "id": "superautopets",
-        "name": "Super Auto Pets"
-    },
-    {
-        "id": "supersnail",
-        "oldId": "super-snail",
-        "name": "Super Snail"
-    },
-    [
-        {
-            "id": "starstable",
-            "oldId": "jorvikipedia",
-            "name": "Star Stable"
-        },
-        {
-            "parentRef": "starstable",
-            "oldId": "starstable-archive"
-        }
-    ],
-    {
-        "id": "tabs",
-        "oldId": "totally-accurate-battle-simulator",
-        "name": "Totally Accurate Battle Simulator"
-    },
-    {
-        "id": "trailmakers",
-        "name": "Trailmakers",
-        "official": true
-    },
-    {
-        "id": "teamabnormals",
-        "oldId": "minecraftabnormals",
-        "name": "Team Abnormals",
-        "official": true
-    },
-    {
-        "id": "temtem",
-        "name": "Temtem",
-        "official": true
-    },
-    {
-        "id": "tempestrising",
-        "name": "Tempest Rising"
-    },
-    [
-        {
-            "id": "terraria",
-            "name": "Terraria",
-            "official": true
-        },
-        {
-            "parentRef": "terraria",
-            "oldId": "terraria-archive"
-        },
-        {
-            "id": "calamitymod",
-            "name": "Calamity Mod",
-            "official": true,
-            "uiClass": "wiki-indent"
-        },
-        {
-            "id": "spiritmod",
-            "name": "Spirit Mod",
-            "uiClass": "wiki-indent"
-        },
-        {
-            "id": "thoriummod",
-            "name": "Thorium Mod",
-            "official": true,
-            "uiClass": "wiki-indent"
-        },
-        {
-            "id": "terrariamods",
-            "name": "Terraria Mods",
-            "official": true,
-            "uiClass": "wiki-indent"
-        }
-    ],
-    [
-        {
-            "spacer": "The Binding of Isaac mods"
-        },
-        {
-            "id": "moddingofisaac",
-            "oldId": "moddingofisaac",
-            "name": "Modding of Isaac",
-            "uiClass": "wiki-indent"
-        },
-        {
-            "id": "tboicompliance",
-            "oldId": "compliance",
-            "name": "Compliance",
-            "uiClass": "wiki-indent"
-        },
-        {
-            "id": "tboiepiphany",
-            "oldId": "tboi-epiphany",
-            "name": "Epiphany",
-            "uiClass": "wiki-indent",
+			"search": {
+				"oldName": "West of Loathing",
+				"newIncludesWiki": true
+			}
+		},
+		{
+			"parentRef": "loathing",
+			"oldId": "shadowsoverloathing",
 
-            "search": {
-                "oldName": "TBOI: The Epiphany Mod"
-            }
-        },
-        {
-            "id": "forgottenfables",
-            "name": "Forgotten Fables",
-            "official": true,
-            "uiClass": "wiki-indent",
-    
-            "search": {
-                "oldName": "The Binding of Isaac: Forgotten Fables"
-            }
-        },
-        {
-            "id": "tboirevelations",
-            "name": "Revelations",
-            "uiClass": "wiki-indent"
-        }
-    ],
-    {
-        "id": "theinnerworld",
-        "oldId": "the-inner-world",
-        "name": "The Inner World"
-    },
-    {
-        "id": "thevoid",
-        "name": "The Void"
-    },
-    {
-        "id": "tno",
-        "oldId": "the-new-order-last-days-of-europe",
-        "name": "The New Order: Last Days of Europe"
-    },
-    {
-        "id": "themagicalmixturemill",
-        "oldId": "the-magical-mixture-mill",
-        "name": "The Magical Mixture Mill",
-        "official": true
-    },
-    [
-        {
-            "id": "titanfall",
-            "name": "Titanfall",
-            "official": true
-        },
-        {
-            "parentRef": "titanfall",
-            "oldId": "titanfall2"
-        }
-    ],
-    {
-        "id": "timberborn",
-        "name": "Timberborn",
-        "official": true
-    },
-    {
-        "id": "tomclancy",
-        "oldId": "jackryan",
-        "name": "Tom Clancy",
+			"search": {
+				"oldName": "Shadows Over Loathing"
+			},
 
-        "search": {
-            "oldName": "Jack Ryan"
-        }
-    },
-    {
-        "id": "toontown",
-        "name": "Toontown"
-    },
-    {
-        "id": "totherescue",
-        "name": "To The Rescue"
-    },
-    {
-        "id": "towerfall",
-        "name": "TowerFall"
-    },
-    [
-        {
-        "id": "trucksimulator",
-        "oldId": "truck-simulator",
-        "name": "Truck Simulator"
-        },
-        {
-            "parentRef": "trucksimulator",
-            "oldId": "trucksim"
-        }
-    ],
-    {
-        "id": "twistedwonderland",
-        "oldId": "twisted-wonderland",
-        "name": "Twisted Wonderland"
-    },
-    {
-        "id": "ultrakill",
-        "name": "ULTRAKILL",
-        "official": true
-    },
-    {
-        "id": "undermine",
-        "name": "UnderMine",
-        "official": true
-    },
-    {
-        "id": "undertaleyellow",
-        "name": "Undertale Yellow"
-    },
-    {
-        "id": "unturned",
-        "name": "Unturned",
-        "official": true
-    },
-    [
-        {
-            "id": "vibrantventure",
-            "oldId": "vibrantventure",
-            "name": "Vibrant Venture"
-        },
-        {
-            "parentRef": "vibrantventure",
-            "oldId": "vibrant-venture"
-        }
-    ],
-    {
-        "id": "voidcrew",
-        "oldId": "void-crew",
-        "name": "Void Crew",
-        "official": true
-    },
-    {
-        "id": "tvruhh",
-        "oldId": "the-void-rains-upon-her-heart",
-        "name": "The Void Rains Upon Her Heart"
-    }, 
-    [
-        {
-            "id": "loathing",
-            "oldId": "westofloathing",
-            "name": "Wiki of Loathing",
+			"rewritePages": {
+				"Shadows_Over_Loathing_Wiki": "Wiki_of_Loathing"
+			}
+		}
+	],
+	{
+		"id": "vtolvr",
+		"oldId": "vtol-vr",
+		"name": "VTOL VR",
+		"official": true
+	},
+	{
+		"id": "voidigo",
+		"name": "Voidigo"
+	},
+	{
+		"id": "warcommander",
+		"name": "War Commander"
+	},
+	[
+		{
+			"id": "warcraft",
+			"oldId": "wowpedia",
+			"name": "Warcraft",
 
-            "search": {
-                "oldName": "West of Loathing",
-                "newIncludesWiki": true
-            }
-        },
-        {
-            "parentRef": "loathing",
-            "oldId": "shadowsoverloathing",
+			"search": {
+				"oldName": "Wowpedia",
+				"newIncludesWiki": true
+			}
+		},
+		{
+			"parentRef": "warcraft",
+			"oldId": "wowwiki-archive",
 
-            "search": {
-                "oldName": "Shadows Over Loathing"
-            },
-
-            "rewritePages": {
-                "Shadows_Over_Loathing_Wiki": "Wiki_of_Loathing"
-            }
-        }
-    ],
-    {
-        "id": "vtolvr",
-        "oldId": "vtol-vr",
-        "name": "VTOL VR",
-        "official": true
-    },
-    {
-        "id": "voidigo",
-        "name": "Voidigo"
-    },
-    {
-        "id": "warcommander",
-        "name": "War Commander"
-    },
-    [
-        {
-            "id": "warcraft",
-            "oldId": "wowpedia",
-            "name": "Warcraft",
-
-            "search": {
-                "oldName": "Wowpedia",
-                "newIncludesWiki": true
-            }
-        },
-        {
-            "parentRef": "warcraft",
-            "oldId": "wowwiki-archive",
-
-            "search": {
-                "oldName": "WowWiki"
-            }
-        }
-    ],
-    {
-        "id": "wautah",
-        "name": "Weird and Unfortunate Things Are Happening"
-    },
-    {
-        "id": "wynncraft",
-        "name": "Wynncraft",
-        "official": true
-    },
-    {
-        "id": "willyousnail",
-        "name": "Will You Snail?",
-        "official": true
-    },
-    {
-        "id": "windowkill",
-        "name": "Windowkill",
-        "official": true
-    },
-    {
-        "id": "witchfire",
-        "name": "Witchfire"
-    },
-    {
-        "id": "wizardry",
-        "name": "Wizardry"
-    },
-    {
-        "id": "worship",
-        "oldId": "worshipcrg",
-        "name": "Worship"
-    },
-    {
-        "id": "worldofbabel",
-        "oldId": "world-of-babel",
-        "name": "World of Babel"
-    },
-    {
-        "id": "yohanebid",
-        "oldId": "yohane-deepblue",
-        "name": "Yohane the Parhelion -BLAZE in the DEEPBLUE-"
-    },
-    [
-        {
-            "id": "yourchronicle",
-            "oldId": "your-chronicle",
-            "name": "Your Chronicle"
-        },
-        {
-            "parentRef": "yourchronicle",
-            "oldId": "anotherchronicle"
-        }
-    ],
-    {
-        "id": "xformgames",
-        "oldId": "xform-games",
-        "name": "Xform Games"
-    },
-    {
-        "id": "zeldacraft",
-        "name": "Zeldacraft"
-    }
+			"search": {
+				"oldName": "WowWiki"
+			}
+		}
+	],
+	{
+		"id": "wautah",
+		"name": "Weird and Unfortunate Things Are Happening"
+	},
+	{
+		"id": "wynncraft",
+		"name": "Wynncraft",
+		"official": true
+	},
+	{
+		"id": "willyousnail",
+		"name": "Will You Snail?",
+		"official": true
+	},
+	{
+		"id": "windowkill",
+		"name": "Windowkill",
+		"official": true
+	},
+	{
+		"id": "witchfire",
+		"name": "Witchfire"
+	},
+	{
+		"id": "wizardry",
+		"name": "Wizardry"
+	},
+	{
+		"id": "worship",
+		"oldId": "worshipcrg",
+		"name": "Worship"
+	},
+	{
+		"id": "worldofbabel",
+		"oldId": "world-of-babel",
+		"name": "World of Babel"
+	},
+	{
+		"id": "yohanebid",
+		"oldId": "yohane-deepblue",
+		"name": "Yohane the Parhelion -BLAZE in the DEEPBLUE-"
+	},
+	[
+		{
+			"id": "yourchronicle",
+			"oldId": "your-chronicle",
+			"name": "Your Chronicle"
+		},
+		{
+			"parentRef": "yourchronicle",
+			"oldId": "anotherchronicle"
+		}
+	],
+	{
+		"id": "xformgames",
+		"oldId": "xform-games",
+		"name": "Xform Games"
+	},
+	{
+		"id": "zeldacraft",
+		"name": "Zeldacraft"
+	}
 ]
