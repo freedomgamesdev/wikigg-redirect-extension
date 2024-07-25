@@ -17,7 +17,25 @@
 .site-list__qc > button {
     height: 1.5em;
     width: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid color-mix(in srgb, var(--spacer-colour) 80%, #fff);
+    border-radius: 2px;
+    background-color: var(--spacer-colour);
+}
+.site-list__qc > button::after {
     display: block;
+    width: 1.35em;
+    height: 1.35em;
+    content: '';
+    background: url(/icons/cdx/menu.svg) center / contain no-repeat;
+    filter: invert(1);
+}
+.site-list__qc > button:hover,
+.site-list__qc--is-open > button {
+    border-color: color-mix(in srgb, var(--accent-colour) 50%, #fff);
+    background-color: color-mix(in srgb, var(--accent-colour) 20%, #555);
 }
 .site-list__qc:not( .site-list__qc--is-open ) > div {
     display: none;
@@ -56,7 +74,7 @@
 }
 
 
-[data-component='WikiList'] .site-list__search-box {
+.site-list__search-box {
     width: 100%;
     background: #bdc1c1aa;
     border-radius: 4px;
@@ -64,7 +82,7 @@
     margin-top: calc(-0.2rem - 1px);
     margin-bottom: 0.3rem;
 }
-[data-component='WikiList'] .site-list__search-box > input {
+.site-list__search-box > input {
     appearance: none;
     border: 0;
     width: 100%;
@@ -72,31 +90,34 @@
     background: transparent;
     padding: 0.3rem 0.6rem;
 }
-[data-component='WikiList'] > .site-list-wrapper > .site-list {
+.site-list-wrapper > .site-list {
     max-height: 350px;
     overflow-y: auto;
     font-size: 102%;
     scrollbar-width: thin;
     scrollbar-color: var(--accent-colour);
 }
-[data-component=WikiList] .site-list__entry {
+.site-list__entry {
     display: flex;
     align-items: center;
     padding: 0.15rem 0.2rem;
     box-sizing: border-box;
 }
-[data-component=WikiList] .site-list__entry[data-is-filtered-out='true'] {
+.site-list__entry[data-is-filtered-out='true'] {
     height: 0px;
     max-height: 0px;
     overflow-y: clip;
     padding: 0;
 }
-[data-component=WikiList] .site-list__entry > label {
+.site-list__entry:hover {
+    background: #fff1;
+}
+.site-list__entry > label {
     flex-grow: 1;
     line-height: 1.2;
     margin: 0 0.15rem;
 }
-[data-component=WikiList] .site-list__site-link {
+.site-list__site-link {
     display: block;
     flex-basis: 12px;
     flex-shrink: 0;
