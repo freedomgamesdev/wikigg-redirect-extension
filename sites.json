@@ -52,10 +52,19 @@
 		"name": "13 Sentinels"
 	},
 	{
+		"id": "20minutestilldawn",
+		"oldId": "minutes-till-dawn",
+		"name": "20 Minutes Till Dawn"
+	},
+	{
+		"id": "7daystodie",
+		"name": "7 Days to Die",
+		"official": true
+	},
+	{
 		"id": "acecombat",
 		"name": "Ace Combat",
 		"official": true,
-
 		"search": {
 			"oldName": "Acepedia"
 		}
@@ -90,7 +99,6 @@
 			"id": "ark",
 			"name": "ARK",
 			"official": true,
-
 			"search": {
 				"oldName": "ARK: Survival Evolved",
 				"newTitle": "ARK Official Community Wiki"
@@ -99,7 +107,6 @@
 		{
 			"parentRef": "ark",
 			"oldId": "ark-survival-evolved",
-
 			"search": {
 				"oldName": "ARK: Survival Evolved"
 			}
@@ -107,12 +114,19 @@
 		{
 			"parentRef": "ark",
 			"oldId": "ark-survival-evolved-archive",
-
 			"search": {
 				"oldName": "ARK: Survival Evolved"
 			}
 		}
 	],
+	{
+		"id": "aground",
+		"name": "Aground"
+	},
+	{
+		"id": "apexracer",
+		"name": "APEX Racer"
+	},
 	{
 		"id": "arknights",
 		"name": "Arknights"
@@ -158,6 +172,11 @@
 		"name": "Apex Legends"
 	},
 	{
+		"id": "astralparty",
+		"oldId": "starparty",
+		"name": "Astral Party"
+	},
+	{
 		"id": "backpackbattles",
 		"oldId": "backpack-battles",
 		"name": "Backpack Battles"
@@ -170,6 +189,14 @@
 	{
 		"id": "bakegg",
 		"name": "Bake.gg"
+	},
+	{
+		"id": "bananapedia",
+		"oldId": "supermonkeyball",
+		"name": "Bananapedia",
+		"search": {
+			"oldName": "Super Monkey Ball"
+		}
 	},
 	{
 		"id": "battlebit",
@@ -187,7 +214,6 @@
 		"oldId": "battletabs-io",
 		"name": "BattleTabs",
 		"official": true,
-
 		"search": {
 			"oldName": "BattleTabs.io"
 		}
@@ -221,9 +247,27 @@
 		"name": "Bejeweled"
 	},
 	{
+		"id": "bfdibranches",
+		"oldId": "bfdi-branches",
+		"name": "BFDI: Branches",
+		"official": true
+	},
+	{
+		"id": "blackreliquary",
+		"name": "The Black Reliquary"
+	},
+	{
 		"id": "bleed",
 		"oldId": "bleed-game",
 		"name": "Bleed"
+	},
+	{
+		"id": "blockfront",
+		"oldId": "blockfrontmc",
+		"name": "BlockFront",
+		"search": {
+			"oldName": "BlockFrontMC"
+		}
 	},
 	{
 		"id": "boomslingers",
@@ -255,7 +299,6 @@
 		"id": "bellasara",
 		"oldId": "thebellasara",
 		"name": "Bella Sara",
-
 		"search": {
 			"oldName": "The Bella Sara"
 		}
@@ -282,7 +325,6 @@
 		"id": "chivalry",
 		"name": "Chivalry",
 		"official": true,
-
 		"search": {
 			"oldName": "Chivalry: Medieval Warfare"
 		}
@@ -402,6 +444,13 @@
 		"name": "Destiny 2 Minecraft Edition"
 	},
 	{
+		"id": "deltatraveler",
+		"name": "DELTATRAVELER",
+		"search": {
+			"oldName": "The Unofficial Deltatraveler"
+		}
+	},
+	{
 		"id": "dredge",
 		"name": "Dredge"
 	},
@@ -431,6 +480,10 @@
 		"oldId": "do-not-feed-the-monkeys",
 		"name": "Do Not Feed The Monkeys 2099",
 		"official": true
+	},
+	{
+		"id": "dragonfable",
+		"name": "DragonFable"
 	},
 	{
 		"id": "dungeonnowloading",
@@ -496,12 +549,12 @@
 		"id": "ena",
 		"oldId": "enajoelg",
 		"name": "ENA"
-	}, 
+	},
 	{
 		"id": "erenshor",
 		"name": "Erenshor",
 		"official": true
-	}, 
+	},
 	{
 		"id": "exapico",
 		"oldId": "artonelico",
@@ -513,10 +566,15 @@
 		"official": true
 	},
 	{
+		"id": "eternitydev",
+		"oldId": "eternitydev-games",
+		"name": "EternityDev"
+	},
+	{
 		"id": "everdreamvalley",
 		"name": "Everdream Valley",
 		"official": true
-	}, 
+	},
 	{
 		"id": "fantasylife",
 		"oldId": "fantasy-life",
@@ -541,7 +599,6 @@
 		"id": "fearandhunger",
 		"name": "Fear and Hunger",
 		"official": true,
-
 		"search": {
 			"oldName": "\"Fear and Hunger: the Tormentpedia\""
 		}
@@ -566,7 +623,6 @@
 		{
 			"parentRef": "fiendfolio",
 			"oldId": "fiend-folio-afterbirth",
-
 			"search": {
 				"oldName": "Fiend Folio Afterbirth+"
 			}
@@ -623,6 +679,12 @@
 		"name": "Ghostrunner"
 	},
 	{
+		"id": "ghostwatchers",
+		"oldId": "ghost-watchers",
+		"name": "Ghost Watchers",
+		"official": true
+	},
+	{
 		"id": "gigantic",
 		"name": "Gigantic"
 	},
@@ -669,15 +731,14 @@
 	},
 	[
 		{
-		"id": "helldivers",
-		"oldId": "helldivers",
-		"name": "Helldivers"
+			"id": "helldivers",
+			"oldId": "helldivers",
+			"name": "Helldivers"
 		},
 		{
 			"parentRef": "helldivers",
 			"oldId": "helldivers-ii"
 		},
-
 		{
 			"parentRef": "helldivers",
 			"oldId": "helldivers-archive"
@@ -704,8 +765,19 @@
 		"name": "Holocure"
 	},
 	{
+		"id": "hyboriangates",
+		"name": "Hyborian Gates",
+		"search": {
+			"oldName": "Hyborian gates"
+		}
+	},
+	{
 		"id": "hybridanimals",
 		"name": "Hybrid Animals"
+	},
+	{
+		"id": "hytale",
+		"name": "Hytale"
 	},
 	{
 		"id": "idlewizard",
@@ -951,6 +1023,11 @@
 		}
 	],
 	{
+		"id": "minehut",
+		"oldId": "minehutmc",
+		"name": "Minehut"
+	},
+	{
 		"id": "minihealer",
 		"name": "MiniHealer",
 		"official": true
@@ -963,6 +1040,13 @@
 	{
 		"id": "momodora",
 		"name": "Momodora"
+	},
+	{
+		"id": "monsternevercry",
+		"name": "Monster Never Cry",
+		"search": {
+			"oldName": "Monsternevercry"
+		}
 	},
 	{
 		"id": "monumenta",
@@ -1011,7 +1095,6 @@
 		"id": "oldworldblues",
 		"oldId": "old-world-blues",
 		"name": "Old World Blues",
-		
 		"search": {
 			"oldName": "HOI4 total conversion mod"
 		}
@@ -1044,7 +1127,7 @@
 		"id": "pathologic",
 		"name": "Pathologic",
 		"official": true
-	}, 
+	},
 	{
 		"id": "palia",
 		"name": "Palia",
@@ -1164,12 +1247,21 @@
 		{
 			"parentRef": "roody2d",
 			"oldId": "roody-2d",
-
 			"search": {
 				"oldName": "Roody:2D ReEdit"
 			}
 		}
 	],
+	{
+		"id": "pvzneighborhooddefense",
+		"oldId": "pvz-neighborhood-defense",
+		"name": "PvZ Neighborhood Defense",
+		"official": true
+	},
+	{
+		"id": "rlcraft",
+		"name": "RLCraft"
+	},
 	{
 		"id": "rootsofpacha",
 		"name": "Roots of Pacha",
@@ -1178,6 +1270,11 @@
 	{
 		"id": "rsmc",
 		"name": "RSMC"
+	},
+	{
+		"id": "samuraigunn2",
+		"oldId": "samurai-gunn-2",
+		"name": "Samurai Gunn 2"
 	},
 	{
 		"id": "sandboxels",
@@ -1219,6 +1316,14 @@
 		}
 	],
 	{
+		"id": "originrealms",
+		"name": "Origin Realms"
+	},
+	{
+		"id": "scorn",
+		"name": "Scorn"
+	},
+	{
 		"id": "sheltered2",
 		"oldId": "sheltered-2",
 		"name": "Sheltered 2"
@@ -1240,6 +1345,11 @@
 	{
 		"id": "slycooper",
 		"name": "Sly Cooper"
+	},
+	{
+		"id": "smallandsurvivethewilds",
+		"oldId": "smalland-survive-the-wilds",
+		"name": "Smalland: Survive the Wilds"
 	},
 	{
 		"id": "smileforme",
@@ -1286,6 +1396,11 @@
 		"official": true
 	},
 	{
+		"id": "strinova",
+		"name": "Strinova",
+		"official": true
+	},
+	{
 		"id": "synthetikuniverse",
 		"oldId": "synthetik",
 		"name": "SYNTHETIK"
@@ -1300,6 +1415,14 @@
 		"oldId": "sun-haven",
 		"name": "Sun Haven",
 		"official": true
+	},
+	{
+		"id": "sunnyside",
+		"oldId": "sunnysidegame",
+		"name": "SunnySide",
+		"search": {
+			"oldName": "SunnySide Game"
+		}
 	},
 	{
 		"id": "superautopets",
@@ -1401,7 +1524,6 @@
 			"oldId": "tboi-epiphany",
 			"name": "Epiphany",
 			"uiClass": "wiki-indent",
-
 			"search": {
 				"oldName": "TBOI: The Epiphany Mod"
 			}
@@ -1411,7 +1533,6 @@
 			"name": "Forgotten Fables",
 			"official": true,
 			"uiClass": "wiki-indent",
-	
 			"search": {
 				"oldName": "The Binding of Isaac: Forgotten Fables"
 			}
@@ -1454,6 +1575,26 @@
 		}
 	],
 	{
+		"id": "smash-legends",
+		"oldId": "smashlegends",
+		"name": "Smash Legends"
+	},
+	{
+		"id": "surroundead",
+		"name": "SurrounDead",
+		"official": true
+	},
+	{
+		"id": "thecrust",
+		"oldId": "the-crust",
+		"name": "The Crust"
+	},
+	{
+		"id": "thewolf",
+		"oldId": "the-wolf-simulator",
+		"name": "The Wolf"
+	},
+	{
 		"id": "timberborn",
 		"name": "Timberborn",
 		"official": true
@@ -1462,7 +1603,6 @@
 		"id": "tomclancy",
 		"oldId": "jackryan",
 		"name": "Tom Clancy",
-
 		"search": {
 			"oldName": "Jack Ryan"
 		}
@@ -1481,9 +1621,9 @@
 	},
 	[
 		{
-		"id": "trucksimulator",
-		"oldId": "truck-simulator",
-		"name": "Truck Simulator"
+			"id": "trucksimulator",
+			"oldId": "truck-simulator",
+			"name": "Truck Simulator"
 		},
 		{
 			"parentRef": "trucksimulator",
@@ -1535,13 +1675,12 @@
 		"id": "tvruhh",
 		"oldId": "the-void-rains-upon-her-heart",
 		"name": "The Void Rains Upon Her Heart"
-	}, 
+	},
 	[
 		{
 			"id": "loathing",
 			"oldId": "westofloathing",
 			"name": "Wiki of Loathing",
-
 			"search": {
 				"oldName": "West of Loathing",
 				"newIncludesWiki": true
@@ -1550,16 +1689,24 @@
 		{
 			"parentRef": "loathing",
 			"oldId": "shadowsoverloathing",
-
 			"search": {
 				"oldName": "Shadows Over Loathing"
 			},
-
 			"rewritePages": {
 				"Shadows_Over_Loathing_Wiki": "Wiki_of_Loathing"
 			}
 		}
 	],
+	{
+		"id": "uhctherenaissance",
+		"oldId": "uhc-the-renaissance",
+		"name": "Minecraft UHC: The Renaissance",
+		"official": true
+	},
+	{
+		"id": "unbeatable",
+		"name": "UNBEATABLE"
+	},
 	{
 		"id": "vtolvr",
 		"oldId": "vtol-vr",
@@ -1571,6 +1718,10 @@
 		"name": "Voidigo"
 	},
 	{
+		"id": "wakfu",
+		"name": "Wakfu"
+	},
+	{
 		"id": "warcommander",
 		"name": "War Commander"
 	},
@@ -1579,7 +1730,6 @@
 			"id": "warcraft",
 			"oldId": "wowpedia",
 			"name": "Warcraft",
-
 			"search": {
 				"oldName": "Wowpedia",
 				"newIncludesWiki": true
@@ -1588,7 +1738,6 @@
 		{
 			"parentRef": "warcraft",
 			"oldId": "wowwiki-archive",
-
 			"search": {
 				"oldName": "WowWiki"
 			}
@@ -1597,6 +1746,10 @@
 	{
 		"id": "wautah",
 		"name": "Weird and Unfortunate Things Are Happening"
+	},
+	{
+		"id": "wildfire",
+		"name": "Wildfire"
 	},
 	{
 		"id": "wynncraft",
@@ -1651,6 +1804,10 @@
 		"id": "xformgames",
 		"oldId": "xform-games",
 		"name": "Xform Games"
+	},
+	{
+		"id": "yokaiwatch",
+		"name": "Yo-kai Watch"
 	},
 	{
 		"id": "zeldacraft",
