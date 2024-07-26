@@ -1,7 +1,7 @@
 {
     "name": "__MSG_extension_name_dev__",
     "author": "indie.io",
-    "version": "1.7.9910711",
+    "version": "1.7.9910712",
     "description": "__MSG_extension_desc__",
     "default_locale": "en",
     "permissions": [
