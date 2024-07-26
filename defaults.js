@@ -48,7 +48,11 @@ export default function () {
             },
             ddg: {
                 mode: 'rewrite'
+            },
+	    startpage: {
+                mode: 'rewrite'
             }
+
         }
     };
 }

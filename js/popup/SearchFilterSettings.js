@@ -1,7 +1,7 @@
 import {
     createDomElement,
     getMessage
-} from "../util.js";
+} from '../util.js';
 
 
 /**
@@ -18,13 +18,18 @@ export default class SearchFilterSettings {
         {
             id: 'google',
             supportsFilter: true,
-            supportsRewrite: true,
+            supportsRewrite: true
         },
         {
             id: 'ddg',
             supportsFilter: true,
-            supportsRewrite: true,
+            supportsRewrite: true
         },
+        {
+            id: 'startpage',
+            supportsFilter: true,
+            supportsRewrite: true
+        }
     ];
 
 
@@ -37,14 +42,14 @@ export default class SearchFilterSettings {
             createDomElement( 'tr', {
                 html: [
                     createDomElement( 'td', {
-                        text: getMessage( `sfs_engine_${info.id}` ),
+                        text: getMessage( `sfs_engine_${info.id}` )
                     } ),
                     this.#createRadioCell( `sfs_mode_${info.id}`, 'sfs_rewrite', `sfs.${info.id}.mode`, 'rewrite',
                         false ),
                     this.#createRadioCell( `sfs_mode_${info.id}`, 'sfs_filter', `sfs.${info.id}.mode`, 'filter',
                         false ),
                     this.#createRadioCell( `sfs_mode_${info.id}`, 'sfs_rewrite', `sfs.${info.id}.mode`, 'none',
-                        true ),
+                        true )
                 ],
                 appendTo: tbody
             } );
