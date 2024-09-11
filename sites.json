@@ -70,6 +70,11 @@
 		}
 	},
 	{
+		"id": "ahatintime",
+		"oldId": "ahatintime",
+		"name": "A Hat in Time"
+	},
+	{
 		"id": "almostahero",
 		"oldId": "almost-a-hero",
 		"name": "Almost a Hero"
@@ -83,6 +88,14 @@
 		"id": "airportceo",
 		"name": "Airport CEO",
 		"official": true
+	},
+	{
+		"id": "andromedamod",
+		"oldId": "andromeda-mod",
+		"name": "AndromedA Mod",
+		"search": {
+			"oldName": "Andromeda Mod"
+		}
 	},
 	{
 		"id": "animalwell",
@@ -126,6 +139,10 @@
 	{
 		"id": "apexracer",
 		"name": "APEX Racer"
+	},
+	{
+		"id": "appel",
+		"name": "Appel"
 	},
 	{
 		"id": "arknights",
@@ -238,6 +255,14 @@
 			"oldId": "finding-bigfoot-game"
 		}
 	],
+	{
+		"id": "bindingofisaacrebirth",
+		"oldId": "bindingofisaacrebirth",
+		"name": "The Binding of Isaac: Rebirth",
+		"search": {
+			"oldName": "Binding of Isaac: Rebirth"
+		}
+	},
 	{
 		"id": "bitcraft",
 		"name": "BitCraft"
@@ -524,6 +549,11 @@
 		}
 	],
 	{
+		"id": "drugdealersimulator2",
+		"oldId": "drug-dealer-simulator-2",
+		"name": "Drug Dealer Simulator 2"
+	},
+	{
 		"id": "dyinglight",
 		"name": "Dying Light",
 		"official": true
@@ -538,6 +568,22 @@
 		"id": "eastscarp",
 		"name": "East Scarp",
 		"official": true
+	},
+	{
+		"id": "eclipsesmp",
+		"oldId": "eclipse-smp",
+		"name": "EclipseSMP",
+		"search": {
+			"oldName": "Eclipse SMP"
+		}
+	},
+	{
+		"id": "emberknights",
+		"oldId": "ember-knights-game",
+		"name": "Ember Knights",
+		"search": {
+			"oldName": "Ember Knights - Game"
+		}
 	},
 	{
 		"id": "equestriaatwar",
@@ -628,6 +674,11 @@
 			}
 		}
 	],
+	{
+		"id": "fieldsofmistria",
+		"oldId": "fields-of-mistria",
+		"name": "Fields of Mistria"
+	},
 	{
 		"id": "flight",
 		"name": "Flight Sim"
@@ -786,6 +837,11 @@
 		"official": true
 	},
 	{
+		"id": "illusioncarnival",
+		"oldId": "illusion-carnival",
+		"name": "Illusion Carnival"
+	},
+	{
 		"id": "immortallife",
 		"oldId": "immortal-life",
 		"name": "Immortal Life",
@@ -828,6 +884,15 @@
 		"official": true
 	},
 	{
+		"id": "kalterkrieg",
+		"name": "Kalterkrieg"
+	},
+	{
+		"id": "kingdomcomedeliverance",
+		"oldId": "kingdom-come-deliverance",
+		"name": "Kingdom Come: Deliverance"
+	},
+	{
 		"id": "lastorigin",
 		"name": "Last Origin"
 	},
@@ -854,6 +919,11 @@
 		}
 	],
 	{
+		"id": "liftlands",
+		"oldId": "liftlands",
+		"name": "Liftlands"
+	},
+	{
 		"id": "littlecornerteahouse",
 		"oldId": "little-corner-tea-house",
 		"name": "Little Corner Tea House"
@@ -878,6 +948,15 @@
 	{
 		"id": "letitdie",
 		"name": "Let It Die"
+	},
+	{
+		"id": "levelzeroextraction",
+		"oldId": "level-zero-extraction",
+		"name": "Level Zero: Extraction",
+		"official": true,
+		"search": {
+			"oldName": "Level Zero: Extraction"
+		}
 	},
 	{
 		"id": "lifeinadventure",
@@ -952,6 +1031,11 @@
 		"name": "Marvel Rivals"
 	},
 	{
+		"id": "marvelsuperheroesmod",
+		"oldId": "marvel-superheroes-mod",
+		"name": "Marvel Superheroes Mod"
+	},
+	{
 		"id": "mewgenics",
 		"name": "Mewgenics"
 	},
@@ -959,6 +1043,11 @@
 		"id": "megidoabyss",
 		"oldId": "megido-abyss",
 		"name": "Megido Abyss"
+	},
+	{
+		"id": "meridian59",
+		"oldId": "meridian-59",
+		"name": "Meridian 59"
 	},
 	{
 		"id": "metalstorm",
@@ -1038,6 +1127,12 @@
 		"name": "Mist Train Girls"
 	},
 	{
+		"id": "mmvremastered",
+		"oldId": "mmvremastered",
+		"name": "MMV:Remastered",
+		"official": true
+	},
+	{
 		"id": "momodora",
 		"name": "Momodora"
 	},
@@ -1052,6 +1147,11 @@
 		"id": "monumenta",
 		"oldId": "monumentammo",
 		"name": "Monumenta"
+	},
+	{
+		"id": "moonlightpeaks",
+		"oldId": "moonlightpeaks",
+		"name": "Moonlight Peaks"
 	},
 	{
 		"id": "multiversus",
@@ -1084,8 +1184,27 @@
 		"name": "Mighty Party"
 	},
 	{
+		"id": "nitrome",
+		"oldId": "nitrome",
+		"name": "Nitrome",
+		"search": {
+			"oldName": "Nitrome"
+		}
+	},
+	{
+		"id": "nivalis",
+		"oldId": "nivalisgame",
+		"name": "Nivalis"
+	},
+	{
 		"id": "noita",
 		"name": "Noita"
+	},
+	{
+		"id": "oddrealm",
+		"oldId": "oddrealm",
+		"name": "Odd Realm",
+		"official": true
 	},
 	{
 		"id": "offpeak",
@@ -1263,6 +1382,10 @@
 		"name": "RLCraft"
 	},
 	{
+		"id": "rogueadventure",
+		"name": "Rogue Adventure"
+	},
+	{
 		"id": "rootsofpacha",
 		"name": "Roots of Pacha",
 		"official": true
@@ -1357,6 +1480,11 @@
 		"name": "Smile For Me"
 	},
 	{
+		"id": "solinvictus",
+		"oldId": "sol-invictus",
+		"name": "Sol Invictus"
+	},
+	{
 		"id": "soulknightprequel",
 		"oldId": "soul-knight-prequel",
 		"name": "Soul Knight Prequel"
@@ -1396,9 +1524,22 @@
 		"official": true
 	},
 	{
+		"id": "stickwarfarebloodstrike",
+		"oldId": "stick-warfare-blood-strike",
+		"name": "Stick Warfare: Blood Strike"
+	},
+	{
 		"id": "strinova",
 		"name": "Strinova",
 		"official": true
+	},
+	{
+		"id": "subnauticamodding",
+		"oldId": "subnautica-mods",
+		"name": "Subnautica Modding",
+		"search": {
+			"oldName": "Subnautica Mods"
+		}
 	},
 	{
 		"id": "synthetikuniverse",
@@ -1544,6 +1685,14 @@
 		}
 	],
 	{
+		"id": "teambytethebackrooms",
+		"oldId": "teambytebackrooms",
+		"name": "Team Byte The Backrooms",
+		"search": {
+			"oldName": "Team Byte's Backrooms"
+		}
+	},
+	{
 		"id": "theinnerworld",
 		"oldId": "the-inner-world",
 		"name": "The Inner World"
@@ -1590,6 +1739,22 @@
 		"name": "The Crust"
 	},
 	{
+		"id": "thedoorsoftrithius",
+		"oldId": "the-doors-of-trithius",
+		"name": "The Doors of Trithius"
+	},
+	{
+		"id": "theinfected",
+		"oldId": "the-infected",
+		"name": "The Infected"
+	},
+	{
+		"id": "theprecinct",
+		"oldId": "the-precinct",
+		"name": "The Precinct",
+		"official": true
+	},
+	{
 		"id": "thewolf",
 		"oldId": "the-wolf-simulator",
 		"name": "The Wolf"
@@ -1630,6 +1795,16 @@
 			"oldId": "trucksim"
 		}
 	],
+	{
+		"id": "tridedash",
+		"name": "Tride Dash"
+	},
+	{
+		"id": "tsukisodyssey",
+		"oldId": "tsuki-odyssey",
+		"name": "Tsuki's Odyssey",
+		"official": true
+	},
 	{
 		"id": "twistedwonderland",
 		"oldId": "twisted-wonderland",
@@ -1801,9 +1976,22 @@
 		}
 	],
 	{
+		"id": "worldofgrimm",
+		"name": "World of Grimm"
+	},
+	{
 		"id": "xformgames",
 		"oldId": "xform-games",
 		"name": "Xform Games"
+	},
+	{
+		"id": "yaoling",
+		"oldId": "yaoling-mythical-journey",
+		"name": "Yaoling Mythical Journey",
+		"official": true,
+		"search": {
+			"oldName": "Yaoling: Mythical Journey"
+		}
 	},
 	{
 		"id": "yokaiwatch",
