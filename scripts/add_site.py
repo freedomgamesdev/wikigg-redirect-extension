@@ -46,12 +46,16 @@ def normalise_args(args):
         r = query_siteinfo(f'{args.old_id or args.new_id}.fandom.com')
         args.old_name = r['sitename'].removesuffix(' Wiki')
         print('fetched site name from old wiki:', args.old_name)
-        if args.old_name == args.name:
-            args.old_name = None
     
     if not args.official:
         r = query_pagetitle(f'{args.new_id}.wiki.gg')
         args.official = 'Official' in r
+
+    if args.old_name == args.name:
+        args.old_name = None
+
+    if args.old_id == args.new_id:
+        args.old_id = None
 
 
 def add_wiki(args):
