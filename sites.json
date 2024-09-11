@@ -52,11 +52,6 @@
 		"name": "13 Sentinels"
 	},
 	{
-		"id": "20minutestilldawn",
-		"oldId": "minutes-till-dawn",
-		"name": "20 Minutes Till Dawn"
-	},
-	{
 		"id": "7daystodie",
 		"name": "7 Days to Die",
 		"official": true
