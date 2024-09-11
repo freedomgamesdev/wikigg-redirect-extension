@@ -811,6 +811,10 @@
 		"name": "Holocure"
 	},
 	{
+		"id": "horticular",
+		"name": "Horticular"
+	},
+	{
 		"id": "hyboriangates",
 		"name": "Hyborian Gates",
 		"search": {
@@ -1260,6 +1264,14 @@
 		"id": "peglin",
 		"name": "Peglin",
 		"official": true
+	},
+	{
+		"id": "pg3d",
+		"oldId": "pixelgun",
+		"name": "Pixel Gun 3D",
+		"search": {
+			"oldName": "Pixel Gun"
+		}
 	},
 	{
 		"id": "pico",
