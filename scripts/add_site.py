@@ -3,14 +3,28 @@ import bisect
 import json
 import re
 import requests
+import urllib.parse
 from functools import cache
 
 
 @cache
-def query_siteinfo(domain):
-    r = requests.get(f'https://{domain}/api.php?action=query&meta=siteinfo&siprop=general&format=json')
+def query_api(domain, **kwargs):
+    query = urllib.parse.urlencode(kwargs)
+    r = requests.get(f'https://{domain}/api.php?action=query&format=json&{query}')
     r = r.json()
-    r = r['query']['general']
+    r = r['query']
+    return r
+
+
+def query_siteinfo(domain):
+    r = query_api(domain, meta='siteinfo', siprop='general')
+    r = r['general']
+    return r
+
+
+def query_pagetitle(domain):
+    r = query_api(domain, meta='allmessages', ammessages='pagetitle-view-mainpage')
+    r = r['allmessages'][0]['*']
     return r
 
 
@@ -32,6 +46,12 @@ def normalise_args(args):
         r = query_siteinfo(f'{args.old_id or args.new_id}.fandom.com')
         args.old_name = r['sitename'].removesuffix(' Wiki')
         print('fetched site name from old wiki:', args.old_name)
+        if args.old_name == args.name:
+            args.old_name = None
+    
+    if not args.official:
+        r = query_pagetitle(f'{args.new_id}.wiki.gg')
+        args.official = 'Official' in r
 
 
 def add_wiki(args):
