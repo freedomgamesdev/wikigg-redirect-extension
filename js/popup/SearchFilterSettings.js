@@ -25,6 +25,11 @@ export default class SearchFilterSettings {
             supportsFilter: true,
             supportsRewrite: true,
         },
+	{
+            id: 'bing',
+            supportsFilter: true,
+            supportsRewrite: true,
+        }
     ];
 
 
