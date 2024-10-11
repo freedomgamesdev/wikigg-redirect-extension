@@ -999,6 +999,11 @@
 		}
 	],
 	{
+		"id": "cardsandcastles",
+		"name": "Cards and Castles",
+		"official": true
+	},
+	{
 		"id": "kameo",
 		"oldId": "wotnot",
 		"name": "Kameo Elements of Power"
@@ -1210,6 +1215,11 @@
 		"name": "Off-Peak"
 	},
 	{
+		"id": "oguandthesecretforest",
+		"oldId": "ogu-and-the-secret-forest",
+		"name": "Ogu and the Secret Forest"
+	},
+	{
 		"id": "oldworldblues",
 		"oldId": "old-world-blues",
 		"name": "Old World Blues",
@@ -1254,6 +1264,11 @@
 	{
 		"id": "palworld",
 		"name": "Palworld"
+	},
+	{
+		"id": "pathofachra",
+		"oldId": "path-of-achra",
+		"name": "Path of Achra"
 	},
 	{
 		"id": "peaksofyore",
@@ -1452,6 +1467,14 @@
 	{
 		"id": "scorn",
 		"name": "Scorn"
+	},
+	{
+		"id": "shadowsofabaddon",
+		"name": "Shadows of Abaddon",
+		"official": true,
+		"search": {
+			"oldName": "Shadows of Abaddon Mod"
+		}
 	},
 	{
 		"id": "sheltered2",
