@@ -1,6 +1,3 @@
-import { supportsDNR } from './js/util.js';
-
-
 /**
  * @typedef {Object} SearchModuleSettings
  * @property {'filter'|'rewrite'|'none'|'disarm'} mode
@@ -32,7 +29,7 @@ function createFreshSet() {
         disabledWikis: [],
 
         // Developer settings - subject to change
-        useTabRedirect: !supportsDNR(),
+        useTabRedirect: true,
         useRuntimeLists: false,
         rtListLastSyncTime: 0,
         ffUseOptimisedSearchCore: false,
