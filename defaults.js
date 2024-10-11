@@ -24,7 +24,7 @@ import { supportsDNR } from './js/util.js';
  *
  * @return {ExtensionSettings}
  */
-export default function () {
+function createFreshSet() {
     return {
         version: 0,
 
@@ -49,6 +49,20 @@ export default function () {
             ddg: {
                 mode: 'rewrite'
             }
+        },
+
+        // Runtime sites list
+        rtList: {
+            version: 0,
+            data: null,
+            hasAutoSyncConsent: false,
+            lastSyncTime: 0
         }
     };
 }
+
+
+createFreshSet.SHARED = Object.freeze( createFreshSet() );
+
+
+export default createFreshSet;
