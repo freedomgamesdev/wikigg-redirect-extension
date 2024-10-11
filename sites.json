@@ -762,6 +762,10 @@
 		"name": "Hawked"
 	},
 	{
+		"id": "headsoccer",
+		"name": "Head Soccer"
+	},
+	{
 		"id": "hearthstone",
 		"name": "Hearthstone"
 	},
@@ -881,6 +885,10 @@
 		"id": "junkjack",
 		"name": "Junk Jack",
 		"official": true
+	},
+	{
+		"id": "kairosoft",
+		"name": "Kairosoft"
 	},
 	{
 		"id": "kalterkrieg",
@@ -1186,6 +1194,13 @@
 	{
 		"id": "mightyparty",
 		"name": "Mighty Party"
+	},
+	{
+		"id": "ninesols",
+		"name": "Nine Sols",
+		"search": {
+			"oldName": "NineSols"
+		}
 	},
 	{
 		"id": "nitrome",
@@ -1778,6 +1793,14 @@
 		"name": "The Doors of Trithius"
 	},
 	{
+		"id": "theforeverwinter",
+		"oldId": "foreverwinter",
+		"name": "The Forever Winter",
+		"search": {
+			"oldName": "Forever Winter"
+		}
+	},
+	{
 		"id": "theinfected",
 		"oldId": "the-infected",
 		"name": "The Infected"
@@ -1874,6 +1897,11 @@
 			"oldId": "vibrant-venture"
 		}
 	],
+	{
+		"id": "vectorio",
+		"name": "Vectorio",
+		"official": true
+	},
 	{
 		"id": "voidcrew",
 		"oldId": "void-crew",
