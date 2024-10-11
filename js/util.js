@@ -1,5 +1,6 @@
 /** @type {( SiteListEntity | SiteListEntity[] )[]} */
 import sites from '../sites.json';
+import defaultSettingsFactory from '../defaults.js';
 
 
 /**
@@ -167,10 +168,29 @@ export function getWikis( withSpacers, withVirtuals, compacted ) {
  *
  * TODO: Untyped return value.
  *
+ * @deprecated since 20241011, use chrome.storage directly
  * @return {any}
  */
 export function getNativeSettings() {
     return chrome && chrome.storage || window.storage;
+}
+
+
+function _fetchDeepKey( obj, path ) {
+    let itIndex = 0;
+    // eslint-disable-next-line no-empty
+    while ( itIndex < path.length && ( obj = obj[ path[ itIndex++ ] ] ) ) {}
+    return obj ?? null;
+}
+
+
+export async function getOption( path ) {
+    return new Promise( resolve => {
+        const segments = path.split( '.' );
+        chrome.storage.local.get( segments[ 0 ], result => {
+            resolve( _fetchDeepKey( result, segments ) ?? _fetchDeepKey( defaultSettingsFactory.SHARED, segments ) );
+        } );
+    } );
 }
 
 
