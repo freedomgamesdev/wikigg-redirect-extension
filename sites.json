@@ -670,6 +670,11 @@
 		}
 	],
 	{
+		"id": "epicbattlefantasy",
+		"name": "Epic Battle Fantasy",
+		"official": true
+	},
+	{
 		"id": "fieldsofmistria",
 		"oldId": "fields-of-mistria",
 		"name": "Fields of Mistria"
