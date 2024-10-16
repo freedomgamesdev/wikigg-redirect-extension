@@ -980,6 +980,11 @@
 		"name": "Limbus Company"
 	},
 	{
+		"id": "libraryofruina",
+		"oldId": "library-of-ruina",
+		"name": "Library of Ruina"
+	},
+	{
 		"id": "lkg",
 		"oldId": "littleknown-galaxy",
 		"name": "Little-Known Galaxy"
